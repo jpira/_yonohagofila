@@ -29,8 +29,12 @@ abstract class BasePerfilForm extends BaseFormDoctrine
       'id_usuario'          => new sfValidatorInteger(),
       'fecha_creacion'      => new sfValidatorDateTime(),
       'fecha_actualizacion' => new sfValidatorDateTime(),
-      'slug'                => new sfValidatorString(array('max_length' => 110)),
+      'slug'                => new sfValidatorString(array('max_length' => 110, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Perfil', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('perfil[%s]');
 

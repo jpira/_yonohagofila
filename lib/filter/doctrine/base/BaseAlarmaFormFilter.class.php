@@ -17,7 +17,7 @@ abstract class BaseAlarmaFormFilter extends BaseFormFilterDoctrine
       'id_usuario'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'descripcion'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fecha_creacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'slug'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'slug'           => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(

@@ -12,7 +12,6 @@ Doctrine_Manager::getInstance()->bindComponent('Alarma', 'doctrine');
  * @property integer $id_usuario
  * @property string $descripcion
  * @property timestamp $fecha_creacion
- * @property string $slug
  * @property Local $Local
  * 
  * @method integer   getId()             Returns the current record's "id" value
@@ -20,14 +19,12 @@ Doctrine_Manager::getInstance()->bindComponent('Alarma', 'doctrine');
  * @method integer   getIdUsuario()      Returns the current record's "id_usuario" value
  * @method string    getDescripcion()    Returns the current record's "descripcion" value
  * @method timestamp getFechaCreacion()  Returns the current record's "fecha_creacion" value
- * @method string    getSlug()           Returns the current record's "slug" value
  * @method Local     getLocal()          Returns the current record's "Local" value
  * @method Alarma    setId()             Sets the current record's "id" value
  * @method Alarma    setLocalId()        Sets the current record's "local_id" value
  * @method Alarma    setIdUsuario()      Sets the current record's "id_usuario" value
  * @method Alarma    setDescripcion()    Sets the current record's "descripcion" value
  * @method Alarma    setFechaCreacion()  Sets the current record's "fecha_creacion" value
- * @method Alarma    setSlug()           Sets the current record's "slug" value
  * @method Alarma    setLocal()          Sets the current record's "Local" value
  * 
  * @package    Yonohagofila
@@ -66,14 +63,14 @@ abstract class BaseAlarma extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('descripcion', 'string', 255, array(
+        $this->hasColumn('descripcion', 'string', 100, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 255,
+             'length' => 100,
              ));
         $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
              'type' => 'timestamp',
@@ -84,15 +81,6 @@ abstract class BaseAlarma extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('slug', 'string', 265, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 265,
-             ));
     }
 
     public function setUp()
@@ -101,5 +89,16 @@ abstract class BaseAlarma extends sfDoctrineRecord
         $this->hasOne('Local', array(
              'local' => 'local_id',
              'foreign' => 'id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'fecha_creacion',
+             ),
+             'length' => 50,
+             'canUpdate' => true,
+             ));
+        $this->actAs($sluggable0);
     }
 }

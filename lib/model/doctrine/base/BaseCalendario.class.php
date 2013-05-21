@@ -14,7 +14,6 @@ Doctrine_Manager::getInstance()->bindComponent('Calendario', 'doctrine');
  * @property string $descripcion_evento
  * @property timestamp $fecha_creacion
  * @property integer $id_usuario
- * @property string $slug
  * @property timestamp $fecha_actualizacion
  * @property Local $Local
  * 
@@ -25,7 +24,6 @@ Doctrine_Manager::getInstance()->bindComponent('Calendario', 'doctrine');
  * @method string     getDescripcionEvento()   Returns the current record's "descripcion_evento" value
  * @method timestamp  getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method integer    getIdUsuario()           Returns the current record's "id_usuario" value
- * @method string     getSlug()                Returns the current record's "slug" value
  * @method timestamp  getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method Local      getLocal()               Returns the current record's "Local" value
  * @method Calendario setId()                  Sets the current record's "id" value
@@ -35,7 +33,6 @@ Doctrine_Manager::getInstance()->bindComponent('Calendario', 'doctrine');
  * @method Calendario setDescripcionEvento()   Sets the current record's "descripcion_evento" value
  * @method Calendario setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Calendario setIdUsuario()           Sets the current record's "id_usuario" value
- * @method Calendario setSlug()                Sets the current record's "slug" value
  * @method Calendario setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
  * @method Calendario setLocal()               Sets the current record's "Local" value
  * 
@@ -111,15 +108,6 @@ abstract class BaseCalendario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('slug', 'string', 265, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 265,
-             ));
         $this->hasColumn('fecha_actualizacion', 'timestamp', 25, array(
              'type' => 'timestamp',
              'fixed' => 0,
@@ -137,5 +125,16 @@ abstract class BaseCalendario extends sfDoctrineRecord
         $this->hasOne('Local', array(
              'local' => 'local_id',
              'foreign' => 'id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'fecha_evento',
+             ),
+             'length' => 50,
+             'canUpdate' => true,
+             ));
+        $this->actAs($sluggable0);
     }
 }

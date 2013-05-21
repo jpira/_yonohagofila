@@ -22,8 +22,8 @@ abstract class BaseCalendarioForm extends BaseFormDoctrine
       'descripcion_evento'  => new sfWidgetFormInputText(),
       'fecha_creacion'      => new sfWidgetFormDateTime(),
       'id_usuario'          => new sfWidgetFormInputText(),
-      'slug'                => new sfWidgetFormTextarea(),
       'fecha_actualizacion' => new sfWidgetFormDateTime(),
+      'slug'                => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -34,9 +34,13 @@ abstract class BaseCalendarioForm extends BaseFormDoctrine
       'descripcion_evento'  => new sfValidatorString(array('max_length' => 255)),
       'fecha_creacion'      => new sfValidatorDateTime(),
       'id_usuario'          => new sfValidatorInteger(),
-      'slug'                => new sfValidatorString(array('max_length' => 265)),
       'fecha_actualizacion' => new sfValidatorDateTime(),
+      'slug'                => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Calendario', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('calendario[%s]');
 

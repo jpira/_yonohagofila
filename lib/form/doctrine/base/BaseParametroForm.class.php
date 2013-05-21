@@ -27,7 +27,6 @@ abstract class BaseParametroForm extends BaseFormDoctrine
       'fecha_creacion'      => new sfWidgetFormDateTime(),
       'fecha_actualizacion' => new sfWidgetFormDateTime(),
       'id_usuario'          => new sfWidgetFormInputText(),
-      'slug'                => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
@@ -43,7 +42,6 @@ abstract class BaseParametroForm extends BaseFormDoctrine
       'fecha_creacion'      => new sfValidatorDateTime(),
       'fecha_actualizacion' => new sfValidatorDateTime(),
       'id_usuario'          => new sfValidatorInteger(),
-      'slug'                => new sfValidatorString(array('max_length' => 265)),
     ));
 
     $this->widgetSchema->setNameFormat('parametro[%s]');

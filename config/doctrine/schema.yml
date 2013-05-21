@@ -23,7 +23,7 @@ Alarma:
       notnull: true
       autoincrement: false
     descripcion:
-      type: string(255)
+      type: string(100)
       fixed: false
       unsigned: false
       primary: false
@@ -36,18 +36,19 @@ Alarma:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(265)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [fecha_creacion]
+      length: 50
+      canUpdate: true
   relations:
     Local:
       local: local_id
       foreign: id
       type: one
+      
+      
 Calendario:
   connection: doctrine
   tableName: calendario
@@ -100,13 +101,6 @@ Calendario:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(265)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
     fecha_actualizacion:
       type: timestamp(25)
       fixed: false
@@ -114,11 +108,19 @@ Calendario:
       primary: false
       notnull: true
       autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [fecha_evento]
+      length: 50
+      canUpdate: true
   relations:
     Local:
       local: local_id
       foreign: id
       type: one
+      
+      
 Credencial:
   connection: doctrine
   tableName: credencial
@@ -157,18 +159,19 @@ Credencial:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(110)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [nombre]
+      length: 110
+      canUpdate: true  
   relations:
     PerfilCredencial:
       local: id
       foreign: credencial_id
       type: many
+      
+      
 Estadistica:
   connection: doctrine
   tableName: estadistica
@@ -191,6 +194,8 @@ Estadistica:
       local: usuario_id
       foreign: id
       type: one
+      
+      
 Local:
   connection: doctrine
   tableName: local
@@ -222,13 +227,6 @@ Local:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(210)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
     fecha_actualizacion:
       type: timestamp(25)
       fixed: false
@@ -236,6 +234,12 @@ Local:
       primary: false
       notnull: true
       autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [nombre]
+      length: 210
+      canUpdate: true
   relations:
     Alarma:
       local: id
@@ -261,6 +265,8 @@ Local:
       local: id
       foreign: local_id
       type: many
+      
+      
 Parametro:
   connection: doctrine
   tableName: parametro
@@ -348,18 +354,13 @@ Parametro:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(265)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
   relations:
     Local:
       local: local_id
       foreign: id
       type: one
+      
+      
 Perfil:
   connection: doctrine
   tableName: perfil
@@ -398,13 +399,12 @@ Perfil:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(110)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [nombre]
+      length: 110
+      canUpdate: true
   relations:
     PerfilCredencial:
       local: id
@@ -414,6 +414,8 @@ Perfil:
       local: id
       foreign: perfil_id
       type: many
+      
+      
 PerfilCredencial:
   connection: doctrine
   tableName: perfil_credencial
@@ -446,6 +448,8 @@ PerfilCredencial:
       local: credencial_id
       foreign: id
       type: one
+      
+      
 Ranking:
   connection: doctrine
   tableName: ranking
@@ -477,18 +481,19 @@ Ranking:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(110)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [nombre]
+      length: 110
+      canUpdate: true
   relations:
     RankingUsuario:
       local: id
       foreign: ranking_id
       type: many
+      
+      
 RankingUsuario:
   connection: doctrine
   tableName: ranking_usuario

@@ -27,8 +27,12 @@ abstract class BaseRankingForm extends BaseFormDoctrine
       'nombre'         => new sfValidatorString(array('max_length' => 100)),
       'fecha_creacion' => new sfValidatorDateTime(),
       'id_usuario'     => new sfValidatorInteger(),
-      'slug'           => new sfValidatorString(array('max_length' => 110)),
+      'slug'           => new sfValidatorString(array('max_length' => 110, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Ranking', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('ranking[%s]');
 

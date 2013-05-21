@@ -12,7 +12,6 @@ Doctrine_Manager::getInstance()->bindComponent('Perfil', 'doctrine');
  * @property integer $id_usuario
  * @property timestamp $fecha_creacion
  * @property timestamp $fecha_actualizacion
- * @property string $slug
  * @property Doctrine_Collection $PerfilCredencial
  * @property Doctrine_Collection $Usuario
  * 
@@ -21,7 +20,6 @@ Doctrine_Manager::getInstance()->bindComponent('Perfil', 'doctrine');
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method timestamp           getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
- * @method string              getSlug()                Returns the current record's "slug" value
  * @method Doctrine_Collection getPerfilCredencial()    Returns the current record's "PerfilCredencial" collection
  * @method Doctrine_Collection getUsuario()             Returns the current record's "Usuario" collection
  * @method Perfil              setId()                  Sets the current record's "id" value
@@ -29,7 +27,6 @@ Doctrine_Manager::getInstance()->bindComponent('Perfil', 'doctrine');
  * @method Perfil              setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Perfil              setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Perfil              setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
- * @method Perfil              setSlug()                Sets the current record's "slug" value
  * @method Perfil              setPerfilCredencial()    Sets the current record's "PerfilCredencial" collection
  * @method Perfil              setUsuario()             Sets the current record's "Usuario" collection
  * 
@@ -87,15 +84,6 @@ abstract class BasePerfil extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('slug', 'string', 110, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 110,
-             ));
     }
 
     public function setUp()
@@ -108,5 +96,16 @@ abstract class BasePerfil extends sfDoctrineRecord
         $this->hasMany('Usuario', array(
              'local' => 'id',
              'foreign' => 'perfil_id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'nombre',
+             ),
+             'length' => 110,
+             'canUpdate' => true,
+             ));
+        $this->actAs($sluggable0);
     }
 }

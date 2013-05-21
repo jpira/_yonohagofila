@@ -19,7 +19,6 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @property timestamp $fecha_creacion
  * @property timestamp $fecha_actualizacion
  * @property integer $id_usuario
- * @property string $slug
  * @property Local $Local
  * 
  * @method integer   getId()                  Returns the current record's "id" value
@@ -34,7 +33,6 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @method timestamp getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method timestamp getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method integer   getIdUsuario()           Returns the current record's "id_usuario" value
- * @method string    getSlug()                Returns the current record's "slug" value
  * @method Local     getLocal()               Returns the current record's "Local" value
  * @method Parametro setId()                  Sets the current record's "id" value
  * @method Parametro setLocalId()             Sets the current record's "local_id" value
@@ -48,12 +46,11 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @method Parametro setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Parametro setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
  * @method Parametro setIdUsuario()           Sets the current record's "id_usuario" value
- * @method Parametro setSlug()                Sets the current record's "slug" value
  * @method Parametro setLocal()               Sets the current record's "Local" value
  * 
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage model
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseParametro extends sfDoctrineRecord
@@ -167,15 +164,6 @@ abstract class BaseParametro extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              'length' => 4,
-             ));
-        $this->hasColumn('slug', 'string', 265, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 265,
              ));
     }
 

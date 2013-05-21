@@ -5,9 +5,9 @@
  *
  * @method Credencial getObject() Returns the current form's model object
  *
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage form
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseCredencialForm extends BaseFormDoctrine
@@ -29,8 +29,12 @@ abstract class BaseCredencialForm extends BaseFormDoctrine
       'id_usuario'          => new sfValidatorInteger(),
       'fecha_creacion'      => new sfValidatorDateTime(),
       'fecha_actualizacion' => new sfValidatorDateTime(),
-      'slug'                => new sfValidatorString(array('max_length' => 110)),
+      'slug'                => new sfValidatorString(array('max_length' => 110, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Credencial', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('credencial[%s]');
 

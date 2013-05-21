@@ -11,7 +11,6 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property string $nombre
  * @property integer $id_usuario
  * @property timestamp $fecha_creacion
- * @property string $slug
  * @property timestamp $fecha_actualizacion
  * @property Doctrine_Collection $Alarma
  * @property Doctrine_Collection $Calendario
@@ -24,7 +23,6 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method string              getNombre()              Returns the current record's "nombre" value
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method string              getSlug()                Returns the current record's "slug" value
  * @method timestamp           getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method Doctrine_Collection getAlarma()              Returns the current record's "Alarma" collection
  * @method Doctrine_Collection getCalendario()          Returns the current record's "Calendario" collection
@@ -36,7 +34,6 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setNombre()              Sets the current record's "nombre" value
  * @method Local               setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Local               setFechaCreacion()       Sets the current record's "fecha_creacion" value
- * @method Local               setSlug()                Sets the current record's "slug" value
  * @method Local               setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
  * @method Local               setAlarma()              Sets the current record's "Alarma" collection
  * @method Local               setCalendario()          Sets the current record's "Calendario" collection
@@ -45,9 +42,9 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setReserva()             Sets the current record's "Reserva" collection
  * @method Local               setUsuarioBloqueado()    Sets the current record's "UsuarioBloqueado" collection
  * 
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage model
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseLocal extends sfDoctrineRecord
@@ -90,15 +87,6 @@ abstract class BaseLocal extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('slug', 'string', 210, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 210,
-             ));
         $this->hasColumn('fecha_actualizacion', 'timestamp', 25, array(
              'type' => 'timestamp',
              'fixed' => 0,
@@ -136,5 +124,16 @@ abstract class BaseLocal extends sfDoctrineRecord
         $this->hasMany('UsuarioBloqueado', array(
              'local' => 'id',
              'foreign' => 'local_id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'nombre',
+             ),
+             'length' => 210,
+             'canUpdate' => true,
+             ));
+        $this->actAs($sluggable0);
     }
 }

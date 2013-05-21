@@ -24,9 +24,9 @@ Doctrine_Manager::getInstance()->bindComponent('PerfilCredencial', 'doctrine');
  * @method PerfilCredencial setPerfil()         Sets the current record's "Perfil" value
  * @method PerfilCredencial setCredencial()     Sets the current record's "Credencial" value
  * 
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage model
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasePerfilCredencial extends sfDoctrineRecord

@@ -12,7 +12,6 @@ Doctrine_Manager::getInstance()->bindComponent('Credencial', 'doctrine');
  * @property integer $id_usuario
  * @property timestamp $fecha_creacion
  * @property timestamp $fecha_actualizacion
- * @property string $slug
  * @property Doctrine_Collection $PerfilCredencial
  * 
  * @method integer             getId()                  Returns the current record's "id" value
@@ -20,19 +19,17 @@ Doctrine_Manager::getInstance()->bindComponent('Credencial', 'doctrine');
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method timestamp           getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
- * @method string              getSlug()                Returns the current record's "slug" value
  * @method Doctrine_Collection getPerfilCredencial()    Returns the current record's "PerfilCredencial" collection
  * @method Credencial          setId()                  Sets the current record's "id" value
  * @method Credencial          setNombre()              Sets the current record's "nombre" value
  * @method Credencial          setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Credencial          setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Credencial          setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
- * @method Credencial          setSlug()                Sets the current record's "slug" value
  * @method Credencial          setPerfilCredencial()    Sets the current record's "PerfilCredencial" collection
  * 
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage model
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseCredencial extends sfDoctrineRecord
@@ -84,15 +81,6 @@ abstract class BaseCredencial extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('slug', 'string', 110, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 110,
-             ));
     }
 
     public function setUp()
@@ -101,5 +89,16 @@ abstract class BaseCredencial extends sfDoctrineRecord
         $this->hasMany('PerfilCredencial', array(
              'local' => 'id',
              'foreign' => 'credencial_id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'nombre',
+             ),
+             'length' => 110,
+             'canUpdate' => true,
+             ));
+        $this->actAs($sluggable0);
     }
 }

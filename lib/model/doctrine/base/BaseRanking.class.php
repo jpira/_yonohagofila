@@ -11,25 +11,22 @@ Doctrine_Manager::getInstance()->bindComponent('Ranking', 'doctrine');
  * @property string $nombre
  * @property timestamp $fecha_creacion
  * @property integer $id_usuario
- * @property string $slug
  * @property Doctrine_Collection $RankingUsuario
  * 
  * @method integer             getId()             Returns the current record's "id" value
  * @method string              getNombre()         Returns the current record's "nombre" value
  * @method timestamp           getFechaCreacion()  Returns the current record's "fecha_creacion" value
  * @method integer             getIdUsuario()      Returns the current record's "id_usuario" value
- * @method string              getSlug()           Returns the current record's "slug" value
  * @method Doctrine_Collection getRankingUsuario() Returns the current record's "RankingUsuario" collection
  * @method Ranking             setId()             Sets the current record's "id" value
  * @method Ranking             setNombre()         Sets the current record's "nombre" value
  * @method Ranking             setFechaCreacion()  Sets the current record's "fecha_creacion" value
  * @method Ranking             setIdUsuario()      Sets the current record's "id_usuario" value
- * @method Ranking             setSlug()           Sets the current record's "slug" value
  * @method Ranking             setRankingUsuario() Sets the current record's "RankingUsuario" collection
  * 
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage model
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseRanking extends sfDoctrineRecord
@@ -72,15 +69,6 @@ abstract class BaseRanking extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('slug', 'string', 110, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 110,
-             ));
     }
 
     public function setUp()
@@ -89,5 +77,16 @@ abstract class BaseRanking extends sfDoctrineRecord
         $this->hasMany('RankingUsuario', array(
              'local' => 'id',
              'foreign' => 'ranking_id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'nombre',
+             ),
+             'length' => 110,
+             'canUpdate' => true,
+             ));
+        $this->actAs($sluggable0);
     }
 }

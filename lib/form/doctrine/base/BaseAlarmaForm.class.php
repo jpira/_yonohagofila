@@ -5,9 +5,9 @@
  *
  * @method Alarma getObject() Returns the current form's model object
  *
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage form
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseAlarmaForm extends BaseFormDoctrine
@@ -20,17 +20,21 @@ abstract class BaseAlarmaForm extends BaseFormDoctrine
       'id_usuario'     => new sfWidgetFormInputText(),
       'descripcion'    => new sfWidgetFormInputText(),
       'fecha_creacion' => new sfWidgetFormDateTime(),
-      'slug'           => new sfWidgetFormTextarea(),
+      'slug'           => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'local_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
       'id_usuario'     => new sfValidatorInteger(),
-      'descripcion'    => new sfValidatorString(array('max_length' => 255)),
+      'descripcion'    => new sfValidatorString(array('max_length' => 100)),
       'fecha_creacion' => new sfValidatorDateTime(),
-      'slug'           => new sfValidatorString(array('max_length' => 265)),
+      'slug'           => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Alarma', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('alarma[%s]');
 

@@ -5,9 +5,9 @@
  *
  * @method Parametro getObject() Returns the current form's model object
  *
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage form
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseParametroForm extends BaseFormDoctrine
@@ -27,7 +27,6 @@ abstract class BaseParametroForm extends BaseFormDoctrine
       'fecha_creacion'      => new sfWidgetFormDateTime(),
       'fecha_actualizacion' => new sfWidgetFormDateTime(),
       'id_usuario'          => new sfWidgetFormInputText(),
-      'slug'                => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
@@ -43,7 +42,6 @@ abstract class BaseParametroForm extends BaseFormDoctrine
       'fecha_creacion'      => new sfValidatorDateTime(),
       'fecha_actualizacion' => new sfValidatorDateTime(),
       'id_usuario'          => new sfValidatorInteger(),
-      'slug'                => new sfValidatorString(array('max_length' => 265)),
     ));
 
     $this->widgetSchema->setNameFormat('parametro[%s]');

@@ -5,9 +5,9 @@
  *
  * @method Local getObject() Returns the current form's model object
  *
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage form
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseLocalForm extends BaseFormDoctrine
@@ -19,8 +19,8 @@ abstract class BaseLocalForm extends BaseFormDoctrine
       'nombre'              => new sfWidgetFormInputText(),
       'id_usuario'          => new sfWidgetFormInputText(),
       'fecha_creacion'      => new sfWidgetFormDateTime(),
-      'slug'                => new sfWidgetFormInputText(),
       'fecha_actualizacion' => new sfWidgetFormDateTime(),
+      'slug'                => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -28,9 +28,13 @@ abstract class BaseLocalForm extends BaseFormDoctrine
       'nombre'              => new sfValidatorString(array('max_length' => 200)),
       'id_usuario'          => new sfValidatorInteger(),
       'fecha_creacion'      => new sfValidatorDateTime(),
-      'slug'                => new sfValidatorString(array('max_length' => 210)),
       'fecha_actualizacion' => new sfValidatorDateTime(),
+      'slug'                => new sfValidatorString(array('max_length' => 210, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Local', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('local[%s]');
 

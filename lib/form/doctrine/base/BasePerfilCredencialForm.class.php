@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * PerfilCredencial form base class.
+ *
+ * @method PerfilCredencial getObject() Returns the current form's model object
+ *
+ * @package    yonohagofila_sf1.4
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
+ */
+abstract class BasePerfilCredencialForm extends BaseFormDoctrine
+{
+  public function setup()
+  {
+    $this->setWidgets(array(
+      'perfil_id'      => new sfWidgetFormInputHidden(),
+      'credencial_id'  => new sfWidgetFormInputHidden(),
+      'fecha_creacion' => new sfWidgetFormDateTime(),
+    ));
+
+    $this->setValidators(array(
+      'perfil_id'      => new sfValidatorChoice(array('choices' => array($this->getObject()->get('perfil_id')), 'empty_value' => $this->getObject()->get('perfil_id'), 'required' => false)),
+      'credencial_id'  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('credencial_id')), 'empty_value' => $this->getObject()->get('credencial_id'), 'required' => false)),
+      'fecha_creacion' => new sfValidatorDateTime(),
+    ));
+
+    $this->widgetSchema->setNameFormat('perfil_credencial[%s]');
+
+    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
+
+    parent::setup();
+  }
+
+  public function getModelName()
+  {
+    return 'PerfilCredencial';
+  }
+
+}

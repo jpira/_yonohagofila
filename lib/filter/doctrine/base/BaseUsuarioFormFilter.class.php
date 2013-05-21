@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * Usuario filter form base class.
+ *
+ * @package    yonohagofila_sf1.4
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
+ */
+abstract class BaseUsuarioFormFilter extends BaseFormFilterDoctrine
+{
+  public function setup()
+  {
+    $this->setWidgets(array(
+      'perfil_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Perfil'), 'add_empty' => true)),
+      'email'               => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'contrasena'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'nombre'              => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'tipo_identificacion' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'identificacion'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'foto'                => new sfWidgetFormFilterInput(),
+      'estado'              => new sfWidgetFormFilterInput(),
+      'fecha_nacimiento'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'slug'                => new sfWidgetFormFilterInput(array('with_empty' => false)),
+    ));
+
+    $this->setValidators(array(
+      'perfil_id'           => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Perfil'), 'column' => 'id')),
+      'email'               => new sfValidatorPass(array('required' => false)),
+      'contrasena'          => new sfValidatorPass(array('required' => false)),
+      'nombre'              => new sfValidatorPass(array('required' => false)),
+      'tipo_identificacion' => new sfValidatorPass(array('required' => false)),
+      'identificacion'      => new sfValidatorPass(array('required' => false)),
+      'foto'                => new sfValidatorPass(array('required' => false)),
+      'estado'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'fecha_nacimiento'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'fecha_creacion'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'slug'                => new sfValidatorPass(array('required' => false)),
+    ));
+
+    $this->widgetSchema->setNameFormat('usuario_filters[%s]');
+
+    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
+
+    parent::setup();
+  }
+
+  public function getModelName()
+  {
+    return 'Usuario';
+  }
+
+  public function getFields()
+  {
+    return array(
+      'id'                  => 'Number',
+      'perfil_id'           => 'ForeignKey',
+      'email'               => 'Text',
+      'contrasena'          => 'Text',
+      'nombre'              => 'Text',
+      'tipo_identificacion' => 'Text',
+      'identificacion'      => 'Text',
+      'foto'                => 'Text',
+      'estado'              => 'Number',
+      'fecha_nacimiento'    => 'Date',
+      'fecha_creacion'      => 'Date',
+      'slug'                => 'Text',
+    );
+  }
+}

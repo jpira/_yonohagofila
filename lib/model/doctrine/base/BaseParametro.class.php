@@ -51,9 +51,9 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @method Parametro setSlug()                Sets the current record's "slug" value
  * @method Parametro setLocal()               Sets the current record's "Local" value
  * 
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage model
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseParametro extends sfDoctrineRecord

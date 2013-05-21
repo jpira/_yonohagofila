@@ -3,9 +3,9 @@
 /**
  * Parametro filter form base class.
  *
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage filter
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseParametroFormFilter extends BaseFormFilterDoctrine

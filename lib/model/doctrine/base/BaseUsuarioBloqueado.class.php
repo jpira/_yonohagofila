@@ -30,9 +30,9 @@ Doctrine_Manager::getInstance()->bindComponent('UsuarioBloqueado', 'doctrine');
  * @method UsuarioBloqueado setLocal()          Sets the current record's "Local" value
  * @method UsuarioBloqueado setUsuario()        Sets the current record's "Usuario" value
  * 
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage model
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseUsuarioBloqueado extends sfDoctrineRecord

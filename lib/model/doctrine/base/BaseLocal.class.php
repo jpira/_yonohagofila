@@ -10,6 +10,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property integer $id
  * @property string $nombre
  * @property string $imagen
+ * @property boolean $estado
  * @property integer $id_usuario
  * @property timestamp $fecha_creacion
  * @property timestamp $fecha_actualizacion
@@ -20,10 +21,12 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property Doctrine_Collection $Reserva
  * @property Doctrine_Collection $UsuarioBloqueado
  * @property Doctrine_Collection $Promedio
+ * @property Doctrine_Collection $Horario_atencion
  * 
  * @method integer             getId()                  Returns the current record's "id" value
  * @method string              getNombre()              Returns the current record's "nombre" value
  * @method string              getImagen()              Returns the current record's "imagen" value
+ * @method boolean             getEstado()              Returns the current record's "estado" value
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method timestamp           getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
@@ -34,9 +37,11 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Doctrine_Collection getReserva()             Returns the current record's "Reserva" collection
  * @method Doctrine_Collection getUsuarioBloqueado()    Returns the current record's "UsuarioBloqueado" collection
  * @method Doctrine_Collection getPromedio()            Returns the current record's "Promedio" collection
+ * @method Doctrine_Collection getHorarioAtencion()     Returns the current record's "Horario_atencion" collection
  * @method Local               setId()                  Sets the current record's "id" value
  * @method Local               setNombre()              Sets the current record's "nombre" value
  * @method Local               setImagen()              Sets the current record's "imagen" value
+ * @method Local               setEstado()              Sets the current record's "estado" value
  * @method Local               setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Local               setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Local               setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
@@ -47,6 +52,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setReserva()             Sets the current record's "Reserva" collection
  * @method Local               setUsuarioBloqueado()    Sets the current record's "UsuarioBloqueado" collection
  * @method Local               setPromedio()            Sets the current record's "Promedio" collection
+ * @method Local               setHorarioAtencion()     Sets the current record's "Horario_atencion" collection
  * 
  * @package    Yonohagofila
  * @subpackage model
@@ -83,6 +89,14 @@ abstract class BaseLocal extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => 255,
+             ));
+        $this->hasColumn('estado', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
              ));
         $this->hasColumn('id_usuario', 'integer', 4, array(
              'type' => 'integer',
@@ -141,6 +155,10 @@ abstract class BaseLocal extends sfDoctrineRecord
              'foreign' => 'local_id'));
 
         $this->hasMany('Promedio', array(
+             'local' => 'id',
+             'foreign' => 'local_id'));
+
+        $this->hasMany('Horario_atencion', array(
              'local' => 'id',
              'foreign' => 'local_id'));
 

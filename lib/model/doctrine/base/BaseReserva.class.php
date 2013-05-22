@@ -10,34 +10,31 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @property integer $id
  * @property integer $local_id
  * @property integer $numero_personas
- * @property string $promedio_consumo
  * @property timestamp $fecha_reserva
- * @property string $promedio_id
+ * @property integer $promedio_id
  * @property timestamp $fecha_creacion
  * @property integer $id_usuario
  * @property Local $Local
- * @property Doctrine_Collection $Promedio
+ * @property Promedio $Promedio
  * 
- * @method integer             getId()               Returns the current record's "id" value
- * @method integer             getLocalId()          Returns the current record's "local_id" value
- * @method integer             getNumeroPersonas()   Returns the current record's "numero_personas" value
- * @method string              getPromedioConsumo()  Returns the current record's "promedio_consumo" value
- * @method timestamp           getFechaReserva()     Returns the current record's "fecha_reserva" value
- * @method string              getPromedioId()       Returns the current record's "promedio_id" value
- * @method timestamp           getFechaCreacion()    Returns the current record's "fecha_creacion" value
- * @method integer             getIdUsuario()        Returns the current record's "id_usuario" value
- * @method Local               getLocal()            Returns the current record's "Local" value
- * @method Doctrine_Collection getPromedio()         Returns the current record's "Promedio" collection
- * @method Reserva             setId()               Sets the current record's "id" value
- * @method Reserva             setLocalId()          Sets the current record's "local_id" value
- * @method Reserva             setNumeroPersonas()   Sets the current record's "numero_personas" value
- * @method Reserva             setPromedioConsumo()  Sets the current record's "promedio_consumo" value
- * @method Reserva             setFechaReserva()     Sets the current record's "fecha_reserva" value
- * @method Reserva             setPromedioId()       Sets the current record's "promedio_id" value
- * @method Reserva             setFechaCreacion()    Sets the current record's "fecha_creacion" value
- * @method Reserva             setIdUsuario()        Sets the current record's "id_usuario" value
- * @method Reserva             setLocal()            Sets the current record's "Local" value
- * @method Reserva             setPromedio()         Sets the current record's "Promedio" collection
+ * @method integer   getId()              Returns the current record's "id" value
+ * @method integer   getLocalId()         Returns the current record's "local_id" value
+ * @method integer   getNumeroPersonas()  Returns the current record's "numero_personas" value
+ * @method timestamp getFechaReserva()    Returns the current record's "fecha_reserva" value
+ * @method integer   getPromedioId()      Returns the current record's "promedio_id" value
+ * @method timestamp getFechaCreacion()   Returns the current record's "fecha_creacion" value
+ * @method integer   getIdUsuario()       Returns the current record's "id_usuario" value
+ * @method Local     getLocal()           Returns the current record's "Local" value
+ * @method Promedio  getPromedio()        Returns the current record's "Promedio" value
+ * @method Reserva   setId()              Sets the current record's "id" value
+ * @method Reserva   setLocalId()         Sets the current record's "local_id" value
+ * @method Reserva   setNumeroPersonas()  Sets the current record's "numero_personas" value
+ * @method Reserva   setFechaReserva()    Sets the current record's "fecha_reserva" value
+ * @method Reserva   setPromedioId()      Sets the current record's "promedio_id" value
+ * @method Reserva   setFechaCreacion()   Sets the current record's "fecha_creacion" value
+ * @method Reserva   setIdUsuario()       Sets the current record's "id_usuario" value
+ * @method Reserva   setLocal()           Sets the current record's "Local" value
+ * @method Reserva   setPromedio()        Sets the current record's "Promedio" value
  * 
  * @package    Yonohagofila
  * @subpackage model
@@ -75,15 +72,6 @@ abstract class BaseReserva extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('promedio_consumo', 'string', 50, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 50,
-             ));
         $this->hasColumn('fecha_reserva', 'timestamp', 25, array(
              'type' => 'timestamp',
              'fixed' => 0,
@@ -93,14 +81,14 @@ abstract class BaseReserva extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('promedio_id', 'string', 100, array(
-             'type' => 'string',
+        $this->hasColumn('promedio_id', 'integer', 4, array(
+             'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
-             'length' => 100,
+             'length' => 4,
              ));
         $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
              'type' => 'timestamp',
@@ -129,7 +117,7 @@ abstract class BaseReserva extends sfDoctrineRecord
              'local' => 'local_id',
              'foreign' => 'id'));
 
-        $this->hasMany('Promedio', array(
+        $this->hasOne('Promedio', array(
              'local' => 'promedio_id',
              'foreign' => 'id'));
 

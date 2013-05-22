@@ -13,7 +13,8 @@ abstract class BaseLogsFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'usuario_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
+      'usuario_id'     => new sfWidgetFormFilterInput(),
+      'username'       => new sfWidgetFormFilterInput(),
       'ip'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'proxy'          => new sfWidgetFormFilterInput(),
       'estado'         => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
@@ -21,7 +22,8 @@ abstract class BaseLogsFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'usuario_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Usuario'), 'column' => 'id')),
+      'usuario_id'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'username'       => new sfValidatorPass(array('required' => false)),
       'ip'             => new sfValidatorPass(array('required' => false)),
       'proxy'          => new sfValidatorPass(array('required' => false)),
       'estado'         => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
@@ -46,7 +48,8 @@ abstract class BaseLogsFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'             => 'Number',
-      'usuario_id'     => 'ForeignKey',
+      'usuario_id'     => 'Number',
+      'username'       => 'Text',
       'ip'             => 'Text',
       'proxy'          => 'Text',
       'estado'         => 'Boolean',

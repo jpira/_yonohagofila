@@ -11,9 +11,7 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @property integer $local_id
  * @property string $descripcion
  * @property integer $numero_personas
- * @property string $promedio_consumo
  * @property string $tiempo_respuesta
- * @property string $horario_atencion
  * @property string $costo_ingreso
  * @property timestamp $fecha_creacion
  * @property timestamp $fecha_actualizacion
@@ -24,9 +22,7 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @method integer   getLocalId()             Returns the current record's "local_id" value
  * @method string    getDescripcion()         Returns the current record's "descripcion" value
  * @method integer   getNumeroPersonas()      Returns the current record's "numero_personas" value
- * @method string    getPromedioConsumo()     Returns the current record's "promedio_consumo" value
  * @method string    getTiempoRespuesta()     Returns the current record's "tiempo_respuesta" value
- * @method string    getHorarioAtencion()     Returns the current record's "horario_atencion" value
  * @method string    getCostoIngreso()        Returns the current record's "costo_ingreso" value
  * @method timestamp getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method timestamp getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
@@ -36,9 +32,7 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @method Parametro setLocalId()             Sets the current record's "local_id" value
  * @method Parametro setDescripcion()         Sets the current record's "descripcion" value
  * @method Parametro setNumeroPersonas()      Sets the current record's "numero_personas" value
- * @method Parametro setPromedioConsumo()     Sets the current record's "promedio_consumo" value
  * @method Parametro setTiempoRespuesta()     Sets the current record's "tiempo_respuesta" value
- * @method Parametro setHorarioAtencion()     Sets the current record's "horario_atencion" value
  * @method Parametro setCostoIngreso()        Sets the current record's "costo_ingreso" value
  * @method Parametro setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Parametro setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
@@ -90,30 +84,12 @@ abstract class BaseParametro extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('promedio_consumo', 'string', 50, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 50,
-             ));
         $this->hasColumn('tiempo_respuesta', 'string', 50, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
-             'autoincrement' => false,
-             'length' => 50,
-             ));
-        $this->hasColumn('horario_atencion', 'string', 50, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => false,
              'autoincrement' => false,
              'length' => 50,
              ));

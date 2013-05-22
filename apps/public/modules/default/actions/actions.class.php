@@ -11,7 +11,8 @@
 class defaultActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
-        
     }
+
+    public function executeError404() { }
 
 }

@@ -15,4 +15,25 @@ class defaultActions extends sfActions {
     }
 
     public function executeError404() { }
+    
+    public function executeLogin(sfWebRequest $request) {
+        $this->getResponse()->setTitle('Ingreso');
+        
+        $this->form = new LoginSecureForm();
+
+        if ($request->isMethod('POST')) {
+            $this->validateLogin($request, $this->form);
+        }
+    }
+
+    private function validateLogin(sfWebRequest $request, sfForm $form) {
+        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+        if ($form->isValid()) {
+            // Se valida la informacion de acceso del usuario
+            die('entrando');
+            $this->getUser()->setFlash('notice_extranet', "Bienvenido al sistema Extranet de Yonohagofila.com");
+        } else {
+            $this->getUser()->setFlash('error_extranet', "Debe diligenciar correctamente la información del formulario");
+        }
+    }    
 }

@@ -17,6 +17,7 @@ abstract class BaseLocalForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'                  => new sfWidgetFormInputHidden(),
       'nombre'              => new sfWidgetFormInputText(),
+      'imagen'              => new sfWidgetFormInputText(),
       'id_usuario'          => new sfWidgetFormInputText(),
       'fecha_creacion'      => new sfWidgetFormDateTime(),
       'fecha_actualizacion' => new sfWidgetFormDateTime(),
@@ -26,6 +27,7 @@ abstract class BaseLocalForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nombre'              => new sfValidatorString(array('max_length' => 200)),
+      'imagen'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'id_usuario'          => new sfValidatorInteger(),
       'fecha_creacion'      => new sfValidatorDateTime(),
       'fecha_actualizacion' => new sfValidatorDateTime(),

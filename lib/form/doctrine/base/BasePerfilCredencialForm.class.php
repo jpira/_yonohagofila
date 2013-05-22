@@ -17,12 +17,14 @@ abstract class BasePerfilCredencialForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'perfil_id'      => new sfWidgetFormInputHidden(),
       'credencial_id'  => new sfWidgetFormInputHidden(),
+      'id_usuario'     => new sfWidgetFormInputText(),
       'fecha_creacion' => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
       'perfil_id'      => new sfValidatorChoice(array('choices' => array($this->getObject()->get('perfil_id')), 'empty_value' => $this->getObject()->get('perfil_id'), 'required' => false)),
       'credencial_id'  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('credencial_id')), 'empty_value' => $this->getObject()->get('credencial_id'), 'required' => false)),
+      'id_usuario'     => new sfValidatorInteger(),
       'fecha_creacion' => new sfValidatorDateTime(),
     ));
 

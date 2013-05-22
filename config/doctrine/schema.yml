@@ -212,6 +212,13 @@ Local:
       unsigned: false
       primary: false
       notnull: true
+      autoincrement: false    
+    imagen:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
       autoincrement: false
     id_usuario:
       type: integer(4)
@@ -290,13 +297,6 @@ Parametro:
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false
-    imagen:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
       autoincrement: false
     numero_personas:
       type: integer(4)
@@ -432,6 +432,13 @@ PerfilCredencial:
       unsigned: false
       primary: true
       autoincrement: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     fecha_creacion:
       type: timestamp(25)
       fixed: false
@@ -525,13 +532,6 @@ RankingUsuario:
       primary: false
       notnull: false
       autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
     fecha_creacion:
       type: timestamp(25)
       fixed: false
@@ -566,6 +566,8 @@ RankingUsuario:
       local: usuario_id
       foreign: id
       type: one
+      
+      
 Reserva:
   connection: doctrine
   tableName: reserva
@@ -604,8 +606,8 @@ Reserva:
       primary: false
       notnull: true
       autoincrement: false
-    estado:
-      type: string(50)
+    promedio_id:
+      type: string(100)
       fixed: false
       unsigned: false
       primary: false
@@ -625,11 +627,23 @@ Reserva:
       primary: false
       notnull: true
       autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [fecha_reserva]
+      length: 50
+      canUpdate: true
   relations:
     Local:
       local: local_id
       foreign: id
       type: one
+    Promedio:
+      local: promedio_id
+      foreign: id
+      type: many
+      
+      
 Usuario:
   connection: doctrine
   tableName: usuario
@@ -710,13 +724,12 @@ Usuario:
       primary: false
       notnull: true
       autoincrement: false
-    slug:
-      type: string(160)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [email]
+      length: 160
+      canUpdate: true
   relations:
     Perfil:
       local: perfil_id
@@ -734,6 +747,8 @@ Usuario:
       local: id
       foreign: usuario_id
       type: many
+      
+      
 UsuarioBloqueado:
   connection: doctrine
   tableName: usuario_bloqueado
@@ -781,3 +796,63 @@ UsuarioBloqueado:
       local: usuario_id
       foreign: id
       type: one
+      
+      
+Promedio:
+  tableName: promedio
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    promedio:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+    local_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false   
+      notnull: true
+      autoincrement: false 
+    fecha_creacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false          
+    fecha_actualizacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [nombre]
+      length: 110
+      canUpdate: true
+  relations:
+    Local:
+      local: local_id
+      foreign: id
+      type: one
+      
+      
+      

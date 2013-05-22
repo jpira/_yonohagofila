@@ -23,7 +23,7 @@ abstract class BaseUsuarioFormFilter extends BaseFormFilterDoctrine
       'estado'              => new sfWidgetFormFilterInput(),
       'fecha_nacimiento'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'slug'                => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'slug'                => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(

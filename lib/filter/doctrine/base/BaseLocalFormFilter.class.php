@@ -14,6 +14,7 @@ abstract class BaseLocalFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'nombre'              => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'imagen'              => new sfWidgetFormFilterInput(),
       'id_usuario'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
@@ -22,6 +23,7 @@ abstract class BaseLocalFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'nombre'              => new sfValidatorPass(array('required' => false)),
+      'imagen'              => new sfValidatorPass(array('required' => false)),
       'id_usuario'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'fecha_creacion'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'fecha_actualizacion' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
@@ -47,6 +49,7 @@ abstract class BaseLocalFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'                  => 'Number',
       'nombre'              => 'Text',
+      'imagen'              => 'Text',
       'id_usuario'          => 'Number',
       'fecha_creacion'      => 'Date',
       'fecha_actualizacion' => 'Date',

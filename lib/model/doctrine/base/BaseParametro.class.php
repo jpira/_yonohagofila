@@ -10,7 +10,6 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @property integer $id
  * @property integer $local_id
  * @property string $descripcion
- * @property string $imagen
  * @property integer $numero_personas
  * @property string $promedio_consumo
  * @property string $tiempo_respuesta
@@ -24,7 +23,6 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @method integer   getId()                  Returns the current record's "id" value
  * @method integer   getLocalId()             Returns the current record's "local_id" value
  * @method string    getDescripcion()         Returns the current record's "descripcion" value
- * @method string    getImagen()              Returns the current record's "imagen" value
  * @method integer   getNumeroPersonas()      Returns the current record's "numero_personas" value
  * @method string    getPromedioConsumo()     Returns the current record's "promedio_consumo" value
  * @method string    getTiempoRespuesta()     Returns the current record's "tiempo_respuesta" value
@@ -37,7 +35,6 @@ Doctrine_Manager::getInstance()->bindComponent('Parametro', 'doctrine');
  * @method Parametro setId()                  Sets the current record's "id" value
  * @method Parametro setLocalId()             Sets the current record's "local_id" value
  * @method Parametro setDescripcion()         Sets the current record's "descripcion" value
- * @method Parametro setImagen()              Sets the current record's "imagen" value
  * @method Parametro setNumeroPersonas()      Sets the current record's "numero_personas" value
  * @method Parametro setPromedioConsumo()     Sets the current record's "promedio_consumo" value
  * @method Parametro setTiempoRespuesta()     Sets the current record's "tiempo_respuesta" value
@@ -81,15 +78,6 @@ abstract class BaseParametro extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
-             'autoincrement' => false,
-             'length' => 255,
-             ));
-        $this->hasColumn('imagen', 'string', 255, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => false,
              'autoincrement' => false,
              'length' => 255,
              ));

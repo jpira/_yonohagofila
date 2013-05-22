@@ -1,28 +1,34 @@
 <?php
 
 /**
- * PerfilCredencial filter form base class.
+ * Logs filter form base class.
  *
  * @package    Yonohagofila
  * @subpackage filter
  * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com>
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
-abstract class BasePerfilCredencialFormFilter extends BaseFormFilterDoctrine
+abstract class BaseLogsFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'id_usuario'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'usuario_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
+      'ip'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'proxy'          => new sfWidgetFormFilterInput(),
+      'estado'         => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'fecha_creacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'id_usuario'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'usuario_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Usuario'), 'column' => 'id')),
+      'ip'             => new sfValidatorPass(array('required' => false)),
+      'proxy'          => new sfValidatorPass(array('required' => false)),
+      'estado'         => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'fecha_creacion' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
-    $this->widgetSchema->setNameFormat('perfil_credencial_filters[%s]');
+    $this->widgetSchema->setNameFormat('logs_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -33,15 +39,17 @@ abstract class BasePerfilCredencialFormFilter extends BaseFormFilterDoctrine
 
   public function getModelName()
   {
-    return 'PerfilCredencial';
+    return 'Logs';
   }
 
   public function getFields()
   {
     return array(
-      'perfil_id'      => 'Number',
-      'credencial_id'  => 'Number',
-      'id_usuario'     => 'Number',
+      'id'             => 'Number',
+      'usuario_id'     => 'ForeignKey',
+      'ip'             => 'Text',
+      'proxy'          => 'Text',
+      'estado'         => 'Boolean',
       'fecha_creacion' => 'Date',
     );
   }

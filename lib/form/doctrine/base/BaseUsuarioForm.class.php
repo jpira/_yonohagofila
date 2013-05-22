@@ -41,8 +41,12 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'estado'              => new sfValidatorInteger(array('required' => false)),
       'fecha_nacimiento'    => new sfValidatorDateTime(),
       'fecha_creacion'      => new sfValidatorDateTime(),
-      'slug'                => new sfValidatorString(array('max_length' => 160)),
+      'slug'                => new sfValidatorString(array('max_length' => 160, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Usuario', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('usuario[%s]');
 

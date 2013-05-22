@@ -20,9 +20,10 @@ abstract class BaseReservaForm extends BaseFormDoctrine
       'numero_personas'  => new sfWidgetFormInputText(),
       'promedio_consumo' => new sfWidgetFormInputText(),
       'fecha_reserva'    => new sfWidgetFormDateTime(),
-      'estado'           => new sfWidgetFormInputText(),
+      'promedio_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'), 'add_empty' => false)),
       'fecha_creacion'   => new sfWidgetFormDateTime(),
       'id_usuario'       => new sfWidgetFormInputText(),
+      'slug'             => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -31,10 +32,15 @@ abstract class BaseReservaForm extends BaseFormDoctrine
       'numero_personas'  => new sfValidatorInteger(),
       'promedio_consumo' => new sfValidatorString(array('max_length' => 50)),
       'fecha_reserva'    => new sfValidatorDateTime(),
-      'estado'           => new sfValidatorString(array('max_length' => 50)),
+      'promedio_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'))),
       'fecha_creacion'   => new sfValidatorDateTime(),
       'id_usuario'       => new sfValidatorInteger(),
+      'slug'             => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Reserva', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('reserva[%s]');
 

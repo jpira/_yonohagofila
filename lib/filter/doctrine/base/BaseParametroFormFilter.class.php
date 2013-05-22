@@ -15,7 +15,6 @@ abstract class BaseParametroFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'local_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
       'descripcion'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'imagen'              => new sfWidgetFormFilterInput(),
       'numero_personas'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'promedio_consumo'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'tiempo_respuesta'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -29,7 +28,6 @@ abstract class BaseParametroFormFilter extends BaseFormFilterDoctrine
     $this->setValidators(array(
       'local_id'            => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Local'), 'column' => 'id')),
       'descripcion'         => new sfValidatorPass(array('required' => false)),
-      'imagen'              => new sfValidatorPass(array('required' => false)),
       'numero_personas'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'promedio_consumo'    => new sfValidatorPass(array('required' => false)),
       'tiempo_respuesta'    => new sfValidatorPass(array('required' => false)),
@@ -60,7 +58,6 @@ abstract class BaseParametroFormFilter extends BaseFormFilterDoctrine
       'id'                  => 'Number',
       'local_id'            => 'ForeignKey',
       'descripcion'         => 'Text',
-      'imagen'              => 'Text',
       'numero_personas'     => 'Number',
       'promedio_consumo'    => 'Text',
       'tiempo_respuesta'    => 'Text',

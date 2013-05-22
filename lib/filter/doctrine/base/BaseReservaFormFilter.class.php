@@ -17,9 +17,10 @@ abstract class BaseReservaFormFilter extends BaseFormFilterDoctrine
       'numero_personas'  => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'promedio_consumo' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fecha_reserva'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'estado'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'promedio_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'), 'add_empty' => true)),
       'fecha_creacion'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'id_usuario'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'slug'             => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -27,9 +28,10 @@ abstract class BaseReservaFormFilter extends BaseFormFilterDoctrine
       'numero_personas'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'promedio_consumo' => new sfValidatorPass(array('required' => false)),
       'fecha_reserva'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
-      'estado'           => new sfValidatorPass(array('required' => false)),
+      'promedio_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Promedio'), 'column' => 'id')),
       'fecha_creacion'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'id_usuario'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'slug'             => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('reserva_filters[%s]');
@@ -54,9 +56,10 @@ abstract class BaseReservaFormFilter extends BaseFormFilterDoctrine
       'numero_personas'  => 'Number',
       'promedio_consumo' => 'Text',
       'fecha_reserva'    => 'Date',
-      'estado'           => 'Text',
+      'promedio_id'      => 'ForeignKey',
       'fecha_creacion'   => 'Date',
       'id_usuario'       => 'Number',
+      'slug'             => 'Text',
     );
   }
 }

@@ -18,7 +18,6 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @property integer $estado
  * @property timestamp $fecha_nacimiento
  * @property timestamp $fecha_creacion
- * @property string $slug
  * @property Perfil $Perfil
  * @property Doctrine_Collection $Estadistica
  * @property Doctrine_Collection $RankingUsuario
@@ -35,7 +34,6 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method integer             getEstado()              Returns the current record's "estado" value
  * @method timestamp           getFechaNacimiento()     Returns the current record's "fecha_nacimiento" value
  * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method string              getSlug()                Returns the current record's "slug" value
  * @method Perfil              getPerfil()              Returns the current record's "Perfil" value
  * @method Doctrine_Collection getEstadistica()         Returns the current record's "Estadistica" collection
  * @method Doctrine_Collection getRankingUsuario()      Returns the current record's "RankingUsuario" collection
@@ -51,7 +49,6 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method Usuario             setEstado()              Sets the current record's "estado" value
  * @method Usuario             setFechaNacimiento()     Sets the current record's "fecha_nacimiento" value
  * @method Usuario             setFechaCreacion()       Sets the current record's "fecha_creacion" value
- * @method Usuario             setSlug()                Sets the current record's "slug" value
  * @method Usuario             setPerfil()              Sets the current record's "Perfil" value
  * @method Usuario             setEstadistica()         Sets the current record's "Estadistica" collection
  * @method Usuario             setRankingUsuario()      Sets the current record's "RankingUsuario" collection
@@ -165,15 +162,6 @@ abstract class BaseUsuario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('slug', 'string', 160, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 160,
-             ));
     }
 
     public function setUp()
@@ -194,5 +182,16 @@ abstract class BaseUsuario extends sfDoctrineRecord
         $this->hasMany('UsuarioBloqueado', array(
              'local' => 'id',
              'foreign' => 'usuario_id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'email',
+             ),
+             'length' => 160,
+             'canUpdate' => true,
+             ));
+        $this->actAs($sluggable0);
     }
 }

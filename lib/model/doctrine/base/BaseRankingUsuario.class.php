@@ -11,7 +11,6 @@ Doctrine_Manager::getInstance()->bindComponent('RankingUsuario', 'doctrine');
  * @property integer $usuario_id
  * @property integer $local_id
  * @property integer $ranking_id
- * @property integer $id_usuario
  * @property timestamp $fecha_creacion
  * @property timestamp $fecha_actualizacion
  * @property integer $puntos
@@ -23,7 +22,6 @@ Doctrine_Manager::getInstance()->bindComponent('RankingUsuario', 'doctrine');
  * @method integer        getUsuarioId()           Returns the current record's "usuario_id" value
  * @method integer        getLocalId()             Returns the current record's "local_id" value
  * @method integer        getRankingId()           Returns the current record's "ranking_id" value
- * @method integer        getIdUsuario()           Returns the current record's "id_usuario" value
  * @method timestamp      getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method timestamp      getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method integer        getPuntos()              Returns the current record's "puntos" value
@@ -34,7 +32,6 @@ Doctrine_Manager::getInstance()->bindComponent('RankingUsuario', 'doctrine');
  * @method RankingUsuario setUsuarioId()           Sets the current record's "usuario_id" value
  * @method RankingUsuario setLocalId()             Sets the current record's "local_id" value
  * @method RankingUsuario setRankingId()           Sets the current record's "ranking_id" value
- * @method RankingUsuario setIdUsuario()           Sets the current record's "id_usuario" value
  * @method RankingUsuario setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method RankingUsuario setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
  * @method RankingUsuario setPuntos()              Sets the current record's "puntos" value
@@ -84,15 +81,6 @@ abstract class BaseRankingUsuario extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
-             'autoincrement' => false,
-             'length' => 4,
-             ));
-        $this->hasColumn('id_usuario', 'integer', 4, array(
-             'type' => 'integer',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
              'autoincrement' => false,
              'length' => 4,
              ));

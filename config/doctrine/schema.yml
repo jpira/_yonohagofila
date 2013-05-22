@@ -897,8 +897,7 @@ Horario_atencion:
       local: local_id
       foreign: id
       type: one
-      
-      
+            
 Logs:
   tableName: logs
   columns:
@@ -946,8 +945,4 @@ Logs:
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false           
-            
-      
-      
-      
+      autoincrement: false

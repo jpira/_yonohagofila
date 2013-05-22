@@ -3,9 +3,9 @@
 /**
  * Perfil filter form.
  *
- * @package    yonohagofila_sf1.4
+ * @package    Yonohagofila
  * @subpackage filter
- * @author     Your name here
+ * @author     Arquitectura - Juan Pablo Cardona Mejia <jpcardona@ibccodecontrol.com> - Desarrollo - Jeison Pira Murillo <jpira@ibccodecontrol.com> - Diseño - Ricardo Piedrahita <rpiedrahita.america@solucionesc2.com>
  * @version    SVN: $Id: sfDoctrineFormFilterTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class PerfilFormFilter extends BasePerfilFormFilter

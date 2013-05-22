@@ -3,58 +3,22 @@
     <head>
         <?php include_http_metas() ?>
         <?php include_metas() ?>
-        <?php include_title() ?>
+        <title>Yonohagofila | <?php echo $sf_response->getTitle() ?></title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <?php include_stylesheets() ?>
         <?php include_javascripts() ?>
     </head>
     <body>
-        <?php
-        $locales = Doctrine_Query::create()->from('Local')
-                ->limit(5)
-                ->execute();
-        $i = 0;
-        ?>
-        <?php foreach ($locales as $local): ?>
-            <?php
-            $parametros = Doctrine_Query::create()->from('Parametro')
-                    ->where('local_id = ?', $local->get('id'))
-                    ->fetchOne();
-            ?>
-    <?php if ($i == 0): ?>
-                <div style="padding: 10px; float: left; width: 50%; text-align: justify;">
-                    <table  border="2" width="45%" heigh="50%">
-                        <tr>
-                            <td rowspan="2"><?php echo image_tag('/uploads/imagen/' . $local->get('imagen'), array('size' => '120x80')) ?></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h3><center><?php echo $local->get('nombre'); ?></center></h3>
-        <?php echo $parametros->get('descripcion'); ?><br>
-                                <a href="#" target="_new" rel="facebox">Configurar Reserva</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <?php $i = 1; ?>
-            <?php else: ?>
-                <?php $i = 0; ?>
-                <div style="padding: 10px; float: right; width: 50%; text-align: justify;">
-                    <table  border="2" width="45%" heigh="50%">
-                        <tr>
-                            <td rowspan="2"><?php echo image_tag('/uploads/imagen/' . $local->get('imagen'), array('size' => '120x80')) ?></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h3><center><?php echo $local->get('nombre'); ?></center></h3>
-        <?php echo $parametros->get('descripcion'); ?><br>
-                                <button>Configurar Reserva</button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-<?php //echo $sf_content ?>
+        <header>
+            <section id="notificaciones">
+                <?php include_partial('parciales/notificaciones') ?>
+            </section>
+        </header>
+        <section id="contenido">
+            <?php echo $sf_content ?>
+        </section>
+        <footer>
+            <?php include_partial('parciales/legales') ?>
+        </footer>
     </body>
 </html>

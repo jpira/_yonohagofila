@@ -1,4 +1,3 @@
 all:
-  estados_reserva: 
-  tipo_evento_calendario: 
+  estados_reserva: [Pendiente, Realizado, No realizado, Ejecutado, No ejecutado]
   

@@ -16,7 +16,8 @@ abstract class BaseLogsForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
-      'usuario_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => false)),
+      'usuario_id'     => new sfWidgetFormInputText(),
+      'username'       => new sfWidgetFormInputText(),
       'ip'             => new sfWidgetFormInputText(),
       'proxy'          => new sfWidgetFormInputText(),
       'estado'         => new sfWidgetFormInputCheckbox(),
@@ -25,7 +26,8 @@ abstract class BaseLogsForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'usuario_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'))),
+      'usuario_id'     => new sfValidatorInteger(array('required' => false)),
+      'username'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'ip'             => new sfValidatorString(array('max_length' => 255)),
       'proxy'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'estado'         => new sfValidatorBoolean(),

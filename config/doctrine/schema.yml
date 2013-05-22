@@ -220,6 +220,13 @@ Local:
       primary: false
       notnull: false
       autoincrement: false
+    estado:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     id_usuario:
       type: integer(4)
       fixed: false
@@ -305,26 +312,12 @@ Parametro:
       primary: false
       notnull: true
       autoincrement: false
-    promedio_consumo:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
     tiempo_respuesta:
       type: string(50)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false
-    horario_atencion:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
       autoincrement: false
     costo_ingreso:
       type: string(50)
@@ -592,13 +585,6 @@ Reserva:
       primary: false
       notnull: true
       autoincrement: false
-    promedio_consumo:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
     fecha_reserva:
       type: timestamp(25)
       fixed: false
@@ -607,11 +593,11 @@ Reserva:
       notnull: true
       autoincrement: false
     promedio_id:
-      type: string(100)
+      type: integer(4)
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     fecha_creacion:
       type: timestamp(25)
@@ -641,7 +627,7 @@ Reserva:
     Promedio:
       local: promedio_id
       foreign: id
-      type: many
+      type:  one
       
       
 Usuario:
@@ -853,6 +839,115 @@ Promedio:
       local: local_id
       foreign: id
       type: one
+      
+      
+
+Horario_atencion:
+  tableName: horario_atencion
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    horario:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+    local_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false   
+      notnull: true
+      autoincrement: false 
+    fecha_creacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false          
+    fecha_actualizacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [nombre]
+      length: 110
+      canUpdate: true
+  relations:
+    Local:
+      local: local_id
+      foreign: id
+      type: one
+      
+      
+Logs:
+  tableName: logs
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true  
+    usuario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    username:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    ip:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+    proxy:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false    
+    estado:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    fecha_creacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false           
+            
       
       
       

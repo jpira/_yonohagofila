@@ -898,6 +898,7 @@ Horario_atencion:
       foreign: id
       type: one
             
+            
 Logs:
   tableName: logs
   columns:

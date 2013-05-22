@@ -1,3 +1,7 @@
 homepage:
   url:   /
   param: { module: default, action: index }
+  
+legales:
+  url:   /legal/:page
+  param: { module: estaticas, action: legales }  

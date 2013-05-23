@@ -19,8 +19,6 @@ $j = 0;
 ?>
 <?php foreach ($locales as $local): ?>
     <?php
-    $ids = array();
-    $ids[] = $local->get('id');
     $parametros = Doctrine_Query::create()->from('Parametro')
             ->where('local_id = ?', $local->get('id'))
             ->fetchOne();
@@ -34,12 +32,13 @@ $j = 0;
             <td>
                 <h3><center><?php echo $local->get('nombre'); ?></center></h3>
                 <?php echo $parametros->get('descripcion'); ?><br>
-                <button onclick="muestra_oculta('contenido_a_mostrar<?php echo $j ?>')">Configurar Reserva</button></td>
-        </tr>
+                <button onclick="muestra_oculta('contenido_a_mostrar<?php echo $j ?>')">Configurar Reserva</button></td>        </tr>
     </table>
     <div id="contenido_a_mostrar<?php echo $j ?>">
         <form action="" method="POST">
-            <?php echo $form ?>
+            <?php
+            echo $form;
+            ?>
             <input type="submit" value="Reservar" />
         </form>
     </div>

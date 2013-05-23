@@ -10,31 +10,34 @@ Doctrine_Manager::getInstance()->bindComponent('Calendario', 'doctrine');
  * @property integer $id
  * @property integer $local_id
  * @property timestamp $fecha_evento
- * @property string $tipo_evento
+ * @property integer $tipoevento_id
  * @property string $descripcion_evento
  * @property timestamp $fecha_creacion
  * @property integer $id_usuario
  * @property timestamp $fecha_actualizacion
  * @property Local $Local
+ * @property Tipos_Eventos $Tipos_Eventos
  * 
- * @method integer    getId()                  Returns the current record's "id" value
- * @method integer    getLocalId()             Returns the current record's "local_id" value
- * @method timestamp  getFechaEvento()         Returns the current record's "fecha_evento" value
- * @method string     getTipoEvento()          Returns the current record's "tipo_evento" value
- * @method string     getDescripcionEvento()   Returns the current record's "descripcion_evento" value
- * @method timestamp  getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method integer    getIdUsuario()           Returns the current record's "id_usuario" value
- * @method timestamp  getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
- * @method Local      getLocal()               Returns the current record's "Local" value
- * @method Calendario setId()                  Sets the current record's "id" value
- * @method Calendario setLocalId()             Sets the current record's "local_id" value
- * @method Calendario setFechaEvento()         Sets the current record's "fecha_evento" value
- * @method Calendario setTipoEvento()          Sets the current record's "tipo_evento" value
- * @method Calendario setDescripcionEvento()   Sets the current record's "descripcion_evento" value
- * @method Calendario setFechaCreacion()       Sets the current record's "fecha_creacion" value
- * @method Calendario setIdUsuario()           Sets the current record's "id_usuario" value
- * @method Calendario setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
- * @method Calendario setLocal()               Sets the current record's "Local" value
+ * @method integer       getId()                  Returns the current record's "id" value
+ * @method integer       getLocalId()             Returns the current record's "local_id" value
+ * @method timestamp     getFechaEvento()         Returns the current record's "fecha_evento" value
+ * @method integer       getTipoeventoId()        Returns the current record's "tipoevento_id" value
+ * @method string        getDescripcionEvento()   Returns the current record's "descripcion_evento" value
+ * @method timestamp     getFechaCreacion()       Returns the current record's "fecha_creacion" value
+ * @method integer       getIdUsuario()           Returns the current record's "id_usuario" value
+ * @method timestamp     getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
+ * @method Local         getLocal()               Returns the current record's "Local" value
+ * @method Tipos_Eventos getTiposEventos()        Returns the current record's "Tipos_Eventos" value
+ * @method Calendario    setId()                  Sets the current record's "id" value
+ * @method Calendario    setLocalId()             Sets the current record's "local_id" value
+ * @method Calendario    setFechaEvento()         Sets the current record's "fecha_evento" value
+ * @method Calendario    setTipoeventoId()        Sets the current record's "tipoevento_id" value
+ * @method Calendario    setDescripcionEvento()   Sets the current record's "descripcion_evento" value
+ * @method Calendario    setFechaCreacion()       Sets the current record's "fecha_creacion" value
+ * @method Calendario    setIdUsuario()           Sets the current record's "id_usuario" value
+ * @method Calendario    setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
+ * @method Calendario    setLocal()               Sets the current record's "Local" value
+ * @method Calendario    setTiposEventos()        Sets the current record's "Tipos_Eventos" value
  * 
  * @package    Yonohagofila
  * @subpackage model
@@ -72,14 +75,14 @@ abstract class BaseCalendario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('tipo_evento', 'string', 50, array(
-             'type' => 'string',
+        $this->hasColumn('tipoevento_id', 'integer', 4, array(
+             'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
-             'length' => 50,
+             'length' => 4,
              ));
         $this->hasColumn('descripcion_evento', 'string', 255, array(
              'type' => 'string',
@@ -124,6 +127,10 @@ abstract class BaseCalendario extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Local', array(
              'local' => 'local_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('Tipos_Eventos', array(
+             'local' => 'tipoevento_id',
              'foreign' => 'id'));
 
         $sluggable0 = new Doctrine_Template_Sluggable(array(

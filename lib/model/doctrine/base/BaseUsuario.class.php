@@ -16,6 +16,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @property string $identificacion
  * @property string $foto
  * @property integer $estado
+ * @property string $token
  * @property timestamp $fecha_nacimiento
  * @property timestamp $fecha_creacion
  * @property Perfil $Perfil
@@ -32,6 +33,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method string              getIdentificacion()      Returns the current record's "identificacion" value
  * @method string              getFoto()                Returns the current record's "foto" value
  * @method integer             getEstado()              Returns the current record's "estado" value
+ * @method string              getToken()               Returns the current record's "token" value
  * @method timestamp           getFechaNacimiento()     Returns the current record's "fecha_nacimiento" value
  * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method Perfil              getPerfil()              Returns the current record's "Perfil" value
@@ -47,6 +49,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method Usuario             setIdentificacion()      Sets the current record's "identificacion" value
  * @method Usuario             setFoto()                Sets the current record's "foto" value
  * @method Usuario             setEstado()              Sets the current record's "estado" value
+ * @method Usuario             setToken()               Sets the current record's "token" value
  * @method Usuario             setFechaNacimiento()     Sets the current record's "fecha_nacimiento" value
  * @method Usuario             setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Usuario             setPerfil()              Sets the current record's "Perfil" value
@@ -143,6 +146,15 @@ abstract class BaseUsuario extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => 1,
+             ));
+        $this->hasColumn('token', 'string', 50, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 50,
              ));
         $this->hasColumn('fecha_nacimiento', 'timestamp', 25, array(
              'type' => 'timestamp',

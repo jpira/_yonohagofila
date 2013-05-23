@@ -73,12 +73,12 @@ Calendario:
       primary: false
       notnull: true
       autoincrement: false
-    tipo_evento:
-      type: string(50)
+    tipoevento_id:
+      type: integer(4)
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     descripcion_evento:
       type: string(255)
@@ -119,7 +119,10 @@ Calendario:
       local: local_id
       foreign: id
       type: one
-      
+    Tipos_Eventos:
+      local: tipoevento_id
+      foreign: id
+      type: one
       
 Credencial:
   connection: doctrine
@@ -696,6 +699,13 @@ Usuario:
       primary: false
       notnull: false
       autoincrement: false
+    token:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     fecha_nacimiento:
       type: timestamp(25)
       fixed: false
@@ -947,3 +957,154 @@ Logs:
       primary: false
       notnull: true
       autoincrement: false
+      
+      
+Preregistro:
+  tableName: preregistro
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true 
+    nombrelugar:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    nombrecontacto:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    telcontacto:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    estado:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    fecha_creacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false          
+    fecha_actualizacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+      
+      
+Tipos_Eventos:
+  tableName: tiposeventos
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false   
+      notnull: true
+      autoincrement: false 
+    fecha_creacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false          
+    fecha_actualizacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  
+  
+Eventos_Local:
+  tableName: eventoslocal
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    local_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    tipoevento_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false   
+      notnull: true
+      autoincrement: false 
+    fecha_creacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false          
+    fecha_actualizacion:
+      type: datetime
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Local:
+      local: local_id
+      foreign: id
+      type: one
+    Tipos_Eventos:
+      local: tipoevento_id
+      foreign: id
+      type: one

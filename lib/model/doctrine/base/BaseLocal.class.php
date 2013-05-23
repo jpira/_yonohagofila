@@ -22,6 +22,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property Doctrine_Collection $UsuarioBloqueado
  * @property Doctrine_Collection $Promedio
  * @property Doctrine_Collection $Horario_atencion
+ * @property Doctrine_Collection $Eventos_Local
  * 
  * @method integer             getId()                  Returns the current record's "id" value
  * @method string              getNombre()              Returns the current record's "nombre" value
@@ -38,6 +39,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Doctrine_Collection getUsuarioBloqueado()    Returns the current record's "UsuarioBloqueado" collection
  * @method Doctrine_Collection getPromedio()            Returns the current record's "Promedio" collection
  * @method Doctrine_Collection getHorarioAtencion()     Returns the current record's "Horario_atencion" collection
+ * @method Doctrine_Collection getEventosLocal()        Returns the current record's "Eventos_Local" collection
  * @method Local               setId()                  Sets the current record's "id" value
  * @method Local               setNombre()              Sets the current record's "nombre" value
  * @method Local               setImagen()              Sets the current record's "imagen" value
@@ -53,6 +55,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setUsuarioBloqueado()    Sets the current record's "UsuarioBloqueado" collection
  * @method Local               setPromedio()            Sets the current record's "Promedio" collection
  * @method Local               setHorarioAtencion()     Sets the current record's "Horario_atencion" collection
+ * @method Local               setEventosLocal()        Sets the current record's "Eventos_Local" collection
  * 
  * @package    Yonohagofila
  * @subpackage model
@@ -159,6 +162,10 @@ abstract class BaseLocal extends sfDoctrineRecord
              'foreign' => 'local_id'));
 
         $this->hasMany('Horario_atencion', array(
+             'local' => 'id',
+             'foreign' => 'local_id'));
+
+        $this->hasMany('Eventos_Local', array(
              'local' => 'id',
              'foreign' => 'local_id'));
 

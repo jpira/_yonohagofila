@@ -11,8 +11,24 @@
 class defaultActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
+        $this->form = new ReservaForm();
+        
+        if ($request->isMethod('POST')) {
+            $this->Reserva($request, $this->form);
+        }
     }
 
-    public function executeError404() { }
+    public function Reserva(sfWebRequest $request, sfForm $form) {
+        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+        if ($form->isValid()) {
+            $form->save();
+            $this->getUser()->setFlash('notice', "Reserva Realizada");
+            $this->redirect('@homepage');
+        }
+    }
+
+    public function executeError404() {
+        
+    }
 
 }

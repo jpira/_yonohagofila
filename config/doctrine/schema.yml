@@ -20,7 +20,7 @@ Alarma:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     descripcion:
       type: string(100)
@@ -87,26 +87,26 @@ Calendario:
       primary: false
       notnull: true
       autoincrement: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     fecha_creacion:
       type: timestamp(25)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+      autoincrement: false    
     fecha_actualizacion:
       type: timestamp(25)
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
   actAs:
     Sluggable:
@@ -146,7 +146,7 @@ Credencial:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     fecha_creacion:
       type: timestamp(25)
@@ -160,7 +160,7 @@ Credencial:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
   actAs:
     Sluggable:
@@ -235,7 +235,7 @@ Local:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     fecha_creacion:
       type: timestamp(25)
@@ -249,7 +249,7 @@ Local:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
   actAs:
     Sluggable:
@@ -341,14 +341,14 @@ Parametro:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     id_usuario:
       type: integer(4)
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
   relations:
     Local:
@@ -379,7 +379,7 @@ Perfil:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     fecha_creacion:
       type: timestamp(25)
@@ -393,7 +393,7 @@ Perfil:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
   actAs:
     Sluggable:
@@ -433,7 +433,7 @@ PerfilCredencial:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     fecha_creacion:
       type: timestamp(25)
@@ -470,20 +470,20 @@ Ranking:
       primary: false
       notnull: true
       autoincrement: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     fecha_creacion:
       type: timestamp(25)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+      autoincrement: false    
   actAs:
     Sluggable:
       unique: true
@@ -540,7 +540,7 @@ RankingUsuario:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     puntos:
       type: integer(4)
@@ -602,6 +602,13 @@ Reserva:
       primary: false
       notnull: false
       autoincrement: false
+    estado:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     fecha_creacion:
       type: timestamp(25)
       fixed: false
@@ -614,7 +621,7 @@ Reserva:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
   actAs:
     Sluggable:
@@ -769,20 +776,20 @@ UsuarioBloqueado:
       primary: false
       notnull: false
       autoincrement: false
+    id_usuario:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     fecha_creacion:
       type: timestamp(25)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+      autoincrement: false    
   relations:
     Local:
       local: local_id
@@ -1031,7 +1038,7 @@ Tipos_Eventos:
       primary: false
       notnull: false
       autoincrement: false   
-      notnull: true
+      notnull: false
       autoincrement: false 
     fecha_creacion:
       type: datetime
@@ -1083,7 +1090,7 @@ Eventos_Local:
       primary: false
       notnull: false
       autoincrement: false   
-      notnull: true
+      notnull: false
       autoincrement: false 
     fecha_creacion:
       type: datetime

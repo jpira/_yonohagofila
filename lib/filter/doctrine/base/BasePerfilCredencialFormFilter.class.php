@@ -13,7 +13,7 @@ abstract class BasePerfilCredencialFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id_usuario'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_usuario'     => new sfWidgetFormFilterInput(),
       'fecha_creacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 

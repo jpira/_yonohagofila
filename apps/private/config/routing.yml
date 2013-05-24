@@ -1,3 +1,120 @@
+horario_atencion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                horario_atencion
+    module:               horario_atencion
+    prefix_path:          /horario_atencion
+    column:               id
+    with_wildcard_routes: true
+
+promedio:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                promedio
+    module:               promedio
+    prefix_path:          /promedio
+    column:               id
+    with_wildcard_routes: true
+
+usuariobloqueado:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                usuariobloqueado
+    module:               usuariobloqueado
+    prefix_path:          /usuariobloqueado
+    column:               id
+    with_wildcard_routes: true
+
+alarma:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                alarma
+    module:               alarma
+    prefix_path:          /alarma
+    column:               id
+    with_wildcard_routes: true
+
+eventos_local:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                eventos_local
+    module:               eventos_local
+    prefix_path:          /eventos_local
+    column:               id
+    with_wildcard_routes: true
+
+parametro:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                parametro
+    module:               parametro
+    prefix_path:          /parametro
+    column:               id
+    with_wildcard_routes: true
+
+tipos_eventos:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tipos_eventos
+    module:               tipos_eventos
+    prefix_path:          /tipos_eventos
+    column:               id
+    with_wildcard_routes: true
+
+ranking:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ranking
+    module:               ranking
+    prefix_path:          /ranking
+    column:               id
+    with_wildcard_routes: true
+
+reserva:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                reserva
+    module:               reserva
+    prefix_path:          /reserva
+    column:               id
+    with_wildcard_routes: true
+
+local:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                local
+    module:               local
+    prefix_path:          /local
+    column:               id
+    with_wildcard_routes: true
+
+credencial:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                credencial
+    module:               credencial
+    prefix_path:          /credencial
+    column:               id
+    with_wildcard_routes: true
+
+perfil:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                perfil
+    module:               perfil
+    prefix_path:          /perfil
+    column:               id
+    with_wildcard_routes: true
+
+usuario:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                usuario
+    module:               usuario
+    prefix_path:          /usuario
+    column:               id
+    with_wildcard_routes: true
+
 homepage:
   url:   /
   param: { module: default, action: index }

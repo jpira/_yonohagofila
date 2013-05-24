@@ -30,7 +30,7 @@ abstract class BaseRankingUsuarioForm extends BaseFormDoctrine
       'local_id'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
       'ranking_id'          => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Ranking'), 'required' => false)),
       'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(),
+      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
       'puntos'              => new sfValidatorInteger(),
     ));
 

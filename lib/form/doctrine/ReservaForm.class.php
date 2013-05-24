@@ -19,7 +19,7 @@ class ReservaForm extends BaseReservaForm {
     public function configure() {
         $this->setWidget('local_id', new sfWidgetFormInputHidden());
 //        $this->setWidget('fecha_creacion', new sfWidgetFormInputHidden());
-//        $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
+        $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
         $this->setWidget('slug', new sfWidgetFormInputHidden());
         $this->setWidget('numero_personas', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'number', 'min' => '0', 'placeholder' => 'Numero de Acompañantes')));
         $this->setWidget('fecha_reserva', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'datetime-local', 'title' => 'Debe Agregar la Hora')));

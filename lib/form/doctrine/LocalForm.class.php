@@ -12,5 +12,7 @@ class LocalForm extends BaseLocalForm
 {
   public function configure()
   {
+      $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
+      $this->setWidget('fecha_actualizacion', new sfWidgetFormInputHidden());
   }
 }

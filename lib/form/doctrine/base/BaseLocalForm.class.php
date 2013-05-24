@@ -30,9 +30,9 @@ abstract class BaseLocalForm extends BaseFormDoctrine
       'nombre'              => new sfValidatorString(array('max_length' => 200)),
       'imagen'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'estado'              => new sfValidatorBoolean(),
-      'id_usuario'          => new sfValidatorInteger(),
+      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
       'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(),
+      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
       'slug'                => new sfValidatorString(array('max_length' => 210, 'required' => false)),
     ));
 

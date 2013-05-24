@@ -20,6 +20,7 @@ abstract class BaseReservaForm extends BaseFormDoctrine
       'numero_personas' => new sfWidgetFormInputText(),
       'fecha_reserva'   => new sfWidgetFormDateTime(),
       'promedio_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'), 'add_empty' => true)),
+      'estado'          => new sfWidgetFormInputText(),
       'fecha_creacion'  => new sfWidgetFormDateTime(),
       'id_usuario'      => new sfWidgetFormInputText(),
       'slug'            => new sfWidgetFormInputText(),
@@ -31,8 +32,9 @@ abstract class BaseReservaForm extends BaseFormDoctrine
       'numero_personas' => new sfValidatorInteger(),
       'fecha_reserva'   => new sfValidatorDateTime(),
       'promedio_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'), 'required' => false)),
+      'estado'          => new sfValidatorString(array('max_length' => 30, 'required' => false)),
       'fecha_creacion'  => new sfValidatorDateTime(),
-      'id_usuario'      => new sfValidatorInteger(),
+      'id_usuario'      => new sfValidatorInteger(array('required' => false)),
       'slug'            => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
 

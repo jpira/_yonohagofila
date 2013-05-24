@@ -16,7 +16,7 @@ abstract class BaseEventos_LocalFormFilter extends BaseFormFilterDoctrine
       'nombre'              => new sfWidgetFormFilterInput(),
       'local_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
       'tipoevento_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'add_empty' => true)),
-      'id_usuario'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_usuario'          => new sfWidgetFormFilterInput(),
       'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
     ));

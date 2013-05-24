@@ -20,8 +20,8 @@ abstract class BaseCalendarioForm extends BaseFormDoctrine
       'fecha_evento'        => new sfWidgetFormDateTime(),
       'tipoevento_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'add_empty' => true)),
       'descripcion_evento'  => new sfWidgetFormInputText(),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
       'id_usuario'          => new sfWidgetFormInputText(),
+      'fecha_creacion'      => new sfWidgetFormDateTime(),
       'fecha_actualizacion' => new sfWidgetFormDateTime(),
       'slug'                => new sfWidgetFormInputText(),
     ));
@@ -32,9 +32,9 @@ abstract class BaseCalendarioForm extends BaseFormDoctrine
       'fecha_evento'        => new sfValidatorDateTime(),
       'tipoevento_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'required' => false)),
       'descripcion_evento'  => new sfValidatorString(array('max_length' => 255)),
+      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
       'fecha_creacion'      => new sfValidatorDateTime(),
-      'id_usuario'          => new sfValidatorInteger(),
-      'fecha_actualizacion' => new sfValidatorDateTime(),
+      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
       'slug'                => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
 

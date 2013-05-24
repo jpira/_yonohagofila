@@ -12,6 +12,7 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @property integer $numero_personas
  * @property timestamp $fecha_reserva
  * @property integer $promedio_id
+ * @property string $estado
  * @property timestamp $fecha_creacion
  * @property integer $id_usuario
  * @property Local $Local
@@ -22,6 +23,7 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @method integer   getNumeroPersonas()  Returns the current record's "numero_personas" value
  * @method timestamp getFechaReserva()    Returns the current record's "fecha_reserva" value
  * @method integer   getPromedioId()      Returns the current record's "promedio_id" value
+ * @method string    getEstado()          Returns the current record's "estado" value
  * @method timestamp getFechaCreacion()   Returns the current record's "fecha_creacion" value
  * @method integer   getIdUsuario()       Returns the current record's "id_usuario" value
  * @method Local     getLocal()           Returns the current record's "Local" value
@@ -31,6 +33,7 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @method Reserva   setNumeroPersonas()  Sets the current record's "numero_personas" value
  * @method Reserva   setFechaReserva()    Sets the current record's "fecha_reserva" value
  * @method Reserva   setPromedioId()      Sets the current record's "promedio_id" value
+ * @method Reserva   setEstado()          Sets the current record's "estado" value
  * @method Reserva   setFechaCreacion()   Sets the current record's "fecha_creacion" value
  * @method Reserva   setIdUsuario()       Sets the current record's "id_usuario" value
  * @method Reserva   setLocal()           Sets the current record's "Local" value
@@ -90,6 +93,15 @@ abstract class BaseReserva extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
+        $this->hasColumn('estado', 'string', 30, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 30,
+             ));
         $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
              'type' => 'timestamp',
              'fixed' => 0,
@@ -104,7 +116,7 @@ abstract class BaseReserva extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              'length' => 4,
              ));

@@ -1,0 +1,23 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           parametro
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          parametro
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [ Local, descripcion, numero_personas, costo_ingreso, tiempo_respuesta, fecha_creacion ]
+      filter:
+         display: [ local_id, descripcion, numero_personas, costo_ingreso, tiempo_respuesta, fecha_creacion ] 
+      form:    ~
+      edit:    ~
+      new:     ~

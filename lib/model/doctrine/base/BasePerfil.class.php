@@ -62,7 +62,7 @@ abstract class BasePerfil extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              'length' => 4,
              ));
@@ -80,7 +80,7 @@ abstract class BasePerfil extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              'length' => 25,
              ));

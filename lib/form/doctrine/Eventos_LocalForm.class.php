@@ -12,5 +12,7 @@ class Eventos_LocalForm extends BaseEventos_LocalForm
 {
   public function configure()
   {
+      $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
+      $this->setWidget('fecha_actualizacion', new sfWidgetFormInputHidden());
   }
 }

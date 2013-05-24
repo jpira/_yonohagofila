@@ -29,7 +29,7 @@ abstract class BaseEventos_LocalForm extends BaseFormDoctrine
       'nombre'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'local_id'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
       'tipoevento_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'required' => false)),
-      'id_usuario'          => new sfValidatorInteger(),
+      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
       'fecha_creacion'      => new sfValidatorPass(),
       'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
     ));

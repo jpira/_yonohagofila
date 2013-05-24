@@ -16,9 +16,9 @@ abstract class BaseLocalFormFilter extends BaseFormFilterDoctrine
       'nombre'              => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'imagen'              => new sfWidgetFormFilterInput(),
       'estado'              => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'id_usuario'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_usuario'          => new sfWidgetFormFilterInput(),
       'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'slug'                => new sfWidgetFormFilterInput(),
     ));
 

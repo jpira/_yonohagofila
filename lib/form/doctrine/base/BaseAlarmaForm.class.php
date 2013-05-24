@@ -26,7 +26,7 @@ abstract class BaseAlarmaForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'local_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
-      'id_usuario'     => new sfValidatorInteger(),
+      'id_usuario'     => new sfValidatorInteger(array('required' => false)),
       'descripcion'    => new sfValidatorString(array('max_length' => 100)),
       'fecha_creacion' => new sfValidatorDateTime(),
       'slug'           => new sfValidatorString(array('max_length' => 50, 'required' => false)),

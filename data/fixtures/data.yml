@@ -281,7 +281,14 @@ Perfil:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: cliente
-    
+Promedio:
+  Promedio_1:
+    promedio: $10000-$50000
+    Local: Local_3
+    id_usuario: '1'
+    fecha_creacion: '2013-05-23 09:13:01'
+    fecha_actualizacion: '2013-05-23 09:13:05'
+    slug: '2013-05-23 09:13:01'
 Ranking:
   Ranking_1:
     nombre: Premium
@@ -298,6 +305,14 @@ Ranking:
     fecha_creacion: '2013-05-21 18:00:35'
     id_usuario: '1'
     slug: general
+Reserva:
+  Reserva_1:
+    numero_personas: '3'
+    fecha_reserva: '2013-05-25 22:00:00'
+    Promedio: Promedio_1
+    fecha_creacion: '2013-05-23 10:14:04'
+    id_usuario: '1'
+    slug: 2013-05-25-22-00-00
 Usuario:
   Usuario_1:
     Perfil: Perfil_1
@@ -308,6 +323,7 @@ Usuario:
     identificacion: '10153475308753'
     foto: null
     estado: null
+    token: null
     fecha_nacimiento: '2013-05-21 18:00:35'
     fecha_creacion: '2013-05-21 18:00:35'
     slug: juan753
@@ -320,6 +336,7 @@ Usuario:
     identificacion: '10153475408754'
     foto: null
     estado: null
+    token: null
     fecha_nacimiento: '2013-05-21 18:00:35'
     fecha_creacion: '2013-05-21 18:00:35'
     slug: juan754
@@ -332,6 +349,7 @@ Usuario:
     identificacion: '10153475508755'
     foto: null
     estado: null
+    token: null
     fecha_nacimiento: '2013-05-21 18:00:35'
     fecha_creacion: '2013-05-21 18:00:35'
     slug: juan755

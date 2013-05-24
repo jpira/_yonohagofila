@@ -12,5 +12,6 @@ class UsuarioBloqueadoForm extends BaseUsuarioBloqueadoForm
 {
   public function configure()
   {
+      $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
   }
 }

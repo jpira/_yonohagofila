@@ -12,5 +12,6 @@ class RankingForm extends BaseRankingForm
 {
   public function configure()
   {
+      $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
   }
 }

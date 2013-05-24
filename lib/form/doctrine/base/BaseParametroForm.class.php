@@ -34,8 +34,8 @@ abstract class BaseParametroForm extends BaseFormDoctrine
       'tiempo_respuesta'    => new sfValidatorString(array('max_length' => 50)),
       'costo_ingreso'       => new sfValidatorString(array('max_length' => 50)),
       'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(),
-      'id_usuario'          => new sfValidatorInteger(),
+      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
+      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('parametro[%s]');

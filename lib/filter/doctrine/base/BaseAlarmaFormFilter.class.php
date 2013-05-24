@@ -14,7 +14,7 @@ abstract class BaseAlarmaFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'local_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
-      'id_usuario'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_usuario'     => new sfWidgetFormFilterInput(),
       'descripcion'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fecha_creacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'slug'           => new sfWidgetFormFilterInput(),

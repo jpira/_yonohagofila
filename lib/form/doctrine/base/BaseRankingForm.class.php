@@ -17,16 +17,16 @@ abstract class BaseRankingForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
       'nombre'         => new sfWidgetFormInputText(),
-      'fecha_creacion' => new sfWidgetFormDateTime(),
       'id_usuario'     => new sfWidgetFormInputText(),
+      'fecha_creacion' => new sfWidgetFormDateTime(),
       'slug'           => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nombre'         => new sfValidatorString(array('max_length' => 100)),
+      'id_usuario'     => new sfValidatorInteger(array('required' => false)),
       'fecha_creacion' => new sfValidatorDateTime(),
-      'id_usuario'     => new sfValidatorInteger(),
       'slug'           => new sfValidatorString(array('max_length' => 110, 'required' => false)),
     ));
 

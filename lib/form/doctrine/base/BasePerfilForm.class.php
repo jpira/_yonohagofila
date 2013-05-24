@@ -26,9 +26,9 @@ abstract class BasePerfilForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nombre'              => new sfValidatorString(array('max_length' => 100)),
-      'id_usuario'          => new sfValidatorInteger(),
+      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
       'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(),
+      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
       'slug'                => new sfValidatorString(array('max_length' => 110, 'required' => false)),
     ));
 

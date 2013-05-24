@@ -9,9 +9,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [main.css, jquery.modal.css]
 
-  javascripts:    []
+  javascripts:    [jquery.min.js, jquery.modal.min.js]
 
   has_layout:     true
   layout:         layout

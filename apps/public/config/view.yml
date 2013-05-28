@@ -9,9 +9,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css, jquery.modal.css]
+  stylesheets:    [main.css, jquery.modal.css, bootstrap-responsive.css, bootstrap-responsive.min.css, bootstrap.css, bootstrap.min.css, font-awesome.min.css, isotope.css, social_foundicons.css]
 
-  javascripts:    [jquery.min.js, jquery.modal.min.js]
+  javascripts:    [jquery.min.js, jquery.modal.min.js, main.js, bootstrap.js, bootstrap.min.js, html5-3.6-respond-1.1.0.min.js, jquery-1.9.1.min.js, jquery.isotope.min.js]
 
   has_layout:     true
   layout:         layout

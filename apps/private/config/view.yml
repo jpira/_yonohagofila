@@ -9,9 +9,40 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [twitter/bootstrap.css, base.css, jquery-ui-1.8.23.custom.css]
+  stylesheets: 
+    - twitter/bootstrap.css: { media: false }
+    - base.css: { media: false }
+    - twitter/responsive.css: { media: false }
+    - jquery-ui-1.8.23.custom.css: { media: false }
 
-  javascripts:    [bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-carousel.js, bootstrap-collapse.js, bootstrap-dropdown.js, bootstrap-modal.js, bootstrap-popover.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-transition.js, bootstrap-typeahead.js, bootstrap.js, fileinput.jquery.js, jnavigate.jquery.min.js, jquery-ui-1.8.23.custom.min-old.js, jquery-ui-1.8.23.custom.min, jquery.js, jqury.touchSwipe.min.js, jquery.touchdown.js, jquery.touchdown.min.js, jquery_1.js, scripts - Copy.js, scripts.js, avgrund.js, bootstrap-colorpicker.js, bootstrap-wysihtml5.js, character-limit.js, enquire.min.js, excanvas.compiled.js, jquery.bookblock.js, jquery.maskedinput-1.3.js, jquery.peity.min.js, jquery.sparkline.min.js, jquery.tinyscrollbar.min.js, jquery.uniform.min.js, jquerypp.custom.js, knockout-2.0.0.js, modernizr.custom.32549.js, modernizr.js, responsive-tables.js, textarea-autogrow.js, wysihtml5-0.3.0.min.js]
+  javascripts:
+    - plugins/jquery.sparkline.min.js
+    - plugins/excanvas.compiled.js
+    - bootstrap-transition.js
+    - bootstrap-alert.js
+    - bootstrap-modal.js
+    - bootstrap-dropdown.js
+    - bootstrap-scrollspy.js
+    - bootstrap-tab.js
+    - bootstrap-tooltip.js
+    - bootstrap-popover.js
+    - bootstrap-button.js
+    - bootstrap-collapse.js
+    - bootstrap-carousel.js
+    - bootstrap-typeahead.js
+    - bootstrap-affix.js
+    - fileinput.jquery.js
+    - jquery.touchdown.js
+    - plugins/jquery.uniform.min.js
+    - plugins/jquery.tinyscrollbar.min.js
+    - jnavigate.jquery.min.js
+    - jquery.touchSwipe.min.js
+    - plugins/jquery.peity.min.js
+    - plugins/flot/jquery.flot.js
+    - plugins/flot/jquery.flot.resize.js
+    - plugins/datatables/js/jquery.dataTables.js
+    - plugins/knockout-2.0.0.js
+    - scripts.js
 
   has_layout:     true
   layout:         layout

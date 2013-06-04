@@ -122,3 +122,14 @@ homepage:
 legales:
   url:   /legal/:page
   param: { module: estaticas, action: legales }
+  
+logout:
+  url:   /logout
+  param: { module: default, action: logout } 
+  
+login:
+  url:   /login
+  param: { module: default, action: login }
+  
+  
+ 

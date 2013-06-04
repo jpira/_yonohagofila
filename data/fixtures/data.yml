@@ -316,8 +316,8 @@ Reserva:
 Usuario:
   Usuario_1:
     Perfil: Perfil_1
-    email: Juan_753@
-    contrasena: '753'
+    email: Juan_753@g
+    contrasena: '96c5ebe94371f76a10c18b05ea559f2e3256cb90'
     nombre: Juan753
     tipo_identificacion: CC
     identificacion: '10153475308753'
@@ -329,8 +329,8 @@ Usuario:
     slug: juan753
   Usuario_2:
     Perfil: Perfil_2
-    email: Juan_754@
-    contrasena: '754'
+    email: Juan_754@g
+    contrasena: '083790e4f64a29577a30952bc76243542285b1e9'
     nombre: Juan754
     tipo_identificacion: CC
     identificacion: '10153475408754'
@@ -342,8 +342,8 @@ Usuario:
     slug: juan754
   Usuario_3:
     Perfil: Perfil_3
-    email: Juan_755@
-    contrasena: '755'
+    email: Juan_755@g
+    contrasena: '56b88f9b7e13afd707d8a3a95b4a65ff6cea6997'
     nombre: Juan755
     tipo_identificacion: CC
     identificacion: '10153475508755'

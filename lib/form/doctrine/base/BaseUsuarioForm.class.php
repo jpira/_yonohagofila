@@ -25,8 +25,8 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'foto'                => new sfWidgetFormInputText(),
       'estado'              => new sfWidgetFormInputText(),
       'token'               => new sfWidgetFormInputText(),
-      'fecha_nacimiento'    => new sfWidgetFormDateTime(),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
+      'fecha_nacimiento'    => new sfWidgetFormInputText(),
+      'fecha_creacion'      => new sfWidgetFormInputText(),
       'slug'                => new sfWidgetFormInputText(),
     ));
 
@@ -41,8 +41,8 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'foto'                => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'estado'              => new sfValidatorInteger(array('required' => false)),
       'token'               => new sfValidatorString(array('max_length' => 50, 'required' => false)),
-      'fecha_nacimiento'    => new sfValidatorDateTime(),
-      'fecha_creacion'      => new sfValidatorDateTime(),
+      'fecha_nacimiento'    => new sfValidatorPass(),
+      'fecha_creacion'      => new sfValidatorPass(),
       'slug'                => new sfValidatorString(array('max_length' => 160, 'required' => false)),
     ));
 

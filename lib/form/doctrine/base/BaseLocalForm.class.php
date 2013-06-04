@@ -20,8 +20,8 @@ abstract class BaseLocalForm extends BaseFormDoctrine
       'imagen'              => new sfWidgetFormInputText(),
       'estado'              => new sfWidgetFormInputCheckbox(),
       'id_usuario'          => new sfWidgetFormInputText(),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
-      'fecha_actualizacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion'      => new sfWidgetFormInputText(),
+      'fecha_actualizacion' => new sfWidgetFormInputText(),
       'slug'                => new sfWidgetFormInputText(),
     ));
 
@@ -31,8 +31,8 @@ abstract class BaseLocalForm extends BaseFormDoctrine
       'imagen'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'estado'              => new sfValidatorBoolean(),
       'id_usuario'          => new sfValidatorInteger(array('required' => false)),
-      'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
+      'fecha_creacion'      => new sfValidatorPass(),
+      'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
       'slug'                => new sfValidatorString(array('max_length' => 210, 'required' => false)),
     ));
 

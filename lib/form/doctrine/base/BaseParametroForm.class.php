@@ -21,8 +21,8 @@ abstract class BaseParametroForm extends BaseFormDoctrine
       'numero_personas'     => new sfWidgetFormInputText(),
       'tiempo_respuesta'    => new sfWidgetFormInputText(),
       'costo_ingreso'       => new sfWidgetFormInputText(),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
-      'fecha_actualizacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion'      => new sfWidgetFormInputText(),
+      'fecha_actualizacion' => new sfWidgetFormInputText(),
       'id_usuario'          => new sfWidgetFormInputText(),
     ));
 
@@ -33,8 +33,8 @@ abstract class BaseParametroForm extends BaseFormDoctrine
       'numero_personas'     => new sfValidatorInteger(),
       'tiempo_respuesta'    => new sfValidatorString(array('max_length' => 50)),
       'costo_ingreso'       => new sfValidatorString(array('max_length' => 50)),
-      'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
+      'fecha_creacion'      => new sfValidatorPass(),
+      'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
       'id_usuario'          => new sfValidatorInteger(array('required' => false)),
     ));
 

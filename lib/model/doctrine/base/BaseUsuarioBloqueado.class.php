@@ -11,7 +11,7 @@ Doctrine_Manager::getInstance()->bindComponent('UsuarioBloqueado', 'doctrine');
  * @property integer $usuario_id
  * @property integer $local_id
  * @property integer $id_usuario
- * @property timestamp $fecha_creacion
+ * @property datetime $fecha_creacion
  * @property Local $Local
  * @property Usuario $Usuario
  * 
@@ -19,7 +19,7 @@ Doctrine_Manager::getInstance()->bindComponent('UsuarioBloqueado', 'doctrine');
  * @method integer          getUsuarioId()      Returns the current record's "usuario_id" value
  * @method integer          getLocalId()        Returns the current record's "local_id" value
  * @method integer          getIdUsuario()      Returns the current record's "id_usuario" value
- * @method timestamp        getFechaCreacion()  Returns the current record's "fecha_creacion" value
+ * @method datetime         getFechaCreacion()  Returns the current record's "fecha_creacion" value
  * @method Local            getLocal()          Returns the current record's "Local" value
  * @method Usuario          getUsuario()        Returns the current record's "Usuario" value
  * @method UsuarioBloqueado setId()             Sets the current record's "id" value
@@ -75,14 +75,13 @@ abstract class BaseUsuarioBloqueado extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

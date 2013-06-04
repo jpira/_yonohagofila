@@ -10,13 +10,13 @@ Doctrine_Manager::getInstance()->bindComponent('Ranking', 'doctrine');
  * @property integer $id
  * @property string $nombre
  * @property integer $id_usuario
- * @property timestamp $fecha_creacion
+ * @property datetime $fecha_creacion
  * @property Doctrine_Collection $RankingUsuario
  * 
  * @method integer             getId()             Returns the current record's "id" value
  * @method string              getNombre()         Returns the current record's "nombre" value
  * @method integer             getIdUsuario()      Returns the current record's "id_usuario" value
- * @method timestamp           getFechaCreacion()  Returns the current record's "fecha_creacion" value
+ * @method datetime            getFechaCreacion()  Returns the current record's "fecha_creacion" value
  * @method Doctrine_Collection getRankingUsuario() Returns the current record's "RankingUsuario" collection
  * @method Ranking             setId()             Sets the current record's "id" value
  * @method Ranking             setNombre()         Sets the current record's "nombre" value
@@ -60,14 +60,13 @@ abstract class BaseRanking extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           promedio
-    theme:                 admin
+    theme:                 yonohagofila
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -14,8 +14,13 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
-      filter:  ~
+      list:  
+        title: Promedio Por Local
+        display: [ promedio, Local, fecha_creacion ]
+      filter:
+        display: [ promedio, local_id ]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit: 
+        display: [ promedio, local_id ]
+      new:   
+        display: [ promedio, local_id ]

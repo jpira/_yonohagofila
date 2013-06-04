@@ -13,7 +13,8 @@ default:
     - twitter/bootstrap.css: { media: false }
     - base.css: { media: false }
     - twitter/responsive.css: { media: false }
-    - jquery-ui-1.8.23.custom.css: { media: false }
+    - jquery-ui-1.8.23.custom.css: { media: false }    
+    - /js/plugins/chosen/chosen/chosen.css: { media: false }  
 
   javascripts:
     - plugins/jquery.sparkline.min.js
@@ -43,6 +44,8 @@ default:
     - plugins/datatables/js/jquery.dataTables.js
     - plugins/knockout-2.0.0.js
     - scripts.js
-
+    - plugins/bootstrap-datepicker.js
+    - plugins/validation/dist/jquery.validate.min.js
+    
   has_layout:     true
   layout:         layout

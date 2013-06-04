@@ -30,7 +30,7 @@ Alarma:
       notnull: true
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -67,7 +67,7 @@ Calendario:
       notnull: false
       autoincrement: false
     fecha_evento:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -95,14 +95,14 @@ Calendario:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false    
     fecha_actualizacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -149,14 +149,14 @@ Credencial:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     fecha_actualizacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -238,14 +238,14 @@ Local:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     fecha_actualizacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -330,14 +330,14 @@ Parametro:
       notnull: true
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     fecha_actualizacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -382,14 +382,14 @@ Perfil:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     fecha_actualizacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -436,7 +436,7 @@ PerfilCredencial:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -478,7 +478,7 @@ Ranking:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -529,14 +529,14 @@ RankingUsuario:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     fecha_actualizacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -589,7 +589,7 @@ Reserva:
       notnull: true
       autoincrement: false
     fecha_reserva:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -610,7 +610,7 @@ Reserva:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -714,14 +714,14 @@ Usuario:
       notnull: false
       autoincrement: false
     fecha_nacimiento:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false
@@ -784,7 +784,7 @@ UsuarioBloqueado:
       notnull: false
       autoincrement: false
     fecha_creacion:
-      type: timestamp(25)
+      type: datetime
       fixed: false
       unsigned: false
       primary: false

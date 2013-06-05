@@ -24,10 +24,10 @@
                                 <div class="span6">
                                     <div class=" box color_2 height_medium paint_hover">
                                         <div class="content numbers">
-                                            <h3 class="value">219.103</h3>
-                                            <div class="description mb5">Audience Reach</div>
-                                            <h1 class="value">3.28<span class="percent">%</span></h1>
-                                            <div class="description">Average CTR</div>
+                                            <h3 class="value">2634</h3>
+                                            <div class="description mb5">Reservas Realizadas</div>
+                                            <h1 class="value"><?php echo round($por = 100-((1987*100)/2634), 4) ?><span class="percent">%</span></h1>
+                                            <div class="description"> Sin Responder</div>
                                         </div>
                                     </div>
                                 </div>

@@ -18,10 +18,3 @@
     [?php include_partial('<?php echo $this->getModuleName() ?>/form_footer', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration)) ?]
   </div>
 </div>
-<script>
-    $().ready(function() {
-        // validate the comment form when it is submitted
-        // validate signup form on keyup and submit
-        $("#<?php echo $this->params['route_prefix'] ?>").validate();
-    });
-</script>

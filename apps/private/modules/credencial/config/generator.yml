@@ -18,7 +18,7 @@ generator:
         title: Lista de Credenciales
         display: [ nombre, fecha_creacion ]
       filter:
-        display: [ nombre, fecha_creacion ]
+        display: [ nombre ]
       form:    ~
       edit:
         display: [ nombre ]

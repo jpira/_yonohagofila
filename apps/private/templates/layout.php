@@ -48,36 +48,36 @@
                     </div>                    
                     <ul id="sidebar_menu" class="navbar nav nav-list container full">
                         <li class="accordion-group "> <a class="dashboard " href="<?php echo url_for('@homepage') ?>"><img src="../img/menu_icons/dashboard.png"><span>Home Page</span></a> </li>
-                        <?php if($sf_user->hasCredential('ALL ACCESS')):?>
-                        <li class="accordion-group color_7"> <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse1"> <img src="../img/menu_icons/settings.png"><span>Admin</span></a>
-                            <ul id="collapse1" class="accordion-body collapse">
-                                <li><a href="<?php echo url_for('@usuario') ?>">Usuarios</a></li>
-                                <li><a href="<?php echo url_for('@perfil') ?>">Perfiles</a></li>
-                                <li><a href="<?php echo url_for('@credencial') ?>">Credenciales</a></li>
-                                <li><a href="#">Logs</a></li>
-                            </ul>
-                        </li>
-                        <?php endif;?>
+                        <?php if ($sf_user->hasCredential('ALL ACCESS')): ?>
+                            <li class="accordion-group color_7"> <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse1"> <img src="../img/menu_icons/settings.png"><span>Admin</span></a>
+                                <ul id="collapse1" class="accordion-body collapse">
+                                    <li><a href="<?php echo url_for('@usuario') ?>">Usuarios</a></li>
+                                    <li><a href="<?php echo url_for('@perfil') ?>">Perfiles</a></li>
+                                    <li><a href="<?php echo url_for('@credencial') ?>">Credenciales</a></li>
+                                    <li><a href="#">Logs</a></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
                         <li class="accordion-group color_24"> <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse2"> <img src="../img/menu_icons/docs.png"><span>Tablas Maestras</span></a>
                             <ul id="collapse2" class="accordion-body collapse">
-                                <?php if($sf_user->hasCredential('ALL ACCESS')):?>
-                                <li><a href="<?php echo url_for('@local') ?>">Locales</a></li>
-                                <li><a href="<?php echo url_for('@parametro') ?>">Parametros</a></li>
-                                <li><a href="<?php echo url_for('@promedio') ?>">Promedios Consumo</a></li>
-                                <?php endif;?>
+                                <?php if ($sf_user->hasCredential('ALL ACCESS')): ?>
+                                    <li><a href="<?php echo url_for('@local') ?>">Locales</a></li>
+                                    <li><a href="<?php echo url_for('@parametro') ?>">Parametros</a></li>
+                                    <li><a href="<?php echo url_for('@promedio') ?>">Promedios Consumo</a></li>
+                                <?php endif; ?>
                                 <li><a href="<?php echo url_for('@tipos_eventos') ?>">Tipos de Eventos</a></li>
                             </ul>
                         </li>
                         <li class="accordion-group color_13"> <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse3"> <img src="../img/menu_icons/files.png"><span>Procesos</span></a>
                             <ul id="collapse3" class="accordion-body collapse"> 
-                                
+
                                 <li><a href="<?php echo url_for('@alarma') ?>">Alertas</a></li>
                                 <li><a href="<?php echo url_for('@eventos_local') ?>">Eventos</a></li>
                                 <li><a href="<?php echo url_for('@horario_atencion') ?>">Horarios</a></li>
-                                <?php if($sf_user->hasCredential('ALL ACCESS')):?>
-                                <li><a href="<?php echo url_for('@ranking') ?>">Rankings</a></li>
-                                <li><a href="<?php echo url_for('@reserva') ?>">Reservas</a></li>
-                                <?php endif;?>
+                                <?php if ($sf_user->hasCredential('ALL ACCESS')): ?>
+                                    <li><a href="<?php echo url_for('@ranking') ?>">Rankings</a></li>
+                                    <li><a href="<?php echo url_for('@reserva') ?>">Reservas</a></li>
+                                <?php endif; ?>
                             </ul>
                         </li>
                     </ul>
@@ -97,7 +97,7 @@
         <div id="main">
             <div class="container">
                 <div class="header row-fluid">
-                    <div class="logo"> <a href="<?php echo url_for('@homepage') ?>"><span>Start</span><span class="icon"></span></a> </div>
+                    <div class="logo"> <a href="<?php echo url_for('@homepage') ?>"><img src="../../img/logo-ynhf-01.png" WIDTH="100" HEIGHT="120"></a> </div>
                     <div class="top_right">
                         <ul class="nav nav_menu">
                             <li class="dropdown"> <a class="dropdown-toggle administrator" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">

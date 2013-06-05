@@ -1,12 +1,18 @@
 <!-- Name and Image-->
-<div class="element primary-bg height2">
+<!--<div class="element caja-presentacion primary-bg height2 width4">
     <input type="hidden" class="order" value="0">
-    <h1 class="main-name">Johnny
-        <br/>Doe
-    </h1>
+        <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
+            <source src="video/yonohagofilacom_mp4.mp4" type="video/mp4" />
+            <source src="video/yonohagofilacom_ogg.ogg" type="video/ogg" />
+            <source src="video/yonohagofilacom_webm.webm" type="video/webm" />
+            <embed src="video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
+        </video>
+        <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
+    <section >
+    </section>
     <img src="http://placehold.it/900x950" class="full" alt="profile image">
     <hr class="thick" />
-</div>
+</div>-->
 
 <!-- About -->
 <div class="element about width2">

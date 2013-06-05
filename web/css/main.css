@@ -22,6 +22,11 @@
 /*
 	Font Size Settings	(Customizable)
 */
+.element h1.main-name{
+    float: right;
+    font-size: 40px !important;
+    line-height: 35px !important;
+}
 h1.main-name, .element h1.main-name{			/* Adjust this if your name doesn't fit the box, or set the name box to width2 */
 	font-size: 50px;
 	line-height: 60px;
@@ -50,7 +55,7 @@ body {
     padding-bottom: 40px;
     background: #f1f1f1;
     font-family: 'Open Sans', sans-serif;
-    background-image: url('../img/patterns/16.png'); /* 0.png to 17.png available by default */
+    background: url('../img/patterns/fd-body.png') repeat-x 0 0 transparent; 
     background-attachment: fixed;
 }
 
@@ -111,7 +116,7 @@ blockquote{
 	border-bottom: 2px dashed #fff;	
 }
 .container-top{
-	margin-top: 50px;
+	margin-top: 170px;
 	clear:both;
 }
 #container-isotope{
@@ -213,6 +218,21 @@ table.table tr:last-child th, table.table tr:last-child td
 	border-bottom: none;
 	padding-bottom:0;
 }
+/*
+ video presentacion YNHF
+*/
+.caja-presentacion{
+    background: url("../img/mano-acceso.png") no-repeat 0 -5px transparent !important;
+    overflow: visible;
+/*    clear: both;*/
+box-shadow: none !important;
+    
+}
+.video-prentacion{
+            /*float: right;*/
+            /*width: 480px;*/
+}
+
 /* 
 	Elements 
 */
@@ -480,33 +500,44 @@ input[type=text], textarea{
 */
 .navbar-inner{
 	background-color: rgb(0,0,0);
+            /*padding-top: 20px;*/
+
 }
 .navbar .navbar-inner{
-	background-color: rgb(0,0,0) !important;
-	background: rgba(0,0,0,0.7) !important;
+	background-image:  url("../img/patterns/fd-header-sitio-web.jpg");
+        height: 138px;
+/*	background: rgba(0,0,0,0.7) !important;*/
 	filter: "none" !important;
 	color:#666;	
 	border-bottom:none;
 }
+.navbar .nav>li>a, .navbar .brand, .show-title, .busqueda-avanzada input{
+    	text-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+
+}
 .navbar .nav>li>a, .navbar .brand, .show-title{
-	text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
 	color:#fff;	
 }
-.nav-collapse .nav>li>a:hover i, .nav-collapse .nav>li>a:focus i, .nav-collapse .dropdown-menu a:hover i, .nav-collapse .dropdown-menu a:focus i, .navbar .nav>li>a.selected i{
+/*.nav-collapse .nav>li>a:hover i, .nav-collapse .nav>li>a:focus i, .nav-collapse .dropdown-menu a:hover i, .nav-collapse .dropdown-menu a:focus i, .navbar .nav>li>a.selected i{
 	text-shadow: 2px 2px 0px rgba(0,0,0,0.3) !important;
-}
+}*/
 .navbar .nav>li>a.selected{
  	background-image:none;
  	color:#fff;
 }
-.navbar .nav>li>a.selected i{
+/*.navbar .nav>li>a.selected i{
  	text-shadow:none;
  	color:#fff;
-}
+}*/
 .navbar .brand{
+    	background:  url("../img/logo-ynhf.png") no-repeat 0 30px transparent;
+        z-index: -9999;
 	padding-left:0;
 	margin-left:5px;
-	font-weight:700;	
+        width: 196px;
+        height: 139px;
+        overflow: hidden;
+/*	font-weight:700;	*/
 }
 .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container{
 	max-width:1000px;
@@ -524,25 +555,25 @@ input[type=text], textarea{
 	border:none;
 }
 .nav-collapse .nav>li>a, .nav-collapse .dropdown-menu a{
-	font-weight:300;	
+	font-weight:700;	
 }
-span.name{
+/*span.name{
 	display:none;	
-}
-.show-title{
+}*/
+/*.show-title{
 	color:#fff;
 	font-weight:300; 
 	font-size:18px; 
 	margin-top:10px;
 	margin-left:15px;
-}
-.navbar .nav i{
+}*/
+/*.navbar .nav i{
 	font-size:20px;
-}
-.navbar .nav li:hover i, .navbar .nav a:hover i{
+}*/
+/*.navbar .nav li:hover i, .navbar .nav a:hover i{
 	color:#fff;
 	text-shadow:none;
-}
+}*/
 
 /*
 	Components

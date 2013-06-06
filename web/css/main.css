@@ -126,6 +126,7 @@ blockquote{
 	margin-right:auto;
 	padding:0;
 	margin-top:10px;
+        overflow: visible !important;
 }
 .container{
 	width:1000px;
@@ -222,11 +223,15 @@ table.table tr:last-child th, table.table tr:last-child td
  video presentacion YNHF
 */
 .caja-presentacion{
-    background: url("../img/mano-acceso.png") no-repeat 0 -5px transparent !important;
-    overflow: visible;
-/*    clear: both;*/
-box-shadow: none !important;
+    /*background: url("../img/mano-acceso.png") no-repeat center bottom transparent !important;*/
+    overflow: visible !important;
+    background: transparent!important;
+    height: 205px !important;
+    box-shadow: none !important;
     
+}
+.mano-acceso{
+    margin-left: -190px;
 }
 .video-prentacion{
             /*float: right;*/

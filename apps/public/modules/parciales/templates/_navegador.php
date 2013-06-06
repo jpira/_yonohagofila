@@ -13,10 +13,10 @@
 <!--                    	Uncomment this to filter elements for homepage 
                     <li><a href="#home" data-option-value="home" class="selected">home</a></li>
                     -->
-                    <li><a href="#show-all" class="selected"><span>Inicio</span></a></li>
-                    <li><a href="#about"><span>Conózcanos</span></a></li>
-                    <li><a href="#portfolio"><span>Políticas y condiciones de uso</span></a></li>
-                    <li><a href="#contact"><span>Contáctenos</span></a></li>
+                    <li><a href="#show-all" data-option-value="*" class="selected"><span>Inicio</span></a></li>
+                    <li><a href="#about" data-option-value=".about"><span>Conózcanos</span></a></li>
+                    <li><a href="#portfolio" data-option-value=".portfolio"><span>Políticas y condiciones de uso</span></a></li>
+                    <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <li class="show-title">
                     </li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>

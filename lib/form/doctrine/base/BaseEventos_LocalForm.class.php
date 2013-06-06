@@ -15,23 +15,23 @@ abstract class BaseEventos_LocalForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                  => new sfWidgetFormInputHidden(),
-      'nombre'              => new sfWidgetFormInputText(),
-      'local_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
-      'tipoevento_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'add_empty' => true)),
-      'id_usuario'          => new sfWidgetFormInputText(),
-      'fecha_creacion'      => new sfWidgetFormInputText(),
-      'fecha_actualizacion' => new sfWidgetFormInputText(),
+      'id'             => new sfWidgetFormInputHidden(),
+      'nombre'         => new sfWidgetFormInputText(),
+      'local_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
+      'tipoevento_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'add_empty' => true)),
+      'id_usuario'     => new sfWidgetFormInputText(),
+      'fecha_evento'   => new sfWidgetFormInputText(),
+      'fecha_creacion' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'nombre'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'local_id'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
-      'tipoevento_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'required' => false)),
-      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
-      'fecha_creacion'      => new sfValidatorPass(),
-      'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
+      'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'nombre'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'local_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
+      'tipoevento_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'required' => false)),
+      'id_usuario'     => new sfValidatorInteger(array('required' => false)),
+      'fecha_evento'   => new sfValidatorPass(array('required' => false)),
+      'fecha_creacion' => new sfValidatorPass(),
     ));
 
     $this->widgetSchema->setNameFormat('eventos_local[%s]');

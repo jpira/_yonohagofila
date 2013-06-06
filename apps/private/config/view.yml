@@ -45,7 +45,7 @@ default:
     - plugins/knockout-2.0.0.js
     - scripts.js
     - plugins/bootstrap-datepicker.js
-    - plugins/validation/dist/jquery.validate.min.js
+    - plugins/validation/dist/jquery.validate.js
     
   has_layout:     true
   layout:         layout

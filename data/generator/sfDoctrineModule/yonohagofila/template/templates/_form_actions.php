@@ -7,16 +7,16 @@
 <?php endif; ?>
 <?php foreach ($this->configuration->getValue($action.'.actions') as $name => $params): ?>
 <?php if ('_delete' == $name): ?>
-  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToDelete($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
+  <i class="icon-trash"></i><?php echo $this->addCredentialCondition('[?php echo $helper->linkToDelete($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 <?php elseif ('_list' == $name): ?>
-  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToList('.$this->asPhp($params).') ?]', $params) ?>
+  <i class="icon-list"></i><?php echo $this->addCredentialCondition('[?php echo $helper->linkToList('.$this->asPhp($params).') ?]', $params, array('class' => 'btn-save')) ?>
 
 <?php elseif ('_save' == $name): ?>
-  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToSave($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
+  <i class="icon-save"></i><?php echo $this->addCredentialCondition('[?php echo $helper->linkToSave($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 <?php elseif ('_save_and_add' == $name): ?>
-  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToSaveAndAdd($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
+  <i class="icon-save"></i><?php echo ' '?><i class="icon-plus"></i><?php echo $this->addCredentialCondition('[?php echo $helper->linkToSaveAndAdd($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 <?php else: ?>
   <li class="sf_admin_action_<?php echo $params['class_suffix'] ?>">

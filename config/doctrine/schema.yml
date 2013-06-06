@@ -1,129 +1,4 @@
-Alarma:
-  connection: doctrine
-  tableName: alarma
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    descripcion:
-      type: string(100)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-  actAs:
-    Sluggable:
-      unique: true
-      fields: [fecha_creacion]
-      length: 50
-      canUpdate: true
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-      
-      
-Calendario:
-  connection: doctrine
-  tableName: calendario
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    fecha_evento:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    tipoevento_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    descripcion_evento:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false    
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  actAs:
-    Sluggable:
-      unique: true
-      fields: [fecha_evento]
-      length: 50
-      canUpdate: true
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-    Tipos_Eventos:
-      local: tipoevento_id
-      foreign: id
-      type: one
-      
+    
 Credencial:
   connection: doctrine
   tableName: credencial
@@ -172,190 +47,8 @@ Credencial:
     PerfilCredencial:
       local: id
       foreign: credencial_id
-      type: many
-      
-      
-Estadistica:
-  connection: doctrine
-  tableName: estadistica
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    usuario_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    Usuario:
-      local: usuario_id
-      foreign: id
-      type: one
-      
-      
-Local:
-  connection: doctrine
-  tableName: local
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    nombre:
-      type: string(200)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false    
-    imagen:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    estado:
-      type: boolean
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  actAs:
-    Sluggable:
-      unique: true
-      fields: [nombre]
-      length: 210
-      canUpdate: true
-  relations:
-    Alarma:
-      local: id
-      foreign: local_id
-      type: many
-    Calendario:
-      local: id
-      foreign: local_id
-      type: many
-    Parametro:
-      local: id
-      foreign: local_id
-      type: many
-    RankingUsuario:
-      local: id
-      foreign: local_id
-      type: many
-    Reserva:
-      local: id
-      foreign: local_id
-      type: many
-    UsuarioBloqueado:
-      local: id
-      foreign: local_id
-      type: many
-      
-      
-Parametro:
-  connection: doctrine
-  tableName: parametro
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    descripcion:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    numero_personas:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    tiempo_respuesta:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    costo_ingreso:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-      
+      type: many 
+              
       
 Perfil:
   connection: doctrine
@@ -451,194 +144,7 @@ PerfilCredencial:
       local: credencial_id
       foreign: id
       type: one
-      
-      
-Ranking:
-  connection: doctrine
-  tableName: ranking
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    nombre:
-      type: string(100)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false    
-  actAs:
-    Sluggable:
-      unique: true
-      fields: [nombre]
-      length: 110
-      canUpdate: true
-  relations:
-    RankingUsuario:
-      local: id
-      foreign: ranking_id
-      type: many
-      
-      
-RankingUsuario:
-  connection: doctrine
-  tableName: ranking_usuario
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    usuario_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    ranking_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    puntos:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-  relations:
-    Ranking:
-      local: ranking_id
-      foreign: id
-      type: one
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-    Usuario:
-      local: usuario_id
-      foreign: id
-      type: one
-      
-      
-Reserva:
-  connection: doctrine
-  tableName: reserva
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    numero_personas:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fecha_reserva:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    promedio_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    estado:
-      type: string(30)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  actAs:
-    Sluggable:
-      unique: true
-      fields: [fecha_reserva]
-      length: 50
-      canUpdate: true
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-    Promedio:
-      local: promedio_id
-      foreign: id
-      type:  one
-      
+           
       
 Usuario:
   connection: doctrine
@@ -750,171 +256,7 @@ Usuario:
       local: id
       foreign: usuario_id
       type: many
-      
-      
-UsuarioBloqueado:
-  connection: doctrine
-  tableName: usuario_bloqueado
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    usuario_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false    
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-    Usuario:
-      local: usuario_id
-      foreign: id
-      type: one
-      
-      
-Promedio:
-  tableName: promedio
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    promedio:
-      type: string(100)
-      fixed: false
-      unsigned: false
-      notnull: true
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false   
-      notnull: true
-      autoincrement: false 
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false          
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  actAs:
-    Sluggable:
-      unique: true
-      fields: [nombre]
-      length: 110
-      canUpdate: true
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-      
-      
-
-Horario_atencion:
-  tableName: horario_atencion
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    horario:
-      type: string(100)
-      fixed: false
-      unsigned: false
-      notnull: true
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false   
-      notnull: true
-      autoincrement: false 
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false          
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  actAs:
-    Sluggable:
-      unique: true
-      fields: [nombre]
-      length: 110
-      canUpdate: true
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-            
+             
             
 Logs:
   tableName: logs
@@ -965,59 +307,9 @@ Logs:
       notnull: true
       autoincrement: false
       
-      
-Preregistro:
-  tableName: preregistro
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true 
-    nombrelugar:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-    nombrecontacto:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-    telcontacto:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-    estado:
-      type: boolean
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false          
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-      
-      
-Tipos_Eventos:
-  tableName: tiposeventos
+
+Documentos:
+  tableName: documentos
   columns:
     id:
       type: integer(4)
@@ -1025,28 +317,48 @@ Tipos_Eventos:
       unsigned: false
       primary: true
       autoincrement: true
-    nombre:
+    empresa:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      notnull: true
+      autoincrement: false
+    no_carpeta:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    tomo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    año:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     id_usuario:
       type: integer(4)
       fixed: false
       unsigned: false
       primary: false
       notnull: false
-      autoincrement: false   
-      notnull: false
-      autoincrement: false 
+      autoincrement: false
     fecha_creacion:
       type: datetime
       fixed: false
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false          
+      autoincrement: false
     fecha_actualizacion:
       type: datetime
       fixed: false
@@ -1055,63 +367,3 @@ Tipos_Eventos:
       notnull: false
       autoincrement: false
   
-  
-Eventos_Local:
-  tableName: eventoslocal
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    nombre:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-    local_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-    tipoevento_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-    id_usuario:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false   
-      notnull: false
-      autoincrement: false 
-    fecha_creacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false          
-    fecha_actualizacion:
-      type: datetime
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    Local:
-      local: local_id
-      foreign: id
-      type: one
-    Tipos_Eventos:
-      local: tipoevento_id
-      foreign: id
-      type: one

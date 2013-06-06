@@ -21,7 +21,7 @@ class Eventos_LocalForm extends BaseEventos_LocalForm {
 
     public function configure() {
         $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre Para Evento', 'required' => 'required'));
-        $this->getWidget('fecha_actualizacion')->setAttributes(array('type' => 'text', 'placeholder' => '31-12-1000', 'required' => 'required'));
+        $this->setWidget('fecha_evento', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'date')));
         $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
         $this->setWidget('fecha_creacion', new sfWidgetFormInputHidden());
     }

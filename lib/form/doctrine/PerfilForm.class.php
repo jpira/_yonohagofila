@@ -23,7 +23,7 @@ class PerfilForm extends BasePerfilForm {
     }
     
     public function configure() {
-        $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre Perfil', 'required' => 'required'));
+        $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre Perfil', 'required' => "required"));
         $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
         $this->setWidget('fecha_actualizacion', new sfWidgetFormInputHidden());
     }

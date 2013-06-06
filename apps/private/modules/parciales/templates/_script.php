@@ -1,4 +1,3 @@
-<?php echo javascript_include_tag('jquery.js') ?>
 <?php echo javascript_include_tag('jquery-ui-1.8.23.custom.min.js') ?>
 <!--[if !IE]> -->
 <!--[if !IE]> -->

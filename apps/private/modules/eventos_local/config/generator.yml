@@ -17,9 +17,9 @@ generator:
         fecha_actualizacion: { label: Fecha Evento }
       list: 
         title: Eventos de Local
-        display: [ nombre, local, tipoevento, fecha_actualizacion ] 
+        display: [ nombre, local, tipoevento_id, fecha_evento ] 
       filter:
-        display: [ nombre, local_id, tipoevento_id, fecha_actualizacion ]
+        display: [ nombre, local_id, tipoevento_id, fecha_evento ]
       form:    ~
       edit:    ~
       new:     ~

@@ -18,7 +18,7 @@ abstract class BaseRankingForm extends BaseFormDoctrine
       'id'             => new sfWidgetFormInputHidden(),
       'nombre'         => new sfWidgetFormInputText(),
       'id_usuario'     => new sfWidgetFormInputText(),
-      'fecha_creacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion' => new sfWidgetFormInputText(),
       'slug'           => new sfWidgetFormInputText(),
     ));
 
@@ -26,7 +26,7 @@ abstract class BaseRankingForm extends BaseFormDoctrine
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nombre'         => new sfValidatorString(array('max_length' => 100)),
       'id_usuario'     => new sfValidatorInteger(array('required' => false)),
-      'fecha_creacion' => new sfValidatorDateTime(),
+      'fecha_creacion' => new sfValidatorPass(),
       'slug'           => new sfValidatorString(array('max_length' => 110, 'required' => false)),
     ));
 

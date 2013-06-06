@@ -17,24 +17,24 @@ abstract class BaseCalendarioForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'                  => new sfWidgetFormInputHidden(),
       'local_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
-      'fecha_evento'        => new sfWidgetFormDateTime(),
+      'fecha_evento'        => new sfWidgetFormInputText(),
       'tipoevento_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'add_empty' => true)),
       'descripcion_evento'  => new sfWidgetFormInputText(),
       'id_usuario'          => new sfWidgetFormInputText(),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
-      'fecha_actualizacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion'      => new sfWidgetFormInputText(),
+      'fecha_actualizacion' => new sfWidgetFormInputText(),
       'slug'                => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'local_id'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
-      'fecha_evento'        => new sfValidatorDateTime(),
+      'fecha_evento'        => new sfValidatorPass(),
       'tipoevento_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'required' => false)),
       'descripcion_evento'  => new sfValidatorString(array('max_length' => 255)),
       'id_usuario'          => new sfValidatorInteger(array('required' => false)),
-      'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
+      'fecha_creacion'      => new sfValidatorPass(),
+      'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
       'slug'                => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
 

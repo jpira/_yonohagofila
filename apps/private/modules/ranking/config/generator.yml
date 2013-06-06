@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           ranking
-    theme:                 admin
+    theme:                 yonohagofila
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -14,10 +14,13 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list: 
+      list:
+        title: Lista de Rankings
         display: [ nombre, fecha_creacion ]
       filter:
         display: [ nombre, fecha_creacion ]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        display: [ nombre ]
+      new:  
+         display: [ nombre ]

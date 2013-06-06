@@ -19,7 +19,7 @@ abstract class BaseUsuarioBloqueadoForm extends BaseFormDoctrine
       'usuario_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
       'local_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
       'id_usuario'     => new sfWidgetFormInputText(),
-      'fecha_creacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -27,7 +27,7 @@ abstract class BaseUsuarioBloqueadoForm extends BaseFormDoctrine
       'usuario_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'required' => false)),
       'local_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
       'id_usuario'     => new sfValidatorInteger(array('required' => false)),
-      'fecha_creacion' => new sfValidatorDateTime(),
+      'fecha_creacion' => new sfValidatorPass(),
     ));
 
     $this->widgetSchema->setNameFormat('usuario_bloqueado[%s]');

@@ -12,5 +12,9 @@
  */
 class Usuario extends BaseUsuario
 {
+    public static function encode($pass, $name) {
+
+        return sha1(sha1($pass) . '' . md5($name));
+    }
 
 }

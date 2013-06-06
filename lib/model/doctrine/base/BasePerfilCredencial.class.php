@@ -10,14 +10,14 @@ Doctrine_Manager::getInstance()->bindComponent('PerfilCredencial', 'doctrine');
  * @property integer $perfil_id
  * @property integer $credencial_id
  * @property integer $id_usuario
- * @property timestamp $fecha_creacion
+ * @property datetime $fecha_creacion
  * @property Perfil $Perfil
  * @property Credencial $Credencial
  * 
  * @method integer          getPerfilId()       Returns the current record's "perfil_id" value
  * @method integer          getCredencialId()   Returns the current record's "credencial_id" value
  * @method integer          getIdUsuario()      Returns the current record's "id_usuario" value
- * @method timestamp        getFechaCreacion()  Returns the current record's "fecha_creacion" value
+ * @method datetime         getFechaCreacion()  Returns the current record's "fecha_creacion" value
  * @method Perfil           getPerfil()         Returns the current record's "Perfil" value
  * @method Credencial       getCredencial()     Returns the current record's "Credencial" value
  * @method PerfilCredencial setPerfilId()       Sets the current record's "perfil_id" value
@@ -62,14 +62,13 @@ abstract class BasePerfilCredencial extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

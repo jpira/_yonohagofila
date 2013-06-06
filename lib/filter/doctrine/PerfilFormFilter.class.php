@@ -12,5 +12,6 @@ class PerfilFormFilter extends BasePerfilFormFilter
 {
   public function configure()
   {
+      unset($this['nombre'], $this['id_usuario'], $this['fecha_creacion'], $this['fecha_actualizacion'], $this['slug']);
   }
 }

@@ -19,8 +19,8 @@ abstract class BaseRankingUsuarioForm extends BaseFormDoctrine
       'usuario_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
       'local_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
       'ranking_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Ranking'), 'add_empty' => true)),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
-      'fecha_actualizacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion'      => new sfWidgetFormInputText(),
+      'fecha_actualizacion' => new sfWidgetFormInputText(),
       'puntos'              => new sfWidgetFormInputText(),
     ));
 
@@ -29,8 +29,8 @@ abstract class BaseRankingUsuarioForm extends BaseFormDoctrine
       'usuario_id'          => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'required' => false)),
       'local_id'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
       'ranking_id'          => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Ranking'), 'required' => false)),
-      'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(array('required' => false)),
+      'fecha_creacion'      => new sfValidatorPass(),
+      'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
       'puntos'              => new sfValidatorInteger(),
     ));
 

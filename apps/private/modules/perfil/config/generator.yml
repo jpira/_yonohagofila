@@ -15,9 +15,12 @@ generator:
       actions: ~
       fields:  ~
       list:
+        title: Lista de Perfiles
         display: [ nombre, fecha_creacion ]
       filter:
-        display: [ nombre, fecha_creacion ]
+        display: [ nombre ]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        display: [ nombre ]
+      new:  
+         display: [ nombre ]

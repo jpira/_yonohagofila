@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           horario_atencion
-    theme:                 admin
+    theme:                 yonohagofila
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -14,8 +14,13 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
-      filter:  ~
+      list:  
+        title: Horarios Por Local
+        display: [ horario, local_id ]
+      filter:  
+        display: [ horario, local_id ]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:  
+        display: [ horario, local_id ]
+      new:     
+        display: [ horario, local_id ]

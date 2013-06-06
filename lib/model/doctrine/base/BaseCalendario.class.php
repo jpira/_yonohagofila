@@ -9,23 +9,23 @@ Doctrine_Manager::getInstance()->bindComponent('Calendario', 'doctrine');
  * 
  * @property integer $id
  * @property integer $local_id
- * @property timestamp $fecha_evento
+ * @property datetime $fecha_evento
  * @property integer $tipoevento_id
  * @property string $descripcion_evento
  * @property integer $id_usuario
- * @property timestamp $fecha_creacion
- * @property timestamp $fecha_actualizacion
+ * @property datetime $fecha_creacion
+ * @property datetime $fecha_actualizacion
  * @property Local $Local
  * @property Tipos_Eventos $Tipos_Eventos
  * 
  * @method integer       getId()                  Returns the current record's "id" value
  * @method integer       getLocalId()             Returns the current record's "local_id" value
- * @method timestamp     getFechaEvento()         Returns the current record's "fecha_evento" value
+ * @method datetime      getFechaEvento()         Returns the current record's "fecha_evento" value
  * @method integer       getTipoeventoId()        Returns the current record's "tipoevento_id" value
  * @method string        getDescripcionEvento()   Returns the current record's "descripcion_evento" value
  * @method integer       getIdUsuario()           Returns the current record's "id_usuario" value
- * @method timestamp     getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method timestamp     getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
+ * @method datetime      getFechaCreacion()       Returns the current record's "fecha_creacion" value
+ * @method datetime      getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method Local         getLocal()               Returns the current record's "Local" value
  * @method Tipos_Eventos getTiposEventos()        Returns the current record's "Tipos_Eventos" value
  * @method Calendario    setId()                  Sets the current record's "id" value
@@ -66,14 +66,13 @@ abstract class BaseCalendario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_evento', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_evento', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
         $this->hasColumn('tipoevento_id', 'integer', 4, array(
              'type' => 'integer',
@@ -102,23 +101,21 @@ abstract class BaseCalendario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
-        $this->hasColumn('fecha_actualizacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_actualizacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

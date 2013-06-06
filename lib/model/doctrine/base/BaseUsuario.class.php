@@ -17,8 +17,8 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @property string $foto
  * @property integer $estado
  * @property string $token
- * @property timestamp $fecha_nacimiento
- * @property timestamp $fecha_creacion
+ * @property datetime $fecha_nacimiento
+ * @property datetime $fecha_creacion
  * @property Perfil $Perfil
  * @property Doctrine_Collection $Estadistica
  * @property Doctrine_Collection $RankingUsuario
@@ -34,8 +34,8 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method string              getFoto()                Returns the current record's "foto" value
  * @method integer             getEstado()              Returns the current record's "estado" value
  * @method string              getToken()               Returns the current record's "token" value
- * @method timestamp           getFechaNacimiento()     Returns the current record's "fecha_nacimiento" value
- * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
+ * @method datetime            getFechaNacimiento()     Returns the current record's "fecha_nacimiento" value
+ * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method Perfil              getPerfil()              Returns the current record's "Perfil" value
  * @method Doctrine_Collection getEstadistica()         Returns the current record's "Estadistica" collection
  * @method Doctrine_Collection getRankingUsuario()      Returns the current record's "RankingUsuario" collection
@@ -156,23 +156,21 @@ abstract class BaseUsuario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 50,
              ));
-        $this->hasColumn('fecha_nacimiento', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_nacimiento', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

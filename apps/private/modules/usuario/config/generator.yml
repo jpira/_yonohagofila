@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           usuario
-    theme:                 admin
+    theme:                 yonohagofila
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -12,12 +12,17 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
+      actions:
+        _delete: { credentials: [ALL ] }
+      fields: 
+        tipo_identificacion: { label: T.I }
       list:
-        display: [ nombre, email, tipo_identificacion, identificacion, foto, estado, fecha_nacimiento, fecha_creacion]
+        title: Lista de Usuarios
+        display: [ nombre, email, tipo_identificacion, identificacion, foto, estado, fecha_nacimiento]
+        object_actions: {}
       filter: 
-        display: [ nombre, email, tipo_identificacion, identificacion, estado, fecha_nacimiento, fecha_creacion]
+        display: [ nombre, email,identificacion, estado ]
       form:    ~
       edit:    ~
-      new:     ~
+      new: 
+        display: [ perfil_id, nombre, email, contrasena, tipo_identificacion, identificacion, foto, estado, fecha_nacimiento ]

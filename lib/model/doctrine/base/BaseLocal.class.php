@@ -12,8 +12,8 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property string $imagen
  * @property boolean $estado
  * @property integer $id_usuario
- * @property timestamp $fecha_creacion
- * @property timestamp $fecha_actualizacion
+ * @property datetime $fecha_creacion
+ * @property datetime $fecha_actualizacion
  * @property Doctrine_Collection $Alarma
  * @property Doctrine_Collection $Calendario
  * @property Doctrine_Collection $Parametro
@@ -29,8 +29,8 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method string              getImagen()              Returns the current record's "imagen" value
  * @method boolean             getEstado()              Returns the current record's "estado" value
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
- * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method timestamp           getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
+ * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
+ * @method datetime            getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method Doctrine_Collection getAlarma()              Returns the current record's "Alarma" collection
  * @method Doctrine_Collection getCalendario()          Returns the current record's "Calendario" collection
  * @method Doctrine_Collection getParametro()           Returns the current record's "Parametro" collection
@@ -110,23 +110,21 @@ abstract class BaseLocal extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
-        $this->hasColumn('fecha_actualizacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_actualizacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

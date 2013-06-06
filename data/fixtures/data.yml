@@ -1,36 +1,42 @@
 Credencial:
-  Credencial_1:
+  Credencial_3:
     nombre: 'ALL ACCESS'
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: all-access
+  Credencial_4:
+    nombre: sdqd
+    id_usuario: '1'
+    fecha_creacion: '2013-05-31 16:55:25'
+    fecha_actualizacion: '2013-05-31 16:55:27'
+    slug: null
 Local:
-  Local_1:
+  Local_31:
     nombre: 'Harry Sazon 4.1'
     imagen: images.jpg
-    estado: false
+    estado: true
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: harry-sazon-41
-  Local_2:
+  Local_32:
     nombre: 'Pescaderia Jaramillo 7.1'
     imagen: lukas.jpg
-    estado: false
+    estado: true
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: pescaderia-jaramillo-71
-  Local_3:
+  Local_33:
     nombre: 'El Corral Gourmet 3.1'
     imagen: ima.jpg
-    estado: false
+    estado: true
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: el-corral-gourmet-31
-  Local_4:
+  Local_34:
     nombre: 'Guadalupe 8.1'
     imagen: null
     estado: false
@@ -38,15 +44,15 @@ Local:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: guadalupe-81
-  Local_5:
+  Local_35:
     nombre: 'Piso 30 1'
     imagen: null
-    estado: false
+    estado: true
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: piso-30-1
-  Local_6:
+  Local_36:
     nombre: 'Harry Sazon 4.2'
     imagen: null
     estado: false
@@ -54,7 +60,7 @@ Local:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: harry-sazon-42
-  Local_7:
+  Local_37:
     nombre: 'Pescaderia Jaramillo 7.2'
     imagen: null
     estado: false
@@ -62,15 +68,15 @@ Local:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: pescaderia-jaramillo-72
-  Local_8:
+  Local_38:
     nombre: 'El Corral Gourmet 3.2'
     imagen: null
-    estado: false
+    estado: true
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: el-corral-gourmet-32
-  Local_9:
+  Local_39:
     nombre: 'Guadalupe 8.2'
     imagen: null
     estado: false
@@ -78,7 +84,7 @@ Local:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: guadalupe-82
-  Local_10:
+  Local_40:
     nombre: 'Piso 30 2'
     imagen: null
     estado: false
@@ -86,15 +92,15 @@ Local:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: piso-30-2
-  Local_11:
+  Local_41:
     nombre: 'Harry Sazon 4.3'
     imagen: null
-    estado: false
+    estado: true
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: harry-sazon-43
-  Local_12:
+  Local_42:
     nombre: 'Pescaderia Jaramillo 7.3'
     imagen: null
     estado: false
@@ -102,23 +108,23 @@ Local:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: pescaderia-jaramillo-73
-  Local_13:
+  Local_43:
     nombre: 'El Corral Gourmet 3.3'
     imagen: null
     estado: false
-    id_usuario: '1'
-    fecha_creacion: '2013-05-21 18:00:35'
-    fecha_actualizacion: '2013-05-21 18:00:35'
-    slug: el-corral-gourmet-33
-  Local_14:
+    id_usuario: '8'
+    fecha_creacion: '0000-00-00 00:00:00'
+    fecha_actualizacion: '2013-06-04 09:27:54'
+    slug: el-corral-gourmet-3-3
+  Local_44:
     nombre: 'Guadalupe 8.3'
     imagen: null
-    estado: false
+    estado: true
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: guadalupe-83
-  Local_15:
+  Local_45:
     nombre: 'Piso 30 3'
     imagen: null
     estado: false
@@ -127,8 +133,8 @@ Local:
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: piso-30-3
 Parametro:
-  Parametro_1:
-    Local: Local_1
+  Parametro_31:
+    Local: Local_31
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '3'
     tiempo_respuesta: '35 h'
@@ -136,8 +142,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_2:
-    Local: Local_2
+  Parametro_32:
+    Local: Local_32
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '4'
     tiempo_respuesta: '38 h'
@@ -145,8 +151,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_3:
-    Local: Local_3
+  Parametro_33:
+    Local: Local_33
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '5'
     tiempo_respuesta: '41 h'
@@ -154,8 +160,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_4:
-    Local: Local_4
+  Parametro_34:
+    Local: Local_34
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '6'
     tiempo_respuesta: '44 h'
@@ -163,8 +169,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_5:
-    Local: Local_5
+  Parametro_35:
+    Local: Local_35
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '7'
     tiempo_respuesta: '47 h'
@@ -172,8 +178,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_6:
-    Local: Local_6
+  Parametro_36:
+    Local: Local_36
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '8'
     tiempo_respuesta: '50 h'
@@ -181,8 +187,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_7:
-    Local: Local_7
+  Parametro_37:
+    Local: Local_37
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '9'
     tiempo_respuesta: '53 h'
@@ -190,8 +196,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_8:
-    Local: Local_8
+  Parametro_38:
+    Local: Local_38
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '10'
     tiempo_respuesta: '56 h'
@@ -199,8 +205,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_9:
-    Local: Local_9
+  Parametro_39:
+    Local: Local_39
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '11'
     tiempo_respuesta: '59 h'
@@ -208,8 +214,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_10:
-    Local: Local_10
+  Parametro_40:
+    Local: Local_40
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '12'
     tiempo_respuesta: '62 h'
@@ -217,8 +223,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_11:
-    Local: Local_11
+  Parametro_41:
+    Local: Local_41
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '13'
     tiempo_respuesta: '65 h'
@@ -226,8 +232,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_12:
-    Local: Local_12
+  Parametro_42:
+    Local: Local_42
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '14'
     tiempo_respuesta: '68 h'
@@ -235,8 +241,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_13:
-    Local: Local_13
+  Parametro_43:
+    Local: Local_43
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '15'
     tiempo_respuesta: '71 h'
@@ -244,8 +250,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_14:
-    Local: Local_14
+  Parametro_44:
+    Local: Local_44
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '16'
     tiempo_respuesta: '74 h'
@@ -253,8 +259,8 @@ Parametro:
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
-  Parametro_15:
-    Local: Local_15
+  Parametro_45:
+    Local: Local_45
     descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n            text ever since the 1500s, when an unknown of Letraset sheets \r\n            containing Lorem Ipsum pas"
     numero_personas: '17'
     tiempo_respuesta: '77 h'
@@ -263,74 +269,92 @@ Parametro:
     fecha_actualizacion: '2013-05-21 18:00:35'
     id_usuario: '1'
 Perfil:
-  Perfil_1:
+  Perfil_7:
     nombre: Superadministrador
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: superadministrador
-  Perfil_2:
+  Perfil_8:
     nombre: Administrador
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: administrador
-  Perfil_3:
+  Perfil_9:
     nombre: Cliente
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
     slug: cliente
+PerfilCredencial:
+  PerfilCredencial_7_3:
+    Perfil: Perfil_7
+    Credencial: Credencial_3
+    id_usuario: null
+    fecha_creacion: '0000-00-00 00:00:00'
+  PerfilCredencial_8_4:
+    Perfil: Perfil_8
+    Credencial: Credencial_4
+    id_usuario: null
+    fecha_creacion: '0000-00-00 00:00:00'
 Promedio:
-  Promedio_1:
+  Promedio_3:
     promedio: $10000-$50000
-    Local: Local_3
+    Local: Local_33
     id_usuario: '1'
     fecha_creacion: '2013-05-23 09:13:01'
     fecha_actualizacion: '2013-05-23 09:13:05'
     slug: '2013-05-23 09:13:01'
 Ranking:
-  Ranking_1:
+  Ranking_7:
     nombre: Premium
-    fecha_creacion: '2013-05-21 18:00:35'
     id_usuario: '1'
+    fecha_creacion: '2013-05-21 18:00:35'
     slug: premium
-  Ranking_2:
+  Ranking_8:
     nombre: VIP
-    fecha_creacion: '2013-05-21 18:00:35'
     id_usuario: '1'
+    fecha_creacion: '2013-05-21 18:00:35'
     slug: vip
-  Ranking_3:
+  Ranking_9:
     nombre: General
-    fecha_creacion: '2013-05-21 18:00:35'
     id_usuario: '1'
+    fecha_creacion: '2013-05-21 18:00:35'
     slug: general
 Reserva:
-  Reserva_1:
+  Reserva_3:
     numero_personas: '3'
     fecha_reserva: '2013-05-25 22:00:00'
-    Promedio: Promedio_1
+    Promedio: Promedio_3
+    estado: null
     fecha_creacion: '2013-05-23 10:14:04'
     id_usuario: '1'
     slug: 2013-05-25-22-00-00
+Tipos_Eventos:
+  Tipos_Eventos_1:
+    nombre: Privado
+    id_usuario: '8'
+    fecha_creacion: '2013-05-31 13:16:59'
+    fecha_actualizacion: '2013-05-31 13:16:59'
 Usuario:
-  Usuario_1:
-    Perfil: Perfil_1
-    email: Juan_753@
-    contrasena: '753'
+  Usuario_8:
+    Perfil: Perfil_7
+    email: Juan_753@g
+    contrasena: 96c5ebe94371f76a10c18b05ea559f2e3256cb90
     nombre: Juan753
     tipo_identificacion: CC
     identificacion: '10153475308753'
-    foto: null
+    foto: thumbnail_george.jpg
     estado: null
     token: null
     fecha_nacimiento: '2013-05-21 18:00:35'
     fecha_creacion: '2013-05-21 18:00:35'
     slug: juan753
-  Usuario_2:
-    Perfil: Perfil_2
-    email: Juan_754@
-    contrasena: '754'
+  Usuario_9:
+    Perfil: Perfil_8
+    email: Juan_754@g
+    contrasena: 083790e4f64a29577a30952bc76243542285b1e9
     nombre: Juan754
     tipo_identificacion: CC
     identificacion: '10153475408754'
@@ -340,10 +364,10 @@ Usuario:
     fecha_nacimiento: '2013-05-21 18:00:35'
     fecha_creacion: '2013-05-21 18:00:35'
     slug: juan754
-  Usuario_3:
-    Perfil: Perfil_3
-    email: Juan_755@
-    contrasena: '755'
+  Usuario_10:
+    Perfil: Perfil_9
+    email: Juan_755@g
+    contrasena: 56b88f9b7e13afd707d8a3a95b4a65ff6cea6997
     nombre: Juan755
     tipo_identificacion: CC
     identificacion: '10153475508755'

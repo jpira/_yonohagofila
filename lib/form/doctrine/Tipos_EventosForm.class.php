@@ -10,9 +10,21 @@
  */
 class Tipos_EventosForm extends BaseTipos_EventosForm
 {
-  public function configure()
-  {
-      $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
-      $this->setWidget('fecha_actualizacion', new sfWidgetFormInputHidden());
-  }
+  protected function doUpdateObject($values) {    
+       if ($this->isNew()) {
+            $values['fecha_creacion'] = date('Y-m-d G:i:s');
+            $values['fecha_actualizacion'] = date('Y-m-d G:i:s');
+        } else {
+            $values['fecha_actualizacion'] = date('Y-m-d G:i:s');
+        }
+        $sf_user = sfContext::getInstance()->getUser();
+        $values['id_usuario'] = $sf_user->getAttribute('Usuario')->get('id');
+        parent::doUpdateObject($values);
+    }
+    
+    public function configure() {
+        $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre Evento', 'required' => 'required'));
+        $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
+        $this->setWidget('fecha_actualizacion', new sfWidgetFormInputHidden());
+    }
 }

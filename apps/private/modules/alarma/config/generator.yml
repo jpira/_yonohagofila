@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           alarma
-    theme:                 admin
+    theme:                 yonohagofila
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -12,9 +12,11 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:
+        _new: { credentials: [ALL ] }
       fields:  ~
-      list:    ~
+      list: 
+        title: Alarmas de Usuario
       filter:  ~
       form:    ~
       edit:    ~

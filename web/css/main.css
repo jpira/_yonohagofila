@@ -219,6 +219,22 @@ table.table tr:last-child th, table.table tr:last-child td
 	border-bottom: none;
 	padding-bottom:0;
 }
+.reservas-vigentes{
+    height: auto;
+    background: #fff;
+}
+.reservas-vigentes tr th{
+    background: #1c6e73;
+    color:#fff !important;   
+}
+.reservas-vigentes tr td{
+    font-size: 12px;
+}
+.reservas-vigentes tr th, .reservas-vigentes tr td{
+    width: 120px;
+    text-align: center;
+}
+
 /*
  video presentacion YNHF
 */
@@ -246,7 +262,7 @@ table.table tr:last-child th, table.table tr:last-child td
   height: 240px;
   margin: 5px;
   border-radius:0px;
-  background-color:#fff;
+  /*background-color:#fff;*/
   padding:15px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -255,9 +271,12 @@ table.table tr:last-child th, table.table tr:last-child td
   -moz-shadow: 0 2px 7px rgba(0,0,0,0.42);
   -webkit-box-shadow: 0 2px 7px rgba(0,0,0,0.42);
   -o-shadow: 0 2px 7px rgba(0,0,0,0.42);
-  background-image: url('../img/grad.png');
+/*  background-image: url('../img/grad.png');
   background-position: bottom right;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
+}
+.variable-sizes .element.width1 { 
+	width: 240px; 
 }
 .variable-sizes .element.width2 { 
 	width: 490px; 
@@ -290,6 +309,24 @@ table.table tr:last-child th, table.table tr:last-child td
 .map iframe{
 	width:100%;
 	height:100%;	
+}
+.round-borders{    
+  -webkit-border-radius: 8px;
+          border-radius: 8px; 
+  background-clip: padding-box;
+
+}
+/*
+        Element perfil ususario
+*/
+
+.caja-perfil-usuario{
+    height: 300px;
+    background: #fff;
+}
+.img-perfil-usuario{
+    text-align: center;
+    margin: 0 auto;
 }
 /*
 	Portfolio element
@@ -437,8 +474,17 @@ a.close-ajax{
 	font-weight:300; 
 }
 .element h2.title{
-	font-size:34px;	
-	line-height:34px;
+    color: #2e2627;
+	font-size:25px;	
+	line-height:25px;
+        font-weight: 700;
+}
+.element h2.title span{
+    display: block;
+	font-size:16px;	
+	line-height:16px;
+        margin-top: 5px;
+        font-weight: 300;
 }
 small{
 	color:#aaa;
@@ -464,6 +510,9 @@ h2.big-text{
 table.table th, .dark{
 	color:#333 !important;		
 }
+table.table th, .blanco{
+	color:#fff !important;		
+}
 .text-thin{
 	font-family: 'Open Sans', sans-serif !important;
 	font-weight:300 !important;
@@ -484,6 +533,45 @@ table.table th, .dark{
 }
 .text-no-transform{
 	text-transform: none !important;	
+}
+/* 
+    filtros
+*/
+
+.filtro-tipo-local{
+    background: #2cb8c1;
+    width: 100%;
+    height: 40px;
+    text-align:center;
+/*    float: right;*/
+}
+.busqueda-sencilla, .busqueda-avanzada{
+    display:inline-block;
+    line-height: 30px;
+}
+.busqueda-avanzada input[type="submit"], .busqueda-sencilla input[type="search"]{
+      -webkit-border-radius: 5px;
+          border-radius: 5px;
+  background-clip: padding-box;
+}
+.busqueda-avanzada input[type="submit"]{
+    background:url("../img/fd-btn-red.png") repeat-x 0 0 transparent;
+    border: 1px inset #cb0a36;
+    color:#fff;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+            font-weight: 700;
+  
+  -webkit-box-shadow: 0px 0px 2px 0px #000;
+          box-shadow: 0px 0px 2px 0px #000;
+
+
+}
+.filtro2{
+    background: #2cb8c1;
+    height: 50px;
+    width: 100%;
 }
 /*
 	Contact Form

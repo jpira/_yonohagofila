@@ -135,7 +135,7 @@ abstract class BaseReserva extends sfDoctrineRecord
              'unique' => true,
              'fields' => 
              array(
-              0 => 'fecha_reserva',
+              0 => 'fecha_creacion',
              ),
              'length' => 50,
              'canUpdate' => true,

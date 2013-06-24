@@ -39,7 +39,7 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'tipo_identificacion' => new sfValidatorString(array('max_length' => 50)),
       'identificacion'      => new sfValidatorString(array('max_length' => 100)),
       'foto'                => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'estado'              => new sfValidatorInteger(array('required' => false)),
+      'estado'              => new sfValidatorPass(array('required' => false)),
       'token'               => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'fecha_nacimiento'    => new sfValidatorPass(),
       'fecha_creacion'      => new sfValidatorPass(),

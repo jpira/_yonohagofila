@@ -15,7 +15,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @property string $tipo_identificacion
  * @property string $identificacion
  * @property string $foto
- * @property integer $estado
+ * @property varchar $estado
  * @property string $token
  * @property datetime $fecha_nacimiento
  * @property datetime $fecha_creacion
@@ -32,7 +32,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method string              getTipoIdentificacion()  Returns the current record's "tipo_identificacion" value
  * @method string              getIdentificacion()      Returns the current record's "identificacion" value
  * @method string              getFoto()                Returns the current record's "foto" value
- * @method integer             getEstado()              Returns the current record's "estado" value
+ * @method varchar             getEstado()              Returns the current record's "estado" value
  * @method string              getToken()               Returns the current record's "token" value
  * @method datetime            getFechaNacimiento()     Returns the current record's "fecha_nacimiento" value
  * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
@@ -138,14 +138,14 @@ abstract class BaseUsuario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
-        $this->hasColumn('estado', 'integer', 1, array(
-             'type' => 'integer',
+        $this->hasColumn('estado', 'varchar', 50, array(
+             'type' => 'varchar',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => 1,
+             'length' => 50,
              ));
         $this->hasColumn('token', 'string', 50, array(
              'type' => 'string',

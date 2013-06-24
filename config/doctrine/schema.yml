@@ -230,6 +230,13 @@ Local:
       primary: false
       notnull: true
       autoincrement: false
+    usuario_asociado:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false 
     id_usuario:
       type: integer(4)
       fixed: false
@@ -626,7 +633,7 @@ Reserva:
   actAs:
     Sluggable:
       unique: true
-      fields: [fecha_reserva]
+      fields: [fecha_creacion]
       length: 50
       canUpdate: true
   relations:
@@ -700,7 +707,7 @@ Usuario:
       notnull: false
       autoincrement: false
     estado:
-      type: integer(1)
+      type: varchar(50)
       fixed: false
       unsigned: false
       primary: false

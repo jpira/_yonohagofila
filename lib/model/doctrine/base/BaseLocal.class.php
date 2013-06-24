@@ -11,6 +11,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property string $nombre
  * @property string $imagen
  * @property boolean $estado
+ * @property string $usuario_asociado
  * @property integer $id_usuario
  * @property datetime $fecha_creacion
  * @property datetime $fecha_actualizacion
@@ -28,6 +29,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method string              getNombre()              Returns the current record's "nombre" value
  * @method string              getImagen()              Returns the current record's "imagen" value
  * @method boolean             getEstado()              Returns the current record's "estado" value
+ * @method string              getUsuarioAsociado()     Returns the current record's "usuario_asociado" value
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method datetime            getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
@@ -44,6 +46,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setNombre()              Sets the current record's "nombre" value
  * @method Local               setImagen()              Sets the current record's "imagen" value
  * @method Local               setEstado()              Sets the current record's "estado" value
+ * @method Local               setUsuarioAsociado()     Sets the current record's "usuario_asociado" value
  * @method Local               setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Local               setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Local               setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
@@ -100,6 +103,15 @@ abstract class BaseLocal extends sfDoctrineRecord
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
+             ));
+        $this->hasColumn('usuario_asociado', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 200,
              ));
         $this->hasColumn('id_usuario', 'integer', 4, array(
              'type' => 'integer',

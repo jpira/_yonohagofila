@@ -11,6 +11,7 @@
 class ReservaForm extends BaseReservaForm {
 
     protected function doUpdateObject($values) {
+        $values['estado'] = 'Pendiente';
         $values['fecha_creacion'] = date('Y-m-d G:i:s');
         $values['id_usuario'] = 1;
         parent::doUpdateObject($values);
@@ -18,6 +19,7 @@ class ReservaForm extends BaseReservaForm {
 
     public function configure() {
         $this->setWidget('local_id', new sfWidgetFormInputHidden());
+        $this->setWidget('estado', new sfWidgetFormInputHidden());
         $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
         $this->setWidget('slug', new sfWidgetFormInputHidden());
         $this->setWidget('numero_personas', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'number', 'min' => '0', 'placeholder' => 'Numero de Acompañantes')));

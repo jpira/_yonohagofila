@@ -281,6 +281,9 @@ table.table tr:last-child th, table.table tr:last-child td
 .variable-sizes .element.width2 { 
 	width: 490px; 
 }
+.variable-sizes .element.width2-1 { 
+	width: 300px; 
+}
 .variable-sizes .element.width3 { 
 	width: 740px; 
 }
@@ -323,10 +326,38 @@ table.table tr:last-child th, table.table tr:last-child td
 .caja-perfil-usuario{
     height: 300px;
     background: #fff;
+    /*float: right;*/
 }
 .img-perfil-usuario{
     text-align: center;
     margin: 0 auto;
+}
+.contenido-perfil{
+    display: block;
+    float: left;
+    width: 100%;
+    /*border-bottom: 1px solid red;*/
+}
+.contenido-perfil a{
+    margin: 0;
+    padding: 0;
+}
+.caja-perfil-usuario .titulo{
+    font-weight: 700;
+    font-size: 16px;
+    color:#aa062d;
+}
+.contenido-perfil .texto-contenido-perfil{
+    float: right;
+    width: 170px;
+    line-height: 10px;
+    margin-left: -5px;
+}
+.texto-contenido-perfil:first-child p{
+    font-weight: 700;
+}
+.texto-sencillo-perfil{
+    margin-left: 40px;
 }
 /*
 	Portfolio element

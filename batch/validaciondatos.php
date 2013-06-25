@@ -37,6 +37,8 @@ if ($request->isMethod('GET')) {
                         ->fetchOne();
                 echo json_encode(array(
                     'id' => $verificacion->get('id'),
+                    'usuario' => $usuario->get('nombre'),
+                    'cc' => $usuario->get('identificacion'),
                     'fechac' => $verificacion->get('fecha_creacion'),
                     'fecha' => $verificacion->get('fecha_reserva'),
                     'num' => $verificacion->get('numero_personas'),

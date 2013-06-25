@@ -41,7 +41,7 @@ class LocalForm extends BaseLocalForm {
                     'validated_file_class' => 'sfResizedFile'
                 )));
         $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre Establecimiento', 'required' => 'required'));
-//        $this->setWidget('usuario_asociciado', new sfWidgetFormDoctrineJQueryAutocompleter(array('model' => 'Usuario', 'url' => $sf_context->getRouting()->generate('ajax1'))));
+        $this->getWidget('usuario_asociado')->setAttributes(array('placeholder' => 'Usuario Responsable', 'required' => 'required'));
     }
 
 }

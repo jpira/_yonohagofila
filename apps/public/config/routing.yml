@@ -5,3 +5,40 @@ homepage:
 legales:
   url:   /legal/:page
   param: { module: estaticas, action: legales }  
+  
+login:
+  url:   /login
+  param: { module: default, action: login } 
+  
+logout:
+  url:   /logout
+  param: { module: default, action: logout }
+  
+cancelarr:
+  url:   /cancelar/:id
+  param: { module: default, action: cancelar }    
+  
+filtrar:
+  url:   /reservaespecific
+  param: { module: default, action: buscar }  
+  
+ver:
+  url:   /verreserva
+  param: { module: default, action: ver }  
+  
+editaru: 
+  url:   /edituser/:id
+  param: { module: default, action: editar } 
+  
+nuevou: 
+  url:   /new
+  param: { module: default, action: nuevo }  
+  
+usuario:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                usuario
+    module:               usuario
+    prefix_path:          /usuario
+    column:               id
+    with_wildcard_routes: true  

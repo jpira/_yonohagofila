@@ -1,18 +1,18 @@
 <!-- Name and Image-->
 <div class="element caja-presentacion primary-bg height2 width4">
 <!--    <input type="hidden" class="order" value="0">-->
-        <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
-            <source src="video/yonohagofilacom_mp4.mp4" type="video/mp4" />
-            <source src="video/yonohagofilacom_ogg.ogg" type="video/ogg" />
-            <source src="video/yonohagofilacom_webm.webm" type="video/webm" />
-            <embed src="video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
-        </video>
-        <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
-    <!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
-<!--    <hr class="thick" />-->
+    <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
+        <source src="../video/yonohagofilacom_mp4.mp4" type="video/mp4" />
+        <source src="../video/yonohagofilacom_ogg.ogg" type="video/ogg" />
+        <source src="../video/yonohagofilacom_webm.webm" type="video/webm" />
+        <embed src="../video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
+    </video>
+    <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
+<!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
+    <!--    <hr class="thick" />-->
 </div>
 <div class="mano-acceso">
-    <img src="img/mano-acceso.png" alt="Tu no haces fila">    
+    <img src="../img/mano-acceso.png" alt="Tu no haces fila">    
 </div>
 
 <!-- About -->
@@ -28,279 +28,156 @@
     <p>You can put a description of yourself here as an introduction. Click around the navigation to see how content is presented.
     </p>
 </div>-->
-<div class="element about width1 round-borders caja-perfil-usuario height4">
-    <div>
-        <img class="img-perfil-usuario" src="img/img-avatar-usuario.jpg"/>
-        <form class="busqueda-avanzada">
-            <input class="btn-filtro-local" type="submit" value="Cambiar imagen">
-        </form>
-    </div>
-    <p>Datos de usuario</p>
-    <p>Juan Fernando Lopez</p>
+<?php if ($sf_user->isAuthenticated()): ?>
+    <div class="element about width1 round-borders caja-perfil-usuario height4">
+
         <div>
-            <a href="#"><img class="img-perfil-usuario" src="img/icon-editar.png" alt="" /></a>
+            <img class="img-perfil-usuario" src="../img/thumbnail_george.jpg"/>
+        </div>
+
+        <p>Datos de usuario</p>
+        <p><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>
+        <div>
             <p>Contraseña:</p>
             <p>xxxxxxxxxxxxxxxx</p>
         </div>
-        <p>cc.75.102.458</p>
+        <p><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
         <p>Bogotá, Colombia</p>
         <div>
-            <a href="#"><img class="img-perfil-usuario" src="img/icon-editar.png" alt="" /></a>
             <p>Tu cumpleaños:</p>
-            <p>1 Noviembre</p>
+            <p><?php echo $sf_user->getAttribute('Usuario')->get('fecha_nacimiento') ?></p>
         </div>
         <div>
-            <a href="#"><img class="img-perfil-usuario" src="img/icon-editar.png" alt="" /></a>
+            <p>Email:</p>
+            <p><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>
+        </div>
+        <div>            
             <p>Número telefónico:</p>
             <p>315 456 7895</p>
         </div>
-        <div>
-            <a href="#"><img class="img-perfil-usuario" src="img/icon-editar.png" alt="" /></a>
-            <p>Número telefónico:</p>
-            <p>315 456 7895</p>
+        <a href="<?php echo url_for('@editaru?id='.$sf_user->getAttribute('Usuario')->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
+    </div>
+    <!--
+    <div class="element about width2 height2">
+        <input type="hidden" class="order" value="8">
+        <small>
+            What I can do for you.
+        </small>
+        <h2 class="title">Skills
+        </h2>
+        <strong class="dark">HTML</strong>
+        <div class="progress">
+            <div class="bar" style="width: 90%"></div>
         </div>
-    
-</div>
-<!--
-<div class="element about width2 height2">
-    <input type="hidden" class="order" value="8">
-    <small>
-        What I can do for you.
-    </small>
-    <h2 class="title">Skills
-    </h2>
-    <strong class="dark">HTML</strong>
-    <div class="progress">
-        <div class="bar" style="width: 90%"></div>
-    </div>
-    <strong class="dark">CSS3</strong>
-    <div class="progress">
-        <div class="bar" style="width: 50%"></div>
-    </div>
-    <strong class="dark">JQuery</strong>
-    <div class="progress">
-        <div class="bar" style="width: 60%"></div>
-    </div>
-    <strong class="dark">UI Design</strong>
-    <div class="progress">
-        <div class="bar" style="width: 70%"></div>
-    </div>
-    <strong class="dark">Photoshop</strong>
-    <div class="progress">
-        <div class="bar" style="width: 55%"></div>
-    </div>
-    <strong class="dark">Wordpress</strong>
-    <div class="progress">
-        <div class="bar" style="width: 50%"></div>
-    </div>
-    <strong class="dark">Communication</strong>
-    <div class="progress">
-        <div class="bar" style="width: 90%"></div>
-    </div>
-</div>  -->
+        <strong class="dark">CSS3</strong>
+        <div class="progress">
+            <div class="bar" style="width: 50%"></div>
+        </div>
+        <strong class="dark">JQuery</strong>
+        <div class="progress">
+            <div class="bar" style="width: 60%"></div>
+        </div>
+        <strong class="dark">UI Design</strong>
+        <div class="progress">
+            <div class="bar" style="width: 70%"></div>
+        </div>
+        <strong class="dark">Photoshop</strong>
+        <div class="progress">
+            <div class="bar" style="width: 55%"></div>
+        </div>
+        <strong class="dark">Wordpress</strong>
+        <div class="progress">
+            <div class="bar" style="width: 50%"></div>
+        </div>
+        <strong class="dark">Communication</strong>
+        <div class="progress">
+            <div class="bar" style="width: 90%"></div>
+        </div>
+    </div>  -->
 
-<div class="element about width3 height4">
-    <!--<input type="hidden" class="order" value="11">-->
-<!--    <small>
-        Where I've worked.
-    </small>-->
-    
-    <!-- Tabla reservas viegentes-->
-    
-    
-    
-    <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
-    <div class="filtro-buscador">
-        <form class="busqueda-avanzada filtro2">
-            <input type="text" placeholder="Buscar por fecha de reserva" />
-            <input type="text" placeholder="Buscar por nombre del lugar" />
-             <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
-        </form>
-    </div>
-    <table class="table reservas-vigentes">
-        <tr>
-            <th class=" blanco">Fecha</th>
-            <th class=" blanco">Nombre lugar</th>
-            <th class=" blanco">Fecha reserva</th>
-            <th class=" blanco">Estado</th>
-            <th class=" blanco">Ver reserva</th>
-            <th class=" blanco">Cancelar</th>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        
-<!--            <td><h4 class="primary-color">Senior Web Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2012 - 2013
-            </th>
-            <td><h4 class="primary-color">Front-End Engineer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2010 - 2012
-            </th>
-            <td><h4 class="primary-color">Graphic Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>-->
-    </table>
-    
-    
-    
-    <!--Tabla historial -->
-    
-    
-    <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
-    <div class="filtro-buscador">
-        <form class="busqueda-avanzada filtro2">
-            <input type="text" placeholder="Buscar por fecha de reserva" />
-            <input type="text" placeholder="Buscar por nombre del lugar" />
-             <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
-        </form>
-    </div>
-    <table class="table reservas-vigentes">
-        <tr>
-            <th class=" blanco">Fecha</th>
-            <th class=" blanco">Nombre lugar</th>
-            <th class=" blanco">Fecha reserva</th>
-            <th class=" blanco">Estado</th>
-            <th class=" blanco">Ver reserva</th>
-            <th class=" blanco">Cancelar</th>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        
-<!--            <td><h4 class="primary-color">Senior Web Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2012 - 2013
-            </th>
-            <td><h4 class="primary-color">Front-End Engineer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2010 - 2012
-            </th>
-            <td><h4 class="primary-color">Graphic Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>-->
-    </table>
-</div>  
- 
+    <div class="element about width3 height4">
+        <!--<input type="hidden" class="order" value="11">-->
+    <!--    <small>
+            Where I've worked.
+        </small>-->
+
+        <!-- Tabla reservas viegentes-->
+
+
+
+        <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
+        <div class="filtro-buscador">
+            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
+                <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
+                <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
+                <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
+            </form>
+        </div>
+        <?php
+        $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
+                ->where('r.id_usuario = ? ', array($sf_user->getAttribute('Usuario')->get('id')))
+                ->orderBy('fecha_reserva desc')
+                ->execute();
+        ?>
+        <table class="table reservas-vigentes">
+            <tr>
+                <th class=" blanco">Fecha creacion</th>
+                <th class=" blanco">Nombre lugar</th>
+                <th class=" blanco">Fecha reserva</th>
+                <th class=" blanco">Estado</th>
+                <th class=" blanco">Ver QR reserva</th>
+                <th class=" blanco">Cancelar</th>
+            </tr>            
+            <?php foreach ($reservas as $r): ?>
+                <tr>
+                    <th><?php echo $r->get('fecha_creacion') ?></th>
+                    <th><?php echo $r->get('Local')->get('nombre') ?></th>
+                    <th><?php echo $r->get('fecha_reserva') ?></th>
+                    <th><?php echo $r->get('estado') ?></th>
+                    <?php // QRcode::png($r->get('slug'));?>
+                    <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
+                    <td><a href="<?php echo url_for('@cancelarr?id='.$r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
+                </tr>
+            <?php endforeach; ?>
+
+
+                        <!--            <td><h4 class="primary-color">Senior Web Designer
+                                    <br/><small>Company Name</small>
+                                </h4>
+                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="no-wrap">2012 - 2013
+                            </th>
+                            <td><h4 class="primary-color">Front-End Engineer
+                                    <br/><small>Company Name</small>
+                                </h4>
+                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                </p>
+                                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="no-wrap">2010 - 2012
+                            </th>
+                            <td><h4 class="primary-color">Graphic Designer
+                                    <br/><small>Company Name</small>
+                                </h4>
+                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                </p>
+                            </td>
+                        </tr>-->
+        </table>       
+    </div>  
+<?php endif; ?>
+
 <!--
 <div class="element about height2 width2">
     <input type="hidden" class="order" value="12">
@@ -343,7 +220,7 @@
 
 <!-- Portfolio Items -->
 
-<a href="project_video_1.html" class="element element-portfolio portfolio ajax">
+<!--<a href="project_video_1.html" class="element element-portfolio portfolio ajax">
     <input type="hidden" class="order" value="2">
     <img src="http://placehold.it/240x262" class="portfolio-image" alt="portfolio image"/>
     <span class="portfolio-title"><i class="icon-play"></i>Sword and Shield
@@ -403,10 +280,10 @@
     <img src="http://placehold.it/240x262" class="portfolio-image" alt="portfolio image"/>
     <span class="portfolio-title"><i class="icon-picture"></i>Yettu Gettu
     </span>
-</a>
+</a>-->
 
 <!-- Contact -->
-<div class="element contact height2">
+<!--<div class="element contact height2">
     <input type="hidden" class="order" value="7">
     <small>
         Personal details.
@@ -455,7 +332,7 @@
     <hr/>
     <p>Feel free to shoot me an email or give me a ring anytime!
     </p>		
-</div>  
+</div>  -->
 
 <div class="element contact map width3">
     <input type="hidden" class="order" value="15">
@@ -475,12 +352,12 @@
     <form class="contact_form" id="contact_form">
 
         <label class="control-label" for="fname">Name*</label>
-        <input type="text" id="fname" placeholder="Name">
-        <label class="control-label" for="email">Email*</label>
-        <input type="text" id="email" placeholder="Email">
+        <input type="text" id="fname" placeholder="Name" required>
+        <label class="control-label" for="email" >Email*</label>
+        <input type="email" requiered nid="email" placeholder="Email" required>
 
         <label class="control-label" for="message">Message*</label>
-        <textarea id="message"></textarea>
+        <textarea id="message" ></textarea>
         <br/>
         <button type="submit" id="submit_contact_info" class="btn btn-primary">Send Email <i class="icon-envelope-alt"></i></button>
 
@@ -488,7 +365,7 @@
 </div>
 
 <div class="element contact height2">
-    <input type="hidden" class="order" value="17">
+<!--    <input type="hidden" class="order" value="17">
     <small>
         Work Address
     </small>
@@ -500,7 +377,7 @@
         2nd Line of Address
     </p>
     <br/>
-    <small>Follow me</small>
+    <small>Follow me</small>-->
     <h2 class="title">Networks
     </h2>
     <p>
@@ -525,7 +402,7 @@
     </p>
 
 </div>
-<div class="element contact">
+<!--<div class="element contact">
     <input type="hidden" class="order" value="19">
     <small>
         Latest from my Twitter.
@@ -535,16 +412,16 @@
     <blockquote class="twitter-content">
     </blockquote>
     <a href="http://www.twitter.com/envato" class="btn btn-primary">@twitter_account <i class="icon-twitter"></i></a>
-</div>
+</div>-->
 
 <!-- Extra non-categorized -->
-<div class="element">
+<!--<div class="element">
     <input type="hidden" class="order" value="9">
     <p class="big-text dark text-no-transform text-cursive">I promise to deliver <span class="primary-color ">innovation</span>, <span class="primary-color ">creativity</span>, and <span class="primary-color ">success</span>.
     </p>
-</div>
+</div>-->
 
-<div class="element">
+<!--<div class="element">
     <input type="hidden" class="order" value="20">
     <blockquote>John Doe is a great guy to work with. Constantly reliable and efficient. A++.
         <small>Bob Smith</small>
@@ -552,4 +429,4 @@
     <blockquote>Delivered results immediately. Impeccable attention to detail.
         <small>Jane Smith</small>
     </blockquote>
-</div>                                    
+</div>-->

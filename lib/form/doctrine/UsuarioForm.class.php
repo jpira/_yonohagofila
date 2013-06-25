@@ -41,7 +41,13 @@ class UsuarioForm extends BaseUsuarioForm {
                     'validated_file_class' => 'sfResizedFile'
                 )));
         $this->setWidget('fecha_nacimiento', new sfWidgetFormInputText());
-        $this->getWidget('fecha_nacimiento')->setAttributes(array('type' => 'text', 'placeholder' => '31-12-1000', 'required' => 'required'));
+        $this->getWidget('fecha_nacimiento')->setAttributes(array('type' => 'date', 'placeholder' => '31-12-1000', 'required' => 'required'));
+       
+        $this->setWidget('perfil_id', new sfWidgetFormInputHidden());
+        $this->setWidget('estado', new sfWidgetFormInputHidden());
+        $this->setWidget('token', new sfWidgetFormInputHidden());
+        $this->setWidget('fecha_creacion', new sfWidgetFormInputHidden());
+        $this->setWidget('slug', new sfWidgetFormInputHidden());
     }
 
 }

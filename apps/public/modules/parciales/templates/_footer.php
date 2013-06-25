@@ -1,6 +1,6 @@
 <div class="container container-footer">
     <div class="element footer">
-        <span class="copyright-text">Copyright &copy; 2013 All Me VCard</span>
+        <span class="copyright-text">Copyright &copy; Yonohagofila</span>
         <ul class="social">
             <li><a href="#" class="btn btn-primary"><i class="foundicon-rss"></i></a></li>
             <li><a href="#" class="btn btn-primary"><i class="foundicon-facebook"></i></a></li>

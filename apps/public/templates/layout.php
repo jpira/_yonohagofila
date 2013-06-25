@@ -24,8 +24,8 @@
         <![endif]-->
     </head>
     <body>
-
         <?php echo include_partial('parciales/navegador') ?>
+
 
         <!-- Ajax Content Load -->
         <div class="container container-top">

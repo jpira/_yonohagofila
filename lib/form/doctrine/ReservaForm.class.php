@@ -13,7 +13,9 @@ class ReservaForm extends BaseReservaForm {
     protected function doUpdateObject($values) {
         $values['estado'] = 'Pendiente';
         $values['fecha_creacion'] = date('Y-m-d G:i:s');
-        $values['id_usuario'] = 1;
+        $sf_user = sfContext::getInstance()->getUser();
+        $values['id_usuario'] = $sf_user->getAttribute('Usuario')->get('id');
+        $values['slug'] = sha1($values['slug']);
         parent::doUpdateObject($values);
     }
 

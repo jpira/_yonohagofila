@@ -19,7 +19,7 @@ default:
     - facebox.css
     - paginacion.css
 
-  javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js]
+  javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js, jquery.jeditable.js, js.js]
     
   has_layout:     true
   layout:         layout

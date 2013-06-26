@@ -39,16 +39,15 @@
         <p class="texto-sencillo-perfil titulo">Datos de usuario</p>
         <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>
         <div class="contenido-perfil">
-            <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>Contraseña:</p>
-                <p class="textarea">xxxxxxxxxxxxxxxx</p>            
+                <p>xxxxxxxxxxxxxxxx</p>            
             </div>
         </div>
         <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
         <p class="texto-sencillo-perfil">Bogotá, Colombia</p>
         <div class="contenido-perfil">
-            <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
+            <!--<a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>-->
             <div class="texto-contenido-perfil">
                 <p>Tu cumpleaños:</p>
                 <p><?php echo $sf_user->getAttribute('Usuario')->get('fecha_nacimiento') ?></p>                
@@ -58,14 +57,14 @@
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>Número telefónico:</p>
-                <p>315 456 7895</p>             
+                <p class="text">315 456 7895</p>             
             </div>
         </div>
         <div class="contenido-perfil">
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>e-mail:</p>
-                <p><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
+                <p class="text"><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
             </div>
         </div>
 

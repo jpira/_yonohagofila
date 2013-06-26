@@ -87,7 +87,7 @@ class defaultActions extends sfActions {
 
     public function executeEditar(sfWebRequest $request) {
         $q = Doctrine::getTable('Usuario')->findOneBy('id', $request->getParameter('id'));
-        $this->form = new UsuarioForm($q);
+//        $this->form = new UsuarioForm($q);
         if ($request->isMethod('POST')) {
             $this->processForm($request, $this->form);
         }

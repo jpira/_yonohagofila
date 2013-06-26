@@ -1,4 +1,15 @@
 <div class="navbar navbar-fixed-top">
+        <div class="filtro-tipo-local">
+            <div class="bloque-filtros">
+                <form class="busqueda-sencilla">
+                    <input class="input-filtro-local" type=“search” name=“busqueda” placeholder="Buscar">
+                    <input class="btn-lupa" type="submit" value=" ">
+                </form>
+                <form class="busqueda-avanzada">
+                    <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
+                </form>                
+            </div>
+    </div>
     <div class="navbar-inner">
         <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -28,6 +39,20 @@
                     <li class="show-title">
                     </li>-->
                 </ul>
+                <div class="bloque-redes-ynhf">
+                    <ul>
+                        <li><strong>Conoce más:</strong></li>
+                        <li>
+                            <a class="red-twitter-ynhf" href="http//:www.twitter.com" ><img src="../img/redes-sociales-ynhf/red-twitter.png"/></a>                    
+                        </li>
+                        <li>
+                            <a class="red-youtbe-ynhf" href="http//:www.youtube.com" ><img src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+                        </li>
+                        <li>
+                            <a class="red-face-ynhf" href="http//:www.facebook.com" ><img src="../img/redes-sociales-ynhf/red-facebook.png"/></a>                          
+                        </li>
+                    </ul>
+                </div>
                 <?php if ($sf_user->isAuthenticated()): ?>
                     <a href="<?php echo url_for("@logout") ?>"><span>Salir</span></a>
                 <?php else: ?>
@@ -35,22 +60,14 @@
                         <form class="busqueda-sencilla" action="<?php echo url_for("@login") ?>" method="POST">
                             <input class="input-filtro-local" type="text" id="nombre" name ="nombre" placeholder="Nombre" required>
                             <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
-                            <input type="submit" value="Entrar" />
+                            <input class="btn-filtro-local2" type="submit" value="Entrar" />
                         </form></br>                
+                <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aun no estas registrado?</span></a>
                     </div>                
-                <a href="<?php echo url_for('@nuevou') ?>" ><span>Aun no estas registrado ?</span></a>
                 <?php endif; ?>
             </div><!--/.nav-collapse -->
 
         </div>
     </div>
-    <div class="filtro-tipo-local">
-        <form class="busqueda-sencilla">
-            <input class="input-filtro-local" type=“search” name=“busqueda” placeholder="Buscar">
-            <input class="btn-filtro-local" type="submit" value=" ">
-        </form>
-        <form class="busqueda-avanzada">
-            <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
-        </form>
-    </div>
+    
 </div>

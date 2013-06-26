@@ -26,7 +26,8 @@
         <![endif]-->
         
         <?php echo javascript_include_tag('jquery.js'); ?>
-        <?php echo javascript_include_tag('js.js'); ?>
+        <?php // echo javascript_include_tag('jquery.jeditable.js'); ?>
+        <?php // echo javascript_include_tag('js.js'); ?>
     </head>
     <body>
         <?php echo include_partial('parciales/navegador') ?>

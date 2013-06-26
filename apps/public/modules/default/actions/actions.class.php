@@ -12,6 +12,10 @@ class defaultActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
         $this->getResponse()->setTitle('Yonohagofila');
+        $this->form = new ReservaForm();
+        if ($request->isMethod('POST')) {
+            $this->processForm($request, $this->form);
+        }
     }
 
 //    public function Reserva(sfWebRequest $request, sfForm $form) {

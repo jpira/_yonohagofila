@@ -11,6 +11,8 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property string $nombre
  * @property string $imagen
  * @property boolean $estado
+ * @property string $direccion
+ * @property string $telefono
  * @property string $usuario_asociado
  * @property integer $id_usuario
  * @property datetime $fecha_creacion
@@ -29,6 +31,8 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method string              getNombre()              Returns the current record's "nombre" value
  * @method string              getImagen()              Returns the current record's "imagen" value
  * @method boolean             getEstado()              Returns the current record's "estado" value
+ * @method string              getDireccion()           Returns the current record's "direccion" value
+ * @method string              getTelefono()            Returns the current record's "telefono" value
  * @method string              getUsuarioAsociado()     Returns the current record's "usuario_asociado" value
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
@@ -46,6 +50,8 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setNombre()              Sets the current record's "nombre" value
  * @method Local               setImagen()              Sets the current record's "imagen" value
  * @method Local               setEstado()              Sets the current record's "estado" value
+ * @method Local               setDireccion()           Sets the current record's "direccion" value
+ * @method Local               setTelefono()            Sets the current record's "telefono" value
  * @method Local               setUsuarioAsociado()     Sets the current record's "usuario_asociado" value
  * @method Local               setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Local               setFechaCreacion()       Sets the current record's "fecha_creacion" value
@@ -103,6 +109,24 @@ abstract class BaseLocal extends sfDoctrineRecord
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
+             ));
+        $this->hasColumn('direccion', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
+        $this->hasColumn('telefono', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 200,
              ));
         $this->hasColumn('usuario_asociado', 'string', 200, array(
              'type' => 'string',

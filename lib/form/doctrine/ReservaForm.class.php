@@ -15,14 +15,16 @@ class ReservaForm extends BaseReservaForm {
         $values['fecha_creacion'] = date('Y-m-d G:i:s');
         $sf_user = sfContext::getInstance()->getUser();
         $values['id_usuario'] = $sf_user->getAttribute('Usuario')->get('id');
-        $values['slug'] = sha1($values['slug']);
+//        $values['slug'] = sha1($values['slug']);
         parent::doUpdateObject($values);
     }
 
     public function configure() {
         $this->setWidget('local_id', new sfWidgetFormInputHidden());
         $this->setWidget('estado', new sfWidgetFormInputHidden());
+        $this->setWidget('fecha_creacion', new sfWidgetFormInputHidden());
         $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
+        $this->setWidget('local_id', new sfWidgetFormInputHidden());
         $this->setWidget('slug', new sfWidgetFormInputHidden());
         $this->setWidget('numero_personas', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'number', 'min' => '0', 'placeholder' => 'Numero de Acompañantes')));
         

@@ -230,6 +230,20 @@ Local:
       primary: false
       notnull: true
       autoincrement: false
+    direccion:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    telefono:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     usuario_asociado:
       type: string(200)
       fixed: false

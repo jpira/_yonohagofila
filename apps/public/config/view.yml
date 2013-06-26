@@ -17,6 +17,7 @@ default:
     - isotope.css: {media: false}
     - main.css: {media: false}
     - facebox.css
+    - paginacion.css
 
   javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js]
     

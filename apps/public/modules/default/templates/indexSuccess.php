@@ -1,15 +1,15 @@
 <!-- Name and Image-->
 <div class="element caja-presentacion primary-bg height2 width4">
 <!--    <input type="hidden" class="order" value="0">-->
-        <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
-            <source src="video/yonohagofilacom_mp4.mp4" type="video/mp4" />
-            <source src="video/yonohagofilacom_ogg.ogg" type="video/ogg" />
-            <source src="video/yonohagofilacom_webm.webm" type="video/webm" />
-            <embed src="video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
-        </video>
-        <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
-    <!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
-<!--    <hr class="thick" />-->
+    <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
+        <source src="video/yonohagofilacom_mp4.mp4" type="video/mp4" />
+        <source src="video/yonohagofilacom_ogg.ogg" type="video/ogg" />
+        <source src="video/yonohagofilacom_webm.webm" type="video/webm" />
+        <embed src="video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
+    </video>
+    <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
+<!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
+    <!--    <hr class="thick" />-->
 </div>
 <div class="mano-acceso">
     <img src="../img/mano-acceso.png" alt="Tu no haces fila">    
@@ -29,88 +29,118 @@
     </p>
 </div>-->
 <?php if ($sf_user->isAuthenticated()): ?>
-    <div class="element about width1 round-borders caja-perfil-usuario height4">
-
+    <div class="element about width1 round-borders caja-perfil-usuario height2">
         <div>
-            <img class="img-perfil-usuario" src="../img/thumbnail_george.jpg"/>
+            <img class="img-perfil-usuario" src="../img/img-avatar-usuario.jpg"/>
+            <form class="busqueda-avanzada">
+                <input class="btn-filtro-local" type="submit" value="Cambiar imagen">
+            </form>
         </div>
-
         <p class="texto-sencillo-perfil titulo">Datos de usuario</p>
-        <p><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>
-        <div>
-            <p>Contraseña:</p>
-            <p>xxxxxxxxxxxxxxxx</p>
+        <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>
+        <div class="contenido-perfil">
+            <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
+            <div class="texto-contenido-perfil">
+                <p>Contraseña:</p>
+                <p class="textarea">xxxxxxxxxxxxxxxx</p>            
+            </div>
         </div>
-        <p><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
-        <p>Bogotá, Colombia</p>
-        <div>
-            <p>Tu cumpleaños:</p>
-            <p><?php echo $sf_user->getAttribute('Usuario')->get('fecha_nacimiento') ?></p>
+        <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
+        <p class="texto-sencillo-perfil">Bogotá, Colombia</p>
+        <div class="contenido-perfil">
+            <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
+            <div class="texto-contenido-perfil">
+                <p>Tu cumpleaños:</p>
+                <p><?php echo $sf_user->getAttribute('Usuario')->get('fecha_nacimiento') ?></p>                
+            </div>
         </div>
-        <div>
-            <p>Email:</p>
-            <p><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>
+        <div class="contenido-perfil">
+            <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
+            <div class="texto-contenido-perfil">
+                <p>Número telefónico:</p>
+                <p>315 456 7895</p>             
+            </div>
         </div>
-        <div>            
-            <p>Número telefónico:</p>
-            <p>315 456 7895</p>
+        <div class="contenido-perfil">
+            <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
+            <div class="texto-contenido-perfil">
+                <p>e-mail:</p>
+                <p><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
+            </div>
         </div>
-        <a href="<?php echo url_for('@editaru?id='.$sf_user->getAttribute('Usuario')->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
-    </div>
-<!--
-<div class="element about width2 height2">
-    <input type="hidden" class="order" value="8">
-    <small>
-        What I can do for you.
-    </small>
-    <h2 class="title">Skills
-    </h2>
-    <strong class="dark">HTML</strong>
-    <div class="progress">
-        <div class="bar" style="width: 90%"></div>
-    </div>
-    <strong class="dark">CSS3</strong>
-    <div class="progress">
-        <div class="bar" style="width: 50%"></div>
-    </div>
-    <strong class="dark">JQuery</strong>
-    <div class="progress">
-        <div class="bar" style="width: 60%"></div>
-    </div>
-    <strong class="dark">UI Design</strong>
-    <div class="progress">
-        <div class="bar" style="width: 70%"></div>
-    </div>
-    <strong class="dark">Photoshop</strong>
-    <div class="progress">
-        <div class="bar" style="width: 55%"></div>
-    </div>
-    <strong class="dark">Wordpress</strong>
-    <div class="progress">
-        <div class="bar" style="width: 50%"></div>
-    </div>
-    <strong class="dark">Communication</strong>
-    <div class="progress">
-        <div class="bar" style="width: 90%"></div>
-    </div>
-</div>  -->
 
-<!--
-                            Tablas reservas
-------------------------------------------------------------
-------------------------------------------------------
--->
-<!-- Tabla reservas vigentes-->
-<div class="element about width3 height4">
-    <!--<input type="hidden" class="order" value="11">-->
-<!--    <small>
-        Where I've worked.
-    </small>-->
-    
-    
-    
-    
-    <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
+    </div>
+    <!--
+    <div class="element about width2 height2">
+        <input type="hidden" class="order" value="8">
+        <small>
+            What I can do for you.
+        </small>
+        <h2 class="title">Skills
+        </h2>
+        <strong class="dark">HTML</strong>
+        <div class="progress">
+            <div class="bar" style="width: 90%"></div>
+        </div>
+        <strong class="dark">CSS3</strong>
+        <div class="progress">
+            <div class="bar" style="width: 50%"></div>
+        </div>
+        <strong class="dark">JQuery</strong>
+        <div class="progress">
+            <div class="bar" style="width: 60%"></div>
+        </div>
+        <strong class="dark">UI Design</strong>
+        <div class="progress">
+            <div class="bar" style="width: 70%"></div>
+        </div>
+        <strong class="dark">Photoshop</strong>
+        <div class="progress">
+            <div class="bar" style="width: 55%"></div>
+        </div>
+        <strong class="dark">Wordpress</strong>
+        <div class="progress">
+            <div class="bar" style="width: 50%"></div>
+        </div>
+        <strong class="dark">Communication</strong>
+        <div class="progress">
+            <div class="bar" style="width: 90%"></div>
+        </div>
+    </div>  -->
+
+    <!--
+                                Tablas reservas
+    ------------------------------------------------------------
+    ------------------------------------------------------
+    -->
+    <!-- Tabla reservas vigentes-->
+    <div class="element about width3 height4">
+        <!--<input type="hidden" class="order" value="11">-->
+    <!--    <small>
+            Where I've worked.
+        </small>-->
+        <?php
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        } else {
+//SI NO DIGO Q ES LA PRIMERA PÁGINA
+            $page = 1;
+        }
+        $nump = Doctrine_Query::create()->from('Reserva r, r.Local l')
+                ->where('r.id_usuario = ? AND fecha_reserva > ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
+                ->count();
+        $rows_per_page = 4;
+        $lastpage = ceil($nump / $rows_per_page);
+        $page = (int) $page;
+        if ($page > $lastpage) {
+            $page = $lastpage;
+        }
+        if ($page < 1) {
+            $page = 1;
+        }
+        $limit = $rows_per_page . ',' . ($page - 1) * $rows_per_page;
+        ?>
+        <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
         <div class="filtro-buscador">
             <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
                 <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
@@ -120,8 +150,11 @@
         </div>
         <?php
         $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
-                ->where('r.id_usuario = ? ', array($sf_user->getAttribute('Usuario')->get('id')))
+                ->where('r.id_usuario = ? AND fecha_reserva > ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                 ->orderBy('fecha_reserva desc')
+                ->limit($rows_per_page)
+                ->offset(($page - 1) * $rows_per_page)
+//                ->getSqlQuery();print_r($reservas); die;
                 ->execute();
         ?>
         <table class="table reservas-vigentes">
@@ -139,150 +172,238 @@
                     <th><?php echo $r->get('Local')->get('nombre') ?></th>
                     <th><?php echo $r->get('fecha_reserva') ?></th>
                     <th><?php echo $r->get('estado') ?></th>
-                    <?php // QRcode::png($r->get('slug'));?>
+                    <?php // QRcode::png($r->get('slug'));  ?>
                     <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
-                    <td><a href="<?php echo url_for('@cancelarr?id='.$r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
+                    <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
                 </tr>
             <?php endforeach; ?>
-        
-<!--            <td><h4 class="primary-color">Senior Web Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2012 - 2013
-            </th>
-            <td><h4 class="primary-color">Front-End Engineer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2010 - 2012
-            </th>
-            <td><h4 class="primary-color">Graphic Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>-->
-    </table>
 
-    
-    
-    
-    <!--Tabla historial -->
-    
-    
-    <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
-    <div class="filtro-buscador">
-        <form class="busqueda-avanzada filtro2">
-            <input type="text" placeholder="Buscar por fecha de reserva" />
-            <input type="text" placeholder="Buscar por nombre del lugar" />
-             <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
-        </form>
-    </div>
-    <table class="table reservas-vigentes">
-        <tr>
-            <th class=" blanco">Fecha</th>
-            <th class=" blanco">Nombre lugar</th>
-            <th class=" blanco">Fecha reserva</th>
-            <th class=" blanco">Estado</th>
-            <th class=" blanco">Ver reserva</th>
-            <th class=" blanco">Cancelar</th>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        <tr>
-            <td>12/05/2013</td>
-            <td>Establecimiento #1</td>
-            <td>10/05/2013</td>
-            <td>Aprobado</td>
-            <td><img class="img-perfil-usuario" src="img/icon-ver.png"/></td>
-            <td><img class="img-perfil-usuario" src="img/icon-cancelar.png"/></td>
-        </tr>
-        
-<!--            <td><h4 class="primary-color">Senior Web Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2012 - 2013
-            </th>
-            <td><h4 class="primary-color">Front-End Engineer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th class="no-wrap">2010 - 2012
-            </th>
-            <td><h4 class="primary-color">Graphic Designer
-                    <br/><small>Company Name</small>
-                </h4>
-                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                </p>
-            </td>
-        </tr>-->
-    </table>
-</div>  
-	<?php endif; ?>
+                                                    <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                <br/><small>Company Name</small>
+                                                            </h4>
+                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                            </p>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="no-wrap">2012 - 2013
+                                                        </th>
+                                                        <td><h4 class="primary-color">Front-End Engineer
+                                                                <br/><small>Company Name</small>
+                                                            </h4>
+                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                            </p>
+                                                            <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="no-wrap">2010 - 2012
+                                                        </th>
+                                                        <td><h4 class="primary-color">Graphic Designer
+                                                                <br/><small>Company Name</small>
+                                                            </h4>
+                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                            </p>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                            </p>
+                                                        </td>
+                                                    </tr>-->
+        </table>
+        <?php
+        if ($nump != 0):
+            $nextpage = $page + 1;
+            $prevpage = $page - 1;
+            ?>
+            <ul id="pagination-digg">
+                <?php if ($page == 1) {
+                    ?>
+                    <li class="previous-off">&laquo; Previous</li>
+                    <li class="active">1</li>              
+                    <?php for ($i = $page + 1; $i < $lastpage; $i++) { ?>
+                        <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>"><?php echo $i; ?></a></li>
+                        <?php
+                    }
+                    //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
+                    if ($lastpage > $page) {
+                        ?>       
+                        <li class="next"><a href="<?php echo url_for('@homepage?page=' . $nextpage) ?>" >Next &raquo;</a></li>
+                    <?php } else {
+                        ?>
+                        <li class="next-off">Next &raquo;</li>
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <!--                    EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS-->
+                    <li class="previous"><a href="<?php echo url_for('@homepage?page=' . $prevpage) ?>"  >&laquo; Previous</a></li><?php
+            for ($i = 1; $i <= $lastpage; $i++) {
+                //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
+                if ($page == $i) {
+                            ?>  <li class="active"><?php echo $i; ?></li><?
+                } else {
+                            ?>  <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>" ><?php echo $i; ?></a></li><?php
+                }
+            }
+            //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
+            if ($lastpage > $page) {
+                        ?> 
+                        <li class="next"><a href="<?php echo url_for('@homepage?page=' . $nextpage) ?>">Next &raquo;</a></li><?php
+            } else {
+                        ?> <li class="next-off">Next &raquo;</li><?php
+            }
+        }
+                ?></ul></br>
+        <?php endif; ?>
+
+
+        <!-- fin tabla reservas vigentes -->
+
+        <!--Tabla historial -->
+        <?php
+        if (isset($_GET['page2'])) {
+            $page = $_GET['page2'];
+        } else {
+            $page = 1;
+        }
+        $nump2 = Doctrine_Query::create()->from('Reserva r, r.Local l')
+                ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
+                ->count();
+        $rows_per_page = 4;
+        $lastpage2 = ceil($nump2 / $rows_per_page);
+        $page = (int) $page;
+        if ($page > $lastpage2) {
+            $page = $lastpage2;
+        }
+        if ($page < 1) {
+            $page = 1;
+        }
+        $limit = $rows_per_page . ',' . ($page - 1) * $rows_per_page;
+        ?>
+        <h2 class="title">Este es el historial de reservas<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
+        <div class="filtro-buscador">
+            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
+                <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
+                <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
+                <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
+            </form>
+        </div>
+        <?php
+        $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
+                ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
+                ->orderBy('fecha_reserva desc')
+                ->limit($rows_per_page)
+                ->offset(($page - 1) * $rows_per_page)
+//                ->getSqlQuery();        print_r($reservas);        die;
+                ->execute();
+        ?>
+        <table class="table reservas-vigentes">
+            <tr>
+                <th class=" blanco">Fecha creacion</th>
+                <th class=" blanco">Nombre lugar</th>
+                <th class=" blanco">Fecha reserva</th>
+                <th class=" blanco">Estado</th>
+                <th class=" blanco">Ver QR reserva</th>
+                <th class=" blanco">Cancelar</th>
+            </tr>            
+            <?php foreach ($reservas as $r): ?>
+                <tr>
+                    <th><?php echo $r->get('fecha_creacion') ?></th>
+                    <th><?php echo $r->get('Local')->get('nombre') ?></th>
+                    <th><?php echo $r->get('fecha_reserva') ?></th>
+                    <th><?php echo $r->get('estado') ?></th>
+                    <?php // QRcode::png($r->get('slug'));   ?>
+                    <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
+                    <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
+                </tr>
+            <?php endforeach; ?>
+
+                                                    <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                <br/><small>Company Name</small>
+                                                            </h4>
+                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                            </p>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="no-wrap">2012 - 2013
+                                                        </th>
+                                                        <td><h4 class="primary-color">Front-End Engineer
+                                                                <br/><small>Company Name</small>
+                                                            </h4>
+                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                            </p>
+                                                            <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="no-wrap">2010 - 2012
+                                                        </th>
+                                                        <td><h4 class="primary-color">Graphic Designer
+                                                                <br/><small>Company Name</small>
+                                                            </h4>
+                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                            </p>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                            </p>
+                                                        </td>
+                                                    </tr>-->
+        </table>
+        <?php
+        if ($nump2 != 0):
+            $nextpage = $page + 1;
+            $prevpage = $page - 1;
+            ?>
+            <ul id="pagination-digg">
+                <?php if ($page == 1) {
+                    ?>
+                    <li class="previous-off">&laquo; Previous</li>
+                    <li class="active">1</li> 
+                    <?php for ($i = $page + 1; $i <= $lastpage2; $i++) { ?>
+                        <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>"><?php echo $i; ?></a></li>
+                        <?php
+                    }
+                    //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
+                    if ($lastpage2 > $page) {
+                        ?>       
+                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>" >Next &raquo;</a></li>
+                    <?php } else {
+                        ?>
+                        <li class="next-off">Next &raquo;</li>
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <!--                    EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS-->
+                    <li class="previous"><a href="<?php echo url_for('@homepage?page2=' . $prevpage) ?>"  >&laquo; Previous</a></li><?php
+            for ($i = 1; $i <= $lastpage2; $i++) {
+                //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
+                if ($page == $i) {
+                            ?>  <li class="active"><?php echo $i; ?></li><?
+                } else {
+                            ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>" ><?php echo $i; ?></a></li><?php
+                }
+            }
+            //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
+            if ($lastpage2 > $page) {
+                        ?> 
+                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><?php
+            } else {
+                        ?> <li class="next-off">Next &raquo;</li><?php
+            }
+        }
+                ?></ul></br>
+        <?php endif; ?>
+    </div>  
+<?php endif; ?>
 
 <!--
-                         fin   Tablas reservas
+                         fin   Tablas historial reservas
 ------------------------------------------------------------
 ------------------------------------------------------
 -->
@@ -341,36 +462,56 @@
     <span class="portfolio-title"><i class="icon-play"></i>Sword and Shield
     </span>
 </a>-->
+<?php
+$locales = Doctrine_Query::create()->from('Parametro p, p.Local')
+        ->limit(3)
+        ->execute();
+$i = 1;
+foreach ($locales as $local):
+    ?>
 
-<a href="project_video_2.html" class="element element-portfolio portfolio height2 width2-1 ajax">
-    <input type="hidden" class="order" value="3">
-    <img src="../img/seccion-comercios/logo-comercio.jpg"/>
-    <div>
-        <p>Calificación usuarios</p>
-        <img src="../img/seccion-comercios/estrellas-calificacion.png"/>
-    </div>
-    <div>
-        <p>560</p>
-        <img src="../img/seccion-comercios/icons-redes-sociales.png"/>
-    </div>
-    <div>
-        <p>Arby`s</p>
-        <p>Carrera 50 N° 95-54 Barrio La Castellana<br/>305 42 15 / 315 856 47 89</p>
-        <p>www.sitioweb.com</p>        
-    </div>
-        <img src="../img/seccion-comercios/bti-configurar-reserva1.png"/>
-        
+    <a class="element element-portfolio portfolio height3 width2-1"> <!-- href="#" ajax-->
+        <input type="hidden" class="order" value="3">
+        <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70')) ?>
         <div>
-            <form class="busqueda-avanzada filtro2">
-                <input type="text" placeholder="Número de personas" />
-                <input type="text" placeholder="Día a reservar" />
-                <input type="text" placeholder="Consumo estimado" />
-                 <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
-            </form>
+            <p>Calificación usuarios</p>
+            <img src="../img/seccion-comercios/estrellas-calificacion.png"/>
         </div>
-    <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
+        <div>
+            <!--<p>560</p>-->            
+            <img src="../img/facebook.png"/>
+            <img src="../img/YouTube.gif"/>
+            <img src="../img/twitter.png"/>
+        </div>
+        <div>
+            <p><?php echo $local->get('Local')->get('nombre') ?></p>
+            <p><?php echo $local->get('descripcion') ?></p>
+            <p><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
+            <p>www.hhsitioweb.com</p>        
+        </div>
+        <?php $form->setDefault('local_id', $local->get('id')); ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
+            <button onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
+                <!--<button class="oculta"><img src="../img/seccion-comercios/bti-configurar-reserva1.png"/></button>-->
+
+            <div id="contenido_a_mostrar<?php echo $i ?>" style="display:none">
+                <form class="busqueda-avanzada filtro2" action="" method="POST">
+                    <?php echo $form; ?>
+                    <input type="submit" value="Reservar" />
+                </form>
+                <!--            <form class="busqueda-avanzada filtro2">
+                                <input type="text" placeholder="Número de personas" />
+                                <input type="text" placeholder="Día a reservar" />
+                                <input type="text" placeholder="Consumo estimado" />
+                                <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
+                            </form>-->
+            </div>
+            <?php $i = $i + 1; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
 <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
-    </span>-->
+</span>-->
 </a>
 <!--
 <a href="project_image_1.html"  class="element element-portfolio portfolio ajax">
@@ -634,4 +775,4 @@
     <blockquote>Delivered results immediately. Impeccable attention to detail.
         <small>Jane Smith</small>
     </blockquote>
-</div>                                    
+</div>   

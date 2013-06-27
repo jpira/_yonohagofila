@@ -1,27 +1,3 @@
-// JavaScript Document
-$(document).ready(function() {
-	 
-    // ambos procesaran en save.php
-	 
-    // servira para editar los de tipo input text.
-    $('.text').editable('save.php', {
-        submit : 'OK'
-    });
-	 
-    // servira para editar el cuadro combinado de paises
-    $('.select').editable('save.php', { 
-        data   : " {'1':'Argentina','2':'Bolivia','3':'Peru', '4':'Chile'}",
-        type   : 'select',
-        submit : 'OK'
-    });
-	 
-    // servira para editar el textarea.
-    $('.textarea').editable('save.php', { 
-        type     : 'textarea',
-        submit   : 'OK'
-    });
-	 	 
-});
 function muestra_oculta(id){
     if (document.getElementById){ //se obtiene el id
         var el = document.getElementById(id); //se define la variable "el" igual a nuestro div
@@ -31,3 +7,42 @@ function muestra_oculta(id){
 window.onload = function(){/*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
     muestra_oculta('contenido_a_mostrar');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
 }
+$(function() {
+    /**
+				* the element
+				*/
+    var $ui 		= $('#ui_element');
+				
+    /**
+				* on focus and on click display the dropdown, 
+				* and change the arrow image
+				*/
+    $ui.find('.sb_input').bind('focus click',function(){
+        $ui.find('.sb_down')
+        .addClass('sb_up')
+        .removeClass('sb_down')
+        .andSelf()
+        .find('.sb_dropdown')
+        .show();
+    });
+				
+    /**
+				* on mouse leave hide the dropdown, 
+				* and change the arrow image
+				*/
+    $ui.bind('mouseleave',function(){
+        $ui.find('.sb_up')
+        .addClass('sb_down')
+        .removeClass('sb_up')
+        .andSelf()
+        .find('.sb_dropdown')
+        .hide();
+    });
+				
+    /**
+				* selecting all checkboxes
+				*/
+    $ui.find('.sb_dropdown').find('label[for="all"]').prev().bind('click',function(){
+        $(this).parent().siblings().find(':checkbox').attr('checked',this.checked).attr('disabled',this.checked);
+    });
+});	

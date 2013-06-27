@@ -29,7 +29,7 @@
     </p>
 </div>-->
 <?php if ($sf_user->isAuthenticated()): ?>
-    <div class="element about width1 round-borders caja-perfil-usuario height2">
+    <div class="element about width1 round-borders caja-perfil-usuario height4">
         <div>
             <img class="img-perfil-usuario" src="../img/img-avatar-usuario.jpg"/>
             <form class="busqueda-avanzada">
@@ -44,7 +44,7 @@
                 <p>xxxxxxxxxxxxxxxx</p>            
             </div>
         </div>
-        <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
+            <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
         <p class="texto-sencillo-perfil">Bogotá, Colombia</p>
         <div class="contenido-perfil">
             <!--<a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>-->
@@ -57,14 +57,14 @@
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>Número telefónico:</p>
-                <p class="text">315 456 7895</p>             
+                <p class="text"><?php echo $sf_user->getAttribute('Usuario')->get('telefono') ?></p>             
             </div>
         </div>
         <div class="contenido-perfil">
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>e-mail:</p>
-                <p class="text"><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
+                <p class="text" type="email" ><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
             </div>
         </div>
 
@@ -141,7 +141,7 @@
         ?>
         <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
         <div class="filtro-buscador">
-            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
+            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?>" method="POST" >
                 <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
                 <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
                 <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
@@ -167,10 +167,10 @@
             </tr>            
             <?php foreach ($reservas as $r): ?>
                 <tr>
-                    <th><?php echo $r->get('fecha_creacion') ?></th>
-                    <th><?php echo $r->get('Local')->get('nombre') ?></th>
-                    <th><?php echo $r->get('fecha_reserva') ?></th>
-                    <th><?php echo $r->get('estado') ?></th>
+                    <td><?php echo $r->get('fecha_creacion') ?></td>
+                    <td><?php echo $r->get('Local')->get('nombre') ?></td>
+                    <td><?php echo $r->get('fecha_reserva') ?></td>
+                    <td><?php echo $r->get('estado') ?></td>
                     <?php // QRcode::png($r->get('slug'));  ?>
                     <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
                     <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
@@ -309,10 +309,10 @@
             </tr>            
             <?php foreach ($reservas as $r): ?>
                 <tr>
-                    <th><?php echo $r->get('fecha_creacion') ?></th>
-                    <th><?php echo $r->get('Local')->get('nombre') ?></th>
-                    <th><?php echo $r->get('fecha_reserva') ?></th>
-                    <th><?php echo $r->get('estado') ?></th>
+                    <td><?php echo $r->get('fecha_creacion') ?></td>
+                    <td><?php echo $r->get('Local')->get('nombre') ?></td>
+                    <td><?php echo $r->get('fecha_reserva') ?></td>
+                    <td><?php echo $r->get('estado') ?></td>
                     <?php // QRcode::png($r->get('slug'));   ?>
                     <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
                     <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
@@ -463,28 +463,31 @@
 </a>-->
 <?php
 $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
-        ->limit(3)
+//        ->limit(3)
         ->execute();
 $i = 1;
 foreach ($locales as $local):
     ?>
 
-    <a class="element element-portfolio portfolio height3 width2-1"> <!-- href="#" ajax-->
+    <a class="element element-portfolio portfolio height3 width2-1 fd-blanco"> <!-- href="#" ajax-->
         <input type="hidden" class="order" value="3">
-        <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70')) ?>
-        <div>
+        <div class="marca-comercio">
+            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
+        </div>
+        <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
-            <img src="../img/seccion-comercios/estrellas-calificacion.png"/>
+            <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
         </div>
-        <div>
+        <div class="redes-comercio">
             <!--<p>560</p>-->            
-            <img src="../img/facebook.png"/>
-            <img src="../img/YouTube.gif"/>
-            <img src="../img/twitter.png"/>
+            <img  src="../img/redes-sociales-ynhf/red-facebook.png"/>
+            <img  src="../img/redes-sociales-ynhf/red-youtube.png"/>
+            <img  src="../img/redes-sociales-ynhf/red-twitter.png"/>
         </div>
-        <div>
-            <p><?php echo $local->get('Local')->get('nombre') ?></p>
-            <p><?php echo $local->get('descripcion') ?></p>
+        <div class="clearfix"></div>
+        <div class="descripcion-local">
+            <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
+            <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
             <p><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
             <p>www.hhsitioweb.com</p>        
         </div>

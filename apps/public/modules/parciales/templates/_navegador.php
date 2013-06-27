@@ -1,14 +1,28 @@
 <div class="navbar navbar-fixed-top">
-        <div class="filtro-tipo-local">
-            <div class="bloque-filtros">
-                <form class="busqueda-sencilla">
-                    <input class="input-filtro-local" type=“search” name=“busqueda” placeholder="Buscar">
+    <div class="filtro-tipo-local">
+        <div class="bloque-filtros">
+            <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
+                <input class="input-filtro-local" id="busqueda" type="search" name="busqueda" placeholder="Buscar">
+                <input class="btn-lupa" type="submit" value=" ">
+            </form>
+            <form id="ui_element" class="sb_wrapper busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST">
+                <p>
+                <!--<botton > Búsqueda avanzada</button>-->
+                <a href="#" class="sb_input">Buscar</a>
+                    <!--<input class="sb_input" type="text"/>-->
                     <input class="btn-lupa" type="submit" value=" ">
-                </form>
-                <form class="busqueda-avanzada">
-                    <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
-                </form>                
-            </div>
+                    </p>
+                    <ul class="sb_dropdown" style="display:none">  
+                        <li><label>Nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li></br>
+                        <li><label>Direccion</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li></br>
+                        <li><label>Telefono</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
+
+                    </ul>
+            </form>
+            <!--                <form class="busqueda-avanzada">
+                                <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
+                            </form>                -->
+        </div>
     </div>
     <div class="navbar-inner">
         <div class="container">
@@ -25,9 +39,9 @@
                                         <li><a href="#home" data-option-value="home" class="selected">home</a></li>
                     -->
                     <li><a href="#show-all" data-option-value="*" class="selected"><span>Inicio</span></a></li>
-                    <?php //if ($sf_user->isAuthenticated()): ?>
-                    <li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>
-                    <?php //endif; ?>
+                    <?php if ($sf_user->isAuthenticated()): ?>
+                        <li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>
+                    <?php endif; ?>
                     <li><a href="#portfolio" data-option-value=".portfolio"><span>Políticas y condiciones de uso</span></a></li>
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <li class="show-title">
@@ -62,12 +76,12 @@
                             <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
                             <input class="btn-filtro-local2" type="submit" value="Entrar" />
                         </form></br>                
-                <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aun no estas registrado?</span></a>
+                        <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aun no estas registrado?</span></a>
                     </div>                
                 <?php endif; ?>
             </div><!--/.nav-collapse -->
 
         </div>
     </div>
-    
+
 </div>

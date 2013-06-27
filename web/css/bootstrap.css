@@ -99,7 +99,65 @@ sup {
 sub {
   bottom: -0.25em;
 }
+.fd-blanco{
+    background: #fcfcfc;
+}
+.marca-comercio{
+    background: url("../img/sombra-marcas.png") no-repeat center -2px #fff;
+    height: 100px;
+    line-height: 100px;
+    width: 100%;
+}
+.marca-comercio .logo-comercio{
+    display: block;
+    margin:  0 auto;
+}
+.calificacion-comercio{
+    color:#6e6b6b;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    float: left;
+    padding:5px;
+    text-align: center;
+    width: 40%;
+}
+.calificacion-comercio .estrellas-calificacion{
+    margin-top: -30px;
+    padding: 0;
+}
+.redes-comercio{
+    display: inline-block;
+    float: right;
+    height: 30px;
+    margin-top: 18px;
+    width: 40%;
+}
+.redes-comercio .img-red-comercio{
+    height: 20px;
+    margin: 0 5px;
+    width: 20px;
+}
+.descripcion-local{
+    display: block;
 
+    text-align: justify;
+    padding: 10px;
+    width: 90%;
+}
+.descripcion-local .nombre-comercio{
+    color:#656e74;
+    font-size: 22px;
+    font-weight: 700;
+    height: auto;
+    display: block;
+    width: 90%;
+}
+.descripcion-local .texto-descripcion{
+    font-size: 11px;
+    line-height: 12px !important;
+    color:red;
+}
 img {
   width: auto\9;
   height: auto;

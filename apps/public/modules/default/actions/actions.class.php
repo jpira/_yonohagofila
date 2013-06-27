@@ -78,7 +78,10 @@ class defaultActions extends sfActions {
     }
 
     public function executeBuscar(sfWebRequest $request) {
-        
+        $this->form = new ReservaForm();
+//        if ($request->isMethod('POST')) {
+//            $this->processForm($request, $this->form);
+//        }
     }
 
     public function executeVer(sfWebRequest $request) {
@@ -86,11 +89,11 @@ class defaultActions extends sfActions {
     }
 
     public function executeEditar(sfWebRequest $request) {
-        $q = Doctrine::getTable('Usuario')->findOneBy('id', $request->getParameter('id'));
-//        $this->form = new UsuarioForm($q);
-        if ($request->isMethod('POST')) {
-            $this->processForm($request, $this->form);
-        }
+        $edicion = Doctrine_Query::create()
+                    ->update('Usuario u')
+                    ->set('nombre', '?', 'xnx')
+                    ->where('id = ?', $request->getParameter('id'))
+                    ->execute();
     }
 
     public function executeNuevo(sfWebRequest $request) {

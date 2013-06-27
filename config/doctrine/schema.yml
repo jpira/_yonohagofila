@@ -713,6 +713,13 @@ Usuario:
       primary: false
       notnull: true
       autoincrement: false
+    telefono:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     foto:
       type: string(255)
       fixed: false

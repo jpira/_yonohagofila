@@ -24,7 +24,7 @@
         <!--[if lt IE 9]>
         <?php echo javascript_include_tag('vendor/html5-3.6-respond-1.1.0.min.js'); ?>
         <![endif]-->
-        
+
         <?php echo javascript_include_tag('jquery.js'); ?>
         <?php // echo javascript_include_tag('jquery.jeditable.js'); ?>
         <?php // echo javascript_include_tag('js.js'); ?>
@@ -47,5 +47,31 @@
         </div>
         <?php echo include_partial('parciales/footer') ?>
         <?php include_javascripts() ?>
+        <script>
+            $(document).ready(function() {
+	 
+                // ambos procesaran en save.php
+	 
+                // servira para editar los de tipo input text.
+                $('.text').editable('<?php url_for('@editaru?id='.$sf_user->getAttribute('Usuario')->get('id'))?>', {
+                    submit : 'OK'
+                });
+	 
+                // servira para editar el cuadro combinado de paises
+                $('.select').editable('save.php', { 
+                    data   : " {'1':'Argentina','2':'Bolivia','3':'Peru', '4':'Chile'}",
+                    type   : 'select',
+                    submit : 'OK'
+                });
+	 
+                // servira para editar el textarea.
+                $('.textarea').editable('save.php', { 
+                    type     : 'textarea',
+                    submit   : 'OK'
+                });
+	 	 
+            });
+        </script>
+      
     </body>
 </html>

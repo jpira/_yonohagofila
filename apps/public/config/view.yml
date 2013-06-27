@@ -18,6 +18,7 @@ default:
     - main.css: {media: false}
     - facebox.css
     - paginacion.css
+    - style.css
 
   javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js, jquery.jeditable.js, js.js]
     

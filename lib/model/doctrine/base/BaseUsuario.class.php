@@ -14,6 +14,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @property string $nombre
  * @property string $tipo_identificacion
  * @property string $identificacion
+ * @property string $telefono
  * @property string $foto
  * @property varchar $estado
  * @property string $token
@@ -31,6 +32,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method string              getNombre()              Returns the current record's "nombre" value
  * @method string              getTipoIdentificacion()  Returns the current record's "tipo_identificacion" value
  * @method string              getIdentificacion()      Returns the current record's "identificacion" value
+ * @method string              getTelefono()            Returns the current record's "telefono" value
  * @method string              getFoto()                Returns the current record's "foto" value
  * @method varchar             getEstado()              Returns the current record's "estado" value
  * @method string              getToken()               Returns the current record's "token" value
@@ -47,6 +49,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method Usuario             setNombre()              Sets the current record's "nombre" value
  * @method Usuario             setTipoIdentificacion()  Sets the current record's "tipo_identificacion" value
  * @method Usuario             setIdentificacion()      Sets the current record's "identificacion" value
+ * @method Usuario             setTelefono()            Sets the current record's "telefono" value
  * @method Usuario             setFoto()                Sets the current record's "foto" value
  * @method Usuario             setEstado()              Sets the current record's "estado" value
  * @method Usuario             setToken()               Sets the current record's "token" value
@@ -121,6 +124,15 @@ abstract class BaseUsuario extends sfDoctrineRecord
              'length' => 50,
              ));
         $this->hasColumn('identificacion', 'string', 100, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 100,
+             ));
+        $this->hasColumn('telefono', 'string', 100, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,

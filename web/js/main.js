@@ -48,7 +48,7 @@ var $container = $('#container-isotope');
 
 $container.isotope({
     masonry: {
-        columnWidth: 250
+        columnWidth: 5
     },
     getSortData: {
         number: function($elem) {

@@ -102,15 +102,26 @@ sub {
 .fd-blanco{
     background: #fcfcfc;
 }
+.disponibilidad-comercio{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
 .marca-comercio{
-    background: url("../img/sombra-marcas.png") no-repeat center -2px #fff;
+    background: url("../img/sombra-marcas.png") no-repeat center 0 #fff;
     height: 100px;
+    border-bottom: 1px solid #ccc;
     line-height: 100px;
+    overflow: visible;
     width: 100%;
 }
 .marca-comercio .logo-comercio{
     display: block;
     margin:  0 auto;
+}
+.marca-comercio .logo-comercio img{
+    line-height: 100px;
 }
 .calificacion-comercio{
     color:#6e6b6b;
@@ -132,6 +143,11 @@ sub {
     height: 30px;
     margin-top: 18px;
     width: 40%;
+    text-align: center;
+}
+.redes-comercio button{
+    background: none;
+    border: none;
 }
 .redes-comercio .img-red-comercio{
     height: 20px;
@@ -140,10 +156,9 @@ sub {
 }
 .descripcion-local{
     display: block;
-
     text-align: justify;
-    padding: 10px;
-    width: 90%;
+    padding: 0 10px;
+    width: 93%;
 }
 .descripcion-local .nombre-comercio{
     color:#656e74;
@@ -153,10 +168,18 @@ sub {
     display: block;
     width: 90%;
 }
-.descripcion-local .texto-descripcion{
+.descripcion-local .texto-descripcion, .descripcion-local .url-web-local{
     font-size: 11px;
     line-height: 12px !important;
-    color:red;
+}
+.descripcion-local .url-web-local{
+    color:#2c77ba;
+    font-weight: 700;
+    
+}
+.estilo-bloque{
+    display: block;
+    height: 200px;
 }
 img {
   width: auto\9;
@@ -4651,8 +4674,11 @@ input[type="submit"].btn.btn-mini {
   position: relative;
   left: 0;
   display: block;
-  float: left;
+  float: right;
+  /*clear:both;*/
   margin: 0 10px 0 0;
+  text-align: center;
+  width: 70%;
 }
 
 .navbar .nav.pull-right {

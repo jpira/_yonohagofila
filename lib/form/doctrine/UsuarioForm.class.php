@@ -30,13 +30,13 @@ class UsuarioForm extends BaseUsuarioForm {
                     'edit_mode' => !$this->isNew(),
                     'is_image' => true,
                     // TODO Revisar rutas de imagenes a mostrar
-                    'file_src' => '#' . $this->getObject()->foto,
+                    'file_src' => '/' . sfConfig::get('app_route_web_default') . '/uploads/imagen' . $this->getObject()->foto
                 )));
 
         $this->setValidator('foto', new sfValidatorFile(array(
                     'max_size' => 50000,
                     'mime_types' => 'web_images',
-                    'path' => sfConfig::get('sf_upload_dir') . '/inventories',
+                    'path' => sfConfig::get('sf_upload_dir') . '/imagen',
                     'required' => false,
                     'validated_file_class' => 'sfResizedFile'
                 )));

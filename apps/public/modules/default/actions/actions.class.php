@@ -12,7 +12,7 @@ class defaultActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
         $this->getResponse()->setTitle('Yonohagofila');
-        $this->form = new ReservaForm();
+        $this->form = new ReservaForm();        
         if ($request->isMethod('POST')) {
             $this->processForm2($request, $this->form);
         }
@@ -71,7 +71,7 @@ class defaultActions extends sfActions {
     public function executeBuscar(sfWebRequest $request) {
         $this->form = new ReservaForm();
 //        if ($request->isMethod('POST')) {
-//            $this->processForm($request, $this->form);
+//            $this->processForm2($request, $this->form);
 //        }
     }
 
@@ -103,7 +103,7 @@ class defaultActions extends sfActions {
         if ($form->isValid()) {
             $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
             $email = $form->getValue('email');
-            $form->setDefault('perfil_id', 3);
+            
             // Se envia correo
             $message = $this->getMailer()->compose();
             $message->setSubject('Bienvenido a Yonohagofila.com');

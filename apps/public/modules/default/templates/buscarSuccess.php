@@ -314,7 +314,7 @@
         }
         $limit = $rows_per_page . ',' . ($page - 1) * $rows_per_page;
         ?>
-        <h2 class="title">Este es el historial de reservas<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
+        <h2 class="title">Estas son tus reservas anteriores<span>Desde aquí puedes consultar las reservas que has hecho con nosotros en tus lugares favoritos.</span></h2>
         <!--        <div class="filtro-buscador">
                     <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
                         <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
@@ -507,7 +507,7 @@ if (isset($_POST['busqueda']) and $_POST['busqueda']!= '') {
     } else {
         if (isset($_POST['busqueda2']) and $_POST['busqueda2']!= '') {
             $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
-                    ->where('l.telefono LIKE ?', $_POST['busqueda2'] . '%')
+                    ->where('p.descripcion LIKE ?', '%' . $_POST['busqueda2'] . '%')
                     ->execute();
         } else {
             $locales = Doctrine_Query::create()->from('Parametro p, p.Local')

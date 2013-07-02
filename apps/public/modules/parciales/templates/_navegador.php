@@ -16,7 +16,6 @@
                         <li><label>Nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li></br>
                         <li><label>Direccion</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li></br>
                         <li><label>Telefono</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-
                     </ul>
             </form>
             <!--                <form class="busqueda-avanzada">
@@ -57,13 +56,13 @@
                     <ul>
                         <li><strong>Conoce más:</strong></li>
                         <li>
-                            <a class="red-twitter-ynhf" href="http//:www.twitter.com" ><img src="../img/redes-sociales-ynhf/red-twitter.png"/></a>                    
+                            <a class="red-twitter-ynhf" href="https://twitter.com/" ><img src="../img/redes-sociales-ynhf/red-twitter.png"/></a>                    
                         </li>
                         <li>
-                            <a class="red-youtbe-ynhf" href="http//:www.youtube.com" ><img src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+                            <a class="red-youtbe-ynhf" href="http://www.youtube.com/" ><img src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
                         </li>
                         <li>
-                            <a class="red-face-ynhf" href="http//:www.facebook.com" ><img src="../img/redes-sociales-ynhf/red-facebook.png"/></a>                          
+                            <a class="red-face-ynhf" href="https://www.facebook.com/"><img src="../img/redes-sociales-ynhf/red-facebook.png"/></a>                          
                         </li>
                     </ul>
                 </div>

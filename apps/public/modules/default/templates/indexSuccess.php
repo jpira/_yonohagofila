@@ -177,39 +177,39 @@
                 </tr>
             <?php endforeach; ?>
 
-                                                        <!--            <td><h4 class="primary-color">Senior Web Designer
-                                                                    <br/><small>Company Name</small>
-                                                                </h4>
-                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                </p>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                </p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="no-wrap">2012 - 2013
-                                                            </th>
-                                                            <td><h4 class="primary-color">Front-End Engineer
-                                                                    <br/><small>Company Name</small>
-                                                                </h4>
-                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                </p>
-                                                                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                                                                </p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="no-wrap">2010 - 2012
-                                                            </th>
-                                                            <td><h4 class="primary-color">Graphic Designer
-                                                                    <br/><small>Company Name</small>
-                                                                </h4>
-                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                </p>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                </p>
-                                                            </td>
-                                                        </tr>-->
+                                                            <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2012 - 2013
+                                                                </th>
+                                                                <td><h4 class="primary-color">Front-End Engineer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2010 - 2012
+                                                                </th>
+                                                                <td><h4 class="primary-color">Graphic Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>-->
         </table>
         <?php
         if ($nump != 0):
@@ -221,7 +221,7 @@
                     ?>
                     <li class="previous-off">&laquo; Previous</li>
                     <li class="active">1</li>              
-                    <?php for ($i = $page + 1; $i < $lastpage; $i++) { ?>
+                    <?php for ($i = $page + 1; $i <= $lastpage; $i++) { ?>
                         <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>"><?php echo $i; ?></a></li>
                         <?php
                     }
@@ -241,7 +241,7 @@
             for ($i = 1; $i <= $lastpage; $i++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
                 if ($page == $i) {
-                            ?>  <li class="active"><?php echo $i; ?></li><?
+                            ?>  <li class="active"><?php echo $i; ?></li><?php
                 } else {
                             ?>  <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>" ><?php echo $i; ?></a></li><?php
                 }
@@ -254,7 +254,7 @@
                         ?> <li class="next-off">Next &raquo;</li><?php
             }
         }
-                ?></ul></br>
+                ?></ul></br></br>
         <?php endif; ?>
 
 
@@ -263,25 +263,25 @@
         <!--Tabla historial -->
         <?php
         if (isset($_GET['page2'])) {
-            $page = $_GET['page2'];
+            $page2 = $_GET['page2'];
         } else {
-            $page = 1;
+            $page2 = 1;
         }
         $nump2 = Doctrine_Query::create()->from('Reserva r, r.Local l')
                 ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                 ->count();
         $rows_per_page = 4;
         $lastpage2 = ceil($nump2 / $rows_per_page);
-        $page = (int) $page;
-        if ($page > $lastpage2) {
-            $page = $lastpage2;
+        $page2 = (int) $page2;
+        if ($page2 > $lastpage2) {
+            $page2 = $lastpage2;
         }
-        if ($page < 1) {
-            $page = 1;
+        if ($page2 < 1) {
+            $page2 = 1;
         }
-        $limit = $rows_per_page . ',' . ($page - 1) * $rows_per_page;
+        $limit = $rows_per_page . ',' . ($page2 - 1) * $rows_per_page;
         ?>
-        <h2 class="title">Este es el historial de reservas<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
+        <h2 class="title">Estas son tus reservas anteriores<span>Desde aquí puedes consultar las reservas que has hecho con nosotros en tus lugares favoritos.</span></h2>
         <!--        <div class="filtro-buscador">
                     <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
                         <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
@@ -294,7 +294,7 @@
                 ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                 ->orderBy('fecha_reserva desc')
                 ->limit($rows_per_page)
-                ->offset(($page - 1) * $rows_per_page)
+                ->offset(($page2 - 1) * $rows_per_page)
 //                ->getSqlQuery();        print_r($reservas);        die;
                 ->execute();
         ?>
@@ -319,56 +319,56 @@
                 </tr>
             <?php endforeach; ?>
 
-                                                        <!--            <td><h4 class="primary-color">Senior Web Designer
-                                                                    <br/><small>Company Name</small>
-                                                                </h4>
-                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                </p>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                </p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="no-wrap">2012 - 2013
-                                                            </th>
-                                                            <td><h4 class="primary-color">Front-End Engineer
-                                                                    <br/><small>Company Name</small>
-                                                                </h4>
-                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                </p>
-                                                                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                                                                </p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="no-wrap">2010 - 2012
-                                                            </th>
-                                                            <td><h4 class="primary-color">Graphic Designer
-                                                                    <br/><small>Company Name</small>
-                                                                </h4>
-                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                </p>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                </p>
-                                                            </td>
-                                                        </tr>-->
+                                                            <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2012 - 2013
+                                                                </th>
+                                                                <td><h4 class="primary-color">Front-End Engineer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2010 - 2012
+                                                                </th>
+                                                                <td><h4 class="primary-color">Graphic Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>-->
         </table>
         <?php
         if ($nump2 != 0):
-            $nextpage = $page + 1;
-            $prevpage = $page - 1;
+            $nextpage = $page2 + 1;
+            $prevpage = $page2 - 1;
             ?>
             <ul id="pagination-digg">
-                <?php if ($page == 1) {
+                <?php if ($page2 == 1) {
                     ?>
                     <li class="previous-off">&laquo; Previous</li>
                     <li class="active">1</li> 
-                    <?php for ($i = $page + 1; $i <= $lastpage2; $i++) { ?>
+                    <?php for ($i = $page2 + 1; $i <= $lastpage2; $i++) { ?>
                         <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>"><?php echo $i; ?></a></li>
                         <?php
                     }
                     //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
-                    if ($lastpage2 > $page) {
+                    if ($lastpage2 > $page2) {
                         ?>       
                         <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>" >Next &raquo;</a></li>
                     <?php } else {
@@ -380,16 +380,17 @@
                     ?>
                     <!--                    EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS-->
                     <li class="previous"><a href="<?php echo url_for('@homepage?page2=' . $prevpage) ?>"  >&laquo; Previous</a></li><?php
-            for ($i = 1; $i <= $lastpage2; $i++) {
+            for ($j = 1; $j <= $lastpage2; $j++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
-                if ($page == $i) {
-                            ?>  <li class="active"><?php echo $i; ?></li><?
+                if ($page2 == $j) {
+                            ?>  
+                            <li class="active"><?php echo $j; ?></li><?php
                 } else {
-                            ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>" ><?php echo $i; ?></a></li><?php
+                            ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $j) ?>" ><?php echo $j; ?></a></li><?php
                 }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
-            if ($lastpage2 > $page) {
+            if ($lastpage2 > $page2) {
                         ?> 
                         <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><?php
             } else {

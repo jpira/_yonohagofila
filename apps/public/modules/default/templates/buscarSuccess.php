@@ -2,10 +2,10 @@
 <div class="element caja-presentacion primary-bg height2 width4">
 <!--    <input type="hidden" class="order" value="0">-->
     <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
-        <source src="video/yonohagofilacom_mp4.mp4" type="video/mp4" />
-        <source src="video/yonohagofilacom_ogg.ogg" type="video/ogg" />
-        <source src="video/yonohagofilacom_webm.webm" type="video/webm" />
-        <embed src="video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
+        <source src="../video/yonohagofilacom_mp4.mp4" type="video/mp4" />
+        <source src="../video/yonohagofilacom_ogg.ogg" type="video/ogg" />
+        <source src="../video/yonohagofilacom_webm.webm" type="video/webm" />
+        <embed src="../video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
     </video>
     <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
 <!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
@@ -29,9 +29,9 @@
     </p>
 </div>-->
 <?php if ($sf_user->isAuthenticated()): ?>
-    <div class="element about width1 round-borders caja-perfil-usuario height4">
+    <div class="element about width1 round-borders caja-perfil-usuario height2">
         <div>
-            <img class="img-perfil-usuario" src="../admin/img/<?php echo $sf_user->getAttribute('Usuario')->get('foto')?>"/>
+            <img class="img-perfil-usuario" src="../admin/img/<?php echo $sf_user->getAttribute('Usuario')->get('foto') ?>"/>
             <form class="busqueda-avanzada">
                 <input class="btn-filtro-local" type="submit" value="Cambiar imagen">
             </form>
@@ -198,17 +198,17 @@
                 <th class=" blanco">Ver QR reserva</th>
                 <th class=" blanco">Cancelar</th>
             </tr>            
-    <?php foreach ($reservas as $r): ?>
+            <?php foreach ($reservas as $r): ?>
                 <tr>
                     <td><?php echo $r->get('fecha_creacion') ?></td>
                     <td><?php echo $r->get('Local')->get('nombre') ?></td>
                     <td><?php echo $r->get('fecha_reserva') ?></td>
                     <td><?php echo $r->get('estado') ?></td>
-        <?php // QRcode::png($r->get('slug'));   ?>
+                    <?php // QRcode::png($r->get('slug'));  ?>
                     <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
                     <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
                 </tr>
-    <?php endforeach; ?>
+            <?php endforeach; ?>
 
                                                             <!--            <td><h4 class="primary-color">Senior Web Designer
                                                                         <br/><small>Company Name</small>
@@ -244,17 +244,17 @@
                                                                 </td>
                                                             </tr>-->
         </table>
-    <?php
-    if ($nump != 0):
-        $nextpage = $page + 1;
-        $prevpage = $page - 1;
-        ?>
+        <?php
+        if ($nump != 0):
+            $nextpage = $page + 1;
+            $prevpage = $page - 1;
+            ?>
             <ul id="pagination-digg">
                 <?php if ($page == 1) {
                     ?>
                     <li class="previous-off">&laquo; Previous</li>
                     <li class="active">1</li>              
-                    <?php for ($i = $page + 1; $i < $lastpage; $i++) { ?>
+                    <?php for ($i = $page + 1; $i <= $lastpage; $i++) { ?>
                         <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>"><?php echo $i; ?></a></li>
                         <?php
                     }
@@ -274,20 +274,20 @@
             for ($i = 1; $i <= $lastpage; $i++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
                 if ($page == $i) {
-                    ?>  <li class="active"><?php echo $i; ?></li><?
+                            ?>  <li class="active"><?php echo $i; ?></li><?php
                 } else {
                             ?>  <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>" ><?php echo $i; ?></a></li><?php
                 }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
             if ($lastpage > $page) {
-                ?> 
+                        ?> 
                         <li class="next"><a href="<?php echo url_for('@homepage?page=' . $nextpage) ?>">Next &raquo;</a></li><?php
             } else {
-                ?> <li class="next-off">Next &raquo;</li><?php
+                        ?> <li class="next-off">Next &raquo;</li><?php
             }
         }
-                ?></ul></br>
+                ?></ul></br></br>
         <?php endif; ?>
 
 
@@ -296,25 +296,25 @@
         <!--Tabla historial -->
         <?php
         if (isset($_GET['page2'])) {
-            $page = $_GET['page2'];
+            $page2 = $_GET['page2'];
         } else {
-            $page = 1;
+            $page2 = 1;
         }
         $nump2 = Doctrine_Query::create()->from('Reserva r, r.Local l')
                 ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                 ->count();
         $rows_per_page = 4;
         $lastpage2 = ceil($nump2 / $rows_per_page);
-        $page = (int) $page;
-        if ($page > $lastpage2) {
-            $page = $lastpage2;
+        $page2 = (int) $page2;
+        if ($page2 > $lastpage2) {
+            $page2 = $lastpage2;
         }
-        if ($page < 1) {
-            $page = 1;
+        if ($page2 < 1) {
+            $page2 = 1;
         }
-        $limit = $rows_per_page . ',' . ($page - 1) * $rows_per_page;
+        $limit = $rows_per_page . ',' . ($page2 - 1) * $rows_per_page;
         ?>
-        <h2 class="title">Este es el historial de reservas<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
+        <h2 class="title">Estas son tus reservas anteriores<span>Desde aquí puedes consultar las reservas que has hecho con nosotros en tus lugares favoritos.</span></h2>
         <!--        <div class="filtro-buscador">
                     <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
                         <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
@@ -327,7 +327,7 @@
                 ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                 ->orderBy('fecha_reserva desc')
                 ->limit($rows_per_page)
-                ->offset(($page - 1) * $rows_per_page)
+                ->offset(($page2 - 1) * $rows_per_page)
 //                ->getSqlQuery();        print_r($reservas);        die;
                 ->execute();
         ?>
@@ -340,17 +340,17 @@
                 <th class=" blanco">Ver QR reserva</th>
                 <th class=" blanco">Cancelar</th>
             </tr>            
-    <?php foreach ($reservas as $r): ?>
+            <?php foreach ($reservas as $r): ?>
                 <tr>
                     <td><?php echo $r->get('fecha_creacion') ?></td>
                     <td><?php echo $r->get('Local')->get('nombre') ?></td>
                     <td><?php echo $r->get('fecha_reserva') ?></td>
                     <td><?php echo $r->get('estado') ?></td>
-        <?php // QRcode::png($r->get('slug'));    ?>
+                    <?php // QRcode::png($r->get('slug'));   ?>
                     <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
                     <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
                 </tr>
-    <?php endforeach; ?>
+            <?php endforeach; ?>
 
                                                             <!--            <td><h4 class="primary-color">Senior Web Designer
                                                                         <br/><small>Company Name</small>
@@ -386,22 +386,22 @@
                                                                 </td>
                                                             </tr>-->
         </table>
-    <?php
-    if ($nump2 != 0):
-        $nextpage = $page + 1;
-        $prevpage = $page - 1;
-        ?>
+        <?php
+        if ($nump2 != 0):
+            $nextpage = $page2 + 1;
+            $prevpage = $page2 - 1;
+            ?>
             <ul id="pagination-digg">
-                <?php if ($page == 1) {
+                <?php if ($page2 == 1) {
                     ?>
                     <li class="previous-off">&laquo; Previous</li>
                     <li class="active">1</li> 
-                    <?php for ($i = $page + 1; $i <= $lastpage2; $i++) { ?>
+                    <?php for ($i = $page2 + 1; $i <= $lastpage2; $i++) { ?>
                         <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>"><?php echo $i; ?></a></li>
                         <?php
                     }
                     //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
-                    if ($lastpage2 > $page) {
+                    if ($lastpage2 > $page2) {
                         ?>       
                         <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>" >Next &raquo;</a></li>
                     <?php } else {
@@ -413,24 +413,25 @@
                     ?>
                     <!--                    EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS-->
                     <li class="previous"><a href="<?php echo url_for('@homepage?page2=' . $prevpage) ?>"  >&laquo; Previous</a></li><?php
-            for ($i = 1; $i <= $lastpage2; $i++) {
+            for ($j = 1; $j <= $lastpage2; $j++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
-                if ($page == $i) {
-                    ?>  <li class="active"><?php echo $i; ?></li><?
+                if ($page2 == $j) {
+                            ?>  
+                            <li class="active"><?php echo $j; ?></li><?php
                 } else {
-                            ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>" ><?php echo $i; ?></a></li><?php
+                            ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $j) ?>" ><?php echo $j; ?></a></li><?php
                 }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
-            if ($lastpage2 > $page) {
-                ?> 
+            if ($lastpage2 > $page2) {
+                        ?> 
                         <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><?php
             } else {
-                ?> <li class="next-off">Next &raquo;</li><?php
+                        ?> <li class="next-off">Next &raquo;</li><?php
             }
         }
-        ?></ul></br>
-    <?php endif; ?>
+                ?></ul></br>
+        <?php endif; ?>
     </div>  
 <?php endif; ?>
 
@@ -507,7 +508,7 @@ if (isset($_POST['busqueda']) and $_POST['busqueda']!= '') {
     } else {
         if (isset($_POST['busqueda2']) and $_POST['busqueda2']!= '') {
             $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
-                    ->where('l.telefono LIKE ?', $_POST['busqueda2'] . '%')
+                    ->where('p.descripcion LIKE ?', '%' . $_POST['busqueda2'] . '%')
                     ->execute();
         } else {
             $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
@@ -519,11 +520,10 @@ if (isset($_POST['busqueda']) and $_POST['busqueda']!= '') {
 $i = 1;
 foreach ($locales as $local):
     ?>
-
     <a class="element element-portfolio portfolio height3 width2-1 fd-blanco"> <!-- href="#" ajax-->
         <input type="hidden" class="order" value="3">
         <div class="marca-comercio">
-    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
+            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
         </div>
         <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
@@ -542,14 +542,14 @@ foreach ($locales as $local):
             <p><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
             <p>www.hhsitioweb.com</p>        
         </div>
-    <?php $form->setDefault('local_id', $local->get('id')); ?>
-    <?php if ($sf_user->isAuthenticated()): ?>
+        <?php $form->setDefault('local_id', $local->get('id')); ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
             <button onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
                 <!--<button class="oculta"><img src="../img/seccion-comercios/bti-configurar-reserva1.png"/></button>-->
 
             <div id="contenido_a_mostrar<?php echo $i ?>" style="display:none">
                 <form class="busqueda-avanzada filtro2" action="" method="POST">
-        <?php echo $form; ?>
+                    <?php echo $form; ?>
                     <input type="submit" value="Reservar" />
                 </form>
                 <!--            <form class="busqueda-avanzada filtro2">
@@ -559,8 +559,8 @@ foreach ($locales as $local):
                                 <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
                             </form>-->
             </div>
-        <?php $i = $i + 1; ?>
-    <?php endif; ?>
+            <?php $i = $i + 1; ?>
+        <?php endif; ?>
     <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
     <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
     </span>-->
@@ -763,7 +763,7 @@ foreach ($locales as $local):
     </form>
 </div>
 
-<div class="element contact height2">
+<!--<div class="element contact height2">
     <input type="hidden" class="order" value="17">
     <small>
         Work Address
@@ -799,8 +799,7 @@ foreach ($locales as $local):
             <i class="foundicon-github pad-right"></i> See my work on Github
         </a><br/>
     </p>
-
-</div>
+</div>-->
 <!--<div class="element contact">
     <input type="hidden" class="order" value="19">
     <small>
@@ -828,4 +827,4 @@ foreach ($locales as $local):
     <blockquote>Delivered results immediately. Impeccable attention to detail.
         <small>Jane Smith</small>
     </blockquote>
-</div>  -->
+</div>   -->

@@ -57,13 +57,13 @@
                     <ul>
                         <li><strong>Conoce más:</strong></li>
                         <li>
-                            <a class="red-twitter-ynhf" href="http//:www.twitter.com" ><img src="../img/redes-sociales-ynhf/red-twitter.png"/></a>                    
+                            <a class="red-twitter-ynhf" href="https://twitter.com/" ><img src="../img/redes-sociales-ynhf/red-twitter.png"/></a>                    
                         </li>
                         <li>
-                            <a class="red-youtbe-ynhf" href="http//:www.youtube.com" ><img src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+                            <a class="red-youtbe-ynhf" href="http://www.youtube.com/" ><img src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
                         </li>
                         <li>
-                            <a class="red-face-ynhf" href="http//:www.facebook.com" ><img src="../img/redes-sociales-ynhf/red-facebook.png"/></a>                          
+                            <a class="red-face-ynhf" href="https://www.facebook.com/"><img src="../img/redes-sociales-ynhf/red-facebook.png"/></a>                          
                         </li>
                     </ul>
                 </div>

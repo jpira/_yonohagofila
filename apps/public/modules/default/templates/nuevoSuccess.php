@@ -3,6 +3,7 @@
         <table>
             <?php echo $form->renderGlobalErrors() ?>
             <tbody>
+                <?php $form->setDefault('perfil_id', 3); ?>
                 <?php echo $form ?>
             </tbody>
             <tfoot>

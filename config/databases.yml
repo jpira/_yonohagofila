@@ -5,3 +5,4 @@ all:
       dsn:      mysql:host=localhost;dbname=yonohagofila
       username: root
       password: root
+

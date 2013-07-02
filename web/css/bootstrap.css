@@ -109,19 +109,19 @@ sub {
     display: block;
 }
 .marca-comercio{
-    background: url("../img/sombra-marcas.png") no-repeat center 0 #fff;
+    background: url("../img/sombra-marcas.png") no-repeat center bottom #fff;
     height: 100px;
-    border-bottom: 1px solid #ccc;
     line-height: 100px;
     overflow: visible;
     width: 100%;
 }
 .marca-comercio .logo-comercio{
     display: block;
-    margin:  0 auto;
 }
 .marca-comercio .logo-comercio img{
+    margin:0 auto;
     line-height: 100px;
+    vertical-align: middle;
 }
 .calificacion-comercio{
     color:#6e6b6b;

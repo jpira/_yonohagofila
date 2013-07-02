@@ -6,8 +6,10 @@
             <base target="_blank">
                 </head>
                 <body>
+				<div>
                     <p> 
                         <img src="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" align="right" height="256" width="256">
+					</p>
                             <h1>ANDRES LOPEZ LOPEZ</h1></br>
                             <span> USUARIO PLATINIUM</span>
                             <h2>Mensaje de informacion de su reserva </h2>
@@ -20,6 +22,6 @@
 							<center>Presente este codigo QR para validar su reserva y hacer compras en el bar / restaurante </br>
 							   Terminos Y Condicones de la Reserva </br>
 							   xxxxx xxxxx xxxx xxxxx xxxx xxxxxxxxx xxx</center>
-                    </p>
+				</div>
                 </body>
                 </html>

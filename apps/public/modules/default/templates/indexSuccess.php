@@ -221,7 +221,7 @@
                     ?>
                     <li class="previous-off">&laquo; Previous</li>
                     <li class="active">1</li>              
-                    <?php for ($i = $page + 1; $i < $lastpage; $i++) { ?>
+                    <?php for ($i = $page + 1; $i <= $lastpage; $i++) { ?>
                         <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>"><?php echo $i; ?></a></li>
                         <?php
                     }

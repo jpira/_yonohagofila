@@ -244,6 +244,27 @@ Local:
       primary: false
       notnull: true
       autoincrement: false
+    facebook:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    twitter:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    youtube:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     usuario_asociado:
       type: string(200)
       fixed: false

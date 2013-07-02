@@ -29,9 +29,9 @@
     </p>
 </div>-->
 <?php if ($sf_user->isAuthenticated()): ?>
-    <div class="element about width1 round-borders caja-perfil-usuario height2">
+    <div class="element about width1 round-borders caja-perfil-usuario height4">
         <div>
-            <img class="img-perfil-usuario" src="../img/img-avatar-usuario.jpg"/>
+            <img class="img-perfil-usuario" src="../admin/img/<?php echo $sf_user->getAttribute('Usuario')->get('foto')?>"/>
             <form class="busqueda-avanzada">
                 <input class="btn-filtro-local" type="submit" value="Cambiar imagen">
             </form>
@@ -57,14 +57,14 @@
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>Número telefónico:</p>
-                <p class="text">315 456 7895</p>             
+                <p class="text" id="tel" name="tel"><?php echo $sf_user->getAttribute('Usuario')->get('telefono') ?></p>             
             </div>
         </div>
         <div class="contenido-perfil">
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>e-mail:</p>
-                <p class="text"><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
+                <p class="text2" type="email" id="mail" name="mail"><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
             </div>
         </div>
 
@@ -141,32 +141,39 @@
         ?>
         <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
         <div class="filtro-buscador">
-            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
+            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?>" method="POST" >
                 <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
                 <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
                 <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
             </form>
         </div>
         <?php
-        if ($_POST['bnombre'] or $_POST['bfecha']) {
-            if ($_POST['bnombre'] != '') {
+        if (isset($_POST['bnombre']) or isset($_POST['bfecha'])) {
+            if ($_POST['bnombre'] != '' and $_POST['bfecha'] != '') {
                 $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
-                        ->where('r.id_usuario = ? AND l.nombre LIKE ? ', array($sf_user->getAttribute('Usuario')->get('id'), trim($_POST['bnombre']) . '%'))
+                        ->where('r.id_usuario = ? AND l.nombre LIKE ? AND r.fecha_reserva LIKE ?', array($sf_user->getAttribute('Usuario')->get('id'), trim($_POST['bnombre']) . '%', $_POST['bfecha'] . '%'))
                         ->orderBy('fecha_reserva desc')
                         ->limit(4)
-                        ->execute();
+                        ->offset(($page - 1) * $rows_per_page)
+//                        ->getSqlQuery();                print_r($reservas);               die;
+                            ->execute();
             } else {
-                $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
-                        ->where('r.id_usuario = ? AND r.fecha_reserva LIKE ?', array($sf_user->getAttribute('Usuario')->get('id'), $_POST['bfecha'] . '%'))
-                        ->orderBy('fecha_reserva desc')
-                        ->limit(4)
-                        ->execute();
-                if ($_POST['bnombre'] != '' and $_POST['bfecha'] != '') {
+                if ($_POST['bnombre'] != '') {
                     $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
-                            ->where('r.id_usuario = ? AND l.nombre LIKE ? AND r.fecha_reserva LIKE ?', array($sf_user->getAttribute('Usuario')->get('id'), trim($_POST['bnombre']) . '%', $_POST['bfecha'] . '%'))
+                            ->where('r.id_usuario = ? AND l.nombre LIKE ? ', array($sf_user->getAttribute('Usuario')->get('id'), trim($_POST['bnombre']) . '%'))
                             ->orderBy('fecha_reserva desc')
                             ->limit(4)
-                            ->execute();
+                            ->offset(($page - 1) * $rows_per_page)
+//                            ->getSqlQuery();                 print_r($reservas);                    die;
+                        ->execute();
+                } else {
+                    $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
+                            ->where('r.id_usuario = ? AND r.fecha_reserva LIKE ?', array($sf_user->getAttribute('Usuario')->get('id'), $_POST['bfecha'] . '%'))
+                            ->orderBy('fecha_reserva desc')
+                            ->limit(4)
+                            ->offset(($page - 1) * $rows_per_page)
+//                            ->getSqlQuery();                 print_r($reservas);                    die;
+                        ->execute();
                 }
             }
         } else {
@@ -174,8 +181,9 @@
                     ->where('r.id_usuario = ? AND fecha_reserva > ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                     ->orderBy('fecha_reserva desc')
                     ->limit($rows_per_page)
+                    ->limit(4)
                     ->offset(($page - 1) * $rows_per_page)
-//                ->getSqlQuery();print_r($reservas); die;
+//                    ->getSqlQuery();        print_r($reservas);            die;
                     ->execute();
         }
 
@@ -190,57 +198,57 @@
                 <th class=" blanco">Ver QR reserva</th>
                 <th class=" blanco">Cancelar</th>
             </tr>            
-            <?php foreach ($reservas as $r): ?>
+    <?php foreach ($reservas as $r): ?>
                 <tr>
                     <td><?php echo $r->get('fecha_creacion') ?></td>
                     <td><?php echo $r->get('Local')->get('nombre') ?></td>
                     <td><?php echo $r->get('fecha_reserva') ?></td>
                     <td><?php echo $r->get('estado') ?></td>
-                    <?php // QRcode::png($r->get('slug'));   ?>
+        <?php // QRcode::png($r->get('slug'));   ?>
                     <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
                     <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
                 </tr>
-            <?php endforeach; ?>
+    <?php endforeach; ?>
 
-                                                                <!--            <td><h4 class="primary-color">Senior Web Designer
-                                                                            <br/><small>Company Name</small>
-                                                                        </h4>
-                                                                        <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                        </p>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="no-wrap">2012 - 2013
-                                                                    </th>
-                                                                    <td><h4 class="primary-color">Front-End Engineer
-                                                                            <br/><small>Company Name</small>
-                                                                        </h4>
-                                                                        <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                        </p>
-                                                                        <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="no-wrap">2010 - 2012
-                                                                    </th>
-                                                                    <td><h4 class="primary-color">Graphic Designer
-                                                                            <br/><small>Company Name</small>
-                                                                        </h4>
-                                                                        <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                        </p>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>-->
+                                                            <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2012 - 2013
+                                                                </th>
+                                                                <td><h4 class="primary-color">Front-End Engineer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2010 - 2012
+                                                                </th>
+                                                                <td><h4 class="primary-color">Graphic Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>-->
         </table>
-        <?php
-        if ($nump != 0):
-            $nextpage = $page + 1;
-            $prevpage = $page - 1;
-            ?>
+    <?php
+    if ($nump != 0):
+        $nextpage = $page + 1;
+        $prevpage = $page - 1;
+        ?>
             <ul id="pagination-digg">
                 <?php if ($page == 1) {
                     ?>
@@ -266,17 +274,17 @@
             for ($i = 1; $i <= $lastpage; $i++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
                 if ($page == $i) {
-                            ?>  <li class="active"><?php echo $i; ?></li><?
+                    ?>  <li class="active"><?php echo $i; ?></li><?
                 } else {
                             ?>  <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>" ><?php echo $i; ?></a></li><?php
                 }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
             if ($lastpage > $page) {
-                        ?> 
+                ?> 
                         <li class="next"><a href="<?php echo url_for('@homepage?page=' . $nextpage) ?>">Next &raquo;</a></li><?php
             } else {
-                        ?> <li class="next-off">Next &raquo;</li><?php
+                ?> <li class="next-off">Next &raquo;</li><?php
             }
         }
                 ?></ul></br>
@@ -307,13 +315,13 @@
         $limit = $rows_per_page . ',' . ($page - 1) * $rows_per_page;
         ?>
         <h2 class="title">Este es el historial de reservas<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
-        <div class="filtro-buscador">
-            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
-                <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
-                <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
-                <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
-            </form>
-        </div>
+        <!--        <div class="filtro-buscador">
+                    <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
+                        <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
+                        <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
+                        <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
+                    </form>
+                </div>-->
         <?php
         $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
                 ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
@@ -332,57 +340,57 @@
                 <th class=" blanco">Ver QR reserva</th>
                 <th class=" blanco">Cancelar</th>
             </tr>            
-            <?php foreach ($reservas as $r): ?>
+    <?php foreach ($reservas as $r): ?>
                 <tr>
                     <td><?php echo $r->get('fecha_creacion') ?></td>
                     <td><?php echo $r->get('Local')->get('nombre') ?></td>
                     <td><?php echo $r->get('fecha_reserva') ?></td>
                     <td><?php echo $r->get('estado') ?></td>
-                    <?php // QRcode::png($r->get('slug'));    ?>
+        <?php // QRcode::png($r->get('slug'));    ?>
                     <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><img class="img-perfil-usuario" src="../img/icon-ver.png"/></a></td>
                     <td><a href="<?php echo url_for('@cancelarr?id=' . $r->get('id')) ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
                 </tr>
-            <?php endforeach; ?>
+    <?php endforeach; ?>
 
-                                                                <!--            <td><h4 class="primary-color">Senior Web Designer
-                                                                            <br/><small>Company Name</small>
-                                                                        </h4>
-                                                                        <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                        </p>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="no-wrap">2012 - 2013
-                                                                    </th>
-                                                                    <td><h4 class="primary-color">Front-End Engineer
-                                                                            <br/><small>Company Name</small>
-                                                                        </h4>
-                                                                        <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                        </p>
-                                                                        <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="no-wrap">2010 - 2012
-                                                                    </th>
-                                                                    <td><h4 class="primary-color">Graphic Designer
-                                                                            <br/><small>Company Name</small>
-                                                                        </h4>
-                                                                        <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                                        </p>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>-->
+                                                            <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2012 - 2013
+                                                                </th>
+                                                                <td><h4 class="primary-color">Front-End Engineer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="no-wrap">2010 - 2012
+                                                                </th>
+                                                                <td><h4 class="primary-color">Graphic Designer
+                                                                        <br/><small>Company Name</small>
+                                                                    </h4>
+                                                                    <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                    </p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>-->
         </table>
-        <?php
-        if ($nump2 != 0):
-            $nextpage = $page + 1;
-            $prevpage = $page - 1;
-            ?>
+    <?php
+    if ($nump2 != 0):
+        $nextpage = $page + 1;
+        $prevpage = $page - 1;
+        ?>
             <ul id="pagination-digg">
                 <?php if ($page == 1) {
                     ?>
@@ -408,21 +416,21 @@
             for ($i = 1; $i <= $lastpage2; $i++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
                 if ($page == $i) {
-                            ?>  <li class="active"><?php echo $i; ?></li><?
+                    ?>  <li class="active"><?php echo $i; ?></li><?
                 } else {
                             ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>" ><?php echo $i; ?></a></li><?php
                 }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
             if ($lastpage2 > $page) {
-                        ?> 
+                ?> 
                         <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><?php
             } else {
-                        ?> <li class="next-off">Next &raquo;</li><?php
+                ?> <li class="next-off">Next &raquo;</li><?php
             }
         }
-                ?></ul></br>
-        <?php endif; ?>
+        ?></ul></br>
+    <?php endif; ?>
     </div>  
 <?php endif; ?>
 
@@ -487,20 +495,20 @@
     </span>
 </a>-->
 <?php
-if ($_POST['busqueda']) {
+if (isset($_POST['busqueda']) and $_POST['busqueda']!= '') {
     $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
             ->where('l.nombre LIKE ?', $_POST['busqueda'] . '%')
             ->execute();
 } else {
-    if ($_POST['busqueda1']) {
+    if (isset($_POST['busqueda1']) and $_POST['busqueda1']!= '') {
         $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
-            ->where('l.direccion LIKE ?', $_POST['busqueda1'] . '%')
-            ->execute();
+                ->where('l.direccion LIKE ?', $_POST['busqueda1'] . '%')
+                ->execute();
     } else {
-        if ($_POST['busqueda2']) {
+        if (isset($_POST['busqueda2']) and $_POST['busqueda2']!= '') {
             $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
-            ->where('l.telefono LIKE ?', $_POST['busqueda2'] . '%')
-            ->execute();
+                    ->where('l.telefono LIKE ?', $_POST['busqueda2'] . '%')
+                    ->execute();
         } else {
             $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
                     ->execute();
@@ -515,7 +523,7 @@ foreach ($locales as $local):
     <a class="element element-portfolio portfolio height3 width2-1 fd-blanco"> <!-- href="#" ajax-->
         <input type="hidden" class="order" value="3">
         <div class="marca-comercio">
-            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
+    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
         </div>
         <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
@@ -523,9 +531,9 @@ foreach ($locales as $local):
         </div>
         <div class="redes-comercio">
             <!--<p>560</p>-->            
-            <img class="img-red-comercio" src="../img/facebook.png"/>
-            <img class="img-red-comercio" src="../img/YouTube.gif"/>
-            <img class="img-red-comercio" src="../img/twitter.png"/>
+            <img  src="../img/redes-sociales-ynhf/red-facebook.png"/>
+            <img  src="../img/redes-sociales-ynhf/red-youtube.png"/>
+            <img  src="../img/redes-sociales-ynhf/red-twitter.png"/>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
@@ -534,14 +542,14 @@ foreach ($locales as $local):
             <p><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
             <p>www.hhsitioweb.com</p>        
         </div>
-        <?php $form->setDefault('local_id', $local->get('id')); ?>
-        <?php if ($sf_user->isAuthenticated()): ?>
+    <?php $form->setDefault('local_id', $local->get('id')); ?>
+    <?php if ($sf_user->isAuthenticated()): ?>
             <button onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
                 <!--<button class="oculta"><img src="../img/seccion-comercios/bti-configurar-reserva1.png"/></button>-->
 
             <div id="contenido_a_mostrar<?php echo $i ?>" style="display:none">
                 <form class="busqueda-avanzada filtro2" action="" method="POST">
-                    <?php echo $form; ?>
+        <?php echo $form; ?>
                     <input type="submit" value="Reservar" />
                 </form>
                 <!--            <form class="busqueda-avanzada filtro2">
@@ -551,13 +559,13 @@ foreach ($locales as $local):
                                 <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
                             </form>-->
             </div>
-            <?php $i = $i + 1; ?>
-        <?php endif; ?>
-    <?php endforeach; ?>
-<!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
-<!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
-</span>-->
-</a>
+        <?php $i = $i + 1; ?>
+    <?php endif; ?>
+    <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
+    <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
+    </span>-->
+    </a>
+<?php endforeach; ?>
 <!--
 <a href="project_image_1.html"  class="element element-portfolio portfolio ajax">
     <input type="hidden" class="order" value="4">
@@ -793,7 +801,7 @@ foreach ($locales as $local):
     </p>
 
 </div>
-<div class="element contact">
+<!--<div class="element contact">
     <input type="hidden" class="order" value="19">
     <small>
         Latest from my Twitter.
@@ -803,7 +811,7 @@ foreach ($locales as $local):
     <blockquote class="twitter-content">
     </blockquote>
     <a href="http://www.twitter.com/envato" class="btn btn-primary">@twitter_account <i class="icon-twitter"></i></a>
-</div>
+</div>-->
 
 <!-- Extra non-categorized -->
 <div class="element">
@@ -812,7 +820,7 @@ foreach ($locales as $local):
     </p>
 </div>
 
-<div class="element">
+<!--<div class="element">
     <input type="hidden" class="order" value="20">
     <blockquote>John Doe is a great guy to work with. Constantly reliable and efficient. A++.
         <small>Bob Smith</small>
@@ -820,4 +828,4 @@ foreach ($locales as $local):
     <blockquote>Delivered results immediately. Impeccable attention to detail.
         <small>Jane Smith</small>
     </blockquote>
-</div>   
+</div>  -->

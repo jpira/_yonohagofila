@@ -53,21 +53,14 @@
                 // ambos procesaran en save.php
 	 
                 // servira para editar los de tipo input text.
-                $('.text').editable('<?php url_for('@editaru?id='.$sf_user->getAttribute('Usuario')->get('id'))?>', {
+                $('.text').editable('<?php echo url_for('@editaru?id='.$sf_user->getAttribute('Usuario')->get('id'))?>', {
+                    indicator : 'Saving...', 
                     submit : 'OK'
                 });
-	 
-                // servira para editar el cuadro combinado de paises
-                $('.select').editable('save.php', { 
-                    data   : " {'1':'Argentina','2':'Bolivia','3':'Peru', '4':'Chile'}",
-                    type   : 'select',
+                
+                $('.text2').editable('<?php echo url_for('@editaru2?id='.$sf_user->getAttribute('Usuario')->get('id'))?>', {
+                    indicator : 'Saving...',                  
                     submit : 'OK'
-                });
-	 
-                // servira para editar el textarea.
-                $('.textarea').editable('save.php', { 
-                    type     : 'textarea',
-                    submit   : 'OK'
                 });
 	 	 
             });

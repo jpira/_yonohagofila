@@ -20,15 +20,15 @@ cancelarr:
   
 filtrar:
   url:   /reservaespecific
-  param: { module: default, action: buscar }  
-  
-ver:
-  url:   /verreserva
-  param: { module: default, action: ver }  
+  param: { module: default, action: buscar }   
   
 editaru: 
   url:   /edituser/:id
   param: { module: default, action: editar } 
+  
+editaru2: 
+  url:   /edituser2/:id
+  param: { module: default, action: editar2 }   
   
 nuevou: 
   url:   /new
@@ -42,3 +42,12 @@ usuario:
     prefix_path:          /usuario
     column:               id
     with_wildcard_routes: true  
+    
+reserva:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                reserva
+    module:               reserva
+    prefix_path:          /reserva
+    column:               id
+    with_wildcard_routes: true    

@@ -14,18 +14,9 @@ class defaultActions extends sfActions {
         $this->getResponse()->setTitle('Yonohagofila');
         $this->form = new ReservaForm();
         if ($request->isMethod('POST')) {
-            $this->processForm($request, $this->form);
+            $this->processForm2($request, $this->form);
         }
     }
-
-//    public function Reserva(sfWebRequest $request, sfForm $form) {
-//        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-//        if ($form->isValid()) {
-//            $form->save();
-//            $this->getUser()->setFlash('notice', "Reserva Realizada");
-//            $this->redirect('@homepage');
-//        }
-//    }
 
     public function executeError404() {
         
@@ -84,16 +75,20 @@ class defaultActions extends sfActions {
 //        }
     }
 
-    public function executeVer(sfWebRequest $request) {
-        
-    }
-
     public function executeEditar(sfWebRequest $request) {
         $edicion = Doctrine_Query::create()
-                    ->update('Usuario u')
-                    ->set('nombre', '?', 'xnx')
-                    ->where('id = ?', $request->getParameter('id'))
-                    ->execute();
+                ->update('Usuario u')
+                ->set('telefono', '?', $_POST['value'])
+                ->where('id = ?', $request->getParameter('id'))
+                ->execute();
+    }
+
+    public function executeEditar2(sfWebRequest $request) {
+        $edicion = Doctrine_Query::create()
+                ->update('Usuario u')
+                ->set('email', '?', $_POST['value'])
+                ->where('id = ?', $request->getParameter('id'))
+                ->execute();
     }
 
     public function executeNuevo(sfWebRequest $request) {
@@ -107,34 +102,33 @@ class defaultActions extends sfActions {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         if ($form->isValid()) {
             $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+            $email = $form->getValue('email');
+            $form->setDefault('perfil_id', 3);
+            // Se envia correo
+            $message = $this->getMailer()->compose();
+            $message->setSubject('Bienvenido a Yonohagofila.com');
+            $message->setTo($email);
+            $message->setFrom('info@yonohagofila.com', 'Yonohagofila.com');
+
+            $body = $this->getPartial('correo_suscripcion');
+            $message->setBody($body, 'text/html');
 
             try {
-                $usuario = $form->save();
-            } catch (Doctrine_Validator_Exception $e) {
-
-                $errorStack = $form->getObject()->getErrorStack();
-
-                $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
-                foreach ($errorStack as $field => $errors) {
-                    $message .= "$field (" . implode(", ", $errors) . "), ";
-                }
-                $message = trim($message, ', ');
-
-                $this->getUser()->setFlash('error', $message);
-                return sfView::SUCCESS;
+                $this->getMailer()->send($message);
+            } catch (Exception $e) {
+                
             }
+            $usuario = $form->save();
+        } else {
+            $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+        }
+    }
 
-            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $usuario)));
-
-            if ($request->hasParameter('_save_and_add')) {
-                $this->getUser()->setFlash('notice', $notice . ' You can add another one below.');
-
-                $this->redirect('@homepage');
-            } else {
-                $this->getUser()->setFlash('notice', $notice);
-
-                $this->redirect('@homepage');
-            }
+    protected function processForm2(sfWebRequest $request, sfForm $form) {
+        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+        if ($form->isValid()) {
+            $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+            $reserva = $form->save();
         } else {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
         }

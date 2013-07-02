@@ -2,10 +2,10 @@
 <div class="element caja-presentacion primary-bg height2 width4">
 <!--    <input type="hidden" class="order" value="0">-->
     <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
-        <source src="video/yonohagofilacom_mp4.mp4" type="video/mp4" />
-        <source src="video/yonohagofilacom_ogg.ogg" type="video/ogg" />
-        <source src="video/yonohagofilacom_webm.webm" type="video/webm" />
-        <embed src="video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
+        <source src="../video/yonohagofilacom_mp4.mp4" type="video/mp4" />
+        <source src="../video/yonohagofilacom_ogg.ogg" type="video/ogg" />
+        <source src="../video/yonohagofilacom_webm.webm" type="video/webm" />
+        <embed src="../video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
     </video>
     <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
 <!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
@@ -29,9 +29,9 @@
     </p>
 </div>-->
 <?php if ($sf_user->isAuthenticated()): ?>
-    <div class="element about width1 round-borders caja-perfil-usuario height4">
+    <div class="element about width1 round-borders caja-perfil-usuario height2">
         <div>
-            <img class="img-perfil-usuario" src="../img/img-avatar-usuario.jpg"/>
+            <img class="img-perfil-usuario" src="../admin/img/<?php echo $sf_user->getAttribute('Usuario')->get('foto') ?>"/>
             <form class="busqueda-avanzada">
                 <input class="btn-filtro-local" type="submit" value="Cambiar imagen">
             </form>
@@ -44,7 +44,7 @@
                 <p>xxxxxxxxxxxxxxxx</p>            
             </div>
         </div>
-            <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
+        <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
         <p class="texto-sencillo-perfil">Bogotá, Colombia</p>
         <div class="contenido-perfil">
             <!--<a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>-->
@@ -57,14 +57,14 @@
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>Número telefónico:</p>
-                <p class="text"><?php echo $sf_user->getAttribute('Usuario')->get('telefono') ?></p>             
+                <p class="text" id="tel" name="tel"><?php echo $sf_user->getAttribute('Usuario')->get('telefono') ?></p>             
             </div>
         </div>
         <div class="contenido-perfil">
             <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>e-mail:</p>
-                <p class="text" type="email" ><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
+                <p class="text2" type="email" id="mail" name="mail"><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
             </div>
         </div>
 
@@ -177,39 +177,39 @@
                 </tr>
             <?php endforeach; ?>
 
-                                                    <!--            <td><h4 class="primary-color">Senior Web Designer
-                                                                <br/><small>Company Name</small>
-                                                            </h4>
-                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                            </p>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="no-wrap">2012 - 2013
-                                                        </th>
-                                                        <td><h4 class="primary-color">Front-End Engineer
-                                                                <br/><small>Company Name</small>
-                                                            </h4>
-                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                            </p>
-                                                            <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="no-wrap">2010 - 2012
-                                                        </th>
-                                                        <td><h4 class="primary-color">Graphic Designer
-                                                                <br/><small>Company Name</small>
-                                                            </h4>
-                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                            </p>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                            </p>
-                                                        </td>
-                                                    </tr>-->
+                                                        <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                    <br/><small>Company Name</small>
+                                                                </h4>
+                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                </p>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-wrap">2012 - 2013
+                                                            </th>
+                                                            <td><h4 class="primary-color">Front-End Engineer
+                                                                    <br/><small>Company Name</small>
+                                                                </h4>
+                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                </p>
+                                                                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-wrap">2010 - 2012
+                                                            </th>
+                                                            <td><h4 class="primary-color">Graphic Designer
+                                                                    <br/><small>Company Name</small>
+                                                                </h4>
+                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                </p>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                </p>
+                                                            </td>
+                                                        </tr>-->
         </table>
         <?php
         if ($nump != 0):
@@ -282,13 +282,13 @@
         $limit = $rows_per_page . ',' . ($page - 1) * $rows_per_page;
         ?>
         <h2 class="title">Este es el historial de reservas<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
-        <div class="filtro-buscador">
-            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
-                <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
-                <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
-                <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
-            </form>
-        </div>
+        <!--        <div class="filtro-buscador">
+                    <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
+                        <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
+                        <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
+                        <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
+                    </form>
+                </div>-->
         <?php
         $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
                 ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
@@ -319,39 +319,39 @@
                 </tr>
             <?php endforeach; ?>
 
-                                                    <!--            <td><h4 class="primary-color">Senior Web Designer
-                                                                <br/><small>Company Name</small>
-                                                            </h4>
-                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                            </p>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="no-wrap">2012 - 2013
-                                                        </th>
-                                                        <td><h4 class="primary-color">Front-End Engineer
-                                                                <br/><small>Company Name</small>
-                                                            </h4>
-                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                            </p>
-                                                            <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="no-wrap">2010 - 2012
-                                                        </th>
-                                                        <td><h4 class="primary-color">Graphic Designer
-                                                                <br/><small>Company Name</small>
-                                                            </h4>
-                                                            <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
-                                                            </p>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
-                                                            </p>
-                                                        </td>
-                                                    </tr>-->
+                                                        <!--            <td><h4 class="primary-color">Senior Web Designer
+                                                                    <br/><small>Company Name</small>
+                                                                </h4>
+                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                </p>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-wrap">2012 - 2013
+                                                            </th>
+                                                            <td><h4 class="primary-color">Front-End Engineer
+                                                                    <br/><small>Company Name</small>
+                                                                </h4>
+                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                </p>
+                                                                <p>Sagittis in nam leo fringilla quis tortor consectetur adipiscing fringilla quis sagittis in. Nam leo tortor Vivamus, consectetur adipiscingVivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla tortor consectetur adipiscing quis sagittis in.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-wrap">2010 - 2012
+                                                            </th>
+                                                            <td><h4 class="primary-color">Graphic Designer
+                                                                    <br/><small>Company Name</small>
+                                                                </h4>
+                                                                <p>Talk about your job duties and accomplishments here. Tell the world about all the great work you did!
+                                                                </p>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Vivamus amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in.
+                                                                </p>
+                                                            </td>
+                                                        </tr>-->
         </table>
         <?php
         if ($nump2 != 0):
@@ -468,7 +468,6 @@ $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
 $i = 1;
 foreach ($locales as $local):
     ?>
-
     <a class="element element-portfolio portfolio height3 width2-1 fd-blanco"> <!-- href="#" ajax-->
         <input type="hidden" class="order" value="3">
         <div class="marca-comercio">
@@ -510,11 +509,11 @@ foreach ($locales as $local):
             </div>
             <?php $i = $i + 1; ?>
         <?php endif; ?>
-    <?php endforeach; ?>
-<!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
-<!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
-</span>-->
-</a>
+    <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
+    <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
+    </span>-->
+    </a>
+<?php endforeach; ?>
 <!--
 <a href="project_image_1.html"  class="element element-portfolio portfolio ajax">
     <input type="hidden" class="order" value="4">
@@ -712,7 +711,7 @@ foreach ($locales as $local):
     </form>
 </div>
 
-<div class="element contact height2">
+<!--<div class="element contact height2">
     <input type="hidden" class="order" value="17">
     <small>
         Work Address
@@ -748,9 +747,8 @@ foreach ($locales as $local):
             <i class="foundicon-github pad-right"></i> See my work on Github
         </a><br/>
     </p>
-
-</div>
-<div class="element contact">
+</div>-->
+<!--<div class="element contact">
     <input type="hidden" class="order" value="19">
     <small>
         Latest from my Twitter.
@@ -760,7 +758,7 @@ foreach ($locales as $local):
     <blockquote class="twitter-content">
     </blockquote>
     <a href="http://www.twitter.com/envato" class="btn btn-primary">@twitter_account <i class="icon-twitter"></i></a>
-</div>
+</div>-->
 
 <!-- Extra non-categorized -->
 <div class="element">
@@ -769,7 +767,7 @@ foreach ($locales as $local):
     </p>
 </div>
 
-<div class="element">
+<!--<div class="element">
     <input type="hidden" class="order" value="20">
     <blockquote>John Doe is a great guy to work with. Constantly reliable and efficient. A++.
         <small>Bob Smith</small>
@@ -777,4 +775,4 @@ foreach ($locales as $local):
     <blockquote>Delivered results immediately. Impeccable attention to detail.
         <small>Jane Smith</small>
     </blockquote>
-</div>   
+</div>   -->

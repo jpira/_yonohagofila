@@ -1,23 +1,23 @@
 <div class="navbar navbar-fixed-top">
     <div class="filtro-tipo-local">
         <div class="bloque-filtros">
+            <form id="ui_element" class="sb_wrapper busqueda-avanzada" action="<?php echo url_for('@filtrar') ?>" method="POST">
+                <!--<p>-->
+                <!--<botton > Búsqueda avanzada</button>-->
+                <!--<a href="#" class="sb_input blanco btn-filtro-local2" style="border: 10px">Busqueda avanzada</a>-->
+                    <!--<input class="sb_input" type="text"/>-->
+                    <!--</p>-->
+                <input class="sb_input btn-filtro-local2" type="button" value="Busqueda avanzada"></input>
+                    <ul class="sb_dropdown" style="display:none">  
+                        <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li>
+                        <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
+                        <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
+                        <li><input class="btn-filtro-local2" type="submit" value="Buscar"></li>
+                    </ul>
+            </form>
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
                 <input class="input-filtro-local" id="busqueda" type="search" name="busqueda" placeholder="Buscar">
                 <input class="btn-lupa" type="submit" value=" ">
-            </form>
-            <form id="ui_element" class="sb_wrapper busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST">
-                <p>
-                <!--<botton > Búsqueda avanzada</button>-->
-                <a href="#" class="sb_input">Buscar</a>
-                    <!--<input class="sb_input" type="text"/>-->
-                    <input class="btn-lupa" type="submit" value=" ">
-                    </p>
-                    <ul class="sb_dropdown" style="display:none">  
-                        <li><label>Nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li></br>
-                        <li><label>Direccion</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li></br>
-                        <li><label>Telefono</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-
-                    </ul>
             </form>
             <!--                <form class="busqueda-avanzada">
                                 <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">

@@ -1,6 +1,6 @@
 <!-- Name and Image-->
-<div class="element caja-presentacion primary-bg height2 width4">
-<!--    <input type="hidden" class="order" value="0">-->
+<div class="element caja-presentacion primary-bg height2">
+    <input type="hidden" class="order" value="0">
     <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
         <source src="../video/yonohagofilacom_mp4.mp4" type="video/mp4" />
         <source src="../video/yonohagofilacom_ogg.ogg" type="video/ogg" />
@@ -11,9 +11,9 @@
 <!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
     <!--    <hr class="thick" />-->
 </div>
-<div class="mano-acceso">
+<!--<div class="mano-acceso">
     <img src="../img/mano-acceso.png" alt="Tu no haces fila">    
-</div>
+</div>-->
 
 <!-- About -->
 <!--<div class="element about width3">
@@ -461,59 +461,67 @@
     <span class="portfolio-title"><i class="icon-play"></i>Sword and Shield
     </span>
 </a>-->
-<?php
-$locales = Doctrine_Query::create()->from('Parametro p, p.Local')
-//        ->limit(3)
-        ->execute();
-$i = 1;
-foreach ($locales as $local):
-    ?>
-    <a class="element element-portfolio portfolio height3 width2-1 fd-blanco"> <!-- href="#" ajax-->
-        <input type="hidden" class="order" value="3">
-        <div class="marca-comercio">
-            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
-        </div>
-        <div class="calificacion-comercio">
-            <p>Calificación usuarios</p>
-            <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
-        </div>
-        <div class="redes-comercio">
-            <!--<p>560</p>-->            
-            <img  src="../img/redes-sociales-ynhf/red-facebook.png"/>
-            <img  src="../img/redes-sociales-ynhf/red-youtube.png"/>
-            <img  src="../img/redes-sociales-ynhf/red-twitter.png"/>
-        </div>
-        <div class="clearfix"></div>
-        <div class="descripcion-local">
-            <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
-            <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
-            <p><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
-            <p>www.hhsitioweb.com</p>        
-        </div>
-        <?php $form->setDefault('local_id', $local->get('id')); ?>
-        <?php if ($sf_user->isAuthenticated()): ?>
-            <button onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
-                <!--<button class="oculta"><img src="../img/seccion-comercios/bti-configurar-reserva1.png"/></button>-->
-
-            <div id="contenido_a_mostrar<?php echo $i ?>" style="display:none">
-                <form class="busqueda-avanzada filtro2" action="" method="POST">
-                    <?php echo $form; ?>
-                    <input type="submit" value="Reservar" />
-                </form>
-                <!--            <form class="busqueda-avanzada filtro2">
-                                <input type="text" placeholder="Número de personas" />
-                                <input type="text" placeholder="Día a reservar" />
-                                <input type="text" placeholder="Consumo estimado" />
-                                <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
-                            </form>-->
+   
+    <?php
+    $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
+    //        ->limit(3)
+            ->execute();
+    $i = 1;
+    foreach ($locales as $local):
+        ?>
+        <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco"> <!-- href="#" ajax-->
+            <!--<input type="hidden" class="order" value="3">-->
+            <div class="marca-comercio">
+                <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
             </div>
-            <?php $i = $i + 1; ?>
-        <?php endif; ?>
-    <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
-    <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
-    </span>-->
-    </a>
-<?php endforeach; ?>
+            <div class="disponibilidad-comercio">
+                <img src="../img/barra-disponibilidad.png"/>
+            </div>
+            <div class="calificacion-comercio">
+                <p>Calificación usuarios</p>
+                <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
+            </div>
+            <div class="redes-comercio">
+                <!--<p>560</p>-->            
+                <a href="#"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
+                <a href="#"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+                <a href="#"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="descripcion-local">
+                <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
+                <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
+                <p class="texto-descripcion"><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
+                <p class="url-web-local">www.hhsitioweb.com</p>        
+            </div>
+            <?php $form->setDefault('local_id', $local->get('id')); ?>
+            <?php if ($sf_user->isAuthenticated()): ?>
+            <div class="busqueda-avanzada width2-1">
+                <button class="btn-filtro-local2" onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
+
+            </div>
+                    <!--<button class="oculta"><img src="../img/seccion-comercios/bti-configurar-reserva1.png"/></button>-->
+
+                <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
+                    <form class="busqueda-avanzada filtro2 height-auto" action="" method="POST">
+                        <?php echo $form; ?>
+                        <input type="submit" value="Reservar" />
+                    </form>
+
+                    <!--            <form class="busqueda-avanzada filtro2">
+                                    <input type="text" placeholder="Número de personas" />
+                                    <input type="text" placeholder="Día a reservar" />
+                                    <input type="text" placeholder="Consumo estimado" />
+                                    <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
+                                </form>-->
+                </div>
+                <?php $i = $i + 1; ?>
+            <?php endif; ?>
+        <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
+        <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
+        </span>-->
+        </div>
+    <?php endforeach; ?>
 <!--
 <a href="project_image_1.html"  class="element element-portfolio portfolio ajax">
     <input type="hidden" class="order" value="4">

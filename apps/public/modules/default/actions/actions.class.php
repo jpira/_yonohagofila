@@ -70,7 +70,7 @@ class defaultActions extends sfActions {
 
     public function executeBuscar(sfWebRequest $request) {
         $this->form = new ReservaForm();
-//        if ($request->isMethod('POST')) {
+//        if ($this->form != null) {
 //            $this->processForm2($request, $this->form);
 //        }
     }

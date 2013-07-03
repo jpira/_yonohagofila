@@ -19,7 +19,7 @@ cancelarr:
   param: { module: default, action: cancelar }    
   
 filtrar:
-  url:   /reservaespecific
+  url:   /busqueda
   param: { module: default, action: buscar }   
   
 editaru: 

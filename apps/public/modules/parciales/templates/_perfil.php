@@ -78,8 +78,8 @@
     </div>  -->
 
     <?php echo include_partial('parciales/reservasvigentes') ?>
-    
+
     <?php echo include_partial('parciales/historialreservas') ?>
-        
+
     </div>  
 <?php endif; ?>

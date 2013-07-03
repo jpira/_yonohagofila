@@ -7,7 +7,7 @@ $usuarios_moviles = "Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, Do
 $navegador_usuario = explode(',', $usuarios_moviles);
 
 foreach ($navegador_usuario AS $navegador) { //Este ciclo es el que se encarga de detectar el navegador y devolver un TRUE si encuentra la cadena
-    if (strrpos($usuario, 'Android') !== false) { //Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV
+    if (strrpos($usuario, $navegador) !== false) { //Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV
         $es_movil = 'ES MOVIL';
     }
 }
@@ -82,7 +82,7 @@ foreach ($locales as $local):
     <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco"> <!-- href="#" ajax-->
         <!--<input type="hidden" class="order" value="3">-->
         <div class="marca-comercio">
-    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
+            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
         </div>
         <div class="disponibilidad-comercio">
             <img src="../img/barra-disponibilidad.png"/>
@@ -92,10 +92,11 @@ foreach ($locales as $local):
             <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
         </div>
         <div class="redes-comercio">
-            <!--<p>560</p>-->            
-            <a href="#"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
-            <a href="#"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
-            <a href="#"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
+                <!--<p>560</p>-->            
+
+            <a href="<?php echo $local->get('Local')->get('facebook') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
+            <a href="<?php echo $local->get('Local')->get('youtube') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+            <a href="<?php echo $local->get('Local')->get('twitter') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
@@ -104,7 +105,7 @@ foreach ($locales as $local):
             <p class="texto-descripcion"><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
             <p class="url-web-local">www.hhsitioweb.com</p>        
         </div>
-    <?php $form->setDefault('local_id', $local->get('id')); ?>
+        <?php $form->setDefault('local_id', $local->get('id')); ?>
         <?php if ($sf_user->isAuthenticated()): ?>
             <div class="busqueda-avanzada">
                 <button class="btn-filtro-local2" onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
@@ -114,7 +115,7 @@ foreach ($locales as $local):
 
             <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
                 <form class="busqueda-avanzada filtro2 height-auto" action="" method="POST">
-        <?php echo $form; ?>
+                    <?php echo $form; ?>
                     <input type="submit" value="Reservar" />
                 </form>
 
@@ -125,7 +126,7 @@ foreach ($locales as $local):
                                 <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
                             </form>-->
             </div>
-        <?php $i = $i + 1; ?>
+            <?php $i = $i + 1; ?>
         <?php endif; ?>
     <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
     <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship

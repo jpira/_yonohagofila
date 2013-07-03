@@ -1,5 +1,4 @@
-<?php
- 
+<?php 
    $es_movil=FALSE; //Aquí se declara la variable falso o verdadero XD
    $usuario = $_SERVER['HTTP_USER_AGENT']; //Con esta leemos la info de su navegador
  
@@ -12,8 +11,7 @@
          $es_movil='ES MOVIL';
       }
    }
-   echo $es_movil;
- 
+   echo $es_movil; 
 ?>
 
 
@@ -506,9 +504,9 @@
             </div>
             <div class="redes-comercio">
                 <!--<p>560</p>-->            
-                <a href="#"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
-                <a href="#"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
-                <a href="#"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
+                <a href="<?php echo $local->get('Local')->get('facebook') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
+                <a href="<?php echo $local->get('Local')->get('youtube') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+                <a href="<?php echo $local->get('Local')->get('twitter') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
             </div>
             <div class="clearfix"></div>
             <div class="descripcion-local">

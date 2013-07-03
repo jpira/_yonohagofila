@@ -135,7 +135,7 @@
     ------------------------------------------------------
     -->
     <!-- Tabla reservas vigentes-->
-    <div class="element about width3 height4">
+    <div class="element about width3 height4 round-borders fd-blanco">
         <!--<input type="hidden" class="order" value="11">-->
     <!--    <small>
             Where I've worked.
@@ -519,7 +519,7 @@
             </div>
             <?php $form->setDefault('local_id', $local->get('id')); ?>
             <?php if ($sf_user->isAuthenticated()): ?>
-            <div class="busqueda-avanzada width2-1">
+            <div class="busqueda-avanzada">
                 <button class="btn-filtro-local2" onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
 
             </div>

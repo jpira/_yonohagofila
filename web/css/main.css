@@ -641,7 +641,9 @@ table.table th, .blanco{
 .busqueda-sencilla input[type="submit"],
 .busqueda-sencilla .input-filtro-local[type="search"],
 .busqueda-sencilla input[type="text"],
-.busqueda-sencilla input[type="password"]{
+.busqueda-sencilla input[type="password"],
+.filtro2 input[type="date"],
+.filtro2 input[type="text"]{
       -webkit-border-radius: 5px;
           border-radius: 5px;
   background-clip: padding-box;
@@ -649,6 +651,11 @@ table.table th, .blanco{
 
 .busqueda-avanzada input[type="submit"]{
     font-size: 14px;
+    
+}
+
+.busqueda-avanzada button{
+    width: 300px;
     
 }
 .busqueda-sencilla .btn-filtro-local2{
@@ -670,6 +677,7 @@ table.table th, .blanco{
     margin-top: 20px;
 }
 .sb_dropdown label{
+    color:#fff;
     margin: 0 0 10px 5px;
 }
 .mensaje-registrase{
@@ -683,7 +691,20 @@ table.table th, .blanco{
 .filtro2{
     background: #2cb8c1;
     height: 50px;
+    text-align: right;
     width: 100%;
+    -moz-border-radius:10px 10px 0px 0px;
+	-webkit-border-top-right-radius:10px;
+	-webkit-border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-top-left-radius:10px;
+}
+.filtro2 input{
+    display: inline;
+    line-height: 50px;
+    margin:10px 10px 0 0;
+    text-align: right;
+    vertical-align: top;
 }
 /*
 	Contact Form

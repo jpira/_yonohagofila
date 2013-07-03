@@ -691,6 +691,7 @@ table.table th, .blanco{
 .filtro2{
     background: #2cb8c1;
     height: 50px;
+    margin-bottom: 10px;
     text-align: right;
     width: 100%;
     -moz-border-radius:10px 10px 0px 0px;

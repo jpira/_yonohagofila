@@ -22,11 +22,12 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'nombre'              => new sfWidgetFormInputText(),
       'tipo_identificacion' => new sfWidgetFormInputText(),
       'identificacion'      => new sfWidgetFormInputText(),
+      'telefono'            => new sfWidgetFormInputText(),
       'foto'                => new sfWidgetFormInputText(),
       'estado'              => new sfWidgetFormInputText(),
       'token'               => new sfWidgetFormInputText(),
-      'fecha_nacimiento'    => new sfWidgetFormDateTime(),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
+      'fecha_nacimiento'    => new sfWidgetFormInputText(),
+      'fecha_creacion'      => new sfWidgetFormInputText(),
       'slug'                => new sfWidgetFormInputText(),
     ));
 
@@ -38,11 +39,12 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'nombre'              => new sfValidatorString(array('max_length' => 255)),
       'tipo_identificacion' => new sfValidatorString(array('max_length' => 50)),
       'identificacion'      => new sfValidatorString(array('max_length' => 100)),
+      'telefono'            => new sfValidatorString(array('max_length' => 100)),
       'foto'                => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'estado'              => new sfValidatorInteger(array('required' => false)),
+      'estado'              => new sfValidatorPass(array('required' => false)),
       'token'               => new sfValidatorString(array('max_length' => 50, 'required' => false)),
-      'fecha_nacimiento'    => new sfValidatorDateTime(),
-      'fecha_creacion'      => new sfValidatorDateTime(),
+      'fecha_nacimiento'    => new sfValidatorPass(),
+      'fecha_creacion'      => new sfValidatorPass(),
       'slug'                => new sfValidatorString(array('max_length' => 160, 'required' => false)),
     ));
 

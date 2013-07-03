@@ -11,21 +11,26 @@
 class ReservaForm extends BaseReservaForm {
 
     protected function doUpdateObject($values) {
+        $values['estado'] = 'Pendiente';
         $values['fecha_creacion'] = date('Y-m-d G:i:s');
-        $values['id_usuario'] = 1;
+        $sf_user = sfContext::getInstance()->getUser();
+        $values['id_usuario'] = $sf_user->getAttribute('Usuario')->get('id');
+        $values['slug'] = uniqid(sha1($values['slug']));
         parent::doUpdateObject($values);
     }
 
     public function configure() {
         $this->setWidget('local_id', new sfWidgetFormInputHidden());
-//        $this->setWidget('fecha_creacion', new sfWidgetFormInputHidden());
-//        $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
+        $this->setWidget('estado', new sfWidgetFormInputHidden());
+        $this->setWidget('fecha_creacion', new sfWidgetFormInputHidden());
+        $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
+        $this->setWidget('local_id', new sfWidgetFormInputHidden());
         $this->setWidget('slug', new sfWidgetFormInputHidden());
-        $this->setWidget('numero_personas', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'number', 'min' => '0', 'placeholder' => 'Numero de Acompañantes')));
-        $this->setWidget('fecha_reserva', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'datetime-local', 'title' => 'Debe Agregar la Hora')));
+        $this->setWidget('numero_personas', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'number', 'min' => '0', 'max' => '7', 'placeholder' => 'Numero de Acompañantes')));
+        
+        $this->setWidget('fecha_reserva', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'datetime-local', 'title' => 'Debe Agregar Fecha y Hora')));
 
         $this->getWidget('promedio_id')->setAttributes(array('required' => 'required'));
-        $this->setWidget('fecha_creacion', new sfWidgetFormInputText(array(), array('type' => 'date')));
     }
 
 }

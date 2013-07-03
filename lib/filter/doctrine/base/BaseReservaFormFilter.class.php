@@ -17,8 +17,9 @@ abstract class BaseReservaFormFilter extends BaseFormFilterDoctrine
       'numero_personas' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fecha_reserva'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'promedio_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'), 'add_empty' => true)),
+      'estado'          => new sfWidgetFormFilterInput(),
       'fecha_creacion'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'id_usuario'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_usuario'      => new sfWidgetFormFilterInput(),
       'slug'            => new sfWidgetFormFilterInput(),
     ));
 
@@ -27,6 +28,7 @@ abstract class BaseReservaFormFilter extends BaseFormFilterDoctrine
       'numero_personas' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'fecha_reserva'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'promedio_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Promedio'), 'column' => 'id')),
+      'estado'          => new sfValidatorPass(array('required' => false)),
       'fecha_creacion'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'id_usuario'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'slug'            => new sfValidatorPass(array('required' => false)),
@@ -54,6 +56,7 @@ abstract class BaseReservaFormFilter extends BaseFormFilterDoctrine
       'numero_personas' => 'Number',
       'fecha_reserva'   => 'Date',
       'promedio_id'     => 'ForeignKey',
+      'estado'          => 'Text',
       'fecha_creacion'  => 'Date',
       'id_usuario'      => 'Number',
       'slug'            => 'Text',

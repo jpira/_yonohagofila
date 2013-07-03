@@ -17,9 +17,9 @@ abstract class BaseCalendarioFormFilter extends BaseFormFilterDoctrine
       'fecha_evento'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'tipoevento_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tipos_Eventos'), 'add_empty' => true)),
       'descripcion_evento'  => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_usuario'          => new sfWidgetFormFilterInput(),
       'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'id_usuario'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'slug'                => new sfWidgetFormFilterInput(),
     ));
 
@@ -28,8 +28,8 @@ abstract class BaseCalendarioFormFilter extends BaseFormFilterDoctrine
       'fecha_evento'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'tipoevento_id'       => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Tipos_Eventos'), 'column' => 'id')),
       'descripcion_evento'  => new sfValidatorPass(array('required' => false)),
-      'fecha_creacion'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'id_usuario'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'fecha_creacion'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'fecha_actualizacion' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'slug'                => new sfValidatorPass(array('required' => false)),
     ));
@@ -56,8 +56,8 @@ abstract class BaseCalendarioFormFilter extends BaseFormFilterDoctrine
       'fecha_evento'        => 'Date',
       'tipoevento_id'       => 'ForeignKey',
       'descripcion_evento'  => 'Text',
-      'fecha_creacion'      => 'Date',
       'id_usuario'          => 'Number',
+      'fecha_creacion'      => 'Date',
       'fecha_actualizacion' => 'Date',
       'slug'                => 'Text',
     );

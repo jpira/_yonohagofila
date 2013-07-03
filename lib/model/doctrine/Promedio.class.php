@@ -12,5 +12,7 @@
  */
 class Promedio extends BasePromedio
 {
-
+    public function __toString() {
+        return $this->promedio;
+    }
 }

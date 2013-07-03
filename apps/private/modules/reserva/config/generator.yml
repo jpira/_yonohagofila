@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           reserva
+    theme:                 yonohagofila
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          reserva
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: 
+        numero_personas: { label: N° Personas }
+      list:
+        title: Lista de Reservas
+        display: [ local, numero_personas, fecha_reserva, promedio, estado ]
+      filter: 
+        display: [ local_id, numero_personas, fecha_reserva, promedio_id, estado ]
+      form:    ~
+      edit:  
+        display: [ local_id, numero_personas, fecha_reserva, promedio_id, estado ]
+      new:   
+        display: [ local_id, numero_personas, fecha_reserva, promedio_id, estado ]

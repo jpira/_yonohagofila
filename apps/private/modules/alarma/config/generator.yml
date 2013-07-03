@@ -1,0 +1,23 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           alarma
+    theme:                 yonohagofila
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          alarma
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new: { credentials: [ALL ] }
+      fields:  ~
+      list: 
+        title: Alarmas de Usuario
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

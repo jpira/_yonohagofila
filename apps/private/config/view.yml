@@ -9,9 +9,43 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets: 
+    - twitter/bootstrap.css: { media: false }
+    - base.css: { media: false }
+    - twitter/responsive.css: { media: false }
+    - jquery-ui-1.8.23.custom.css: { media: false }    
+    - /js/plugins/chosen/chosen/chosen.css: { media: false }  
 
-  javascripts:    []
-
+  javascripts:
+    - plugins/jquery.sparkline.min.js
+    - plugins/excanvas.compiled.js
+    - bootstrap-transition.js
+    - bootstrap-alert.js
+    - bootstrap-modal.js
+    - bootstrap-dropdown.js
+    - bootstrap-scrollspy.js
+    - bootstrap-tab.js
+    - bootstrap-tooltip.js
+    - bootstrap-popover.js
+    - bootstrap-button.js
+    - bootstrap-collapse.js
+    - bootstrap-carousel.js
+    - bootstrap-typeahead.js
+    - bootstrap-affix.js
+    - fileinput.jquery.js
+    - jquery.touchdown.js
+    - plugins/jquery.uniform.min.js
+    - plugins/jquery.tinyscrollbar.min.js
+    - jnavigate.jquery.min.js
+    - jquery.touchSwipe.min.js
+    - plugins/jquery.peity.min.js
+    - plugins/flot/jquery.flot.js
+    - plugins/flot/jquery.flot.resize.js
+    - plugins/datatables/js/jquery.dataTables.js
+    - plugins/knockout-2.0.0.js
+    - scripts.js
+    - plugins/bootstrap-datepicker.js
+    - plugins/validation/dist/jquery.validate.js
+    
   has_layout:     true
   layout:         layout

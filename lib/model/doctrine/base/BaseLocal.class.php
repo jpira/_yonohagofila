@@ -11,9 +11,15 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property string $nombre
  * @property string $imagen
  * @property boolean $estado
+ * @property string $direccion
+ * @property string $telefono
+ * @property string $facebook
+ * @property string $twitter
+ * @property string $youtube
+ * @property string $usuario_asociado
  * @property integer $id_usuario
- * @property timestamp $fecha_creacion
- * @property timestamp $fecha_actualizacion
+ * @property datetime $fecha_creacion
+ * @property datetime $fecha_actualizacion
  * @property Doctrine_Collection $Alarma
  * @property Doctrine_Collection $Calendario
  * @property Doctrine_Collection $Parametro
@@ -28,9 +34,15 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method string              getNombre()              Returns the current record's "nombre" value
  * @method string              getImagen()              Returns the current record's "imagen" value
  * @method boolean             getEstado()              Returns the current record's "estado" value
+ * @method string              getDireccion()           Returns the current record's "direccion" value
+ * @method string              getTelefono()            Returns the current record's "telefono" value
+ * @method string              getFacebook()            Returns the current record's "facebook" value
+ * @method string              getTwitter()             Returns the current record's "twitter" value
+ * @method string              getYoutube()             Returns the current record's "youtube" value
+ * @method string              getUsuarioAsociado()     Returns the current record's "usuario_asociado" value
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
- * @method timestamp           getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method timestamp           getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
+ * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
+ * @method datetime            getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method Doctrine_Collection getAlarma()              Returns the current record's "Alarma" collection
  * @method Doctrine_Collection getCalendario()          Returns the current record's "Calendario" collection
  * @method Doctrine_Collection getParametro()           Returns the current record's "Parametro" collection
@@ -44,6 +56,12 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setNombre()              Sets the current record's "nombre" value
  * @method Local               setImagen()              Sets the current record's "imagen" value
  * @method Local               setEstado()              Sets the current record's "estado" value
+ * @method Local               setDireccion()           Sets the current record's "direccion" value
+ * @method Local               setTelefono()            Sets the current record's "telefono" value
+ * @method Local               setFacebook()            Sets the current record's "facebook" value
+ * @method Local               setTwitter()             Sets the current record's "twitter" value
+ * @method Local               setYoutube()             Sets the current record's "youtube" value
+ * @method Local               setUsuarioAsociado()     Sets the current record's "usuario_asociado" value
  * @method Local               setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Local               setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Local               setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
@@ -101,32 +119,84 @@ abstract class BaseLocal extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              ));
+        $this->hasColumn('direccion', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
+        $this->hasColumn('telefono', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
+        $this->hasColumn('facebook', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
+        $this->hasColumn('twitter', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
+        $this->hasColumn('youtube', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
+        $this->hasColumn('usuario_asociado', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
         $this->hasColumn('id_usuario', 'integer', 4, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
-        $this->hasColumn('fecha_actualizacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_actualizacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

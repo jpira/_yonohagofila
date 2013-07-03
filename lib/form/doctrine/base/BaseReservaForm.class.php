@@ -18,9 +18,10 @@ abstract class BaseReservaForm extends BaseFormDoctrine
       'id'              => new sfWidgetFormInputHidden(),
       'local_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
       'numero_personas' => new sfWidgetFormInputText(),
-      'fecha_reserva'   => new sfWidgetFormDateTime(),
+      'fecha_reserva'   => new sfWidgetFormInputText(),
       'promedio_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'), 'add_empty' => true)),
-      'fecha_creacion'  => new sfWidgetFormDateTime(),
+      'estado'          => new sfWidgetFormInputText(),
+      'fecha_creacion'  => new sfWidgetFormInputText(),
       'id_usuario'      => new sfWidgetFormInputText(),
       'slug'            => new sfWidgetFormInputText(),
     ));
@@ -29,10 +30,11 @@ abstract class BaseReservaForm extends BaseFormDoctrine
       'id'              => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'local_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
       'numero_personas' => new sfValidatorInteger(),
-      'fecha_reserva'   => new sfValidatorDateTime(),
+      'fecha_reserva'   => new sfValidatorPass(),
       'promedio_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Promedio'), 'required' => false)),
-      'fecha_creacion'  => new sfValidatorDateTime(),
-      'id_usuario'      => new sfValidatorInteger(),
+      'estado'          => new sfValidatorString(array('max_length' => 30, 'required' => false)),
+      'fecha_creacion'  => new sfValidatorPass(),
+      'id_usuario'      => new sfValidatorInteger(array('required' => false)),
       'slug'            => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
 

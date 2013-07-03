@@ -18,17 +18,17 @@ abstract class BaseCredencialForm extends BaseFormDoctrine
       'id'                  => new sfWidgetFormInputHidden(),
       'nombre'              => new sfWidgetFormInputText(),
       'id_usuario'          => new sfWidgetFormInputText(),
-      'fecha_creacion'      => new sfWidgetFormDateTime(),
-      'fecha_actualizacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion'      => new sfWidgetFormInputText(),
+      'fecha_actualizacion' => new sfWidgetFormInputText(),
       'slug'                => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nombre'              => new sfValidatorString(array('max_length' => 100)),
-      'id_usuario'          => new sfValidatorInteger(),
-      'fecha_creacion'      => new sfValidatorDateTime(),
-      'fecha_actualizacion' => new sfValidatorDateTime(),
+      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
+      'fecha_creacion'      => new sfValidatorPass(),
+      'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
       'slug'                => new sfValidatorString(array('max_length' => 110, 'required' => false)),
     ));
 

@@ -11,21 +11,21 @@ Doctrine_Manager::getInstance()->bindComponent('Alarma', 'doctrine');
  * @property integer $local_id
  * @property integer $id_usuario
  * @property string $descripcion
- * @property timestamp $fecha_creacion
+ * @property datetime $fecha_creacion
  * @property Local $Local
  * 
- * @method integer   getId()             Returns the current record's "id" value
- * @method integer   getLocalId()        Returns the current record's "local_id" value
- * @method integer   getIdUsuario()      Returns the current record's "id_usuario" value
- * @method string    getDescripcion()    Returns the current record's "descripcion" value
- * @method timestamp getFechaCreacion()  Returns the current record's "fecha_creacion" value
- * @method Local     getLocal()          Returns the current record's "Local" value
- * @method Alarma    setId()             Sets the current record's "id" value
- * @method Alarma    setLocalId()        Sets the current record's "local_id" value
- * @method Alarma    setIdUsuario()      Sets the current record's "id_usuario" value
- * @method Alarma    setDescripcion()    Sets the current record's "descripcion" value
- * @method Alarma    setFechaCreacion()  Sets the current record's "fecha_creacion" value
- * @method Alarma    setLocal()          Sets the current record's "Local" value
+ * @method integer  getId()             Returns the current record's "id" value
+ * @method integer  getLocalId()        Returns the current record's "local_id" value
+ * @method integer  getIdUsuario()      Returns the current record's "id_usuario" value
+ * @method string   getDescripcion()    Returns the current record's "descripcion" value
+ * @method datetime getFechaCreacion()  Returns the current record's "fecha_creacion" value
+ * @method Local    getLocal()          Returns the current record's "Local" value
+ * @method Alarma   setId()             Sets the current record's "id" value
+ * @method Alarma   setLocalId()        Sets the current record's "local_id" value
+ * @method Alarma   setIdUsuario()      Sets the current record's "id_usuario" value
+ * @method Alarma   setDescripcion()    Sets the current record's "descripcion" value
+ * @method Alarma   setFechaCreacion()  Sets the current record's "fecha_creacion" value
+ * @method Alarma   setLocal()          Sets the current record's "Local" value
  * 
  * @package    Yonohagofila
  * @subpackage model
@@ -59,7 +59,7 @@ abstract class BaseAlarma extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              'length' => 4,
              ));
@@ -72,14 +72,13 @@ abstract class BaseAlarma extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 100,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
     }
 

@@ -11,8 +11,8 @@ Doctrine_Manager::getInstance()->bindComponent('RankingUsuario', 'doctrine');
  * @property integer $usuario_id
  * @property integer $local_id
  * @property integer $ranking_id
- * @property timestamp $fecha_creacion
- * @property timestamp $fecha_actualizacion
+ * @property datetime $fecha_creacion
+ * @property datetime $fecha_actualizacion
  * @property integer $puntos
  * @property Ranking $Ranking
  * @property Local $Local
@@ -22,8 +22,8 @@ Doctrine_Manager::getInstance()->bindComponent('RankingUsuario', 'doctrine');
  * @method integer        getUsuarioId()           Returns the current record's "usuario_id" value
  * @method integer        getLocalId()             Returns the current record's "local_id" value
  * @method integer        getRankingId()           Returns the current record's "ranking_id" value
- * @method timestamp      getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method timestamp      getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
+ * @method datetime       getFechaCreacion()       Returns the current record's "fecha_creacion" value
+ * @method datetime       getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
  * @method integer        getPuntos()              Returns the current record's "puntos" value
  * @method Ranking        getRanking()             Returns the current record's "Ranking" value
  * @method Local          getLocal()               Returns the current record's "Local" value
@@ -84,23 +84,21 @@ abstract class BaseRankingUsuario extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_creacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_creacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
              ));
-        $this->hasColumn('fecha_actualizacion', 'timestamp', 25, array(
-             'type' => 'timestamp',
+        $this->hasColumn('fecha_actualizacion', 'datetime', null, array(
+             'type' => 'datetime',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
-             'length' => 25,
              ));
         $this->hasColumn('puntos', 'integer', 4, array(
              'type' => 'integer',

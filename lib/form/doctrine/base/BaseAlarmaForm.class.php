@@ -19,16 +19,16 @@ abstract class BaseAlarmaForm extends BaseFormDoctrine
       'local_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
       'id_usuario'     => new sfWidgetFormInputText(),
       'descripcion'    => new sfWidgetFormInputText(),
-      'fecha_creacion' => new sfWidgetFormDateTime(),
+      'fecha_creacion' => new sfWidgetFormInputText(),
       'slug'           => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'local_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
-      'id_usuario'     => new sfValidatorInteger(),
+      'id_usuario'     => new sfValidatorInteger(array('required' => false)),
       'descripcion'    => new sfValidatorString(array('max_length' => 100)),
-      'fecha_creacion' => new sfValidatorDateTime(),
+      'fecha_creacion' => new sfValidatorPass(),
       'slug'           => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
 

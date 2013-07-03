@@ -10,29 +10,29 @@
  * @property integer $local_id
  * @property integer $tipoevento_id
  * @property integer $id_usuario
+ * @property datetime $fecha_evento
  * @property datetime $fecha_creacion
- * @property datetime $fecha_actualizacion
  * @property Local $Local
  * @property Tipos_Eventos $Tipos_Eventos
  * 
- * @method integer       getId()                  Returns the current record's "id" value
- * @method string        getNombre()              Returns the current record's "nombre" value
- * @method integer       getLocalId()             Returns the current record's "local_id" value
- * @method integer       getTipoeventoId()        Returns the current record's "tipoevento_id" value
- * @method integer       getIdUsuario()           Returns the current record's "id_usuario" value
- * @method datetime      getFechaCreacion()       Returns the current record's "fecha_creacion" value
- * @method datetime      getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
- * @method Local         getLocal()               Returns the current record's "Local" value
- * @method Tipos_Eventos getTiposEventos()        Returns the current record's "Tipos_Eventos" value
- * @method Eventos_Local setId()                  Sets the current record's "id" value
- * @method Eventos_Local setNombre()              Sets the current record's "nombre" value
- * @method Eventos_Local setLocalId()             Sets the current record's "local_id" value
- * @method Eventos_Local setTipoeventoId()        Sets the current record's "tipoevento_id" value
- * @method Eventos_Local setIdUsuario()           Sets the current record's "id_usuario" value
- * @method Eventos_Local setFechaCreacion()       Sets the current record's "fecha_creacion" value
- * @method Eventos_Local setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
- * @method Eventos_Local setLocal()               Sets the current record's "Local" value
- * @method Eventos_Local setTiposEventos()        Sets the current record's "Tipos_Eventos" value
+ * @method integer       getId()             Returns the current record's "id" value
+ * @method string        getNombre()         Returns the current record's "nombre" value
+ * @method integer       getLocalId()        Returns the current record's "local_id" value
+ * @method integer       getTipoeventoId()   Returns the current record's "tipoevento_id" value
+ * @method integer       getIdUsuario()      Returns the current record's "id_usuario" value
+ * @method datetime      getFechaEvento()    Returns the current record's "fecha_evento" value
+ * @method datetime      getFechaCreacion()  Returns the current record's "fecha_creacion" value
+ * @method Local         getLocal()          Returns the current record's "Local" value
+ * @method Tipos_Eventos getTiposEventos()   Returns the current record's "Tipos_Eventos" value
+ * @method Eventos_Local setId()             Sets the current record's "id" value
+ * @method Eventos_Local setNombre()         Sets the current record's "nombre" value
+ * @method Eventos_Local setLocalId()        Sets the current record's "local_id" value
+ * @method Eventos_Local setTipoeventoId()   Sets the current record's "tipoevento_id" value
+ * @method Eventos_Local setIdUsuario()      Sets the current record's "id_usuario" value
+ * @method Eventos_Local setFechaEvento()    Sets the current record's "fecha_evento" value
+ * @method Eventos_Local setFechaCreacion()  Sets the current record's "fecha_creacion" value
+ * @method Eventos_Local setLocal()          Sets the current record's "Local" value
+ * @method Eventos_Local setTiposEventos()   Sets the current record's "Tipos_Eventos" value
  * 
  * @package    Yonohagofila
  * @subpackage model
@@ -81,9 +81,17 @@ abstract class BaseEventos_Local extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              'length' => 4,
+             ));
+        $this->hasColumn('fecha_evento', 'datetime', null, array(
+             'type' => 'datetime',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
              ));
         $this->hasColumn('fecha_creacion', 'datetime', null, array(
              'type' => 'datetime',
@@ -91,14 +99,6 @@ abstract class BaseEventos_Local extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
-             'autoincrement' => false,
-             ));
-        $this->hasColumn('fecha_actualizacion', 'datetime', null, array(
-             'type' => 'datetime',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => false,
              'autoincrement' => false,
              ));
     }

@@ -19,8 +19,8 @@ abstract class BaseParametroFormFilter extends BaseFormFilterDoctrine
       'tiempo_respuesta'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'costo_ingreso'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'id_usuario'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'id_usuario'          => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(

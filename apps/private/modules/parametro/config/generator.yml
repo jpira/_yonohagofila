@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           parametro
+    theme:                 yonohagofila
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          parametro
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: 
+        numero_personas: { label: N° Personas }
+        costo_ingreso: { label: Entrada }
+        tiempo_respuesta: { label: Respuesta }
+      list:
+        title: Parametros Por Local
+        display: [ Local, descripcion, numero_personas, costo_ingreso, tiempo_respuesta, fecha_creacion ]
+      filter:
+         display: [ local_id, numero_personas, costo_ingreso, tiempo_respuesta] 
+      form:    ~
+      edit:   
+        display: [ local_id, descripcion, numero_personas, costo_ingreso, tiempo_respuesta ]
+      new: 
+        display: [ local_id, descripcion, numero_personas, costo_ingreso, tiempo_respuesta ]

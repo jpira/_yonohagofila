@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           promedio
+    theme:                 yonohagofila
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          promedio
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:  
+        title: Promedio Por Local
+        display: [ promedio, Local, fecha_creacion ]
+      filter:
+        display: [ promedio, local_id ]
+      form:    ~
+      edit: 
+        display: [ promedio, local_id ]
+      new:   
+        display: [ promedio, local_id ]

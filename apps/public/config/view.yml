@@ -4,14 +4,23 @@ default:
 
   metas:
     #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
-    #robots:       index, follow
+    description:  Yonohagofila, es una marca registrada por Yonohagofila
+    keywords:     yonohagofila, yo no hago fila, fila, bares, restaurantes, peluquerias, reservas
+    language:     es
+    robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets: 
+    - bootstrap.css: {media: false}
+    - bootstrap-responsive.css: {media: false}
+    - font-awesome.min.css: {media: false}
+    - social_foundicons.css: {media: false}
+    - isotope.css: {media: false}
+    - main.css: {media: false}
+    - facebox.css
+    - paginacion.css
+    - style.css
 
-  javascripts:    []
-
+  javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js, jquery.jeditable.js, js.js]
+    
   has_layout:     true
   layout:         layout

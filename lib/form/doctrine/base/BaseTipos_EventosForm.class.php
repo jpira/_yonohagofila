@@ -25,7 +25,7 @@ abstract class BaseTipos_EventosForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nombre'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'id_usuario'          => new sfValidatorInteger(),
+      'id_usuario'          => new sfValidatorInteger(array('required' => false)),
       'fecha_creacion'      => new sfValidatorPass(),
       'fecha_actualizacion' => new sfValidatorPass(array('required' => false)),
     ));

@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           perfil
+    theme:                 yonohagofila
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          perfil
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Lista de Perfiles
+        display: [ nombre, fecha_creacion ]
+      filter:
+        display: [ nombre ]
+      form:    ~
+      edit:
+        display: [ nombre ]
+      new:  
+         display: [ nombre ]

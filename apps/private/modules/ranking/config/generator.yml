@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ranking
+    theme:                 yonohagofila
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          ranking
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Lista de Rankings
+        display: [ nombre, fecha_creacion ]
+      filter:
+        display: [ nombre, fecha_creacion ]
+      form:    ~
+      edit:
+        display: [ nombre ]
+      new:  
+         display: [ nombre ]

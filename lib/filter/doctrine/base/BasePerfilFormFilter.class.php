@@ -14,9 +14,9 @@ abstract class BasePerfilFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'nombre'              => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'id_usuario'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_usuario'          => new sfWidgetFormFilterInput(),
       'fecha_creacion'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'fecha_actualizacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'slug'                => new sfWidgetFormFilterInput(),
     ));
 

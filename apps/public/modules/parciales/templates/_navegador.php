@@ -6,7 +6,7 @@
                 <!--<botton > Búsqueda avanzada</button>-->
                 <!--<a href="#" class="sb_input blanco btn-filtro-local2" style="border: 10px">Busqueda avanzada</a>-->
                     <!--<input class="sb_input" type="text"/>-->
-                    <!--</p>-->
+                <!--</p>-->
                 <input class="sb_input btn-filtro-local2" type="button" value="Busqueda avanzada"></input>
                     <ul class="sb_dropdown" style="display:none">  
                         <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li>

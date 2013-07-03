@@ -20,13 +20,13 @@
         $limit = $rows_per_page . ',' . ($page2 - 1) * $rows_per_page;
         ?>
         <h2 class="title">Estas son tus reservas anteriores<span>Desde aquí puedes consultar las reservas que has hecho con nosotros en tus lugares favoritos.</span></h2>
-        <!--        <div class="filtro-buscador">
+                <div class="filtro-buscador">
                     <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
                         <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
                         <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
                         <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
                     </form>
-                </div>-->
+                </div>
         <?php
         $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
                 ->where('r.id_usuario = ? AND fecha_reserva < ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
@@ -109,10 +109,10 @@
                     //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
                     if ($lastpage2 > $page2) {
                         ?>       
-                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>" >Next &raquo;</a></li>
+                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>" >Next &raquo;</a></li>  <?php echo 'Resultados 1 - 4 de '. $nump2; ?>
                     <?php } else {
                         ?>
-                        <li class="next-off">Next &raquo;</li>
+                        <li class="next-off">Next &raquo;</li> <?php echo 'Resultados 1 ' .' - '.$nump2.' de '. $nump2; ?>
                         <?php
                     }
                 } else {
@@ -125,11 +125,16 @@
                             ?>  
                             <li class="active"><?php echo $j; ?></li><?php
                 } else {
-                    if($page2-2 <= $j and $page2+1 >= $j ){
-                            ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $j) ?>" ><?php echo $j; ?></a></li><?php
+                if ($page2 == 2) {
+                    if ($page2 - 1 <= $j and $page2 + 2 >= $j) {
+                                ?>  <li><a href="<?php echo url_for('@homepage?page=' . $j) ?>" ><?php echo $j; ?></a></li><?php
                     }
-                            
+                } else {
+                    if ($page2 - 2 <= $j and $page2 + 1 >= $j) {
+                                ?>  <li><a href="<?php echo url_for('@homepage?page=' . $j) ?>" ><?php echo $j; ?></a></li><?php
+                    }
                 }
+            }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
             if ($lastpage2 > $page2) {

@@ -101,9 +101,10 @@
                     ?>
                     <li class="previous-off">&laquo; Previous</li>
                     <li class="active">1</li> 
-                    <?php for ($i = $page2 + 1; $i <= $lastpage2; $i++) { ?>
+                    <?php for ($i = $page2 + 1; $i <= $lastpage2; $i++) { 
+                        if ($page2 + 4 > $i) {?>
                         <li><a href="<?php echo url_for('@homepage?page2=' . $i) ?>"><?php echo $i; ?></a></li>
-                        <?php
+                        <?php }
                     }
                     //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
                     if ($lastpage2 > $page2) {
@@ -124,15 +125,18 @@
                             ?>  
                             <li class="active"><?php echo $j; ?></li><?php
                 } else {
+                    if($page2-2 <= $j and $page2+1 >= $j ){
                             ?>  <li><a href="<?php echo url_for('@homepage?page2=' . $j) ?>" ><?php echo $j; ?></a></li><?php
+                    }
+                            
                 }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
             if ($lastpage2 > $page2) {
                         ?> 
-                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><?php
+                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><?php echo 'Resultados '. (($page2*4) - 4) .' - '.($page2*4).' de '. $nump2;
             } else {
-                        ?> <li class="next-off">Next &raquo;</li><?php
+                        ?> <li class="next-off">Next &raquo;</li><?php echo 'Resultados '. (($page2*4) - 4) .' - '.$nump2.' de '. $nump2;
             }
         }
                 ?></ul></br>

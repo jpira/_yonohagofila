@@ -102,7 +102,7 @@
                                                                 </td>
                                                             </tr>-->
         </table>
-        <?php
+        <?php 
         if ($nump != 0):
             $nextpage = $page + 1;
             $prevpage = $page - 1;
@@ -112,9 +112,10 @@
                     ?>
                     <li class="previous-off">&laquo; Previous</li>
                     <li class="active">1</li>              
-                    <?php for ($i = $page + 1; $i <= $lastpage; $i++) { ?>
+                    <?php for ($i = $page + 1; $i <= $lastpage; $i++) { 
+                    if ($page + 4 > $i) { ?>
                         <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>"><?php echo $i; ?></a></li>
-                        <?php
+                        <?php }
                     }
                     //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
                     if ($lastpage > $page) {
@@ -134,15 +135,18 @@
                 if ($page == $i) {
                             ?>  <li class="active"><?php echo $i; ?></li><?php
                 } else {
-                            ?>  <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>" ><?php echo $i; ?></a></li><?php
+                    if($page-2 <= $i and $page+1 >= $i ){
+                        ?>  <li><a href="<?php echo url_for('@homepage?page=' . $i) ?>" ><?php echo $i; ?></a></li><?php
+                    }
+                            
                 }
             }
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
             if ($lastpage > $page) {
                         ?> 
-                        <li class="next"><a href="<?php echo url_for('@homepage?page=' . $nextpage) ?>">Next &raquo;</a></li><?php
+                        <li class="next"><a href="<?php echo url_for('@homepage?page=' . $nextpage) ?>">Next &raquo;</a></li><?php echo 'Resultados '. (($page*4) - 4) .' - '.($page*4).' de '. $nump;
             } else {
-                        ?> <li class="next-off">Next &raquo;</li><?php
+                        ?> <li class="next-off">Next &raquo;</li><?php echo 'Resultados '. (($page*4) - 4) .' - '.$nump.' de '. $nump;
             }
         }
                 ?></ul></br></br>

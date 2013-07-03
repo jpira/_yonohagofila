@@ -1,19 +1,17 @@
 <?php
- 
-   $es_movil=FALSE; //Aquí se declara la variable falso o verdadero XD
-   $usuario = $_SERVER['HTTP_USER_AGENT']; //Con esta leemos la info de su navegador
- 
-   $usuarios_moviles = "Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV"; //En esta cadena podemos quitar o agregar navegadores de dispositivos moviles, te recomiendo que hagas un echo $_SERVER['HTTP_USER_AGENT']; en otra pagina de prueba y veas la info que arroja para que despues agregues el navegador que quieras detectar
- 
-   $navegador_usuario = explode(',',$usuarios_moviles);
- 
-   foreach($navegador_usuario AS $navegador){ //Este ciclo es el que se encarga de detectar el navegador y devolver un TRUE si encuentra la cadena
-      if(strrpos($usuario,'Android') !== false){ //Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV
-         $es_movil='ES MOVIL';
-      }
-   }
-   echo $es_movil;
- 
+$es_movil = FALSE; //Aquí se declara la variable falso o verdadero XD
+$usuario = $_SERVER['HTTP_USER_AGENT']; //Con esta leemos la info de su navegador
+
+$usuarios_moviles = "Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV"; //En esta cadena podemos quitar o agregar navegadores de dispositivos moviles, te recomiendo que hagas un echo $_SERVER['HTTP_USER_AGENT']; en otra pagina de prueba y veas la info que arroja para que despues agregues el navegador que quieras detectar
+
+$navegador_usuario = explode(',', $usuarios_moviles);
+
+foreach ($navegador_usuario AS $navegador) { //Este ciclo es el que se encarga de detectar el navegador y devolver un TRUE si encuentra la cadena
+    if (strrpos($usuario, 'Android') !== false) { //Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV
+        $es_movil = 'ES MOVIL';
+    }
+}
+echo $es_movil;
 ?>
 <?php echo include_partial('parciales/video') ?>
 
@@ -73,67 +71,67 @@
     <span class="portfolio-title"><i class="icon-play"></i>Sword and Shield
     </span>
 </a>-->
-   
-    <?php
-    $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
-    //        ->limit(3)
-            ->execute();
-    $i = 1;
-    foreach ($locales as $local):
-        ?>
-        <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco"> <!-- href="#" ajax-->
-            <!--<input type="hidden" class="order" value="3">-->
-            <div class="marca-comercio">
-                <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
-            </div>
-            <div class="disponibilidad-comercio">
-                <img src="../img/barra-disponibilidad.png"/>
-            </div>
-            <div class="calificacion-comercio">
-                <p>Calificación usuarios</p>
-                <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
-            </div>
-            <div class="redes-comercio">
-                <!--<p>560</p>-->            
-                <a href="#"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
-                <a href="#"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
-                <a href="#"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
-            </div>
-            <div class="clearfix"></div>
-            <div class="descripcion-local">
-                <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
-                <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
-                <p class="texto-descripcion"><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
-                <p class="url-web-local">www.hhsitioweb.com</p>        
-            </div>
-            <?php $form->setDefault('local_id', $local->get('id')); ?>
-            <?php if ($sf_user->isAuthenticated()): ?>
+
+<?php
+$locales = Doctrine_Query::create()->from('Parametro p, p.Local')
+        //        ->limit(3)
+        ->execute();
+$i = 1;
+foreach ($locales as $local):
+    ?>
+    <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco"> <!-- href="#" ajax-->
+        <!--<input type="hidden" class="order" value="3">-->
+        <div class="marca-comercio">
+    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
+        </div>
+        <div class="disponibilidad-comercio">
+            <img src="../img/barra-disponibilidad.png"/>
+        </div>
+        <div class="calificacion-comercio">
+            <p>Calificación usuarios</p>
+            <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
+        </div>
+        <div class="redes-comercio">
+            <!--<p>560</p>-->            
+            <a href="#"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
+            <a href="#"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+            <a href="#"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="descripcion-local">
+            <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
+            <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
+            <p class="texto-descripcion"><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
+            <p class="url-web-local">www.hhsitioweb.com</p>        
+        </div>
+    <?php $form->setDefault('local_id', $local->get('id')); ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
             <div class="busqueda-avanzada">
                 <button class="btn-filtro-local2" onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
 
             </div>
                     <!--<button class="oculta"><img src="../img/seccion-comercios/bti-configurar-reserva1.png"/></button>-->
 
-                <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
-                    <form class="busqueda-avanzada filtro2 height-auto" action="" method="POST">
-                        <?php echo $form; ?>
-                        <input type="submit" value="Reservar" />
-                    </form>
+            <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
+                <form class="busqueda-avanzada filtro2 height-auto" action="" method="POST">
+        <?php echo $form; ?>
+                    <input type="submit" value="Reservar" />
+                </form>
 
-                    <!--            <form class="busqueda-avanzada filtro2">
-                                    <input type="text" placeholder="Número de personas" />
-                                    <input type="text" placeholder="Día a reservar" />
-                                    <input type="text" placeholder="Consumo estimado" />
-                                    <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
-                                </form>-->
-                </div>
-                <?php $i = $i + 1; ?>
-            <?php endif; ?>
-        <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
-        <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
-        </span>-->
-        </div>
-    <?php endforeach; ?>
+                <!--            <form class="busqueda-avanzada filtro2">
+                                <input type="text" placeholder="Número de personas" />
+                                <input type="text" placeholder="Día a reservar" />
+                                <input type="text" placeholder="Consumo estimado" />
+                                <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
+                            </form>-->
+            </div>
+        <?php $i = $i + 1; ?>
+        <?php endif; ?>
+    <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
+    <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
+    </span>-->
+    </div>
+<?php endforeach; ?>
 <!--
 <a href="project_image_1.html"  class="element element-portfolio portfolio ajax">
     <input type="hidden" class="order" value="4">

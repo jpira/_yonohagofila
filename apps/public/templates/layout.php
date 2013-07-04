@@ -13,9 +13,6 @@
         <link rel="shortcut icon" href="favicon.ico" />
         <?php include_stylesheets() ?>
 
-        <?php // echo javascript_include_tag('jquery.js'); ?>
-        <?php // echo javascript_include_tag('jquery.jeditable.js'); ?>
-        <?php // echo javascript_include_tag('js.js'); ?>
         <!-- fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
@@ -26,16 +23,13 @@
         <![endif]-->
 
         <?php echo javascript_include_tag('jquery.js'); ?>
-        <?php // echo javascript_include_tag('jquery.jeditable.js'); ?>
-        <?php // echo javascript_include_tag('js.js'); ?>
     </head>
     <body>
         <?php echo include_partial('parciales/navegador') ?>
 
-
         <!-- Ajax Content Load -->
         <div class="container container-top">
-<img class="luces" src="../img/luces.png"/>
+            <?php echo image_tag('/img/luces.png', array('class' => 'luces')) ?>
             <div id="container-ajax" class="element">
                 <a href="#" class="close-ajax"><span class="x-button">&#10006;</span></a>
                 <div class="ajax-content"></div>
@@ -49,6 +43,6 @@
         <?php echo include_partial('parciales/footer') ?>
         <?php include_javascripts() ?>
         <?php echo include_partial('parciales/javascript') ?>
-	 
+
     </body>
 </html>

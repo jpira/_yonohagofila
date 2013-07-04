@@ -13,10 +13,17 @@ foreach ($navegador_usuario AS $navegador) { //Este ciclo es el que se encarga d
 }
 echo $es_movil;
 ?>
-<?php echo include_partial('parciales/video') ?>
+<div class="home">
+<?php
+if (!$sf_user->isAuthenticated()) {
+    echo include_partial('parciales/video');
+}
 
-<?php echo include_partial('parciales/perfil') ?>
-
+if ($sf_user->isAuthenticated()) {
+    echo include_partial('parciales/perfil');
+}
+?>
+</div>
 <!--
 <div class="element about height2 width2">
     <input type="hidden" class="order" value="12">
@@ -79,24 +86,24 @@ $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
 $i = 1;
 foreach ($locales as $local):
     ?>
-<div class="element element-portfolio portfolio height-auto width2-1 fd-blanco">
-        <!--<input type="hidden" class="order" value="3">-->
+    <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco">
+            <!--<input type="hidden" class="order" value="3">-->
         <div class="marca-comercio">
             <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
         </div>
-<!--        <div class="disponibilidad-comercio">
-            <img src="../img/barra-disponibilidad.png"/>
-        </div>-->
+        <div class="disponibilidad-comercio">
+            <?php echo image_tag('/img/barra-disponibilidad.png') ?>
+        </div>
         <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
-            <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
+            <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
         </div>
         <div class="redes-comercio">
                 <!--<p>560</p>-->            
 
-            <a href="<?php echo $local->get('Local')->get('facebook') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-            <a href="<?php echo $local->get('Local')->get('youtube') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-            <a href="<?php echo $local->get('Local')->get('twitter') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('facebook') ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('youtube') ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('twitter') ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
@@ -108,8 +115,7 @@ foreach ($locales as $local):
         <?php $form->setDefault('local_id', $local->get('id')); ?>
         <?php if ($sf_user->isAuthenticated()): ?>
             <div class="busqueda-avanzada">
-                <button class="btn-filtro-local2" onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
-
+                <button class="btn-filtro-local2" id="btn-<?php echo $i ?>" onclick="muestra_oculta('<?php echo $i ?>')" title="">Configurar reserva</button>
             </div>
 
             <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
@@ -289,32 +295,32 @@ foreach ($locales as $local):
     </p>		
 </div>  -->
 
-<div class="element contact map width3">
+<!--<div class="element contact map width3">
     <input type="hidden" class="order" value="15">
     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Toronto,+ON&amp;aq=0&amp;oq=toro&amp;sll=49.303974,-84.738438&amp;sspn=15.573249,43.286133&amp;ie=UTF8&amp;hq=&amp;hnear=Toronto,+Toronto+Division,+Ontario&amp;ll=43.653226,-79.383184&amp;spn=0.033721,0.084543&amp;t=m&amp;z=14&amp;output=embed"></iframe>
-</div>
+</div>-->
 
 <div class="element contact width2 height2">
     <input type="hidden" class="order" value="16">
     <small>
-        Get in touch.
+        Ponte en contacto.
     </small>
-    <h2 class="title">Email Me
+    <h2 class="title">Escríbenos
     </h2>
     <div id="success" class="alert alert-success" style="display:none">Your email has been sent. Thank you, I will get back to you soon.</div>
     <div id="error" class="alert alert-error" style="display:none"></div>
 
     <form class="contact_form" id="contact_form">
 
-        <label class="control-label" for="fname">Name*</label>
-        <input type="text" id="fname" placeholder="Name">
-        <label class="control-label" for="email">Email*</label>
-        <input type="text" id="email" placeholder="Email">
+        <label class="control-label" for="fname">Nombre*</label>
+        <input type="text" id="fname" placeholder="Nombre">
+        <label class="control-label" for="email">Correo electrónico*</label>
+        <input type="text" id="email" placeholder="Correo electrónico">
 
-        <label class="control-label" for="message">Message*</label>
+        <label class="control-label" for="message">Mensaje*</label>
         <textarea id="message"></textarea>
         <br/>
-        <button type="submit" id="submit_contact_info" class="btn btn-primary">Send Email <i class="icon-envelope-alt"></i></button>
+        <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
 
     </form>
 </div>

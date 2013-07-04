@@ -49,7 +49,7 @@ var $container = $('#container-isotope');
 $container.isotope({
     masonry: {
         columnWidth: 5
-    },
+    }
 //    getSortData: {
 //        number: function($elem) {
 //            var number = $elem.hasClass('element') ?

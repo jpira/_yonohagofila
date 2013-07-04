@@ -18,7 +18,7 @@
         
   
 
-        $('#reservass, #historialr').dataTable(
+        $('#reservass, #reservasss, #historialr, #historialrr').dataTable(
         {
             "bScrollInfinite": true,
             "bScrollCollapse": true,

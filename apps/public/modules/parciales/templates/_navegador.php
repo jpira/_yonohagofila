@@ -42,6 +42,9 @@
 
                     <li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
+                    <?php if ($sf_user->isAuthenticated()): ?>
+                        <li><a href="<?php echo url_for("@logout") ?>"><span>Salir</span></a></li>
+                    <?php endif ?>
                     <li class="show-title">
                     </li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>
@@ -51,6 +54,7 @@
                     <li class="show-title">
                     </li>-->
                 </ul>
+
                 <div class="bloque-redes-ynhf">
                     <ul>
                         <li><strong>Conoce más:</strong></li>
@@ -68,46 +72,43 @@
                 <?php // if ($sf_user->isAuthenticated()): ?>
                         <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
                 <?php // endif; ?>
-                <?php if ($sf_user->isAuthenticated()): ?>
-                    <a href="<?php echo url_for("@logout") ?>"><span>Salir</span></a>
-                    <div class="nav option-set btn-perfil-usuario" data-option-key="filter" >
+            </div><!--/.nav-collapse --> 
+            
+            <div class="nav option-set btn-perfil-usuario" data-option-key="filter" >
+                <p>Bienvenido <span>Juan Fernando Lopez</span></p>
+                <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
+            </div>
 
-                        <p>Bienvenido <span>Juan Fernando Lopez</span></p>
+            <?php if ($sf_user->isAuthenticated()): ?>
 
-                        <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
+                <button class="btn-alarma" href="#" onclick="alert('Construyendo proceso de alarma');return false;">Generar alarma de uso</button>
+                <!--                    <div >
+                                        <ul class="nav option-set" data-option-key="filter">
+                                            <li>
+                                                <p>Bienvenido <span>Juan Fernando Lopez</span></p>
+                                                
+                                            </li>
+                                            <li>
+                                                <a href="#about" data-option-value=".about"><img src="../img/icono-btn-perfil.png"/></a>                          
+                                               
+                                            </li>
+                                            <li>
+                                                <a href="#show-all" data-option-value="*"><img src="../img/icono-btn-perfil.png"/></a>                          
+                                               
+                                            </li>
+                                        </ul>
+                                    </div>-->
 
-
-                    </div>
-                    <button class="btn-alarma" href="#" onclick="alert('Construyendo proceso de alarma');return false;">Generar alarma de uso</button>
-                    <!--                    <div >
-                                            <ul class="nav option-set" data-option-key="filter">
-                                                <li>
-                                                    <p>Bienvenido <span>Juan Fernando Lopez</span></p>
-                                                    
-                                                </li>
-                                                <li>
-                                                    <a href="#about" data-option-value=".about"><img src="../img/icono-btn-perfil.png"/></a>                          
-                                                   
-                                                </li>
-                                                <li>
-                                                    <a href="#show-all" data-option-value="*"><img src="../img/icono-btn-perfil.png"/></a>                          
-                                                   
-                                                </li>
-                                            </ul>
-                                        </div>-->
-
-                <?php else: ?>
-                    <div class="form-ingreso-login">                    
-                        <form class="busqueda-sencilla" action="<?php echo url_for("@login") ?>" method="POST">
-                            <input class="input-filtro-local" type="text" id="nombre" name ="nombre" placeholder="Nombre" required>
-                            <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
-                            <input class="btn-filtro-local2" type="submit" value="Entrar" />
-                        </form></br>                
-                        <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aún no estás registrado?</span></a>
-                    </div>                
-                <?php endif; ?>
-            </div><!--/.nav-collapse -->
-
+            <?php else: ?>
+                <div class="form-ingreso-login">                    
+                    <form class="busqueda-sencilla" action="<?php echo url_for("@login") ?>" method="POST">
+                        <input class="input-filtro-local" type="text" id="nombre" name ="nombre" placeholder="Nombre" required>
+                        <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
+                        <input class="btn-filtro-local2" type="submit" value="Entrar" />
+                    </form></br>                
+                    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aún no estás registrado?</span></a>
+                </div>                
+            <?php endif; ?>
         </div>
 
     </div>

@@ -48,24 +48,7 @@
         </div>
         <?php echo include_partial('parciales/footer') ?>
         <?php include_javascripts() ?>
-        <script>
-            $(document).ready(function() {
+        <?php echo include_partial('parciales/javascript') ?>
 	 
-                // ambos procesaran en save.php
-	 
-                // servira para editar los de tipo input text.
-                $('.text').editable('<?php echo url_for('@editaru?id='.$sf_user->getAttribute('Usuario')->get('id'))?>', {
-                    indicator : 'Saving...', 
-                    submit : 'OK'
-                });
-                
-                $('.text2').editable('<?php echo url_for('@editaru2?id='.$sf_user->getAttribute('Usuario')->get('id'))?>', {
-                    indicator : 'Saving...',                  
-                    submit : 'OK'
-                });
-	 	 
-            });
-        </script>
-      
     </body>
 </html>

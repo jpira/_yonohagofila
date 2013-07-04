@@ -9,6 +9,6 @@ endif
 <div>
 
     <input type="hidden" name="ide" value="<?php echo $i ?>" />
-    <button class="btn-filtro-local2" onclick="$this.submit()" title="">Reservar</button>
+    <button class="btn-filtro-local2" onclick="$this.submit()" title="">¡Reservar!</button>
  </div>
 </form>

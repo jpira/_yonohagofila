@@ -145,9 +145,8 @@ sub {
     width: 40%;
     text-align: center;
 }
-.redes-comercio button{
-    background: none;
-    border: none;
+.redes-comercio a{
+    margin: 0 5px;
 }
 .redes-comercio .img-red-comercio{
     height: 20px;
@@ -180,21 +179,54 @@ sub {
 .estilo-bloque{
     display: block;
     height: 260px;
+    padding: 10px;
     text-align: center;
 }
 
 .estilo-bloque label{
     float: left;
-    padding-left: 10%;
-    margin-bottom: 0px;
+    padding-left: 2%;
+    margin-bottom: 2px;
     font-size: 12px;
+    font-weight: 700;
 }
 .estilo-bloque input, .estilo-bloque select {
-    width: 80% !important;
+    font-size: 12px !important;
+    color:#000;
+    width: 90% !important;
 }
+.campo-formulario{
+    height: 60px;
+    margin: 5px 0;
+}
+.campo-formulario:nth-child(3){
+    height: 30px;
 
+}
+.campo-formulario #reserva_hora_reserva_hour{
+    margin-left: 20px;
+}
+.campo-formulario #reserva_promedio_id{
+    width: 95% !important;
+}
 #reserva_hora_reserva_hour, #reserva_hora_reserva_minute {
     width: 30% !important;
+}
+.btn-filtro-local2{
+    background:url("../img/btn-reservar.png") repeat-x 0 0 transparent;
+    border: 1px inset #00e4ff;
+    color:#fff;
+    height: 30px;
+    line-height: 30px;
+            font-weight: 700;
+            width: 95%;
+  
+  -webkit-box-shadow: 0px 0px 2px 0px #000;
+          box-shadow: 0px 0px 2px 0px #000;
+          
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+  background-clip: padding-box;
 }
 
 img {

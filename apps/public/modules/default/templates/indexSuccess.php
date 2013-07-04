@@ -84,9 +84,9 @@ foreach ($locales as $local):
         <div class="marca-comercio">
             <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
         </div>
-        <div class="disponibilidad-comercio">
+<!--        <div class="disponibilidad-comercio">
             <img src="../img/barra-disponibilidad.png"/>
-        </div>
+        </div>-->
         <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
             <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>

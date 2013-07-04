@@ -7,17 +7,17 @@
                 <!--<a href="#" class="sb_input blanco btn-filtro-local2" style="border: 10px">Busqueda avanzada</a>-->
                     <!--<input class="sb_input" type="text"/>-->
                 <!--</p>-->
-                <input class="sb_input btn-filtro-local2" type="button" value="Busqueda avanzada"></input>
+                <input class="sb_input btn-filtro-local2" type="button" value="Búsqueda avanzada"></input>
                 <ul class="sb_dropdown" style="display:none">  
-                    <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li>
+                    <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
                     <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
                     <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-                    <li><input class="btn-filtro-local2" type="submit" value="Buscar"></li>
+                    <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>
                 </ul>
             </form>
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
-                <input class="input-filtro-local" id="busqueda" type="search" name="busqueda" placeholder="Buscar">
-                <input class="btn-lupa" type="submit" value=" ">
+                <input class="input-filtro-local" id="busqueda" type="search" name="busqueda" placeholder="Buscar" />
+                <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');return false;" />
             </form>
             <!--                <form class="busqueda-avanzada">
                                 <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
@@ -38,9 +38,9 @@
                     <!--                    	Uncomment this to filter elements for homepage 
                                         <li><a href="#home" data-option-value="home" class="selected">home</a></li>
                     -->
-                    <li><a href="#show-all" data-option-value="*" class="selected"><span>Inicio</span></a></li>
+                    <li><a href="#home" data-option-value=".home" class="selected"><span>Inicio</span></a></li>
 
-                    <li><a href="#portfolio" data-option-value=".portfolio"><span>Políticas y condiciones de uso</span></a></li>
+                    <li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <li class="show-title">
                     </li>
@@ -55,13 +55,13 @@
                     <ul>
                         <li><strong>Conoce más:</strong></li>
                         <li>
-                            <a class="red-twitter-ynhf" href="https://twitter.com/" ><img src="../img/redes-sociales-ynhf/red-twitter.png"/></a>                    
+                            <a class="red-twitter-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;" ><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>                    
                         </li>
                         <li>
-                            <a class="red-youtbe-ynhf" href="http://www.youtube.com/" ><img src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
+                            <a class="red-youtbe-ynhf" href="#" onclick="alert('Falta por definir link red social');return false" ><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
                         </li>
                         <li>
-                            <a class="red-face-ynhf" href="https://www.facebook.com/"><img src="../img/redes-sociales-ynhf/red-facebook.png"/></a>                          
+                            <a class="red-face-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>                          
                         </li>
                     </ul>
                 </div>
@@ -74,11 +74,11 @@
 
                         <p>Bienvenido <span>Juan Fernando Lopez</span></p>
 
-                        <a href="#about" data-option-value=".about"><img src="../img/icono-btn-perfil.png"/></a>                          
+                        <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
 
 
                     </div>
-                    <button class="btn-alarma" href="#">Generar alarma de uso</button>
+                    <button class="btn-alarma" href="#" onclick="alert('Construyendo proceso de alarma');return false;">Generar alarma de uso</button>
                     <!--                    <div >
                                             <ul class="nav option-set" data-option-key="filter">
                                                 <li>
@@ -103,7 +103,7 @@
                             <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
                             <input class="btn-filtro-local2" type="submit" value="Entrar" />
                         </form></br>                
-                        <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aun no estas registrado?</span></a>
+                        <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aún no estás registrado?</span></a>
                     </div>                
                 <?php endif; ?>
             </div><!--/.nav-collapse -->

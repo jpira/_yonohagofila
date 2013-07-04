@@ -1,4 +1,6 @@
 function muestra_oculta(id){
+    $('.btn-filtro-local2-inactivo').addClass('btn-filtro-local2');
+    $('.ebtn-filtro-local2-inactivo').removeClass('btn-filtro-local2-inactivo');
     $('.estilo-bloque').hide('slow', function() {
         $('#container-isotope').isotope({
             masonry: {
@@ -7,9 +9,11 @@ function muestra_oculta(id){
         })
     });
     
-    if ($('#'+id).css('display') == 'none') {
+    if ($('#contenido_a_mostrar'+id).css('display') == 'none') {
+        $('#btn-'+id).addClass('btn-filtro-local2-inactivo');
+        $('#btn-'+id).removeClass('btn-filtro-local2');
         
-        $('#'+id).toggle('slide', function(){
+        $('#contenido_a_mostrar'+id).toggle('slide', function(){
             $('#container-isotope').isotope({
                 masonry: {
                     columnWidth: 5
@@ -17,7 +21,9 @@ function muestra_oculta(id){
             })
         });
     } else {
-        $('#'+id).hide('slow', function(){
+        $('#btn-'+id).addClass('btn-filtro-local2');
+        $('#btn-'+id).removeClass('btn-filtro-local2-inactivo');
+        $('#contenido_a_mostrar'+id).hide('slow', function(){
             $('#container-isotope').isotope({
                 masonry: {
                     columnWidth: 5

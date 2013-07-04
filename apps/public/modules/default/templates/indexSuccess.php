@@ -79,7 +79,7 @@ $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
 $i = 1;
 foreach ($locales as $local):
     ?>
-    <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco"> <!-- href="#" ajax-->
+<div class="element element-portfolio portfolio height-auto width2-1 fd-blanco">
         <!--<input type="hidden" class="order" value="3">-->
         <div class="marca-comercio">
             <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
@@ -108,7 +108,7 @@ foreach ($locales as $local):
         <?php $form->setDefault('local_id', $local->get('id')); ?>
         <?php if ($sf_user->isAuthenticated()): ?>
             <div class="busqueda-avanzada">
-                <button class="btn-filtro-local2" onclick="$('#contenido_a_mostrar<?php echo $i ?>').toggle('slide')" title="">Configurar reserva</button>
+                <button class="btn-filtro-local2" onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
 
             </div>
 

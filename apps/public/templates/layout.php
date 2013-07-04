@@ -35,6 +35,7 @@
 
         <!-- Ajax Content Load -->
         <div class="container container-top">
+<img class="luces" src="../img/luces.png"/>
             <div id="container-ajax" class="element">
                 <a href="#" class="close-ajax"><span class="x-button">&#10006;</span></a>
                 <div class="ajax-content"></div>

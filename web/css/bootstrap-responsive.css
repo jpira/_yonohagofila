@@ -965,7 +965,7 @@
   }
   .navbar-fixed-top .navbar-inner,
   .navbar-fixed-bottom .navbar-inner {
-    padding: 5px;
+    /*padding: 5px;*/
   }
   .navbar .container {
     width: auto;
@@ -1089,16 +1089,74 @@
   }
   .nav-collapse,
   .nav-collapse.collapse {
+      background: rgba(0, 0, 0, .5);
     height: 0;
     overflow: hidden;
+    z-index: 9999;
+    /*left: 160px;*/
+    /*margin: 0 auto;*/
+    width: 100%;
   }
   .navbar .btn-navbar {
+      margin-top: 50px;
     display: block;
   }
+  .navbar .nav {
+      width: 100%;
+  }
+/*  .form-ingreso-login, .bloque-redes-ynhf{
+      display: none;
+      visibility: hidden;
+  }*/
+  
   .navbar-static .navbar-inner {
     padding-right: 10px;
     padding-left: 10px;
   }
+  .main-name{
+      width: 30%;
+  }
+  .luces{
+      top: 138px !important;
+      left: 20% !important;
+      margin-left: -20% !important;
+  }
+  .filtro-tipo-local{
+      /*top: 0 !important;*/
+  }
+  .caja-perfil-usuario{
+      width: 96% !important;
+      height: 100px !important;
+  }
+  .avatar-usuario{
+    height: 230px !important;
+    background:#05697b !important;
+    float: left;
+    /*display: inline !important*/
+    width: 30% !important;
+    overflow: hidden;
+}
+.img-avatar-usuario{
+    margin-top: 35px !important;
+}
+.info-perfil{
+    display: inline-block !important;;
+    float: right;
+    height: 170px !important;
+    width: 60% !important;
+}
+.contenido-perfil{
+    width: 200px !important;
+}
+/*  .oculto{
+      display: block !important;
+      top: 500px;
+      left:0;
+      position: absolute;
+      visibility: visible !important;
+      z-index: 9999;
+  }*/
+
 }
 
 @media (min-width: 980px) {

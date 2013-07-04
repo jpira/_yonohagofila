@@ -8,12 +8,12 @@
                     <!--<input class="sb_input" type="text"/>-->
                 <!--</p>-->
                 <input class="sb_input btn-filtro-local2" type="button" value="Busqueda avanzada"></input>
-                    <ul class="sb_dropdown" style="display:none">  
-                        <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li>
-                        <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
-                        <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-                        <li><input class="btn-filtro-local2" type="submit" value="Buscar"></li>
-                    </ul>
+                <ul class="sb_dropdown" style="display:none">  
+                    <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda" type="search" name="busqueda" placeholder="Buscar"></li>
+                    <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
+                    <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
+                    <li><input class="btn-filtro-local2" type="submit" value="Buscar"></li>
+                </ul>
             </form>
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
                 <input class="input-filtro-local" id="busqueda" type="search" name="busqueda" placeholder="Buscar">
@@ -39,9 +39,7 @@
                                         <li><a href="#home" data-option-value="home" class="selected">home</a></li>
                     -->
                     <li><a href="#show-all" data-option-value="*" class="selected"><span>Inicio</span></a></li>
-                    <?php if ($sf_user->isAuthenticated()): ?>
-                        <li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>
-                    <?php endif; ?>
+
                     <li><a href="#portfolio" data-option-value=".portfolio"><span>Políticas y condiciones de uso</span></a></li>
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <li class="show-title">
@@ -67,8 +65,37 @@
                         </li>
                     </ul>
                 </div>
+                <?php // if ($sf_user->isAuthenticated()): ?>
+                        <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
+                <?php // endif; ?>
                 <?php if ($sf_user->isAuthenticated()): ?>
                     <a href="<?php echo url_for("@logout") ?>"><span>Salir</span></a>
+                    <div class="nav option-set btn-perfil-usuario" data-option-key="filter" >
+
+                        <p>Bienvenido <span>Juan Fernando Lopez</span></p>
+
+                        <a href="#about" data-option-value=".about"><img src="../img/icono-btn-perfil.png"/></a>                          
+
+
+                    </div>
+                    <button class="btn-alarma" href="#">Generar alarma de uso</button>
+                    <!--                    <div >
+                                            <ul class="nav option-set" data-option-key="filter">
+                                                <li>
+                                                    <p>Bienvenido <span>Juan Fernando Lopez</span></p>
+                                                    
+                                                </li>
+                                                <li>
+                                                    <a href="#about" data-option-value=".about"><img src="../img/icono-btn-perfil.png"/></a>                          
+                                                   
+                                                </li>
+                                                <li>
+                                                    <a href="#show-all" data-option-value="*"><img src="../img/icono-btn-perfil.png"/></a>                          
+                                                   
+                                                </li>
+                                            </ul>
+                                        </div>-->
+
                 <?php else: ?>
                     <div class="form-ingreso-login">                    
                         <form class="busqueda-sencilla" action="<?php echo url_for("@login") ?>" method="POST">
@@ -82,6 +109,7 @@
             </div><!--/.nav-collapse -->
 
         </div>
+
     </div>
 
 </div>

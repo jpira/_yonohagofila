@@ -57,6 +57,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: url('../img/patterns/fd-body.png') repeat-x 0 0 transparent; 
     background-attachment: fixed;
+    z-index: -1;
 }
 
 p{
@@ -126,7 +127,7 @@ blockquote{
 	margin-right:auto;
 	padding:0;
 	margin-top:10px;
-            overflow: visible !important;
+/*            overflow: visible !important;*/
 }
 .container{
 	width:1000px;
@@ -240,21 +241,33 @@ table.table tr:last-child th, table.table tr:last-child td
 */
 .caja-presentacion{
     /*background: url("../img/mano-acceso.png") no-repeat center bottom transparent !important;*/
-    display: block;
+    display: block !important;
     /*overflow: visible !important;*/
-    background: transparent!important;
+    background: transparent !important;
     /*height: 205px !important;*/
     box-shadow: none !important;
-    width: 100% !important;
     max-width: 1000px;
+    position: absolute;
+    top: 0;
+    width: 100% !important;
+/*
+    
+    -webkit-box-sizing: border-box;  Safari/Chrome, other WebKit 
+  -moz-box-sizing: border-box;     Firefox, other Gecko 
+  box-sizing: border-box;          Opera/IE 8+ */
     
 }
-.mano-acceso{
+/*.mano-acceso{
     margin-left: -190px;
-}
+}*/
 .video-prentacion{
-            /*float: right;*/
-            /*width: 480px;*/
+    display: inline-block;
+            float: right;
+            width: 480px !important;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            z-index: 50;
 }
 
 /* 
@@ -329,22 +342,59 @@ table.table tr:last-child th, table.table tr:last-child td
 /*
         Element perfil ususario
 */
-
+.btn-perfil-usuario{
+    display: inline-block;
+    float: right;
+    height: 40px;
+    margin-top: 10px;
+    /*margin-right: 60px;*/
+    line-height: 40px;
+    text-align: right;
+    width: 600px;
+    z-index: 10;
+}
+.btn-perfil-usuario p, .btn-perfil-usuario a{
+    display: inline;
+}
+.btn-perfil-usuario p span{
+    color:#686868;
+    font-weight: 700;
+}
 .caja-perfil-usuario{
     height: 300px;
     background: #fff;
+    padding: 0;
     /*float: right;*/
 }
-.img-perfil-usuario{
+.avatar-usuario{
+    background: url("../img/sombra-avatar-perfil.png") no-repeat scroll center bottom #05697b;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+.img-avatar-usuario{
+    display: block;
+    margin: 20px auto 5px;
+    height: 125px;
     text-align: center;
-    margin: 0 auto;
+    width: 125px;
+}
+.centrar{
+    display: block !important;
+    text-align: center;
+    margin: 0 auto !important;
+}
+.info-perfil{
+    padding: 15px;
 }
 .contenido-perfil{
     display: block;
     float: left;
     width: 100%;
+    margin-bottom: 10px;
     /*border-bottom: 1px solid red;*/
 }
+
 .contenido-perfil a{
     margin: 0;
     padding: 0;
@@ -354,17 +404,33 @@ table.table tr:last-child th, table.table tr:last-child td
     font-size: 16px;
     color:#aa062d;
 }
+.caja-perfil-usuario .nombre-usuario{
+    font-weight: 700;
+    line-height: 15px;
+    color:#05697b;
+}
 .contenido-perfil .texto-contenido-perfil{
     float: right;
+    /*border-bottom: 1px dotted #ccc;*/
     width: 170px;
     line-height: 10px;
     margin-left: -5px;
 }
-.texto-contenido-perfil:first-child p{
+.texto-contenido-perfil p:first-child{
     font-weight: 700;
+}
+.texto-contenido-perfil p{
+    margin-bottom: 8px;
 }
 .texto-sencillo-perfil{
     margin-left: 40px;
+    margin-bottom: 10px;
+}
+.luces{
+    position: absolute;
+    left: 50%;
+    margin-left: -38%;
+    top: 180px;
 }
 /*
 	Portfolio element
@@ -596,7 +662,7 @@ table.table th, .blanco{
 /*    height: 30px;
     line-height: 30px;*/
 /*    margin:10px 0 0 47px; */
-    width: 50%;
+    width: 45%;
 }
 /*.bloque-filtros .busqueda-sencilla{
     width: 230px;
@@ -617,8 +683,9 @@ table.table th, .blanco{
     display: inline-block;
     height: 40px;
     margin-top: 10px;
+    margin-right: -150px;
     line-height: 40px;
-    width: auto;
+    width: 800px;
 }
 .busqueda-sencilla, .busqueda-avanzada{
     display:inline-block;
@@ -685,6 +752,7 @@ table.table th, .blanco{
     float: right;
     font-size: 10px;
     margin-top: -35px;
+    margin-right: 85px;
     padding: 0;
     text-decoration: underline;
 }
@@ -706,6 +774,29 @@ table.table th, .blanco{
     margin:10px 10px 0 0;
     text-align: right;
     vertical-align: top;
+}
+.btn-alarma{
+    background: url('../img/fd-btn-alarma.png')repeat-x 0 0 transparent;
+    color:#fff;
+    border: 1px inset #cb0a36;
+    height: 30px;
+    font-weight: 700;
+    position: absolute;
+    top:188px;
+    right: 2px;
+    float: right;
+/*    margin-bottom: 30px;*/
+    /*right: 100px;*/
+
+    width: 200px !important;
+    -moz-border-radius:0px 0px 10px 10px;
+	-webkit-border-bottom-right-radius:10px;
+	-webkit-border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+        
+        -webkit-box-shadow: 0px 0px 2px 0px #000;
+          box-shadow: 0px 0px 2px 0px #000;
 }
 /*
 	Contact Form
@@ -737,7 +828,7 @@ input[type=text], textarea{
 	filter: "none" !important;
 	color:#666;	
 }
-.navbar .nav>li>a, .navbar .brand, .show-title, .busqueda-avanzada input{
+.navbar .nav>li>a, .navbar .brand, .show-title, .busqueda-avanzada input, .btn-alarma{
     	text-shadow: 1px 2px 2px rgba(0,0,0,0.3);
 
 }
@@ -804,8 +895,8 @@ input[type=text], textarea{
     color:#011f32;
     height: 30px;
     float: right;
-    margin: 5px 30px 0 0;
-    width: 300px;
+    margin: 5px -25px 0 0;
+    width: 250px;
 }
 .bloque-redes-ynhf ul{
     margin: 0;

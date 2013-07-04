@@ -109,10 +109,10 @@
                     //Y SI LA ULTIMA PÁGINA ES MAYOR QUE LA ACTUAL MUESTRO EL BOTON NEXT O LO DESHABILITO
                     if ($lastpage2 > $page2) {
                         ?>       
-                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>" >Next &raquo;</a></li>  <?php echo 'Resultados 1 - 4 de '. $nump2; ?>
+                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>" >Next &raquo;</a></li> <p class="texto-paginador"><?php echo 'Resultados 1 - 4 de '. $nump2; ?></p>
                     <?php } else {
                         ?>
-                        <li class="next-off">Next &raquo;</li> <?php echo 'Resultados 1 ' .' - '.$nump2.' de '. $nump2; ?>
+                        <li class="next-off">Next &raquo;</li> <p class="texto-paginador"><?php echo 'Resultados 1 ' .' - '.$nump2.' de '. $nump2; ?></p>
                         <?php
                     }
                 } else {
@@ -139,9 +139,12 @@
             //SI NO ES LA ÚLTIMA PÁGINA ACTIVO EL BOTON NEXT    
             if ($lastpage2 > $page2) {
                         ?> 
-                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><?php echo 'Resultados '. (($page2*4) - 4) .' - '.($page2*4).' de '. $nump2;
-            } else {
-                        ?> <li class="next-off">Next &raquo;</li><?php echo 'Resultados '. (($page2*4) - 4) .' - '.$nump2.' de '. $nump2;
+                        <li class="next"><a href="<?php echo url_for('@homepage?page2=' . $nextpage) ?>">Next &raquo;</a></li><p class="texto-paginador"><?php echo 'Resultados '. (($page2*4) - 4) .' - '.($page2*4).' de '. $nump2;?></p>
+            <?php
+                        } else {
+                            ?>
+                        <li class="next-off">Next &raquo;</li><p class="texto-paginador"><?php echo 'Resultados '. (($page2*4) - 4) .' - '.$nump2.' de '. $nump2;?></p>
+                        <?php
             }
         }
                 ?></ul></br>

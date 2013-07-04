@@ -898,9 +898,16 @@
 }
 
 @media (max-width: 979px) {
-  body {
-    padding-top: 0;
-  }
+  
+   body{
+        /*background: url('../img/patterns/fd-body2.png') repeat-x 0 0 transparent !important;*/ 
+    /*padding-top: 0;*/
+        position: absolute !important;
+        top:25% !important;
+        width: 100%;
+        /*z-index: -10 !important;*/
+
+    }
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     position: static;
@@ -922,7 +929,7 @@
   .navbar .brand {
     padding-right: 10px;
     padding-left: 10px;
-    margin: 0 0 0 -5px;
+    margin: 0 0 0 10px !important;
   }
   .nav-collapse {
     clear: both;
@@ -1049,6 +1056,7 @@
       margin-top: 50px;
       float: left;
     display: block;
+    margin-left: 120px;
   }
   .navbar .nav {
       width: 100%;
@@ -1068,9 +1076,10 @@
   }
   .navbar-fixed-top{
       position: fixed;
+      margin-top: -30px !important;
       
   }
-  .main-name{
+    .main-name{
       width: 30%;
   }
   .luces{
@@ -1079,10 +1088,16 @@
       margin-left: -20% !important;
   }
   .filtro-tipo-local{
-      /*top: 0 !important;*/
-  }
+        /*top:70px !important;*/
+        /*z-index: 1 !important;*/
+    }
+    .bloque-filtros{
+        margin-top:5px !important; 
+        margin-left: -2px;
+        width: 50% !important;
+    }
   .caja-perfil-usuario{
-      width: 96% !important;
+      width: 98.5% !important;
       /*height: 100px !important;*/
   }
   .avatar-usuario{
@@ -1105,26 +1120,52 @@
 .contenido-perfil{
     width: 200px !important;
 }
-/*  .oculto{
-      display: block !important;
-      top: 500px;
-      left:0;
-      position: absolute;
-      visibility: visible !important;
-      z-index: 9999;
+ul.sb_dropdown{
+        height: 230px !important;
+        width: 270px !important;
+        float: left !important;
+    }
+    ul.sb_dropdown li{
+        margin-bottom: 10px !important;
+        height: 40px !important;
+        /*width: 400px !important;*/
+    }
+    ul.sb_dropdown li input{
+        width: 230px !important;
+    }
+    ul.sb_dropdown li input[type="submit"]{
+        width: 245px !important;
+    }
+    .btn-perfil-usuario{
+        position: absolute !important;
+        left: 510px !important;
+        top:50px !important;
+        width: 500px !important;
+    }
+    .btn-alarma{
+        right: 50px !important;
+    }
+    
+/*    .navbar-inner{
+      margin-top: -30px;
   }*/
+
 
 }
 @media (max-width: 480px) {
     body{
         background: url('../img/patterns/fd-body2.png') repeat-x 0 0 transparent !important; 
-        z-index: -10 !important;
+        position: relative !important;
+        top:90px !important;
+        /*z-index: -10 !important;*/
 
     }
     .luces{
         display: none;
     }
-    
+    .navbar .btn-navbar{
+        margin-left: 5px !important;
+    }
   .nav-collapse {
     -webkit-transform: translate3d(0, 0, 0);
   }
@@ -1176,7 +1217,14 @@
   }
   .navbar-fixed-top{
       position: fixed;
+      margin-top: 0 !important; 
       
+  }
+  .btn-alarma{
+      top: 120px !important;
+      left: 120px;
+      font-size: 11px !important;
+      width: 50px !important;
   }
   .navbar-inner{
       background: #fcfcfc !important;
@@ -1189,7 +1237,7 @@
 /*  .navbar-inner{
         position: fixed;
     }*/
-  .brand{
+  .navbar .brand{
     background:  url("../img/logo-ynhf-peque.png") no-repeat 0 30px transparent !important;
     margin-left: 60px !important;
     width: 107px !important;
@@ -1198,9 +1246,19 @@
       /*height: 80px !important;*/
       
   }
+  .btn-perfil-usuario{
+      left:45px !important;
+      top:10px !important;
+  }
+  .btn-perfil-usuario p{
+      display: none !important;
+  }
   .main-name{
       display: none;
      
+  }
+  .caja-perfil-usuario{
+      width: 96% !important;
   }
   .avatar-usuario{
       width: 100% !important;
@@ -1298,6 +1356,15 @@
     }
     ul.sb_dropdown li input[type="submit"]{
         width: 245px !important;
+    }
+    .tabla{
+        display: none !important;
+    }
+    .tabla2{
+        display: block !important;
+    }
+    .dataTables_filter label input{
+        width: 150px !important;
     }
 }
 

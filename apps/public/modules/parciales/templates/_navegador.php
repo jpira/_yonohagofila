@@ -42,9 +42,6 @@
 
                     <li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
-                    <?php if ($sf_user->isAuthenticated()): ?>
-                        <li><a href="<?php echo url_for("@logout") ?>"><span>Salir</span></a></li>
-                    <?php endif ?>
                     <li class="show-title">
                     </li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>
@@ -55,6 +52,9 @@
                     </li>-->
                 </ul>
 
+                    <?php if ($sf_user->isAuthenticated()): ?>
+                        <li><a href="<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>
+                    <?php endif ?>
                 <div class="bloque-redes-ynhf">
                     <ul>
                         <li><strong>Conoce más:</strong></li>
@@ -73,13 +73,12 @@
                         <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
                 <?php // endif; ?>
             </div><!--/.nav-collapse --> 
-            
+            <?php if ($sf_user->isAuthenticated()): ?>
             <div class="nav option-set btn-perfil-usuario" data-option-key="filter" >
                 <p>Bienvenido <span>Juan Fernando Lopez</span></p>
                 <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
             </div>
 
-            <?php if ($sf_user->isAuthenticated()): ?>
 
                 <button class="btn-alarma" href="#" onclick="alert('Construyendo proceso de alarma');return false;">Generar alarma de uso</button>
                 <!--                    <div >

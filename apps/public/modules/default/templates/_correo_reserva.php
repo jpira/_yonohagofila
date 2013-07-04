@@ -7,16 +7,17 @@
                 </head>
                 <body>
                     <p> 
-                        <img src="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" align="right" height="256" width="256">
-                            <h1>ANDRES LOPEZ LOPEZ</h1></br>
-                            <span> USUARIO PLATINIUM</span>
-                            <h2>Mensaje de informacion de su reserva </h2>
-                            <h4>FECHA EN LA REALIZO LA RESERVA </h4>
-                            <h3>Noviembre 07 de 2013 </h3>
-                            <h4>NOMBRE BAR / RESTAURANTE </h4>
-                            <h3> Hotel Royal Inn </h3>
-                            <h4>ESTADO DE RESERVA: APROBADO </h4>
-                            <h3>Fecha de reserva: Noviembre 12 de 2013 </h3>
+                        <img src="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo /*$r->get(*/'slug'/*)*/ ?>&s=10&e=" align="right" height="256" width="256">
+                            <h2>ANDRES LOPEZ LOPEZ</h2></br>
+                            <span>USUARIO PLATINIUM</span>
+                            <h3>Mensaje de informacion de su reserva </h3>
+                            <h5>FECHA EN LA REALIZO LA RESERVA </h5>
+                            <h4>Noviembre 07 de 2013 </h4>
+                            <h5>NOMBRE BAR / RESTAURANTE </h5>
+                            <h4> Hotel Royal Inn </h4>
+                            <h5>ESTADO DE RESERVA: APROBADO </h5>
+                            <h4>Fecha de reserva: Noviembre 12 de 2013 </h4>
                     </p>
+                    <a href="./"> Regresar </a>
                 </body>
                 </html>

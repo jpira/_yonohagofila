@@ -46,9 +46,10 @@
                         <td><?php echo $r->get('fecha_reserva') ?></td>
                         <td><?php echo $r->get('estado') ?></td>                    
                         <?php // QRcode::png($r->get('slug'));  ?>
-                        <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>
+                        <!--<td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>-->
+                        <td><a href="<?php echo url_for('@filtrar') ?>" target="_new"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>
                         <!--<td><a href="<?php // echo url_for('@cancelarr?id=' . $r->get('id'))       ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>-->
-                        <td><a href="#" onclick="alert('Construyendo proceso de cancelacion');return false;"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
+                        <td><a href="#" onclick="alert('Construyendo proceso de cancelacion');return false;"><?php echo image_tag('/img/icon-cancelar.png', array('class' => 'img-perfil-usuario')) ?></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -14,15 +14,15 @@ foreach ($navegador_usuario AS $navegador) { //Este ciclo es el que se encarga d
 echo $es_movil;
 ?>
 <div class="home">
-<?php
-if (!$sf_user->isAuthenticated()) {
-    echo include_partial('parciales/video');
-}
+    <?php
+    if (!$sf_user->isAuthenticated()) {
+        echo include_partial('parciales/video');
+    }
 
-if ($sf_user->isAuthenticated()) {
-    echo include_partial('parciales/perfil');
-}
-?>
+    if ($sf_user->isAuthenticated()) {
+        echo include_partial('parciales/perfil');
+    }
+    ?>
 </div>
 <!--
 <div class="element about height2 width2">
@@ -80,9 +80,27 @@ if ($sf_user->isAuthenticated()) {
 </a>-->
 
 <?php
-$locales = Doctrine_Query::create()->from('Parametro p, p.Local')
-        //        ->limit(3)
-        ->execute();
+if (isset($_POST['busqueda']) and $_POST['busqueda'] != '') {
+    $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
+            ->where('l.nombre LIKE ?', $_POST['busqueda'] . '%')
+            ->execute();
+} else {
+    if (isset($_POST['busqueda1']) and $_POST['busqueda1'] != '') {
+        $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
+                ->where('l.direccion LIKE ?', $_POST['busqueda1'] . '%')
+                ->execute();
+    } else {
+        if (isset($_POST['busqueda2']) and $_POST['busqueda2'] != '') {
+            $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
+                    ->where('p.descripcion LIKE ?', '%' . $_POST['busqueda2'] . '%')
+                    ->execute();
+        } else {
+            $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
+                    ->execute();
+        }
+    }
+}
+
 $i = 1;
 foreach ($locales as $local):
     ?>
@@ -101,16 +119,22 @@ foreach ($locales as $local):
         <div class="redes-comercio">
                 <!--<p>560</p>-->            
 
-            <a href="#<?php //echo $local->get('Local')->get('facebook') ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-            <a href="#<?php //echo $local->get('Local')->get('youtube') ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-            <a href="#<?php //echo $local->get('Local')->get('twitter') ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('facebook')  ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('youtube')  ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('twitter')  ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
             <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
             <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
             <p class="texto-descripcion"><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
-            <p class="url-web-local">www.hhsitioweb.com</p>        
+            <p class="url-web-local">www.hhsitioweb.com</p>  
+            <?php $eventos = Doctrine_Query::create()->from('Eventos_local')
+                    ->where('local_id = ? AND fecha_evento = ?', array($local->get('Local')->get('id'), date('Y-m-d')))
+                    ->fetchOne(); ?>
+            <?php if($eventos):?>
+            <a href="#"><?php echo image_tag('/img/estrella.jpg') ?></a>
+            <?php endif;?>
         </div>
         <?php $form->setDefault('local_id', $local->get('id')); ?>
         <?php if ($sf_user->isAuthenticated()): ?>

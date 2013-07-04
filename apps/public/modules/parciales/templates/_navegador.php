@@ -73,13 +73,13 @@
                         <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
                 <?php // endif; ?>
             </div><!--/.nav-collapse --> 
-            
+            <?php if ($sf_user->isAuthenticated()): ?>
             <div class="nav option-set btn-perfil-usuario" data-option-key="filter" >
                 <p>Bienvenido <span>Juan Fernando Lopez</span></p>
                 <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
             </div>
 
-            <?php if ($sf_user->isAuthenticated()): ?>
+            
 
                 <button class="btn-alarma" href="#" onclick="alert('Construyendo proceso de alarma');return false;">Generar alarma de uso</button>
                 <!--                    <div >

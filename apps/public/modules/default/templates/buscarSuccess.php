@@ -1,21 +1,22 @@
 <?php
-$es_movil = FALSE; //Aquí se declara la variable falso o verdadero XD
-$usuario = $_SERVER['HTTP_USER_AGENT']; //Con esta leemos la info de su navegador
-
-$usuarios_moviles = "Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV"; //En esta cadena podemos quitar o agregar navegadores de dispositivos moviles, te recomiendo que hagas un echo $_SERVER['HTTP_USER_AGENT']; en otra pagina de prueba y veas la info que arroja para que despues agregues el navegador que quieras detectar
-
-$navegador_usuario = explode(',', $usuarios_moviles);
-
-foreach ($navegador_usuario AS $navegador) { //Este ciclo es el que se encarga de detectar el navegador y devolver un TRUE si encuentra la cadena
-    if (strrpos($usuario, 'Android') !== false) { //Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV
-        $es_movil = 'ES MOVIL';
-    }
-}
-echo $es_movil;
+echo include_partial('default/correo_reserva');
+//$es_movil = FALSE; //Aquí se declara la variable falso o verdadero XD
+//$usuario = $_SERVER['HTTP_USER_AGENT']; //Con esta leemos la info de su navegador
+//
+//$usuarios_moviles = "Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV"; //En esta cadena podemos quitar o agregar navegadores de dispositivos moviles, te recomiendo que hagas un echo $_SERVER['HTTP_USER_AGENT']; en otra pagina de prueba y veas la info que arroja para que despues agregues el navegador que quieras detectar
+//
+//$navegador_usuario = explode(',', $usuarios_moviles);
+//
+//foreach ($navegador_usuario AS $navegador) { //Este ciclo es el que se encarga de detectar el navegador y devolver un TRUE si encuentra la cadena
+//    if (strrpos($usuario, 'Android') !== false) { //Android, AvantGo, Blackberry, Blazer, Cellphone, Danger, DoCoMo, EPOC, EudoraWeb, Handspring, HTC, Kyocera, LG, MMEF20, MMP, MOT-V, Mot, Motorola, NetFront, Newt, Nokia, Opera Mini, Palm, Palm, PalmOS, PlayStation Portable, ProxiNet, Proxinet, SHARP-TQ-GX10, Samsung, Small, Smartphone, SonyEricsson, SonyEricsson, Symbian, SymbianOS, TS21i-10, UP.Browser, UP.Link, WAP, webOS, Windows CE, hiptop, iPhone, iPod, portalmmm, Elaine/3.0, OPWV
+//        $es_movil = 'ES MOVIL';
+//    }
+//}
+//echo $es_movil;
 ?>
 
 <!-- Name and Image-->
-<div class="element caja-presentacion primary-bg height2">
+<!--<div class="element caja-presentacion primary-bg height2">
     <input type="hidden" class="order" value="0">
     <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
         <source src="../video/yonohagofilacom_mp4.mp4" type="video/mp4" />
@@ -24,8 +25,8 @@ echo $es_movil;
         <embed src="../video/yonohagofilacom_swf.swf" type="application/x-shockwave-flash" width="480" height="360"></embed>
     </video>
     <h1 class="main-name">Aliquam adipiscing<br/>sem a quam eleifend<br/>vel dignissim metus<br/>ultrices volutpat.</h1>
-<!--<img src="http://placehold.it/900x950" class="full" alt="profile image">-->
-    <!--    <hr class="thick" />-->
+<img src="http://placehold.it/900x950" class="full" alt="profile image">
+        <hr class="thick" />
 </div>
 
 <?php if ($sf_user->isAuthenticated()): ?>
@@ -47,7 +48,7 @@ echo $es_movil;
         <p class="texto-sencillo-perfil"><?php echo $sf_user->getAttribute('Usuario')->get('tipo_identificacion') . ' ' . $sf_user->getAttribute('Usuario')->get('identificacion') ?></p>
         <p class="texto-sencillo-perfil">Bogotá, Colombia</p>
         <div class="contenido-perfil">
-            <!--<a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>-->
+            <a href="#"><img class="img-perfil-usuario" src="../img/icon-editar.png" alt="" /></a>
             <div class="texto-contenido-perfil">
                 <p>Tu cumpleaños:</p>
                 <p><?php echo $sf_user->getAttribute('Usuario')->get('fecha_nacimiento') ?></p>                
@@ -71,17 +72,17 @@ echo $es_movil;
     </div>
 
 
-    <!--
+    
                                 Tablas reservas
     ------------------------------------------------------------
     ------------------------------------------------------
-    -->
-    <!-- Tabla reservas vigentes-->
+    
+     Tabla reservas vigentes
     <div class="element about width3 height4 round-borders fd-blanco">
-        <!--<input type="hidden" class="order" value="11">-->
-    <!--    <small>
+        <input type="hidden" class="order" value="11">
+        <small>
             Where I've worked.
-        </small>-->
+        </small>
         <?php
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -214,7 +215,7 @@ echo $es_movil;
                     }
                 } else {
                     ?>
-                    <!--                    EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS-->
+                                        EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS
                     <li class="previous"><a href="<?php echo url_for('@homepage?page=' . $prevpage) ?>"  >&laquo; Previous</a></li><?php
             for ($i = 1; $i <= $lastpage; $i++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
@@ -244,13 +245,13 @@ echo $es_movil;
         }
                 ?></ul></br></br>
             <?php endif; ?>
-        <!-- fin tabla reservas vigentes -->
+         fin tabla reservas vigentes 
 
 
 
 
 
-        <!--Tabla historial -->
+        Tabla historial 
         <?php
         if (isset($_GET['page2'])) {
             $page2 = $_GET['page2'];
@@ -332,7 +333,7 @@ echo $es_movil;
                     }
                 } else {
                     ?>
-                    <!--                    EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS-->
+                                        EN CAMBIO SI NO ESTAMOS EN LA PÁGINA UNO HABILITO EL BOTON DE PREVIUS Y MUESTRO LAS DEMÁS
                     <li class="previous"><a href="<?php echo url_for('@homepage?page2=' . $prevpage) ?>"  >&laquo; Previous</a></li><?php
             for ($j = 1; $j <= $lastpage2; $j++) {
                 //COMPRUEBO SI ES LA PÁGINA ACTIVA O NO
@@ -366,11 +367,11 @@ echo $es_movil;
     </div>  
 <?php endif; ?>
 
-<!--
+
                          fin   Tablas historial reservas
 ------------------------------------------------------------
 ------------------------------------------------------
--->
+
 
 <?php
 if (isset($_POST['busqueda']) and $_POST['busqueda'] != '') {
@@ -397,8 +398,8 @@ if (isset($_POST['busqueda']) and $_POST['busqueda'] != '') {
 $i = 1;
 foreach ($locales as $local):
     ?>
-    <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco"> <!-- href="#" ajax-->
-        <!--<input type="hidden" class="order" value="3">-->
+    <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco">  href="#" ajax
+        <input type="hidden" class="order" value="3">
         <div class="marca-comercio">
             <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
         </div>
@@ -410,7 +411,7 @@ foreach ($locales as $local):
             <img class="estrellas-calificacion" src="../img/seccion-comercios/estrellas-calificacion.png"/>
         </div>
         <div class="redes-comercio">
-            <!--<p>560</p>-->            
+            <p>560</p>            
             <a href="#"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
             <a href="#"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
             <a href="#"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
@@ -439,7 +440,7 @@ foreach ($locales as $local):
     </div>
 <?php endforeach; ?>
 
-<!-- Contact -->
+ Contact 
 <div class="element contact height2">
     <input type="hidden" class="order" value="7">
     <small>
@@ -522,9 +523,9 @@ foreach ($locales as $local):
 </div>
 
 
-<!-- Extra non-categorized -->
+ Extra non-categorized 
 <div class="element">
     <input type="hidden" class="order" value="9">
     <p class="big-text dark text-no-transform text-cursive">I promise to deliver <span class="primary-color ">innovation</span>, <span class="primary-color ">creativity</span>, and <span class="primary-color ">success</span>.
     </p>
-</div>
+</div>-->

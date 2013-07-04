@@ -50,21 +50,21 @@ $container.isotope({
     masonry: {
         columnWidth: 5
     },
-    getSortData: {
-        number: function($elem) {
-            var number = $elem.hasClass('element') ?
-                    $elem.find('.number').text() :
-                    $elem.attr('data-number');
-            return parseInt(number, 10);
-        },
-        sortOrder: function($elem) {
-            var number = $elem.hasClass('element') ?
-                    $elem.find('.order').val() :
-                    $elem.attr('data-number');
-            return parseInt(number, 10);
-        }
-    },
-    sortBy: 'sortOrder'
+//    getSortData: {
+//        number: function($elem) {
+//            var number = $elem.hasClass('element') ?
+//                    $elem.find('.number').text() :
+//                    $elem.attr('data-number');
+//            return parseInt(number, 10);
+//        },
+//        sortOrder: function($elem) {
+//            var number = $elem.hasClass('element') ?
+//                    $elem.find('.order').val() :
+//                    $elem.attr('data-number');
+//            return parseInt(number, 10);
+//        }
+//    },
+//    sortBy: 'sortOrder'
             /* 	,filter: '.home'		uncomment this line if you want to filter items on homepage to items with class="home" */
 });
 
@@ -117,18 +117,21 @@ $optionLinks.click(function() {
     return false;
 });
 
-$(window).load(function() {
-    $container.isotope();
+$(window).load(function(){
+  $container.isotope({
+    // update columnWidth to a percentage of container width
+    masonry: { columnWidth: 5 }
+  });
 });
 
 /* Latest Twitter */
-$.getJSON("https://api.twitter.com/1/statuses/user_timeline/envato.json?count=1&include_rts=1&callback=?", function(data) {
-    var text_full = data[0].text;
-    if (text_full.length > 70) {
-        text_full = text_full.substr(0, 70) + "...";
-    }
-    $(".twitter-content").html(text_full);
-});
+//$.getJSON("https://api.twitter.com/1/statuses/user_timeline/envato.json?count=1&include_rts=1&callback=?", function(data) {
+//    var text_full = data[0].text;
+//    if (text_full.length > 70) {
+//        text_full = text_full.substr(0, 70) + "...";
+//    }
+//    $(".twitter-content").html(text_full);
+//});
 
 /* Header nav icon show title of menu item */
 $('.navbar .option-set li a').mouseenter(function() {

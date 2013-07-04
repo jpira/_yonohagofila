@@ -1,7 +1,30 @@
 function muestra_oculta(id){
-    if (document.getElementById){ //se obtiene el id
-        var el = document.getElementById(id); //se define la variable "el" igual a nuestro div
-        el.style.display = (el.style.display == 'none') ? 'block' : 'none'; //damos un atributo display:none que oculta el div
+    $('.estilo-bloque').hide('slow', function() {
+        $('#container-isotope').isotope({
+            masonry: {
+                columnWidth: 5
+            }
+        })
+    });
+    
+    if ($('#'+id).css('display') == 'none') {
+        
+        $('#'+id).toggle('slide', function(){
+            $('#container-isotope').isotope({
+                masonry: {
+                    columnWidth: 5
+                }
+            })
+        });
+    } else {
+        $('#'+id).hide('slow', function(){
+            $('#container-isotope').isotope({
+                masonry: {
+                    columnWidth: 5
+                }
+            })
+        });
+        
     }
 }
 window.onload = function(){/*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
@@ -39,7 +62,7 @@ $(function() {
         .addClass('sb_down')
         .removeClass('sb_up')
         //            .fadeOut('slow')
-                    .andSelf()
+        .andSelf()
         .find('.sb_dropdown')
         .hide('slow');
     });

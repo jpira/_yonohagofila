@@ -27,10 +27,18 @@ class ReservaForm extends BaseReservaForm {
         $this->setWidget('local_id', new sfWidgetFormInputHidden());
         $this->setWidget('slug', new sfWidgetFormInputHidden());
         $this->setWidget('numero_personas', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'number', 'min' => '0', 'max' => '7', 'placeholder' => 'Numero de Acompañantes')));
-        
-        $this->setWidget('fecha_reserva', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'datetime-local', 'title' => 'Debe Agregar Fecha y Hora')));
+//        $this->setWidget('fecha_reserva', new sfWidgetFormDateJQueryUI());
+        $this->setWidget('fecha_reserva', new sfWidgetFormInputText(array(), array('required' => 'required', 'type' => 'date', 'placeholder' => 'Fecha reserva','title' => 'Debe Agregar Fecha y Hora')));
 
         $this->getWidget('promedio_id')->setAttributes(array('required' => 'required'));
+        $this->getWidgetSchema()->setLabels(array(
+            'numero_personas' => 'N&uacute;mero acompa&ntilde;antes',
+            'fecha_reserva' => 'Fecha reserva',
+            'hora_reserva' => 'Hora reserva',
+            'promedio_id' => 'Promedio consumo'
+        ));
+        
+        sfWidgetFormSchema::setDefaultFormFormatterName('ac2009');
     }
 
 }

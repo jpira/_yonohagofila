@@ -10,7 +10,8 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @property integer $id
  * @property integer $local_id
  * @property integer $numero_personas
- * @property datetime $fecha_reserva
+ * @property date $fecha_reserva
+ * @property time $hora_reserva
  * @property integer $promedio_id
  * @property string $estado
  * @property datetime $fecha_creacion
@@ -21,7 +22,8 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @method integer  getId()              Returns the current record's "id" value
  * @method integer  getLocalId()         Returns the current record's "local_id" value
  * @method integer  getNumeroPersonas()  Returns the current record's "numero_personas" value
- * @method datetime getFechaReserva()    Returns the current record's "fecha_reserva" value
+ * @method date     getFechaReserva()    Returns the current record's "fecha_reserva" value
+ * @method time     getHoraReserva()     Returns the current record's "hora_reserva" value
  * @method integer  getPromedioId()      Returns the current record's "promedio_id" value
  * @method string   getEstado()          Returns the current record's "estado" value
  * @method datetime getFechaCreacion()   Returns the current record's "fecha_creacion" value
@@ -32,6 +34,7 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @method Reserva  setLocalId()         Sets the current record's "local_id" value
  * @method Reserva  setNumeroPersonas()  Sets the current record's "numero_personas" value
  * @method Reserva  setFechaReserva()    Sets the current record's "fecha_reserva" value
+ * @method Reserva  setHoraReserva()     Sets the current record's "hora_reserva" value
  * @method Reserva  setPromedioId()      Sets the current record's "promedio_id" value
  * @method Reserva  setEstado()          Sets the current record's "estado" value
  * @method Reserva  setFechaCreacion()   Sets the current record's "fecha_creacion" value
@@ -75,8 +78,16 @@ abstract class BaseReserva extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('fecha_reserva', 'datetime', null, array(
-             'type' => 'datetime',
+        $this->hasColumn('fecha_reserva', 'date', null, array(
+             'type' => 'date',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('hora_reserva', 'time', null, array(
+             'type' => 'time',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,

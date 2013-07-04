@@ -15,7 +15,8 @@ logout:
   param: { module: default, action: logout }
   
 cancelarr:
-  url:   /cancelar/:id
+  url:   /cancelar
+#  /:id
   param: { module: default, action: cancelar }    
   
 filtrar:
@@ -33,6 +34,10 @@ editaru2:
 nuevou: 
   url:   /new
   param: { module: default, action: nuevo }  
+
+reserved: 
+  url:   /reserved
+  param: { module: default, action: reservar }  
   
 usuario:
   class: sfDoctrineRouteCollection

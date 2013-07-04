@@ -19,8 +19,10 @@ default:
     - facebox.css
     - paginacion.css
     - style.css
+    - jquery.dataTables.css
+    - /sfJQueryUIPlugin/css/ui-lightness/jquery-ui.css
 
-  javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js, jquery.jeditable.js, js.js]
+  javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js, jquery.jeditable.js, js.js, jquery.dataTables.js, jquery.dataTablesEditor.js]
     
   has_layout:     true
   layout:         layout

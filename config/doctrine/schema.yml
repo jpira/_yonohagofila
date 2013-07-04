@@ -631,7 +631,14 @@ Reserva:
       notnull: true
       autoincrement: false
     fecha_reserva:
-      type: datetime
+      type: date
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    hora_reserva:
+      type: time
       fixed: false
       unsigned: false
       primary: false

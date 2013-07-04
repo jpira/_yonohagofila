@@ -33,16 +33,16 @@ $(function() {
 				* on mouse leave hide the dropdown, 
 				* and change the arrow image
 				*/
-//    if($ui.find('.sb_input').show == true){
-        $ui.bind('mouseleave',function(){
-            $ui.find('.sb_up')
-            .addClass('sb_down')
-            .removeClass('sb_up')
-//            .fadeOut('slow')
-            .andSelf()
-            .find('.sb_dropdown')
-            .hide('slow');
-        });
+    //    if($ui.find('.sb_input').show == true){
+    $ui.bind('mouseleave',function(){
+        $ui.find('.sb_up')
+        .addClass('sb_down')
+        .removeClass('sb_up')
+        //            .fadeOut('slow')
+                    .andSelf()
+        .find('.sb_dropdown')
+        .hide('slow');
+    });
 				
     /**
 				* selecting all checkboxes
@@ -51,3 +51,4 @@ $(function() {
         $(this).parent().siblings().find(':checkbox').attr('checked',this.checked).attr('disabled',this.checked);
     });
 });	
+

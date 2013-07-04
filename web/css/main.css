@@ -756,7 +756,7 @@ table.table th, .blanco{
     padding: 0;
     text-decoration: underline;
 }
-.filtro2{
+/*.filtro2{
     background: #2cb8c1;
     height: 50px;
     margin-bottom: 10px;
@@ -767,7 +767,7 @@ table.table th, .blanco{
 	-webkit-border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	border-top-left-radius:10px;
-}
+}*/
 .filtro2 input{
     display: inline;
     line-height: 50px;

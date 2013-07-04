@@ -22,7 +22,7 @@
         {
             "bScrollInfinite": true,
             "bScrollCollapse": true,
-            "sScrollY": "200px"
+            "sScrollY": "300px"
        
         }
     );

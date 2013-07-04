@@ -31,21 +31,22 @@ table.dataTable td.dataTables_empty {
 	text-align: center;
 }
 
-table.dataTable tr.odd { background-color: #E2E4FF; }
+table.dataTable tr.odd { background-color: #f4f4f4; }
 table.dataTable tr.even { background-color: white; }
 
-table.dataTable tr.odd td.sorting_1 { background-color: #D3D6FF; }
-table.dataTable tr.odd td.sorting_2 { background-color: #DADCFF; }
-table.dataTable tr.odd td.sorting_3 { background-color: #E0E2FF; }
-table.dataTable tr.even td.sorting_1 { background-color: #EAEBFF; }
-table.dataTable tr.even td.sorting_2 { background-color: #F2F3FF; }
-table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
+table.dataTable tr.odd td.sorting_1 { background-color: #d2d2d2; }
+table.dataTable tr.odd td.sorting_2 { background-color: #f4f4f5; }
+table.dataTable tr.odd td.sorting_3 { background-color: #f4f4f4; }
+table.dataTable tr.even td.sorting_1 { background-color: #eaeaea; }
+table.dataTable tr.even td.sorting_2 { background-color: #f4f4f5; }
+table.dataTable tr.even td.sorting_3 { background-color: #f7f7f8; }
 
 
 /*
  * Table wrapper
  */
 .dataTables_wrapper {
+    border-bottom: 10px solid rgba(44, 184, 193, .1);
 	position: relative;
 	clear: both;
 	*zoom: 1;
@@ -64,8 +65,28 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
  * Filter
  */
 .dataTables_filter {
-	float: right;
+	float: left;
 	text-align: right;
+        background: #2cb8c1;
+    height: 50px;
+    /*margin-bottom: 10px;*/
+    width: 100%;
+    -moz-border-radius:10px 10px 0px 0px;
+	-webkit-border-top-right-radius:10px;
+	-webkit-border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-top-left-radius:10px;
+}
+.dataTables_filter label{
+    color:#fff;
+    font-weight: 700;
+    margin: 10px 20px 0 0;
+}
+.dataTables_filter label input{
+        color:#000;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+  background-clip: padding-box;
 }
 
 
@@ -74,7 +95,8 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
  */
 .dataTables_info {
 	clear: both;
-	float: left;
+	float: right;
+        margin: 10px 10px 0 0;
 }
 
 
@@ -217,5 +239,10 @@ table.dataTable thead td:active {
 .dataTables_scrollBody {
 	*margin-top: -1px;
 	-webkit-overflow-scrolling: touch;
+}
+
+.dataTables_scrollBody thead tr{
+	height: 5px !important;
+        line-height: 20px !important;
 }
 

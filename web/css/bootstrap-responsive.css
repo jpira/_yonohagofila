@@ -897,58 +897,6 @@
   }
 }
 
-@media (max-width: 480px) {
-  .nav-collapse {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-  .page-header h1 small {
-    display: block;
-    line-height: 20px;
-  }
-  input[type="checkbox"],
-  input[type="radio"] {
-    border: 1px solid #ccc;
-  }
-  .form-horizontal .control-label {
-    float: none;
-    width: auto;
-    padding-top: 0;
-    text-align: left;
-  }
-  .form-horizontal .controls {
-    margin-left: 0;
-  }
-  .form-horizontal .control-list {
-    padding-top: 0;
-  }
-  .form-horizontal .form-actions {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  .media .pull-left,
-  .media .pull-right {
-    display: block;
-    float: none;
-    margin-bottom: 10px;
-  }
-  .media-object {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  .modal {
-    top: 10px;
-    right: 10px;
-    left: 10px;
-  }
-  .modal-header .close {
-    padding: 10px;
-    margin: -10px;
-  }
-  .carousel-caption {
-    position: static;
-  }
-}
-
 @media (max-width: 979px) {
   body {
     padding-top: 0;
@@ -1099,6 +1047,7 @@
   }
   .navbar .btn-navbar {
       margin-top: 50px;
+      float: left;
     display: block;
   }
   .navbar .nav {
@@ -1108,10 +1057,18 @@
       display: none;
       visibility: hidden;
   }*/
+  .bloque-redes-ynhf{
+      display: none;
+      visibility: hidden;
+  }
   
   .navbar-static .navbar-inner {
     padding-right: 10px;
     padding-left: 10px;
+  }
+  .navbar-fixed-top{
+      position: fixed;
+      
   }
   .main-name{
       width: 30%;
@@ -1126,7 +1083,7 @@
   }
   .caja-perfil-usuario{
       width: 96% !important;
-      height: 100px !important;
+      /*height: 100px !important;*/
   }
   .avatar-usuario{
     height: 230px !important;
@@ -1158,6 +1115,192 @@
   }*/
 
 }
+@media (max-width: 480px) {
+    body{
+        background: url('../img/patterns/fd-body2.png') repeat-x 0 0 transparent !important; 
+        z-index: -10 !important;
+
+    }
+    .luces{
+        display: none;
+    }
+    
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  .page-header h1 small {
+    display: block;
+    line-height: 20px;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+  .form-horizontal .control-label {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+  .form-horizontal .control-list {
+    padding-top: 0;
+  }
+  .form-horizontal .form-actions {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .media .pull-left,
+  .media .pull-right {
+    display: block;
+    float: none;
+    margin-bottom: 10px;
+  }
+  .media-object {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .modal {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
+  }
+  .carousel-caption {
+    position: static;
+  }
+  .navbar-fixed-top{
+      position: fixed;
+      
+  }
+  .navbar-inner{
+      background: #fcfcfc !important;
+      margin-top:-30px !important;
+      height: 100px !important;
+      z-index: 99999;
+      top: 0;
+        width: 100%;
+  }
+/*  .navbar-inner{
+        position: fixed;
+    }*/
+  .brand{
+    background:  url("../img/logo-ynhf-peque.png") no-repeat 0 30px transparent !important;
+    margin-left: 60px !important;
+    width: 107px !important;
+    height: 90px !important;
+
+      /*height: 80px !important;*/
+      
+  }
+  .main-name{
+      display: none;
+     
+  }
+  .avatar-usuario{
+      width: 100% !important;
+      height: 150px !important;
+  }
+  .img-avatar-usuario{
+    margin-top: 10px !important;
+    }
+    .avatar-usuario .busqueda-avanzada{
+        display: none !important;
+    }
+    .info-perfil{
+        display: inline-block !important;;
+        /*float: right;*/
+        height: auto !important;
+        width: 85% !important;
+    }
+    .contenido-perfil{
+        width: 90% !important;
+    }
+    .texto-contenido-perfil{
+        width: 85% !important;
+    }
+    .texto-contenido-perfil p{
+        /*display: inline !important;*/
+    line-height: 12px !important;    
+    }
+    .texto-contenido-perfil p form button{
+        color:#fff !important;
+        background: #2cb8c1 !important;
+        border:none !important;
+        margin-top: 10px !important;
+        width: 210px !important;
+    }
+    .dataTables_wrapper{
+    /*    background: red;*/
+        /*width: 90% !important;*/
+    }
+    .reservas-vigentes thead tr .blanco {
+        /*display: none;*/
+        /*background: red;*/
+        padding: 0;
+        font-size: 10px;
+        /*width: 10% !important;*/
+            height: 5px !important;
+            line-height: 20px !important;
+    }
+    .variable-sizes .element.height-auto{
+        display: block !important;
+        height: auto !important;
+        }
+/*    .variable-sizes .element.width2-1{
+        display: block !important;
+        width: 95% !important;
+        }
+    .contenido-perfil .btn-filtro-local2{
+        margin-left: -10px !important;
+
+    }*/
+    .element-portfolio{
+/*        background: red !important;*/
+        /*height:600px !important;*/
+    }
+    .filtro-tipo-local{
+        top:70px !important;
+        /*z-index: 1 !important;*/
+    }
+    .bloque-filtros{
+        margin-top:5px !important; 
+        width: 100% !important;
+    }
+    .busqueda-sencilla .input-filtro-local{
+        width: 120px !important;
+        margin-right: -30px !important;
+    }
+    .busqueda-avanzada input{
+        font-size: 10px !important;
+        width: 120px !important;
+    }
+    .sb_wrapper{
+        width: 150px !important;
+    }
+    ul.sb_dropdown{
+        height: 230px !important;
+        width: 270px !important;
+        float: left !important;
+    }
+    ul.sb_dropdown li{
+        margin-bottom: 10px !important;
+        height: 40px !important;
+        /*width: 400px !important;*/
+    }
+    ul.sb_dropdown li input{
+        width: 230px !important;
+    }
+    ul.sb_dropdown li input[type="submit"]{
+        width: 245px !important;
+    }
+}
+
 
 @media (min-width: 980px) {
   .nav-collapse.collapse {

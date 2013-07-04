@@ -12,8 +12,12 @@ class defaultActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
         $this->getResponse()->setTitle('Yonohagofila');
-        $this->form = new ReservaForm();        
+        $this->form = new ReservaForm();
+    }
+
+    public function executeReservar(sfWebRequest $request) {
         if ($request->isMethod('POST')) {
+            $this->form = new ReservaForm();
             $this->processForm2($request, $this->form);
         }
     }
@@ -65,7 +69,7 @@ class defaultActions extends sfActions {
                 ->set('r.estado', '?', 'Cancelada por el Usuario')
                 ->where('r.id = ?', $request->getParameter('id'))
                 ->execute();
-        $this->redirect('@homepage');
+//        $this->redirect('@homepage');
     }
 
     public function executeBuscar(sfWebRequest $request) {
@@ -103,7 +107,7 @@ class defaultActions extends sfActions {
         if ($form->isValid()) {
             $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
             $email = $form->getValue('email');
-            
+
             // Se envia correo
             $message = $this->getMailer()->compose();
             $message->setSubject('Bienvenido a Yonohagofila.com');
@@ -126,11 +130,16 @@ class defaultActions extends sfActions {
 
     protected function processForm2(sfWebRequest $request, sfForm $form) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+        $this->i = $request->getParameter('ide');
+        $this->save = 0;
+        $this->mensaje_ = '';
         if ($form->isValid()) {
-            $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
-            $reserva = $form->save();
+            $this->reserva = $form->save();
+            $this->mensaje_ = "Reserva realizada correctamente";
+            $this->save = true;
+            $this->form = new ReservaForm();
         } else {
-            $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+            $this->mensaje_ = "Error";
         }
     }
 

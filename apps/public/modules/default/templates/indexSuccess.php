@@ -94,9 +94,9 @@ foreach ($locales as $local):
         <div class="redes-comercio">
                 <!--<p>560</p>-->            
 
-            <a href="<?php echo $local->get('Local')->get('facebook') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-facebook.png"/></a>
-            <a href="<?php echo $local->get('Local')->get('youtube') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-youtube.png"/></a>
-            <a href="<?php echo $local->get('Local')->get('twitter') ?>" target="_blank"><img  src="../img/redes-sociales-ynhf/red-twitter.png"/></a>
+            <a href="<?php echo $local->get('Local')->get('facebook') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+            <a href="<?php echo $local->get('Local')->get('youtube') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+            <a href="<?php echo $local->get('Local')->get('twitter') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
@@ -108,23 +108,12 @@ foreach ($locales as $local):
         <?php $form->setDefault('local_id', $local->get('id')); ?>
         <?php if ($sf_user->isAuthenticated()): ?>
             <div class="busqueda-avanzada">
-                <button class="btn-filtro-local2" onclick="muestra_oculta('contenido_a_mostrar<?php echo $i ?>')" title="">Configurar reserva</button>
+                <button class="btn-filtro-local2" onclick="$('#contenido_a_mostrar<?php echo $i ?>').toggle('slide')" title="">Configurar reserva</button>
 
             </div>
-                    <!--<button class="oculta"><img src="../img/seccion-comercios/bti-configurar-reserva1.png"/></button>-->
 
             <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
-                <form class="busqueda-avanzada filtro2 height-auto" action="" method="POST">
-                    <?php echo $form; ?>
-                    <input type="submit" value="Reservar" />
-                </form>
-
-                <!--            <form class="busqueda-avanzada filtro2">
-                                <input type="text" placeholder="Número de personas" />
-                                <input type="text" placeholder="Día a reservar" />
-                                <input type="text" placeholder="Consumo estimado" />
-                                <input class="btn-reservar" type="submit" value="Búsqueda avanzada">
-                            </form>-->
+                <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
             </div>
             <?php $i = $i + 1; ?>
         <?php endif; ?>

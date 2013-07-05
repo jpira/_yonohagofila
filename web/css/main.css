@@ -342,16 +342,27 @@ table.table tr:last-child th, table.table tr:last-child td
 /*
         Element perfil ususario
 */
+.btn-salir{
+    /*background: cyan;*/
+    list-style-type: none;
+    position: absolute;
+    top:5px;
+    right: 370px;
+    /*float:right;*/
+}
+.btn-salir:hover{
+    color:#fff;
+}
 .btn-perfil-usuario{
-    display: inline-block;
+    display: block;
     float: right;
     height: 40px;
     margin-top: 10px;
-    /*margin-right: 60px;*/
+/*    margin-right: 60px;*/
     line-height: 40px;
     text-align: right;
-    width: 600px;
-    z-index: 10;
+    width: auto;
+    /*z-index: 10;*/
 }
 .btn-perfil-usuario p, .btn-perfil-usuario a{
     display: inline;
@@ -680,7 +691,7 @@ table.table th, .blanco{
     background-color: #f2f1f1 !important;
 }
 .form-ingreso-login{
-    display: inline-block;
+    display: inline;
     height: 40px;
     margin-top: 10px;
     margin-right: -150px;
@@ -694,6 +705,7 @@ table.table th, .blanco{
 .busqueda-avanzada .sb_input{
     margin-top: -10px;
 }
+
 .busqueda-sencilla input[type="text"],
 .busqueda-sencilla input[type="password"]{
     border: 2px solid #dadada; 
@@ -729,12 +741,25 @@ table.table th, .blanco{
     width: 120px;
     margin:-10px 0 0 20px;   
 }
+.busqueda-avanzada .btn-filtro-local2-inactivo{
+    background:url("../img/btn-reservar-inactivo.png") repeat-x 0 0 transparent;
+    border: 1px inset #ccc;
+    color:#fff;
+    height: 30px;
+    line-height: 25px;
+            font-weight: 700;
+  
+  -webkit-box-shadow: 0px 0px 2px 0px #000;
+          box-shadow: 0px 0px 2px 0px #000;
+    /*width: 120px;*/
+    /*margin:-10px 0 0 20px;*/   
+}
 .busqueda-avanzada .btn-filtro-local[type="submit"], .busqueda-avanzada .btn-filtro-local2, .busqueda-sencilla .btn-filtro-local[type="submit"], .busqueda-sencilla .btn-filtro-local2{
     background:url("../img/fd-btn-red.png") repeat-x 0 0 transparent;
     border: 1px inset #cb0a36;
     color:#fff;
     height: 30px;
-    line-height: 30px;
+    line-height: 25px;
             font-weight: 700;
   
   -webkit-box-shadow: 0px 0px 2px 0px #000;
@@ -752,7 +777,7 @@ table.table th, .blanco{
     float: right;
     font-size: 10px;
     margin-top: -35px;
-    margin-right: 85px;
+    margin-right: 145px;
     padding: 0;
     text-decoration: underline;
 }
@@ -783,7 +808,7 @@ table.table th, .blanco{
     font-weight: 700;
     position: absolute;
     top:188px;
-    right: 2px;
+    right: 335px;
     float: right;
 /*    margin-bottom: 30px;*/
     /*right: 100px;*/

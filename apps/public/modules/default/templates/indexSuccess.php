@@ -107,7 +107,7 @@ foreach ($locales as $local):
     <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco">
             <!--<input type="hidden" class="order" value="3">-->
         <div class="marca-comercio">
-            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '70x70', 'class' => 'logo-comercio')) ?>
+            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '120x0', 'class' => 'logo-comercio')) ?>
         </div>
         <div class="disponibilidad-comercio">
             <?php echo image_tag('/img/barra-disponibilidad.png') ?>

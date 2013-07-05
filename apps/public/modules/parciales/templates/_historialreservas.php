@@ -1,7 +1,7 @@
 <!--Tabla historial -->
 <h2 class="title">Estas son tus reservas anteriores<span>Desde aquí puedes consultar las reservas que has hecho con nosotros en tus lugares favoritos.</span></h2>
 <!--<div class="filtro-buscador">
-    <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?> " method="POST" >
+    <form class="busqueda-avanzada filtro2" action="<?php //echo url_for('@filtrar') ?> " method="POST" >
         <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
         <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
         <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
@@ -33,7 +33,7 @@ $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
                     <td><?php echo $r->get('fecha_reserva') ?></td>
                     <td><?php echo $r->get('estado') ?></td>
                     <!--<td><a href="<?php //echo url_for('@cancelarr?id=' . $r->get('id'))      ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>-->
-                    <td><a href="#" onclick="alert('Contruyendo visualizar reserva');return false;"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>
+                    <td><a href="<?php echo url_for('@qr?id='. $r->get('id')) ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

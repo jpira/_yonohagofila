@@ -26,11 +26,5 @@
        
         }
     );
-//        $('#historialr').dataTable(
-//        {
-//            "bScrollInfinite": true,
-//            "bScrollCollapse": true,
-//            "sScrollY": "200px"
-//        });
-    } );
+} );
 </script>

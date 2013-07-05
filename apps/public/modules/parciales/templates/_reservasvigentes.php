@@ -12,7 +12,7 @@
 
     <h2 class="title">Estas son tus reservas vigentes<span>Desde aquí puedes consultar el estado las reservas hechas hasta el momento en tus lugares favoritos.</span></h2>
     <!--    <div class="filtro-buscador">
-            <form class="busqueda-avanzada filtro2" action="<?php echo url_for('@filtrar') ?>" method="POST" >
+            <form class="busqueda-avanzada filtro2" action="<?php //echo url_for('@filtrar') ?>" method="POST" >
                 <input type="date" id="bfecha" name="bfecha" placeholder="Buscar por fecha de reserva" />
                 <input type="text" id="bnombre" name="bnombre" placeholder="Buscar por nombre del lugar" />
                 <input class="btn-filtro-local" type="submit" value="Búsqueda avanzada">
@@ -46,7 +46,8 @@
                         <td><?php echo $r->get('fecha_reserva') ?></td>
                         <td><?php echo $r->get('estado') ?></td>                    
                         <?php // QRcode::png($r->get('slug'));  ?>
-                        <td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>
+                        <!--<td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>-->
+                        <td><a href="<?php echo url_for('@qr?id='. $r->get('id')) ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>
                         <!--<td><a href="<?php // echo url_for('@cancelarr?id=' . $r->get('id'))       ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>-->
                         <td><a href="#" onclick="alert('Construyendo proceso de cancelacion');return false;"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
                     </tr>
@@ -61,7 +62,7 @@
             <thead>
                 <tr>
                     <th class=" blanco">Datos reserva</th>
-                    <th class=" blanco">Opaciones</th>
+                    <th class=" blanco">Opciones</th>
                 </tr>   
             </thead>
             <tbody>

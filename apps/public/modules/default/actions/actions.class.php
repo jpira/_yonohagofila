@@ -72,11 +72,8 @@ class defaultActions extends sfActions {
 //        $this->redirect('@homepage');
     }
 
-    public function executeBuscar(sfWebRequest $request) {
-        $this->form = new ReservaForm();
-//        if ($this->form != null) {
-//            $this->processForm2($request, $this->form);
-//        }
+    public function executeCodigo(sfWebRequest $request) {
+        $this->x = $request->getParameter('id');
     }
 
     public function executeEditar(sfWebRequest $request) {

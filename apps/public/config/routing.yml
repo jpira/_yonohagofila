@@ -1,6 +1,6 @@
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: default, action: index } 
   
 legales:
   url:   /legal/:page
@@ -14,14 +14,19 @@ logout:
   url:   /logout
   param: { module: default, action: logout }
   
-cancelarr:
-  url:   /cancelar
-#  /:id
-  param: { module: default, action: cancelar }    
+#cancelarr:
+#  url:   /cancelar
+##  /:id
+#  param: { module: default, action: cancelar }    
+  
+qr:
+  url:   /viewqr/:id
+  param: { module: default, action: codigo }  
   
 filtrar:
-  url:   /busqueda
-  param: { module: default, action: buscar }   
+  url:   /
+  param: { module: default, action: index }
+  
   
 editaru: 
   url:   /edituser/:id

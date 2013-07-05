@@ -80,73 +80,87 @@ echo $es_movil;
 </a>-->
 
 <?php
-if (isset($_POST['busqueda']) and $_POST['busqueda'] != '') {
-    $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
-            ->where('l.nombre LIKE ?', $_POST['busqueda'] . '%')
-            ->execute();
-} else {
-    if (isset($_POST['busqueda1']) and $_POST['busqueda1'] != '') {
-        $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
-                ->where('l.direccion LIKE ?', $_POST['busqueda1'] . '%')
-                ->execute();
-    } else {
-        if (isset($_POST['busqueda2']) and $_POST['busqueda2'] != '') {
-            $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
-                    ->where('p.descripcion LIKE ?', '%' . $_POST['busqueda2'] . '%')
-                    ->execute();
-        } else {
-            $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
-                    ->execute();
+//if (isset($_POST['busqueda']) and $_POST['busqueda'] != '') {
+//    $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
+//            ->where('l.nombre LIKE ?', $_POST['busqueda'] . '%')
+//            ->execute();
+//} else {
+//    if (isset($_POST['busqueda1']) and $_POST['busqueda1'] != '') {
+//        $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
+//                ->where('l.direccion LIKE ?', $_POST['busqueda1'] . '%')
+//                ->execute();
+//    } else {
+//        if (isset($_POST['busqueda2']) and $_POST['busqueda2'] != '') {
+//            $locales = Doctrine_Query::create()->from('Parametro p, p.Local l')
+//                    ->where('p.descripcion LIKE ?', '%' . $_POST['busqueda2'] . '%')
+//                    ->execute();
+//        } else {
+$locales = Doctrine_Query::create()->from('Parametro p, p.Local')
+        ->execute();
+//        }
+//    }
+//}
+
+$i = 1; $res = '';
+foreach ($locales as $local):
+    
+    $palabras = $local->get('descripcion');
+    $palabras_claves = 'comida, cine, bar, fiesta';
+    $palabra_usuario = explode(',', $palabras_claves);
+    foreach ($palabra_usuario as $clave) {
+        if (strrpos($palabras, $clave)) {
+            $res = $res.''.$clave;
         }
     }
-}
-
-$i = 1;
-foreach ($locales as $local):
+//    $res = $res.' '.$local->get('Local')->get('nombre').' '.$local->get('Local')->get('direccion');
     ?>
-    <div class="element element-portfolio portfolio height-auto width2-1 fd-blanco">
+    <div class="element <?php echo $res?> element-portfolio portfolio height-auto width2-1 fd-blanco">
             <!--<input type="hidden" class="order" value="3">-->
         <div class="marca-comercio">
-            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '120x0', 'class' => 'logo-comercio')) ?>
+    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '120x0', 'class' => 'logo-comercio')) ?>
         </div>
         <div class="disponibilidad-comercio">
-            <?php echo image_tag('/img/barra-disponibilidad.png') ?>
+    <?php echo image_tag('/img/barra-disponibilidad.png') ?>
         </div>
         <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
-            <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
+    <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
         </div>
         <div class="redes-comercio">
                 <!--<p>560</p>-->            
-
-            <a href="#<?php //echo $local->get('Local')->get('facebook')  ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-            <a href="#<?php //echo $local->get('Local')->get('youtube')  ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-            <a href="#<?php //echo $local->get('Local')->get('twitter')  ?>" onclick="alert('Falta por definir link red social');return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('facebook')  ?>" onclick="alert('Falta por definir link red social');
+                return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('youtube')  ?>" onclick="alert('Falta por definir link red social');
+                return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+            <a href="#<?php //echo $local->get('Local')->get('twitter')  ?>" onclick="alert('Falta por definir link red social');
+                return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
             <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
             <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
             <p class="texto-descripcion"><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
-            <p class="url-web-local">www.hhsitioweb.com</p>  
-            <?php $eventos = Doctrine_Query::create()->from('Eventos_local')
+            <p class="url-web-local">www.hhsitioweb.com</p> 
+            <?php
+            $eventos = Doctrine_Query::create()->from('Eventos_local')
                     ->where('local_id = ? AND fecha_evento = ?', array($local->get('Local')->get('id'), date('Y-m-d')))
-                    ->fetchOne(); ?>
-            <?php if($eventos):?>
-            <a href="#"><?php echo image_tag('/img/estrella.jpg') ?></a>
-            <?php endif;?>
+                    ->fetchOne();
+            ?>
+            <?php if ($eventos): ?>
+                <a href="#"><?php echo image_tag('/img/estrella.jpg') ?></a>
+        <?php endif; ?>
         </div>
         <?php $form->setDefault('local_id', $local->get('id')); ?>
-        <?php if ($sf_user->isAuthenticated()): ?>
+    <?php if ($sf_user->isAuthenticated()): ?>
             <div class="busqueda-avanzada">
                 <button class="btn-filtro-local2" id="btn-<?php echo $i ?>" onclick="muestra_oculta('<?php echo $i ?>')" title="">Configurar reserva</button>
             </div>
 
             <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
-                <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
+            <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
             </div>
             <?php $i = $i + 1; ?>
-        <?php endif; ?>
+    <?php endif; ?>
     <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
     <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
     </span>-->

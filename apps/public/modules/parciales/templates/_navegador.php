@@ -75,7 +75,7 @@
             </div><!--/.nav-collapse --> 
             <?php if ($sf_user->isAuthenticated()): ?>
             <div class="nav option-set btn-perfil-usuario" data-option-key="filter" >
-                <p>Bienvenido <span>Juan Fernando Lopez</span></p>
+                <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></span></p>
                 <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
             </div>
 

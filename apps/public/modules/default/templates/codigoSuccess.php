@@ -23,7 +23,8 @@ $reserva = Doctrine_Query::create()->from('Reserva r, r.Local l')
                         <h5>NOMBRE BAR / RESTAURANTE </h5>
                         <h4> <?php echo $reserva->get('Local')->get('nombre') ?> </h4>
                         <h5>ESTADO DE RESERVA: <?php echo $reserva->get('estado') ?> </h5>
-                        <h4>Fecha de reserva: <?php echo $reserva->get('fecha_reserva') ?> </h4>
+                        <h4>Fecha de reserva: <?php echo $reserva->get('fecha_reserva') ?> <?php echo $reserva->get('hora_reserva') ?> </h4>
+                        <h4> Hora de llegada: <?php echo $reserva->get('hora_llegada') ?></h4>
                         <center>Presente este codigo QR para validar su reserva y hacer compras en el bar / restaurante </br>
                             Terminos Y Condicones de la Reserva </br>
                             xxxxx xxxxx xxxx xxxxx xxxx xxxxxxxxx xxx</center>

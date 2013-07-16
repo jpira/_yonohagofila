@@ -1,3 +1,7 @@
+ajax_usuario:
+  url:   /usuario/ajax
+  param: { module: ajax, action: Users }  
+
 horario_atencion:
   class: sfDoctrineRouteCollection
   options:

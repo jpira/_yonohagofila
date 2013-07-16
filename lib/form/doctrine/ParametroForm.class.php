@@ -13,9 +13,9 @@ class ParametroForm extends BaseParametroForm {
     public function configure() {
         $this->setWidget('id_usuario', new sfWidgetFormInputHidden());
         $this->setWidget('fecha_actualizacion', new sfWidgetFormInputHidden());
-        $this->getWidget('descripcion')->setAttributes(array('placeholder' => 'Describe el Lugar', 'maxlenght' => '150', 'required' => 'required'));
-        $this->getWidget('numero_personas')->setAttributes(array('type' => 'number', 'min' => '0', 'required' => 'required'));
-        $this->getWidget('costo_ingreso')->setAttributes(array('placeholder' => 'Valor de Ingreso', 'required' => 'required'));
+        $this->getWidget('descripcion')->setAttributes(array('placeholder' => 'Describe el Lugar', 'maxlength' => 150, 'required' => 'required'));
+        $this->getWidget('numero_personas')->setAttributes(array('placeholder' => 'Max para una reserva', 'type' => 'number', 'min' => '0', 'required' => 'required'));
+        $this->getWidget('costo_ingreso')->setAttributes(array('placeholder' => 'Valor de Ingreso $', 'required' => 'required'));
         $this->getWidget('tiempo_respuesta')->setAttributes(array('placeholder' => 'Respuesta Reservas (h)', 'required' => 'required'));
     }
 

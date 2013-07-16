@@ -16,5 +16,8 @@ class Usuario extends BaseUsuario
 
         return sha1(sha1($pass) . '' . md5($name));
     }
+    public function __toString() {
+        return $this->nombre;
+    }
 
 }

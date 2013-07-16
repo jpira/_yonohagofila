@@ -12,6 +12,7 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @property integer $numero_personas
  * @property date $fecha_reserva
  * @property time $hora_reserva
+ * @property time $hora_llegada
  * @property integer $promedio_id
  * @property string $estado
  * @property datetime $fecha_creacion
@@ -24,6 +25,7 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @method integer  getNumeroPersonas()  Returns the current record's "numero_personas" value
  * @method date     getFechaReserva()    Returns the current record's "fecha_reserva" value
  * @method time     getHoraReserva()     Returns the current record's "hora_reserva" value
+ * @method time     getHoraLlegada()     Returns the current record's "hora_llegada" value
  * @method integer  getPromedioId()      Returns the current record's "promedio_id" value
  * @method string   getEstado()          Returns the current record's "estado" value
  * @method datetime getFechaCreacion()   Returns the current record's "fecha_creacion" value
@@ -35,6 +37,7 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @method Reserva  setNumeroPersonas()  Sets the current record's "numero_personas" value
  * @method Reserva  setFechaReserva()    Sets the current record's "fecha_reserva" value
  * @method Reserva  setHoraReserva()     Sets the current record's "hora_reserva" value
+ * @method Reserva  setHoraLlegada()     Sets the current record's "hora_llegada" value
  * @method Reserva  setPromedioId()      Sets the current record's "promedio_id" value
  * @method Reserva  setEstado()          Sets the current record's "estado" value
  * @method Reserva  setFechaCreacion()   Sets the current record's "fecha_creacion" value
@@ -92,6 +95,14 @@ abstract class BaseReserva extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('hora_llegada', 'time', null, array(
+             'type' => 'time',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
              'autoincrement' => false,
              ));
         $this->hasColumn('promedio_id', 'integer', 4, array(

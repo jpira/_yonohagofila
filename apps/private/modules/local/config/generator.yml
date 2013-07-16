@@ -23,4 +23,4 @@ generator:
       edit:  
         display: [ nombre, imagen, estado ]
       new:  
-        display: [ nombre, imagen, estado, usuario_asociado ]
+        display: [ nombre, imagen, telefono, direccion, facebook, twitter, youtube, estado, usuario_asociado ]

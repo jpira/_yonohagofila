@@ -9,6 +9,7 @@ class ProjectConfiguration extends sfProjectConfiguration {
         $this->enablePlugins('sfDoctrinePlugin');
         $this->enablePlugins('sfJqueryReloadedPlugin');
         $this->enablePlugins('sfJQueryUIPlugin');
+        $this->enablePlugins('sfFormExtraPlugin');
 
         // Mensajes por defecto de los formularios
         sfValidatorSchema::setDefaultMessage('required', 'Campo obligatorio');

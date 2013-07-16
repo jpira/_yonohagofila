@@ -12,5 +12,8 @@
  */
 class Tipos_Eventos extends BaseTipos_Eventos
 {
+    public function __toString() {
+        return $this->nombre;
+    }
 
 }

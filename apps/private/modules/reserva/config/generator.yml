@@ -24,4 +24,4 @@ generator:
       edit:  
         display: [ local_id, numero_personas, fecha_reserva, promedio_id, estado ]
       new:   
-        display: [ local_id, numero_personas, fecha_reserva, promedio_id, estado ]
+        display: [ local_id, numero_personas, fecha_reserva, hora_reserva, promedio_id, estado ]

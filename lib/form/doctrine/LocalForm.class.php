@@ -40,8 +40,16 @@ class LocalForm extends BaseLocalForm {
                     'required' => false,
                     'validated_file_class' => 'sfResizedFile'
                 )));
-        $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre Establecimiento', 'required' => 'required'));
-        $this->getWidget('usuario_asociado')->setAttributes(array('placeholder' => 'Usuario Responsable', 'required' => 'required'));
+        $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre lugar', 'required' => 'required'));
+        $this->getWidget('telefono')->setAttributes(array('placeholder' => 'Telefono lugar', 'required' => 'required'));
+        $this->getWidget('direccion')->setAttributes(array('placeholder' => 'Direccion lugar', 'required' => 'required'));
+        $this->getWidget('facebook')->setAttributes(array('placeholder' => 'Tu link red social facebook'));
+        $this->getWidget('twitter')->setAttributes(array('placeholder' => 'Tu link red social twitter'));
+        $this->getWidget('youtube')->setAttributes(array('placeholder' => 'Video de youtube'));
+//        $this->getWidget('usuario_asociado')->setAttributes(array('placeholder' => 'Usuario Responsable', 'required' => 'required'));
+        $this->setWidget('usuario_asociado', new sfWidgetFormDoctrineJQueryAutocompleter(array('model' => 'Usuario', 'url' => sfContext::getInstance()->getRouting()->generate('ajax_usuario'))));
+        $this->getWidget('usuario_asociado')->setAttributes(array('required' => 'required', 'placeholder' => 'Correo Usuario'));
+
     }
 
 }

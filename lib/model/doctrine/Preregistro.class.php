@@ -12,5 +12,7 @@
  */
 class Preregistro extends BasePreregistro
 {
-
+    public function __toString() {
+        return $this->nombrelugar;
+    }
 }

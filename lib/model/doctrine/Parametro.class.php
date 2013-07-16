@@ -12,5 +12,8 @@
  */
 class Parametro extends BaseParametro
 {
+    public function __toString() {
+        return $this->descripcion;
+    }
 
 }

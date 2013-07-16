@@ -12,5 +12,8 @@
  */
 class Eventos_Local extends BaseEventos_Local
 {
+    public function __toString() {
+        return $this->nombre;
+    }
 
 }

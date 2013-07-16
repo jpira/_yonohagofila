@@ -22,7 +22,18 @@ default:
     - jquery.dataTables.css
     - /sfJQueryUIPlugin/css/ui-lightness/jquery-ui.css
 
-  javascripts: [ jquery-1.10.0.min.js, vendor/bootstrap.min.js, vendor/jquery.isotope.min.js, main.js, facebox.js, jquery.jeditable.js, js.js, jquery.dataTables.js, jquery.dataTablesEditor.js]
+  javascripts:
+    - jquery-1.10.0.min.js
+    - vendor/bootstrap.min.js
+    - vendor/jquery.isotope.min.js
+    - main.js
+    - facebox.js
+    - jquery.jeditable.js
+    - js.js
+    - jquery.dataTables.js
+    - jquery.dataTablesEditor.js
+    - /admin/js/plugins/justGage.1.0.1/resources/js/raphael.2.1.0.min.js
+    - /admin/js/plugins/justGage.1.0.1/resources/js/justgage.1.0.1.min.js
     
   has_layout:     true
   layout:         layout

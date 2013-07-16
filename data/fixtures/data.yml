@@ -11,6 +11,14 @@ Credencial:
     fecha_creacion: '2013-05-31 16:55:25'
     fecha_actualizacion: '2013-05-31 16:55:27'
     slug: sdqd
+Eventos_Local:
+  Eventos_Local_1:
+    nombre: Concierto
+    Local: Local_2
+    Tipos_Eventos: Tipos_Eventos_1
+    id_usuario: '4'
+    fecha_evento: '2013-07-05 00:00:00'
+    fecha_creacion: '2013-07-04 12:15:11'
 Local:
   Local_1:
     nombre: 'Harry Sazon 4.1'
@@ -18,7 +26,10 @@ Local:
     estado: true
     direccion: 'cll 11 # 15-5'
     telefono: 75632-315487
-    usuario_asociado: Juan_753@g
+    facebook: null
+    twitter: null
+    youtube: null
+    usuario_asociado: Juan_753@hotmail.com
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
     fecha_actualizacion: '2013-05-21 18:00:35'
@@ -29,6 +40,9 @@ Local:
     estado: true
     direccion: 'cra 15 12-51'
     telefono: '7754321 - 3659874156'
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_754@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -40,6 +54,9 @@ Local:
     estado: true
     direccion: 'cll 80 # 18-11'
     telefono: '6985412 - 96548712365'
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_753@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -51,6 +68,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_754@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -62,6 +82,9 @@ Local:
     estado: true
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_754@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -73,6 +96,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_753@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -84,6 +110,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_754@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -95,6 +124,9 @@ Local:
     estado: true
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_753@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -106,6 +138,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: ''
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -117,6 +152,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_754@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -128,6 +166,9 @@ Local:
     estado: true
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_753@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -139,6 +180,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: ''
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -150,6 +194,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: ''
     id_usuario: '8'
     fecha_creacion: '0000-00-00 00:00:00'
@@ -161,6 +208,9 @@ Local:
     estado: true
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: Juan_753@g
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -172,6 +222,9 @@ Local:
     estado: false
     direccion: ''
     telefono: ''
+    facebook: null
+    twitter: null
+    youtube: null
     usuario_asociado: ''
     id_usuario: '1'
     fecha_creacion: '2013-05-21 18:00:35'
@@ -180,7 +233,7 @@ Local:
 Parametro:
   Parametro_1:
     Local: Local_1
-    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         "
+    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         comida"
     numero_personas: '3'
     tiempo_respuesta: '35 h'
     costo_ingreso: $35000
@@ -207,7 +260,7 @@ Parametro:
     id_usuario: '1'
   Parametro_4:
     Local: Local_4
-    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         "
+    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         cine"
     numero_personas: '6'
     tiempo_respuesta: '44 h'
     costo_ingreso: $44000
@@ -261,7 +314,7 @@ Parametro:
     id_usuario: '1'
   Parametro_10:
     Local: Local_10
-    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         "
+    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         bar"
     numero_personas: '12'
     tiempo_respuesta: '62 h'
     costo_ingreso: $62000
@@ -288,7 +341,7 @@ Parametro:
     id_usuario: '1'
   Parametro_13:
     Local: Local_13
-    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         "
+    descripcion: "Lorem Ipsum is simply dummy text of the printing \r\n            and typesetting industry. Lorem Ipsum has been the industrys standard dummy \r\n         fiesta"
     numero_personas: '15'
     tiempo_respuesta: '71 h'
     costo_ingreso: $71000
@@ -371,7 +424,9 @@ Reserva:
   Reserva_1:
     Local: Local_3
     numero_personas: '3'
-    fecha_reserva: '2013-07-31 22:00:00'
+    fecha_reserva: '2013-07-31'
+    hora_reserva: '10:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-05-23 10:14:04'
@@ -380,16 +435,20 @@ Reserva:
   Reserva_2:
     Local: Local_3
     numero_personas: '4'
-    fecha_reserva: '2013-06-15 20:35:56'
+    fecha_reserva: '2013-06-15'
+    hora_reserva: '11:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-13 10:14:04'
-    id_usuario: '5'
+    id_usuario: '4'
     slug: 2013-06-15-20-35-56
   Reserva_3:
     Local: Local_4
     numero_personas: '7'
-    fecha_reserva: '2013-06-21 15:00:25'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '12:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:00:27'
@@ -398,16 +457,20 @@ Reserva:
   Reserva_4:
     Local: Local_5
     numero_personas: '6'
-    fecha_reserva: '2013-06-21 15:03:12'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '13:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:15'
-    id_usuario: '5'
+    id_usuario: '4'
     slug: '2013-06-21 15:03:15'
   Reserva_5:
     Local: Local_10
     numero_personas: '4'
-    fecha_reserva: '2013-07-25 15:03:06'
+    fecha_reserva: '2013-07-25'
+    hora_reserva: '14:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:08'
@@ -416,7 +479,9 @@ Reserva:
   Reserva_6:
     Local: Local_5
     numero_personas: '0'
-    fecha_reserva: '2013-06-21 15:02:02'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '15:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:02:04'
@@ -425,7 +490,9 @@ Reserva:
   Reserva_7:
     Local: Local_1
     numero_personas: '1'
-    fecha_reserva: '2013-06-21 15:03:50'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '16:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:53'
@@ -434,16 +501,20 @@ Reserva:
   Reserva_8:
     Local: Local_8
     numero_personas: '5'
-    fecha_reserva: '2013-06-21 15:02:46'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '17:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:02:49'
-    id_usuario: '5'
+    id_usuario: '4'
     slug: '2013-06-21 15:02:49'
   Reserva_9:
     Local: Local_4
     numero_personas: '2'
-    fecha_reserva: '2013-06-21 15:03:36'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '18:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:39'
@@ -452,16 +523,20 @@ Reserva:
   Reserva_10:
     Local: Local_5
     numero_personas: '0'
-    fecha_reserva: '2013-06-21 15:01:55'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '19:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:01:58'
-    id_usuario: '5'
+    id_usuario: '4'
     slug: '2013-06-21 15:01:58'
   Reserva_11:
     Local: Local_14
     numero_personas: '2'
-    fecha_reserva: '2013-06-21 15:04:00'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '19:30:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:04:04'
@@ -470,16 +545,20 @@ Reserva:
   Reserva_12:
     Local: Local_10
     numero_personas: '4'
-    fecha_reserva: '2013-06-21 15:03:46'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '19:45:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:42'
-    id_usuario: '5'
+    id_usuario: '4'
     slug: '2013-06-21 15:03:42'
   Reserva_13:
     Local: Local_2
     numero_personas: '0'
-    fecha_reserva: '2013-06-21 15:02:20'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '20:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:31'
@@ -488,16 +567,20 @@ Reserva:
   Reserva_14:
     Local: Local_3
     numero_personas: '2'
-    fecha_reserva: '2013-06-21 15:03:25'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '20:15:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:28'
-    id_usuario: '5'
+    id_usuario: '4'
     slug: '2013-06-21 15:03:28'
   Reserva_15:
     Local: Local_4
     numero_personas: '3'
-    fecha_reserva: '2013-07-05 15:02:53'
+    fecha_reserva: '2013-07-05'
+    hora_reserva: '21:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:02:56'
@@ -506,7 +589,9 @@ Reserva:
   Reserva_16:
     Local: Local_11
     numero_personas: '0'
-    fecha_reserva: '2013-06-21 15:02:30'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '20:45:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:02:34'
@@ -515,7 +600,9 @@ Reserva:
   Reserva_17:
     Local: Local_2
     numero_personas: '2'
-    fecha_reserva: '2013-06-21 15:03:22'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '21:10:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:18'
@@ -524,16 +611,20 @@ Reserva:
   Reserva_18:
     Local: Local_7
     numero_personas: '3'
-    fecha_reserva: '2013-06-21 15:02:08'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '21:30:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:02:11'
-    id_usuario: '5'
+    id_usuario: '4'
     slug: '2013-06-21 15:02:11'
   Reserva_19:
     Local: Local_6
     numero_personas: '0'
-    fecha_reserva: '2013-06-21 15:03:00'
+    fecha_reserva: '2013-06-21'
+    hora_reserva: '22:00:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:03:03'
@@ -542,12 +633,58 @@ Reserva:
   Reserva_20:
     Local: Local_5
     numero_personas: '5'
-    fecha_reserva: '2013-08-08 15:02:15'
+    fecha_reserva: '2013-08-08'
+    hora_reserva: '22:25:00'
+    hora_llegada: '00:00:00'
     Promedio: Promedio_1
     estado: Pendiente
     fecha_creacion: '2013-06-21 15:02:17'
     id_usuario: '4'
     slug: '2013-06-21 15:02:17'
+  Reserva_21:
+    Local: Local_8
+    numero_personas: '1'
+    fecha_reserva: '2013-07-18'
+    hora_reserva: '16:18:00'
+    hora_llegada: '00:00:00'
+    Promedio: Promedio_1
+    estado: Pendiente
+    fecha_creacion: '2013-07-03 23:00:58'
+    id_usuario: '4'
+    slug: da39a3ee5e6b4b0d3255bfef95601890afd8070951d4e56a34
+  Reserva_22:
+    Local: Local_8
+    numero_personas: '3'
+    fecha_reserva: '2013-07-18'
+    hora_reserva: '17:18:00'
+    hora_llegada: '00:00:00'
+    Promedio: Promedio_1
+    estado: Pendiente
+    fecha_creacion: '2013-07-03 23:24:08'
+    id_usuario: '4'
+    slug: da39a3ee5e6b4b0d3255bfef95601890afd8070951d4ead895
+  Reserva_23:
+    Local: Local_2
+    numero_personas: '2'
+    fecha_reserva: '2013-07-17'
+    hora_reserva: '15:10:00'
+    hora_llegada: '00:00:00'
+    Promedio: Promedio_1
+    estado: Pendiente
+    fecha_creacion: '2013-07-04 06:22:43'
+    id_usuario: '4'
+    slug: da39a3ee5e6b4b0d3255bfef95601890afd8070951d54cf3ac
+  Reserva_24:
+    Local: Local_12
+    numero_personas: '1'
+    fecha_reserva: '2013-11-01'
+    hora_reserva: '18:18:00'
+    hora_llegada: '00:00:00'
+    Promedio: Promedio_1
+    estado: Pendiente
+    fecha_creacion: '2013-07-04 09:59:44'
+    id_usuario: '4'
+    slug: da39a3ee5e6b4b0d3255bfef95601890afd8070951d57fd05f
 Tipos_Eventos:
   Tipos_Eventos_1:
     nombre: Privado
@@ -555,42 +692,45 @@ Tipos_Eventos:
     fecha_creacion: '2013-05-31 13:16:59'
     fecha_actualizacion: '2013-05-31 13:16:59'
 Usuario:
-  Usuario_3:
+  Usuario_2:
     Perfil: Perfil_3
     email: Juan_755@g
     contrasena: 56b88f9b7e13afd707d8a3a95b4a65ff6cea6997
     nombre: Juan755
     tipo_identificacion: CC
     identificacion: '10153475508755'
+    telefono: ''
     foto: null
     estado: null
     token: null
     fecha_nacimiento: '2013-05-21 18:00:35'
     fecha_creacion: '2013-05-21 18:00:35'
     slug: juan755
-  Usuario_4:
-    Perfil: Perfil_1
-    email: Juan_753@hotmail.com
-    contrasena: 2fa2b641deb02abcd95d80319049214884f5c559
-    nombre: Juan753
-    tipo_identificacion: CC
-    identificacion: '1032'
-    foto: thumbnail_george.jpg
-    estado: PLATINIUM
-    token: ''
-    fecha_nacimiento: '2013-06-05 00:00:00'
-    fecha_creacion: '2013-05-21 18:00:35'
-    slug: juan-753-hotmail-com
-  Usuario_5:
+  Usuario_3:
     Perfil: Perfil_2
     email: Juan_754@g
     contrasena: 083790e4f64a29577a30952bc76243542285b1e9
     nombre: Juan754
     tipo_identificacion: CC
     identificacion: '10153475408754'
+    telefono: ''
     foto: null
     estado: null
     token: null
     fecha_nacimiento: '2013-05-21 18:00:35'
     fecha_creacion: '2013-05-21 18:00:35'
     slug: juan754
+  Usuario_4:
+    Perfil: Perfil_1
+    email: Juan_753@hotmail.com
+    contrasena: 2fa2b641deb02abcd95d80319049214884f5c559
+    nombre: 'Juan Fernando Lopez'
+    tipo_identificacion: CC
+    identificacion: '1032456987'
+    telefono: '3154879214'
+    foto: thumbnail_george.jpg
+    estado: PLATINIUM
+    token: ''
+    fecha_nacimiento: '1997-06-17 00:00:00'
+    fecha_creacion: '2013-05-21 18:00:35'
+    slug: juan-753-hotmail-com

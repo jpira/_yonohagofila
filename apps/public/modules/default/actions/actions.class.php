@@ -129,7 +129,7 @@ class defaultActions extends sfActions {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         $this->i = $request->getParameter('ide');
         $this->save = 0;
-        $this->mensaje_ = '';
+        $this->mensaje_ = '';  
         if ($form->isValid()) {
             $this->reserva = $form->save();
             $this->mensaje_ = "Reserva realizada correctamente";

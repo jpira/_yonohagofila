@@ -16,6 +16,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property string $facebook
  * @property string $twitter
  * @property string $youtube
+ * @property string $web
  * @property string $usuario_asociado
  * @property integer $id_usuario
  * @property datetime $fecha_creacion
@@ -39,6 +40,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method string              getFacebook()            Returns the current record's "facebook" value
  * @method string              getTwitter()             Returns the current record's "twitter" value
  * @method string              getYoutube()             Returns the current record's "youtube" value
+ * @method string              getWeb()                 Returns the current record's "web" value
  * @method string              getUsuarioAsociado()     Returns the current record's "usuario_asociado" value
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
@@ -61,6 +63,7 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setFacebook()            Sets the current record's "facebook" value
  * @method Local               setTwitter()             Sets the current record's "twitter" value
  * @method Local               setYoutube()             Sets the current record's "youtube" value
+ * @method Local               setWeb()                 Sets the current record's "web" value
  * @method Local               setUsuarioAsociado()     Sets the current record's "usuario_asociado" value
  * @method Local               setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Local               setFechaCreacion()       Sets the current record's "fecha_creacion" value
@@ -156,6 +159,15 @@ abstract class BaseLocal extends sfDoctrineRecord
              'length' => 200,
              ));
         $this->hasColumn('youtube', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 200,
+             ));
+        $this->hasColumn('web', 'string', 200, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,

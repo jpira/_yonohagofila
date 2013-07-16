@@ -15,7 +15,8 @@ generator:
       actions:
         _delete: { credentials: [ALL ] }
       fields: 
-        tipo_identificacion: { label: T.I }
+        tipo_identificacion: { label: Tipo Identificacion }
+        estado: { label: Ranking }
       list:
         title: Lista de Usuarios
         display: [ nombre, email, tipo_identificacion, identificacion, foto, estado, fecha_nacimiento]

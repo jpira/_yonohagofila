@@ -12,5 +12,8 @@
  */
 class Ranking extends BaseRanking
 {
+    public function __toString() {
+        return $this->nombre;
+    }
 
 }

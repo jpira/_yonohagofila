@@ -18,10 +18,13 @@ echo $es_movil;
     if (!$sf_user->isAuthenticated()) {
         echo include_partial('parciales/video');
     }
-
+    if ($sf_user->isAuthenticated()) {
+        echo include_partial('parciales/alerta');
+    }
     if ($sf_user->isAuthenticated()) {
         echo include_partial('parciales/perfil');
     }
+    
     ?>
 </div>
 <!--
@@ -101,70 +104,71 @@ $locales = Doctrine_Query::create()->from('Parametro p, p.Local')
 //    }
 //}
 
-$i = 1; $res = '';
+$i = 1;
 foreach ($locales as $local):
-    
+
+    $res = '';
     $palabras = $local->get('descripcion');
     $palabras_claves = 'comida, cine, bar, fiesta';
     $palabra_usuario = explode(',', $palabras_claves);
     foreach ($palabra_usuario as $clave) {
         if (strrpos($palabras, $clave)) {
-            $res = $res.''.$clave;
+            $res = $res . '' . $clave;
         }
     }
-//    $res = $res.' '.$local->get('Local')->get('nombre').' '.$local->get('Local')->get('direccion');
+//    $cadena = str_replace(" ", "", $local->get('Local')->get('nombre'));
+//    $cadena1 = str_replace(" ", "", $local->get('Local')->get('direccion'));
+//    $res = $res . ' ' . $cadena . ' ' . $cadena1;
     ?>
-    <div class="element <?php echo $res?> element-portfolio portfolio height-auto width2-1 fd-blanco">
+    <div class="element <?php echo $res ?> element-portfolio portfolio height-auto width2-1 fd-blanco" data-category="<?php echo $res ?>">
             <!--<input type="hidden" class="order" value="3">-->
         <div class="marca-comercio">
-    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '120x0', 'class' => 'logo-comercio')) ?>
+            <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '120x0', 'class' => 'logo-comercio')) ?>
         </div>
-        <div class="disponibilidad-comercio">
-    <?php echo image_tag('/img/barra-disponibilidad.png') ?>
-        </div>
+        <div id="gauge<?php echo $i ?>" class="row-fluid gauge" style="height:50px"> </div>
+        <!--        <div class="disponibilidad-comercio">
+        <?php echo image_tag('/img/barra-disponibilidad.png') ?>
+                </div>-->
         <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
-    <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
+            <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
         </div>
         <div class="redes-comercio">
                 <!--<p>560</p>-->            
-            <a href="#<?php //echo $local->get('Local')->get('facebook')  ?>" onclick="alert('Falta por definir link red social');
-                return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-            <a href="#<?php //echo $local->get('Local')->get('youtube')  ?>" onclick="alert('Falta por definir link red social');
-                return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-            <a href="#<?php //echo $local->get('Local')->get('twitter')  ?>" onclick="alert('Falta por definir link red social');
-                return false;" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+            <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')               ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+            <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')               ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+            <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')               ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
             <p class="nombre-comercio"><?php echo $local->get('Local')->get('nombre') ?></p>
             <p class="texto-descripcion"><?php echo $local->get('descripcion') ?></p>
             <p class="texto-descripcion"><?php echo $local->get('Local')->get('direccion') ?><br/><?php echo $local->get('Local')->get('telefono') ?></p>
-            <p class="url-web-local">www.hhsitioweb.com</p> 
+            <p class="url-web-local"><a href="<?php echo $local->get('Local')->get('web') ?>" target="_blank"><?php echo $local->get('Local')->get('web') ?></a></p> 
             <?php
             $eventos = Doctrine_Query::create()->from('Eventos_local')
                     ->where('local_id = ? AND fecha_evento = ?', array($local->get('Local')->get('id'), date('Y-m-d')))
                     ->fetchOne();
             ?>
             <?php if ($eventos): ?>
-                <a href="#"><?php echo image_tag('/img/estrella.jpg') ?></a>
-        <?php endif; ?>
+                <a href="#"><?php echo image_tag('/img/estrella.jpg', array('title' => 'Evento')) ?></a>
+            <?php endif; ?>
         </div>
         <?php $form->setDefault('local_id', $local->get('id')); ?>
-    <?php if ($sf_user->isAuthenticated()): ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
             <div class="busqueda-avanzada">
                 <button class="btn-filtro-local2" id="btn-<?php echo $i ?>" onclick="muestra_oculta('<?php echo $i ?>')" title="">Configurar reserva</button>
             </div>
 
             <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
-            <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
+                <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
             </div>
-            <?php $i = $i + 1; ?>
-    <?php endif; ?>
+        <?php endif; ?>
     <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
     <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
     </span>-->
     </div>
+    <?php $i = $i + 1; ?>
 <?php endforeach; ?>
 <!--
 <a href="project_image_1.html"  class="element element-portfolio portfolio ajax">

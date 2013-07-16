@@ -265,6 +265,13 @@ Local:
       primary: false
       notnull: false
       autoincrement: false
+    web:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     usuario_asociado:
       type: string(200)
       fixed: false
@@ -643,6 +650,13 @@ Reserva:
       unsigned: false
       primary: false
       notnull: true
+      autoincrement: false
+    hora_llegada:
+      type: time
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
       autoincrement: false
     promedio_id:
       type: integer(4)

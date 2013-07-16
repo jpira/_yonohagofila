@@ -16,4 +16,11 @@ class UsuarioTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Usuario');
     }
+    public function ajaxUsuarioQuery($q, $limit) {
+        $q = self::getInstance()->createQuery('a')
+                ->Where('a.nombre LIKE ? ', $q . '%')
+                ->orderby('a.nombre ASC')
+                ->limit($limit);
+        return $q->execute();
+    }
 }

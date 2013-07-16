@@ -1,30 +1,96 @@
 <script>
-    var editor;
-    
-    $(document).ready(function() {
-	 
-        // ambos procesaran en save.php
-	 
-        // servira para editar los de tipo input text.
-        $('.text').editable('<?php echo url_for('@editaru?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
-            indicator : 'Saving...', 
-            submit : 'OK'
-        });
-                
-        $('.text2').editable('<?php echo url_for('@editaru2?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
-            indicator : 'Saving...',                  
-            submit : 'OK'
-        });
-        
-  
+    window.onload = function(){
+<?php
+$locales = Doctrine_Query::create()->from('local')
+        ->count();
+for ($i = 1; $i <= $locales; $i++):
+    ?>
+    <?php echo 'gauge' . $i ?> = new JustGage({
+                id: "gauge<?php echo $i ?>", 
+                value: <?php echo rand(0, 100) ?>, 
+                min: 0,
+                max: 100,
+                title: "Errors",
+                titleFontColor: "#fff"
+            });
+<?php endfor; ?>
+    //                setInterval(function() {
+    //                    g2.refresh(getRandomInt(120, 160));          
+    //                }, 2500);
+};
+$(function(){
+      
+    var $container = $('#container');
 
-        $('#reservass, #reservasss, #historialr, #historialrr').dataTable(
-        {
-            "bScrollInfinite": true,
-            "bScrollCollapse": true,
-            "sScrollY": "300px"
-       
+    $container.isotope({
+        itemSelector : '.element'
+    });
+      
+      
+    var $optionSets = $('#options .option-set'),
+    $optionLinks = $optionSets.find('a');
+
+    $optionLinks.click(function(){
+        var $this = $(this);
+        // don't proceed if already selected
+        if ( $this.hasClass('selected') ) {
+            return false;
         }
-    );
+        var $optionSet = $this.parents('.option-set');
+        $optionSet.find('.selected').removeClass('selected');
+        $this.addClass('selected');
+  
+        // make option object dynamically, i.e. { filter: '.my-filter-class' }
+        var options = {},
+        key = $optionSet.attr('data-option-key'),
+        value = $this.attr('data-option-value');
+        // parse 'false' as false boolean
+        value = value === 'false' ? false : value;
+        options[ key ] = value;
+        if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+            // changes in layout modes need extra logic
+            changeLayoutMode( $this, options )
+        } else {
+            // otherwise, apply new options
+            $container.isotope( options );
+        }
+        
+        return false;
+    });
+
+      
+});   
+            
+var editor;
+    
+$(document).ready(function() {
+	 
+    // ambos procesaran en save.php
+	 
+    // servira para editar los de tipo input text.
+    $('.text').editable('<?php echo url_for('@editaru?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
+        indicator : 'Saving...', 
+        submit : 'OK'
+    });
+                
+    $('.text2').editable('<?php echo url_for('@editaru2?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
+        indicator : 'Saving...',                  
+        submit : 'OK'
+    });
+    
+    $('.select').editable('<?php echo url_for('@cancelarr?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', { 
+        data   : " {'1':'Cancelar'}",
+        type   : 'select',
+        submit : 'OK'
+    });     
+
+    $('#reservass, #reservasss, #historialr, #historialrr, #alerta').dataTable(
+    {
+        "bScrollInfinite": true,
+        "bScrollCollapse": true,
+        "sScrollY": "300px"
+       
+    }
+);
 } );
 </script>

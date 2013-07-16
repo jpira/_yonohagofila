@@ -12,5 +12,8 @@
  */
 class Credencial extends BaseCredencial
 {
+    public function __toString() {
+        return $this->nombre;
+    }
 
 }

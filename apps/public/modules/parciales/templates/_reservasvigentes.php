@@ -36,7 +36,7 @@
                     <th class=" blanco">Fecha reserva</th>
                     <th class=" blanco">Estado</th>
                     <th class=" blanco">QR Code</th>
-                    <th class=" blanco">Cancelar</th>
+                    <!--<th class=" blanco">Cancelar</th>-->
                 </tr>   
             </thead>
             <tbody>
@@ -44,12 +44,12 @@
                     <tr>
                         <td><?php echo $r->get('Local')->get('nombre') ?></td>
                         <td><?php echo $r->get('fecha_reserva') ?></td>
-                        <td><?php echo $r->get('estado') ?></td>                    
-                        <?php // QRcode::png($r->get('slug'));  ?>
+                        <td class="select" id="<?php echo $r->get('id') ?>"><?php echo $r->get('estado') ?></td>                    
+                        <?php //echo QRcode::png($r->get('slug'));  ?>
                         <!--<td><a href="http://www.codigos-qr.com/qr/php/qr_img.php?d=<?php echo $r->get('slug') ?>&s=10&e=" target="_new"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>-->
                         <td><a href="<?php echo url_for('@qr?id='. $r->get('id')) ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-ver.png', array('class' => 'img-perfil-usuario')) ?></a></td>
-                        <!--<td><a href="<?php // echo url_for('@cancelarr?id=' . $r->get('id'))       ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>-->
-                        <td><a href="#" onclick="alert('Construyendo proceso de cancelacion');return false;"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>
+                        <!--<td><a href="<?php //echo url_for('@cancelarr?id=' . $r->get('id'))       ?>"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>-->
+                        <!--<td><a href="#" onclick="alert('Construyendo proceso de cancelacion');return false;"><img class="img-perfil-usuario" src="../img/icon-cancelar.png"/></a></td>-->
                     </tr>
                 <?php endforeach; ?>
             </tbody>

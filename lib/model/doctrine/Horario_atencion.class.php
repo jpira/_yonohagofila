@@ -12,5 +12,8 @@
  */
 class Horario_atencion extends BaseHorario_atencion
 {
+    public function __toString() {
+        return $this->horario;
+    }
 
 }

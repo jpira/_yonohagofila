@@ -43,6 +43,5 @@
         <?php echo include_partial('parciales/footer') ?>
         <?php include_javascripts() ?>
         <?php echo include_partial('parciales/javascript') ?>
-
     </body>
 </html>

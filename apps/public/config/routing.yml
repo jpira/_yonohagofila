@@ -32,7 +32,11 @@ editaru:
   
 editaru2: 
   url:   /edituser2/:id
-  param: { module: default, action: editar2 }   
+  param: { module: default, action: editar2 }  
+  
+alarma: 
+  url:   /envioalarma
+  param: { module: default, action: alarma }  
   
 nuevou: 
   url:   /new

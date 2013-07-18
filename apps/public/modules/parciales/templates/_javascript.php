@@ -90,7 +90,21 @@ $(document).ready(function() {
         "bScrollCollapse": true,
         "sScrollY": "300px"
        
-    }
+    }    
 );
-} );
+    $("#enviar").click(function(){
+        var formulario = $("#falerta").serializeArray();
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "<?php echo url_for('@alarma') ?>",
+            data: formulario
+        });
+    });
+    var options, a;
+    jQuery(function(){
+        //        options = { serviceUrl:'service/autocomplete.ashx' };
+        a = $('#busqueda').autocomplete();
+    });
+});
 </script>

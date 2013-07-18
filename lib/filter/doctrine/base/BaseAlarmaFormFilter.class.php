@@ -13,7 +13,8 @@ abstract class BaseAlarmaFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'local_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
+      'opcion'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'reserva_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Reserva'), 'add_empty' => true)),
       'id_usuario'     => new sfWidgetFormFilterInput(),
       'descripcion'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fecha_creacion' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
@@ -21,7 +22,8 @@ abstract class BaseAlarmaFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'local_id'       => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Local'), 'column' => 'id')),
+      'opcion'         => new sfValidatorPass(array('required' => false)),
+      'reserva_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Reserva'), 'column' => 'id')),
       'id_usuario'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'descripcion'    => new sfValidatorPass(array('required' => false)),
       'fecha_creacion' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
@@ -46,7 +48,8 @@ abstract class BaseAlarmaFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'             => 'Number',
-      'local_id'       => 'ForeignKey',
+      'opcion'         => 'Text',
+      'reserva_id'     => 'ForeignKey',
       'id_usuario'     => 'Number',
       'descripcion'    => 'Text',
       'fecha_creacion' => 'Date',

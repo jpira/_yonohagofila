@@ -10,7 +10,6 @@
  * @property integer $id_usuario
  * @property datetime $fecha_creacion
  * @property datetime $fecha_actualizacion
- * @property Doctrine_Collection $Calendario
  * @property Doctrine_Collection $Eventos_Local
  * 
  * @method integer             getId()                  Returns the current record's "id" value
@@ -18,14 +17,12 @@
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method datetime            getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
- * @method Doctrine_Collection getCalendario()          Returns the current record's "Calendario" collection
  * @method Doctrine_Collection getEventosLocal()        Returns the current record's "Eventos_Local" collection
  * @method Tipos_Eventos       setId()                  Sets the current record's "id" value
  * @method Tipos_Eventos       setNombre()              Sets the current record's "nombre" value
  * @method Tipos_Eventos       setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Tipos_Eventos       setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Tipos_Eventos       setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
- * @method Tipos_Eventos       setCalendario()          Sets the current record's "Calendario" collection
  * @method Tipos_Eventos       setEventosLocal()        Sets the current record's "Eventos_Local" collection
  * 
  * @package    Yonohagofila
@@ -84,10 +81,6 @@ abstract class BaseTipos_Eventos extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Calendario', array(
-             'local' => 'id',
-             'foreign' => 'tipoevento_id'));
-
         $this->hasMany('Eventos_Local', array(
              'local' => 'id',
              'foreign' => 'tipoevento_id'));

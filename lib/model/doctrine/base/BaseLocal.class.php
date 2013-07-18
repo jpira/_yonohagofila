@@ -21,8 +21,6 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @property integer $id_usuario
  * @property datetime $fecha_creacion
  * @property datetime $fecha_actualizacion
- * @property Doctrine_Collection $Alarma
- * @property Doctrine_Collection $Calendario
  * @property Doctrine_Collection $Parametro
  * @property Doctrine_Collection $RankingUsuario
  * @property Doctrine_Collection $Reserva
@@ -45,8 +43,6 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method integer             getIdUsuario()           Returns the current record's "id_usuario" value
  * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
  * @method datetime            getFechaActualizacion()  Returns the current record's "fecha_actualizacion" value
- * @method Doctrine_Collection getAlarma()              Returns the current record's "Alarma" collection
- * @method Doctrine_Collection getCalendario()          Returns the current record's "Calendario" collection
  * @method Doctrine_Collection getParametro()           Returns the current record's "Parametro" collection
  * @method Doctrine_Collection getRankingUsuario()      Returns the current record's "RankingUsuario" collection
  * @method Doctrine_Collection getReserva()             Returns the current record's "Reserva" collection
@@ -68,8 +64,6 @@ Doctrine_Manager::getInstance()->bindComponent('Local', 'doctrine');
  * @method Local               setIdUsuario()           Sets the current record's "id_usuario" value
  * @method Local               setFechaCreacion()       Sets the current record's "fecha_creacion" value
  * @method Local               setFechaActualizacion()  Sets the current record's "fecha_actualizacion" value
- * @method Local               setAlarma()              Sets the current record's "Alarma" collection
- * @method Local               setCalendario()          Sets the current record's "Calendario" collection
  * @method Local               setParametro()           Sets the current record's "Parametro" collection
  * @method Local               setRankingUsuario()      Sets the current record's "RankingUsuario" collection
  * @method Local               setReserva()             Sets the current record's "Reserva" collection
@@ -215,14 +209,6 @@ abstract class BaseLocal extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Alarma', array(
-             'local' => 'id',
-             'foreign' => 'local_id'));
-
-        $this->hasMany('Calendario', array(
-             'local' => 'id',
-             'foreign' => 'local_id'));
-
         $this->hasMany('Parametro', array(
              'local' => 'id',
              'foreign' => 'local_id'));

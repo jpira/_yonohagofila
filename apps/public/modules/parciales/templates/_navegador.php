@@ -9,29 +9,30 @@
                 <!--</p>-->
                 <input class="sb_input btn-filtro-local2" type="button" value="Búsqueda avanzada"></input>
                 <ul class="sb_dropdown option-set clearfix" style="display:none" id="filters" data-option-key="filter"> 
-                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
-                    <li><a href="#filter" data-option-value=".comida">comida</a></li>
-                    <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
-                    <li><a href="#filter" data-option-value=".cine">cine</a></li>
+                    <!--                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
+                                        <li><a href="#filter" data-option-value=".comida">comida</a></li>
+                                        <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
+                                        <li><a href="#filter" data-option-value=".cine">cine</a></li>
+                                    </ul>-->
+                    <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
+                    <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
+                    <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
+                    <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>
                 </ul>
-    <!--                    <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
-                        <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
-                        <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-                        <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>-->
-                <!--</ul>-->
-            </form>      
+            </form>
+
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
-                <input class="input-filtro-local" id="busqueda" type="search" name="busqueda" placeholder="Buscar" />
+                <input class="input-filtro-local" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
                 <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');return false;" />
-            </form> 
-<!--            <section >
-                <ul id="filters" class="option-set clearfix" data-option-key="filter">
-                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
-                    <li><a href="#filter" data-option-value=".comida">comida</a></li>
-                    <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
-                    <li><a href="#filter" data-option-value=".cine">cine</a></li>
-                </ul>            
-            </section>-->
+            </form>
+            <!--            <section >
+                            <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                                <li><a href="#filter" data-option-value=".bar">bares</a></li>
+                                <li><a href="#filter" data-option-value=".comida">comida</a></li>
+                                <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
+                                <li><a href="#filter" data-option-value=".cine">cine</a></li>
+                            </ul>            
+                        </section>-->
 
 
 

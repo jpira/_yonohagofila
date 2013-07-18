@@ -16,7 +16,8 @@ abstract class BaseAlarmaForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
-      'local_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'add_empty' => true)),
+      'opcion'         => new sfWidgetFormInputText(),
+      'reserva_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Reserva'), 'add_empty' => false)),
       'id_usuario'     => new sfWidgetFormInputText(),
       'descripcion'    => new sfWidgetFormInputText(),
       'fecha_creacion' => new sfWidgetFormInputText(),
@@ -25,7 +26,8 @@ abstract class BaseAlarmaForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'local_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Local'), 'required' => false)),
+      'opcion'         => new sfValidatorString(array('max_length' => 50)),
+      'reserva_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Reserva'))),
       'id_usuario'     => new sfValidatorInteger(array('required' => false)),
       'descripcion'    => new sfValidatorString(array('max_length' => 100)),
       'fecha_creacion' => new sfValidatorPass(),

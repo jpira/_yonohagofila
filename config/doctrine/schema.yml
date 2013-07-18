@@ -8,12 +8,19 @@ Alarma:
       unsigned: false
       primary: true
       autoincrement: true
-    local_id:
+    opcion:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    reserva_id:
       type: integer(4)
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      notnull: true
       autoincrement: false
     id_usuario:
       type: integer(4)
@@ -43,8 +50,8 @@ Alarma:
       length: 50
       canUpdate: true
   relations:
-    Local:
-      local: local_id
+    Reserva:
+      local: reserva_id
       foreign: id
       type: one
       

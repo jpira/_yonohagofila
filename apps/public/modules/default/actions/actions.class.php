@@ -92,6 +92,13 @@ class defaultActions extends sfActions {
                 ->execute();
     }
 
+    public function executeAlarma(sfWebRequest $request) {
+        $this->reserva = $request->getParameter('reserva');
+        $this->opcion = $request->getParameter('opcion');
+        $this->comentario = $request->getParameter('texto');
+        $this->usuario = $this->getUser()->getAttribute('Usuario')->get('id');        
+    }
+
     public function executeNuevo(sfWebRequest $request) {
         $this->form = new UsuarioForm();
         if ($request->isMethod('POST')) {
@@ -129,7 +136,7 @@ class defaultActions extends sfActions {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         $this->i = $request->getParameter('ide');
         $this->save = 0;
-        $this->mensaje_ = '';  
+        $this->mensaje_ = '';
         if ($form->isValid()) {
             $this->reserva = $form->save();
             $this->mensaje_ = "Reserva realizada correctamente";

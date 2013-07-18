@@ -21,17 +21,17 @@
                 </ul>
             </form>      
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
-                <input class="input-filtro-local" id="busqueda" type="search" name="busqueda" placeholder="Buscar" />
+                <input class="input-filtro-local" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
                 <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');return false;" />
-            </form> 
-<!--            <section >
-                <ul id="filters" class="option-set clearfix" data-option-key="filter">
-                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
-                    <li><a href="#filter" data-option-value=".comida">comida</a></li>
-                    <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
-                    <li><a href="#filter" data-option-value=".cine">cine</a></li>
-                </ul>            
-            </section>-->
+            </form>
+            <!--            <section >
+                            <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                                <li><a href="#filter" data-option-value=".bar">bares</a></li>
+                                <li><a href="#filter" data-option-value=".comida">comida</a></li>
+                                <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
+                                <li><a href="#filter" data-option-value=".cine">cine</a></li>
+                            </ul>            
+                        </section>-->
 
 
 

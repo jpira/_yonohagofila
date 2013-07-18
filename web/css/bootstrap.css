@@ -102,29 +102,48 @@ sub {
 .fd-blanco{
     background: #fcfcfc;
 }
-.disponibilidad-comercio{
-    margin: 0 auto;
+.contenedor-logo-disponibilidad{
+    background: url("../img/sombra-marcas.png") no-repeat center bottom #fff;
     width: 100%;
+    height: 90px;
+    
+}
+.disponibilidad-comercio{
+    background: url("../img/separador-disponiblidad.jpg") no-repeat left center #fff;
+    margin: 0 auto;
+    position: absolute;
+    top:5px;
+    right: 0; 
+    height: 86px;
+    /*padding-left: 20px;*/
+    width: 30% !important;
     text-align: center;
     display: block;
 }
 .marca-comercio{
-    background: url("../img/sombra-marcas.png") no-repeat center bottom #fff;
     height: auto;
-    min-height: 120px;
+    /*min-height: 120px;*/
     line-height: 100px;
     overflow: visible;
-    width: 100%;
+    width: 70%;
 }
 .marca-comercio .logo-comercio{
     display: block;
     margin: 10px auto;
-}
-.marca-comercio .logo-comercio img{
-    margin:0 auto;
-   width: 100px !important;
-    line-height: 200px;
+   max-height:70px !important;
+    line-height: 50px;
     vertical-align: middle;
+    width: auto;
+    max-width: 160px;
+}
+
+a.mensaje-evento-local{
+    background: transparent;
+    width: 100%;
+    height: 33px;
+    display: block;
+    text-align: right;
+    float:right;
 }
 .calificacion-comercio{
     color:#6e6b6b;
@@ -132,7 +151,7 @@ sub {
     font-size: 10px;
     font-weight: 700;
     float: left;
-    padding:5px;
+    /*padding:5px;*/
     text-align: center;
     width: 40%;
 }
@@ -144,9 +163,9 @@ sub {
     display: inline-block;
     float: right;
     height: 30px;
-    margin-top: 18px;
+    margin: 10px 8px 0 0;
     width: 40%;
-    text-align: center;
+    text-align: right;
 }
 .redes-comercio a{
     margin: 0 5px;
@@ -219,10 +238,11 @@ sub {
     background:url("../img/btn-reservar.png") repeat-x 0 0 transparent;
     border: 1px inset #00e4ff;
     color:#fff;
-    height: 30px;
-    line-height: 30px;
-            font-weight: 700;
-            width: 95%;
+    height: 25px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+    width: 96%;
   
   -webkit-box-shadow: 0px 0px 2px 0px #000;
           box-shadow: 0px 0px 2px 0px #000;

@@ -1,6 +1,6 @@
 <div class="element caja-presentacion primary-bg height-auto">
     <!--<input type="hidden" class="order" value="0">-->
-        <video class="video-presentacion" width="480" poster="images/preview-video.jpg" controls="controls" preload="auto">
+        <video class="video-presentacion" width="480" height="360 poster="images/preview-video.jpg" controls="controls" preload="auto">
             <source src="../video/yonohagofilacom_mp4.mp4" type="video/mp4" />
             <source src="../video/yonohagofilacom_ogg.ogg" type="video/ogg" />
             <source src="../video/yonohagofilacom_webm.webm" type="video/webm" />

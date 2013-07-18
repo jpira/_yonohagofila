@@ -9,18 +9,17 @@
                 <!--</p>-->
                 <input class="sb_input btn-filtro-local2" type="button" value="Búsqueda avanzada"></input>
                 <ul class="sb_dropdown option-set clearfix" style="display:none" id="filters" data-option-key="filter"> 
-                    <!--                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
-                                        <li><a href="#filter" data-option-value=".comida">comida</a></li>
-                                        <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
-                                        <li><a href="#filter" data-option-value=".cine">cine</a></li>
-                                    </ul>-->
-                    <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
-                    <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
-                    <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-                    <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>
+<!--                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
+                    <li><a href="#filter" data-option-value=".comida">comida</a></li>
+                    <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
+                    <li><a href="#filter" data-option-value=".cine">cine</a></li>
+                </ul>-->
+                        <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
+                        <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
+                        <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
+                        <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>
                 </ul>
-            </form>
-
+            </form>      
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
                 <input class="input-filtro-local" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
                 <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');return false;" />
@@ -56,11 +55,11 @@
                                         <li><a href="#home" data-option-value="home" class="selected">home</a></li>
                     -->
                     <li><a href="#home" data-option-value=".home" class="selected"><span>Inicio</span></a></li>
+                    <li><a href="#home" data-option-value=".conozcanos"><span>Conozcanos</span></a></li>
 
                     <li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
-                    <li class="show-title">
-                    </li>
+                    <li class="show-title"></li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>
                     <li><a href="#about" data-option-value=".about"><i class="icon-user"></i> <span class="name">Conózcanos</span></a></li>
                     <li><a href="#portfolio" data-option-value=".portfolio"><i class="icon-tablet"></i> <span class="name">Políticas y condiciones de uso</span></a></li>
@@ -68,35 +67,20 @@
                     <li class="show-title">
                     </li>-->
                 </ul>
-
-                <?php if ($sf_user->isAuthenticated()): ?>
-                    <li><a href="<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>
-                <?php endif ?>
-                <div class="bloque-redes-ynhf">
-                    <ul>
-                        <li><strong>Conoce más:</strong></li>
-                        <li>
-                            <a class="red-twitter-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;" ><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>                    
-                        </li>
-                        <li>
-                            <a class="red-youtbe-ynhf" href="#" onclick="alert('Falta por definir link red social');return false" ><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-                        </li>
-                        <li>
-                            <a class="red-face-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>                          
-                        </li>
-                    </ul>
-                </div>
+                    <?php if ($sf_user->isAuthenticated()): ?>
+                        <li><a href="<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>
+                    <?php endif ?>
                 <?php // if ($sf_user->isAuthenticated()): ?>
                         <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
                 <?php // endif; ?>
             </div><!--/.nav-collapse --> 
             <?php if ($sf_user->isAuthenticated()): ?>
-                <div class="nav option-set btn-perfil-usuario" data-option-key="filter" >
-                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></span></p>
+                <button class="btn-alarma" href="#" onclick="muestra_oculta('x')"><?php echo image_tag('/img/btn-panico.png') ?></button>
+                <div class="btn-perfil-usuario" data-option-key="filter" >
+                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?><br /></span><span class="estatus-btn-perfil">Estatus Premium</span></p>
                     <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
                 </div>
 
-                <button class="btn-alarma" href="#" onclick="muestra_oculta('x')">Botón de Pánico</button>
                 <!--                    <div >
                                         <ul class="nav option-set" data-option-key="filter">
                                             <li>

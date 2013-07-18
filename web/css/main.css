@@ -117,7 +117,7 @@ blockquote{
 	border-bottom: 2px dashed #fff;	
 }
 .container-top{
-	margin-top: 170px;
+	margin-top: 150px;
 	clear:both;
 }
 #container-isotope{
@@ -240,34 +240,38 @@ table.table tr:last-child th, table.table tr:last-child td
  video presentacion YNHF
 */
 .caja-presentacion{
-    /*background: url("../img/mano-acceso.png") no-repeat center bottom transparent !important;*/
     display: block !important;
     /*overflow: visible !important;*/
     background: transparent !important;
     /*height: 205px !important;*/
     box-shadow: none !important;
+    height: 480px;
     max-width: 1000px;
-    position: absolute;
-    top: 0;
+/*    position: absolute;
+    top: 0;*/
     width: 100% !important;
-/*
+
+    -webkit-box-sizing: border-box;  /*Safari/Chrome, other WebKit*/ 
+  -moz-box-sizing: border-box;     /*Firefox, other Gecko*/
+  box-sizing: border-box;         /* Opera/IE 8+ */
     
-    -webkit-box-sizing: border-box;  Safari/Chrome, other WebKit 
-  -moz-box-sizing: border-box;     Firefox, other Gecko 
-  box-sizing: border-box;          Opera/IE 8+ */
-    
+}
+.caja-presentacion h1{
+    vertical-align: bottom;
+    margin-left: 20px;
 }
 /*.mano-acceso{
     margin-left: -190px;
 }*/
 .video-prentacion{
-    display: inline-block;
-            float: right;
-            width: 480px !important;
-            overflow: hidden;
+    /*display: inline;*/
+            float: left;
+            /*width: 480px !important;*/
+            /*overflow: hidden;*/
             margin: 0;
             padding: 0;
-            z-index: 50;
+            vertical-align: top;
+            /*z-index: 50;*/
 }
 
 /* 
@@ -345,9 +349,9 @@ table.table tr:last-child th, table.table tr:last-child td
 .btn-salir{
     /*background: cyan;*/
     list-style-type: none;
-    position: absolute;
+/*    position: absolute;
     top:5px;
-    right: 370px;
+    right: 370px;*/
     /*float:right;*/
 }
 .btn-salir:hover{
@@ -357,19 +361,27 @@ table.table tr:last-child th, table.table tr:last-child td
     display: block;
     float: right;
     height: 40px;
-    margin-top: 10px;
-/*    margin-right: 60px;*/
-    line-height: 40px;
+    margin: 40px 5px 0 0;
+    line-height: 15px;
     text-align: right;
     width: auto;
-    /*z-index: 10;*/
 }
-.btn-perfil-usuario p, .btn-perfil-usuario a{
+.btn-perfil-usuario a{
     display: inline;
+    float: right;
+}
+.btn-perfil-usuario p{
+    margin: 2px 10px 0 0;
+    float: left;
+    width: 300px;
 }
 .btn-perfil-usuario p span{
     color:#686868;
     font-weight: 700;
+}
+.btn-perfil-usuario p span.estatus-btn-perfil{
+    color:#0999a2;
+    padding: 0;
 }
 .caja-perfil-usuario{
     height: 300px;
@@ -441,7 +453,7 @@ table.table tr:last-child th, table.table tr:last-child td
     position: absolute;
     left: 50%;
     margin-left: -38%;
-    top: 180px;
+    top: 150px;
 }
 /*
 	Portfolio element
@@ -453,6 +465,11 @@ table.table tr:last-child th, table.table tr:last-child td
 	overflow:hidden;
 	position:relative;
 	padding:0;
+              -webkit-border-radius: 5px;
+          border-radius: 5px;
+  background-clip: padding-box;
+  border: 2px solid #dcdcdc;
+  /*outline: 2px solid #3a3a3a;*/
 }
 .element-portfolio img.portfolio-image{
 	position:absolute;
@@ -659,25 +676,20 @@ table.table th, .blanco{
 .filtro-tipo-local{
     background: #2cb8c1;
     width: 100%;
-    height: 50px;
+    height: 40px;
     /*margin-top: 200px;*/
 /*    text-align:center;*/
     position: absolute;
-    top: 139px;
+    top: 113px;
     z-index: -1;
 /*    float: right;*/
 }
 .bloque-filtros{
     display: inline-block;
     float: right;
-/*    height: 30px;
-    line-height: 30px;*/
-/*    margin:10px 0 0 47px; */
     width: 45%;
 }
-/*.bloque-filtros .busqueda-sencilla{
-    width: 230px;
-}*/
+
 .bloque-filtros .busqueda-sencilla .btn-lupa{
     background: url("../img/btn-lupa.png") no-repeat 6px 6px transparent !important;
     border: none;
@@ -693,14 +705,15 @@ table.table th, .blanco{
 .form-ingreso-login{
     display: inline;
     height: 40px;
-    margin-top: 10px;
-    margin-right: -150px;
+    position: relative;
+    top:30px;
+    right: -245px;
     line-height: 40px;
     width: 800px;
 }
 .busqueda-sencilla, .busqueda-avanzada{
     display:inline-block;
-    line-height: 30px;
+    line-height: 25px;
 }
 .busqueda-avanzada .sb_input{
     margin-top: -10px;
@@ -729,26 +742,31 @@ table.table th, .blanco{
 }
 
 .busqueda-avanzada input[type="submit"]{
-    font-size: 14px;
+    font-size: 12px;
     
 }
 
 .busqueda-avanzada button{
-    width: 300px;
+    width: 295px;
     
 }
+input#busqueda.input-filtro-local{
+    height: 15px;
+    font-size: 12px;
+}
 .busqueda-sencilla .btn-filtro-local2{
-    width: 120px;
+    width: 60px;
     margin:-10px 0 0 20px;   
 }
 .busqueda-avanzada .btn-filtro-local2-inactivo{
     background:url("../img/btn-reservar-inactivo.png") repeat-x 0 0 transparent;
-    border: 1px inset #ccc;
-    color:#fff;
-    height: 30px;
-    line-height: 25px;
-            font-weight: 700;
-  
+    border: 1px inset #cbcbcb;
+    color:#e4e4e4;
+    height: 25px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 700;
+
   -webkit-box-shadow: 0px 0px 2px 0px #000;
           box-shadow: 0px 0px 2px 0px #000;
     /*width: 120px;*/
@@ -758,8 +776,9 @@ table.table th, .blanco{
     background:url("../img/fd-btn-red.png") repeat-x 0 0 transparent;
     border: 1px inset #cb0a36;
     color:#fff;
-    height: 30px;
-    line-height: 25px;
+    font-size: 12px;
+    height: 25px;
+    line-height: 22px;
             font-weight: 700;
   
   -webkit-box-shadow: 0px 0px 2px 0px #000;
@@ -776,8 +795,8 @@ table.table th, .blanco{
     color:#c60b37;
     float: right;
     font-size: 10px;
-    margin-top: -35px;
-    margin-right: 145px;
+    margin-top: -10px;
+    margin-right: 140px;
     padding: 0;
     text-decoration: underline;
 }
@@ -801,27 +820,16 @@ table.table th, .blanco{
     vertical-align: top;
 }
 .btn-alarma{
-    background: url('../img/fd-btn-alarma.png')repeat-x 0 0 transparent;
-    color:#fff;
-    border: 1px inset #cb0a36;
-    height: 30px;
-    font-weight: 700;
-    position: absolute;
-    top:188px;
-    right: 335px;
+    background: transparent;
+    border: none;
+    height: 38px;
     float: right;
-/*    margin-bottom: 30px;*/
-    /*right: 100px;*/
+    margin-top: 5px;
+    width: 108px;
+    position: absolute;
+    top:25px;
+    right: 175px;
 
-    width: 200px !important;
-    -moz-border-radius:0px 0px 10px 10px;
-	-webkit-border-bottom-right-radius:10px;
-	-webkit-border-bottom-left-radius:10px;
-	border-bottom-right-radius:10px;
-	border-bottom-left-radius:10px;
-        
-        -webkit-box-shadow: 0px 0px 2px 0px #000;
-          box-shadow: 0px 0px 2px 0px #000;
 }
 /*
 	Contact Form
@@ -848,7 +856,7 @@ input[type=text], textarea{
 }
 .navbar .navbar-inner{
 	background-image:  url("../img/patterns/fd-header-sitio-web.jpg");
-        height: 138px;
+        height: 112px;
 /*	background: rgba(0,0,0,0.7) !important;*/
 	filter: "none" !important;
 	color:#666;	
@@ -876,15 +884,16 @@ input[type=text], textarea{
         z-index: -9999;
 	padding-left:0;
 	margin-left:5px;
-        width: 196px;
-        height: 139px;
-        overflow: hidden;
+        width: 150px;
+        height: 110px;
+        overflow: visible;
 /*	font-weight:700;	*/
 }
 .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container{
 	max-width:1000px;
 	width:100%;
 }
+div.container{height: 106px; overflow: visible;}
 .navbar .btn-navbar{
 	border-radius:2px;
 	background-image:none;
@@ -933,6 +942,7 @@ input[type=text], textarea{
     list-style-type: none;
     margin-right: 20px;
 }
+
 /*.red-face-ynhf{
     background-position: 80px 0;
 }

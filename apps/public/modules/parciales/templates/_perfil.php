@@ -7,6 +7,7 @@
                 <input class="btn-filtro-local" type="submit" value="Cambiar imagen" onclick="alert('Construyendo proceso cambio de imagen');return false;">
             </form>
         </div>
+        <p class="estatus-perfil-usuario">Estatus Premium</p>
         <div class="info-perfil">
             <p class="titulo">Datos de usuario</p>
             <p class="nombre-usuario"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>

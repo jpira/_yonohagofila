@@ -140,10 +140,11 @@ sub {
 a.mensaje-evento-local{
     background: transparent;
     width: 100%;
-    height: 33px;
+    height: 30px;
     display: block;
     text-align: right;
     float:right;
+    margin-bottom: 0;
 }
 .calificacion-comercio{
     color:#6e6b6b;

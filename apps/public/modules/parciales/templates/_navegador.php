@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
     <div class="filtro-tipo-local">
         <div class="bloque-filtros">
-            <form id="ui_element" class="sb_wrapper busqueda-avanzada" action="<?php echo url_for('@filtrar') ?>" method="POST">
+            <form id="ui_element" class="sb_wrapper busqueda-avanzada" action="" method="POST">
                 <!--<p>-->
                 <!--<botton > Búsqueda avanzada</button>-->
                 <!--<a href="#" class="sb_input blanco btn-filtro-local2" style="border: 10px">Busqueda avanzada</a>-->
@@ -9,15 +9,15 @@
                 <!--</p>-->
                 <input class="sb_input btn-filtro-local2" type="button" value="Búsqueda avanzada"></input>
                 <ul class="sb_dropdown option-set clearfix" style="display:none" id="filters" data-option-key="filter"> 
-<!--                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
-                    <li><a href="#filter" data-option-value=".comida">comida</a></li>
-                    <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
-                    <li><a href="#filter" data-option-value=".cine">cine</a></li>
-                </ul>-->
-                        <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
-                        <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
-                        <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-                        <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>
+                    <!--                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
+                                        <li><a href="#filter" data-option-value=".comida">comida</a></li>
+                                        <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
+                                        <li><a href="#filter" data-option-value=".cine">cine</a></li>
+                                    </ul>-->
+                    <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
+                    <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
+                    <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
+                    <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>
                 </ul>
             </form>      
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
@@ -55,9 +55,10 @@
                                         <li><a href="#home" data-option-value="home" class="selected">home</a></li>
                     -->
                     <li><a href="#home" data-option-value=".home" class="selected"><span>Inicio</span></a></li>
+<!--                    <li><a href="#home2" data-option-value=".home2"><span>Psanico</span></a></li>-->
                     <li><a href="#home" data-option-value=".conozcanos"><span>Conozcanos</span></a></li>
-                    
-                    <li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>
+
+<!--<li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>-->
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <li class="show-title"></li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>
@@ -67,18 +68,29 @@
                     <li class="show-title">
                     </li>-->
                 </ul>
-                    <?php if ($sf_user->isAuthenticated()): ?>
-                        <li><a href="<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>
-                    <?php endif ?>
+                <?php if ($sf_user->isAuthenticated()): ?>
+                    <li><a href="<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>
+                <?php endif ?>
                 <?php // if ($sf_user->isAuthenticated()): ?>
-                        <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
+                <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
                 <?php // endif; ?>
             </div><!--/.nav-collapse --> 
             <?php if ($sf_user->isAuthenticated()): ?>
-                <button class="btn-alarma" href="#" onclick="muestra_oculta('x')"><?php echo image_tag('/img/btn-panico.png') ?></button>
+                <div class="nav option-set btn-panico" data-option-key="filter">
+
+                    <a href="#home2" data-option-value=".home2" onclick="$(this).removeClass('selected');"><span>Panico</span></a>
+                    <!--<button class="btn-alarma" href="#" onclick="muestra_oculta('x')"><?php echo image_tag('/img/btn-panico.png') ?></button>-->
+                </div>
                 <div class="btn-perfil-usuario" data-option-key="filter" >
                     <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?><br /></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
-                    <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
+
+                    <li class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown">
+                                <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
+                            <ul class="dropdown-menu option-set" data-option-key="filter">
+                                <li><a href="#home3" data-option-value=".home3" onclick="$(this).removeClass('selected');"><i class="icon-user"></i>Perfil</a></li>
+                                <li><a href="<?php echo url_for("@logout") ?>" onclick="$(this).removeClass('selected');"><i class="icon-lock"></i>Log Out</a></li>
+                            </ul>
+                        </li>
                 </div>
 
                 <!--                    <div >

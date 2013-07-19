@@ -26,6 +26,15 @@ class defaultActions extends sfActions {
         
     }
 
+    public function executeCargarimg() {
+        
+    }
+
+    public function executeEdituser(sfWebRequest $request) {
+        $this->usuario = $this->getUser()->getAttribute('Usuario');
+        $this->form = $this->configuration->getForm($this->usuario);
+    }
+
     public function executeLogin(sfWebRequest $request) {
 
         $username = $_POST['nombre'];
@@ -96,7 +105,7 @@ class defaultActions extends sfActions {
         $this->reserva = $request->getParameter('reserva');
         $this->opcion = $request->getParameter('opcion');
         $this->comentario = $request->getParameter('texto');
-        $this->usuario = $this->getUser()->getAttribute('Usuario')->get('id');        
+        $this->usuario = $this->getUser()->getAttribute('Usuario')->get('id');
     }
 
     public function executeNuevo(sfWebRequest $request) {

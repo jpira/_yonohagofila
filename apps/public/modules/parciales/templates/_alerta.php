@@ -1,4 +1,4 @@
-<div class="element-btn-panico width4 fd-blanco round-borders" id="contenido_a_mostrarx" style="display:none">
+<div class="element home2 element-btn-panico width4 fd-blanco" id="contenido_a_mostrarx" >
     <h2>Alerta de irregularidad</h2>
     <p>Este es un espacio en el cual nos puedes contar si tu reserva presenta alguna irregularidad.</p>
     <div class="height-auto" >
@@ -6,7 +6,7 @@
         $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
                 ->where('r.id_usuario = ? AND fecha_reserva > ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                 ->orderBy('fecha_reserva desc')
-    //                ->getSqlQuery();print_r($reservas); die;
+                //                ->getSqlQuery();print_r($reservas); die;
                 ->execute();
         ?>
         <form id="falerta">
@@ -52,6 +52,5 @@
                 </fieldset>                
             </div>
         </form>
-
     </div>
 </div>

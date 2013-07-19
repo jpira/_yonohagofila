@@ -1,23 +1,19 @@
 <?php if ($sf_user->isAuthenticated()): ?>
-    <div class="element about width1 round-borders caja-perfil-usuario height-auto">
+    <div class="element home3 width1 round-borders caja-perfil-usuario height-auto">
         <div class="avatar-usuario">
             <?php echo image_tag('/admin/img/'.$sf_user->getAttribute('Usuario')->get('foto'), array('class' => 'img-avatar-usuario')) ?>
             <form class="busqueda-avanzada centrar">
                 <!--<button class="btn-filtro-local" onclick="alert('Construyendo proceso cambio de imagen');return false;">Cambiar imagen</button>-->
-                <input class="btn-filtro-local" type="submit" value="Cambiar imagen" onclick="alert('Construyendo proceso cambio de imagen');return false;">
+                <input class="btn-filtro-local" type="submit" value="Cambiar imagen" >
             </form>
         </div>
-        <p class="estatus-perfil-usuario">Estatus Premium</p>
+        <p class="estatus-perfil-usuario">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></p>
         <div class="info-perfil">
             <p class="titulo">Datos de usuario</p>
             <p class="nombre-usuario"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>
-            <div class="contenido-perfil">
-                <a href="#" onclick="return false;"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
-                <div class="texto-contenido-perfil">
-                    <p>Contraseña:</p>
-                    <p>**********</p>            
-                </div>
-            </div>
+            
+            <a href="<?php echo url_for('@edit') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
+                
             <div class="contenido-perfil">
                 <div class="texto-contenido-perfil">
                     <p>Documento identidad:</p>
@@ -38,17 +34,17 @@
                 </div>
             </div>
             <div class="contenido-perfil">
-                <a href="#" onclick="return false;"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
+                <!--<a href="#" onclick="return false;"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>-->
                 <div class="texto-contenido-perfil">
                     <p>Número telefónico:</p>
-                    <p class="text" id="tel" name="tel"><?php echo $sf_user->getAttribute('Usuario')->get('telefono') ?></p>             
+                    <p  id="tel" name="tel"><?php echo $sf_user->getAttribute('Usuario')->get('telefono') ?></p>             
                 </div>
             </div>
             <div class="contenido-perfil">
-                <a href="#" onclick="return false;"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
+                <!--<a href="#" onclick="return false;"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>-->
                 <div class="texto-contenido-perfil">
                     <p>e-mail:</p>
-                    <p class="text2" type="email" id="mail" name="mail"><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
+                    <p type="email" id="mail" name="mail"><?php echo $sf_user->getAttribute('Usuario')->get('email') ?></p>             
                 </div>
             </div>
         </div>

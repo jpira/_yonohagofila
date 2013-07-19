@@ -9,6 +9,7 @@
  * @property string $nombre
  * @property integer $local_id
  * @property integer $tipoevento_id
+ * @property string $link
  * @property integer $id_usuario
  * @property datetime $fecha_evento
  * @property datetime $fecha_creacion
@@ -19,6 +20,7 @@
  * @method string        getNombre()         Returns the current record's "nombre" value
  * @method integer       getLocalId()        Returns the current record's "local_id" value
  * @method integer       getTipoeventoId()   Returns the current record's "tipoevento_id" value
+ * @method string        getLink()           Returns the current record's "link" value
  * @method integer       getIdUsuario()      Returns the current record's "id_usuario" value
  * @method datetime      getFechaEvento()    Returns the current record's "fecha_evento" value
  * @method datetime      getFechaCreacion()  Returns the current record's "fecha_creacion" value
@@ -28,6 +30,7 @@
  * @method Eventos_Local setNombre()         Sets the current record's "nombre" value
  * @method Eventos_Local setLocalId()        Sets the current record's "local_id" value
  * @method Eventos_Local setTipoeventoId()   Sets the current record's "tipoevento_id" value
+ * @method Eventos_Local setLink()           Sets the current record's "link" value
  * @method Eventos_Local setIdUsuario()      Sets the current record's "id_usuario" value
  * @method Eventos_Local setFechaEvento()    Sets the current record's "fecha_evento" value
  * @method Eventos_Local setFechaCreacion()  Sets the current record's "fecha_creacion" value
@@ -75,6 +78,15 @@ abstract class BaseEventos_Local extends sfDoctrineRecord
              'primary' => false,
              'notnull' => false,
              'length' => 4,
+             ));
+        $this->hasColumn('link', 'string', 200, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 200,
              ));
         $this->hasColumn('id_usuario', 'integer', 4, array(
              'type' => 'integer',

@@ -15,14 +15,15 @@ echo $es_movil;
 ?>
 <div class="home">
     <?php
+    if (!$sf_user->isAuthenticated()) {
         echo include_partial('parciales/video');
+    }
     if ($sf_user->isAuthenticated()) {
         echo include_partial('parciales/alerta');
     }
     if ($sf_user->isAuthenticated()) {
         echo include_partial('parciales/perfil');
     }
-    
     ?>
 </div>
 <!--
@@ -127,32 +128,32 @@ foreach ($locales as $local):
             <div class="disponibilidad-comercio">
                 <div id="gauge<?php echo $i ?>" class="row-fluid gauge" style="height:50px"></div>
                 <p>Ocupado</p>
-                
+
             </div>
         </div>
         <!--        <div class="disponibilidad-comercio">
-        <?php //echo image_tag('/img/barra-disponibilidad.png') ?>
+        <?php //echo image_tag('/img/barra-disponibilidad.png')  ?>
                 </div>-->
-            <div class="contenedor-mensaje-evento-local">
-                    <?php
-                $eventos = Doctrine_Query::create()->from('Eventos_local')
-                        ->where('local_id = ? AND fecha_evento = ?', array($local->get('Local')->get('id'), date('Y-m-d')))
-                        ->fetchOne();
-                ?>
-                <?php if ($eventos): ?>
-                    <a class="mensaje-evento-local" href="http://www.google.com" onclick="this.target='_blank'"><?php echo image_tag('/img/bg-btn-nuevo-evento.png', array('title' => 'Evento')) ?></a>
-                    <!--<a href="http://www.google.com" onclick="this.target='_blank'"><?php echo image_tag('/img/estrella.jpg', array('title' => 'Evento')) ?></a>-->
-                <?php endif; ?>
-            </div> 
+        <div class="contenedor-mensaje-evento-local">
+            <?php
+            $eventos = Doctrine_Query::create()->from('Eventos_local')
+                    ->where('local_id = ? AND fecha_evento = ?', array($local->get('Local')->get('id'), date('Y-m-d')))
+                    ->fetchOne();
+            ?>
+            <?php if ($eventos): ?>
+                <a class="mensaje-evento-local" href="<?php $eventos->get('link') ?>" onclick="this.target='_blank'"><?php echo image_tag('/img/bg-btn-nuevo-evento.png', array('title' => 'Evento')) ?></a>
+                <!--<a href="http://www.google.com" onclick="this.target='_blank'"><?php echo image_tag('/img/estrella.jpg', array('title' => 'Evento')) ?></a>-->
+            <?php endif; ?>
+        </div> 
         <div class="calificacion-comercio">
             <p>Calificación usuarios</p>
             <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
         </div>
         <div class="redes-comercio">
                 <!--<p>560</p>-->            
-            <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')               ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-            <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')               ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-            <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')               ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+            <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')                ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+            <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')                ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+            <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')                ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
         </div>
         <div class="clearfix"></div>
         <div class="descripcion-local">
@@ -350,68 +351,98 @@ foreach ($locales as $local):
 </div>-->
 
 <div class="element conozcanos width4 height2 fd-blanco">
-                <div class="bloque-redes-ynhf">
-                    <ul>
-                        <li><strong>Conoce más:</strong></li>
-                        <li>
-                            <a class="red-twitter-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;" ><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>                    
-                        </li>
-                        <li>
-                            <a class="red-youtbe-ynhf" href="#" onclick="alert('Falta por definir link red social');return false" ><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-                        </li>
-                        <li>
-                            <a class="red-face-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>                          
-                        </li>
-                    </ul>
-                </div>
-                <div class="element contact-2 width2 height2">
-                    <input type="hidden" class="order" value="16">
-                    <small>
-                        Ponte en contacto.
-                    </small>
-                    <h2 class="title">Escríbenos
-                    </h2>
-                    <div id="success" class="alert alert-success" style="display:none">Your email has been sent. Thank you, I will get back to you soon.</div>
-                    <div id="error" class="alert alert-error" style="display:none"></div>
+    <div class="bloque-redes-ynhf">
+        <ul>
+            <li><strong>Conoce más:</strong></li>
+            <li>
+                <a class="red-twitter-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;" ><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>                    
+            </li>
+            <li>
+                <a class="red-youtbe-ynhf" href="#" onclick="alert('Falta por definir link red social');return false" ><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+            </li>
+            <li>
+                <a class="red-face-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>                          
+            </li>
+        </ul>
+    </div>
+    <div class="element contact-2 width2 height2">
+        <input type="hidden" class="order" value="16">
+        <small>
+            Ponte en contacto.
+        </small>
+        <h2 class="title">Escríbenos
+        </h2>
+        <div id="success" class="alert alert-success" style="display:none">Your email has been sent. Thank you, I will get back to you soon.</div>
+        <div id="error" class="alert alert-error" style="display:none"></div>
 
-                    <form class="contact_form" id="contact_form">
+        <form class="contact_form" id="contact_form">
 
-                        <label class="control-label" for="fname">Nombre*</label>
-                        <input type="text" id="fname" placeholder="Nombre">
-                        <label class="control-label" for="email">Correo electrónico*</label>
-                        <input type="text" id="email" placeholder="Correo electrónico">
+            <label class="control-label" for="fname">Nombre*</label>
+            <input type="text" id="fname" placeholder="Nombre">
+            <label class="control-label" for="email">Correo electrónico*</label>
+            <input type="text" id="email" placeholder="Correo electrónico">
 
-                        <label class="control-label" for="message">Mensaje*</label>
-                        <textarea id="message"></textarea>
-                        <br/>
-                        <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
+            <label class="control-label" for="message">Mensaje*</label>
+            <textarea id="message"></textarea>
+            <br/>
+            <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
 
-                    </form>
-                </div>
+        </form>
+    </div>
+</div>
+<div class="element contact width2 height2">
+    <!--<input type="hidden" class="order" value="16">-->
+    <div>
+        <small>
+            Ponte en contacto.
+        </small>
+        <h2 class="title">Escríbenos
+        </h2>
+        <div id="success" class="alert alert-success" style="display:none">Your email has been sent. Thank you, I will get back to you soon.</div>
+        <div id="error" class="alert alert-error" style="display:none"></div>
+
+        <form class="contact_form" id="contact_form">
+
+            <label class="control-label" for="fname">Nombre*</label>
+            <input type="text" id="fname" placeholder="Nombre">
+            <label class="control-label" for="email">Correo electrónico*</label>
+            <input type="text" id="email" placeholder="Correo electrónico">
+
+            <label class="control-label" for="message">Mensaje*</label>
+            <textarea id="message"></textarea>
+            <br/>
+            <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
+        </form>
+    </div>
 </div>
 <div class="element contact width2 height2">
     <input type="hidden" class="order" value="16">
-    <small>
-        Ponte en contacto.
-    </small>
-    <h2 class="title">Escríbenos
-    </h2>
-    <div id="success" class="alert alert-success" style="display:none">Your email has been sent. Thank you, I will get back to you soon.</div>
-    <div id="error" class="alert alert-error" style="display:none"></div>
+    <div>
+        <small>
+            Ponte en contacto.
+        </small>
+        <h2 class="title">Estas Interesado ?
+        </h2>
+        <div id="success" class="alert alert-success" style="display:none">Your email has been sent. Thank you, I will get back to you soon.</div>
+        <div id="error" class="alert alert-error" style="display:none"></div>
 
-    <form class="contact_form" id="contact_form">
+        <form class="contact_form" id="contact_form">
 
-        <label class="control-label" for="fname">Nombre*</label>
-        <input type="text" id="fname" placeholder="Nombre">
-        <label class="control-label" for="email">Correo electrónico*</label>
-        <input type="text" id="email" placeholder="Correo electrónico">
-
-        <label class="control-label" for="message">Mensaje*</label>
-        <textarea id="message"></textarea>
-        <br/>
-        <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
-
-    </form>
+            <label class="control-label" for="fname">Comercio interesado*</label>
+            <input type="text" id="fname" placeholder="Nombre Comercio">
+            <label class="control-label" for="email">Nombre responsable*</label>
+            <input type="text" id="email" placeholder="Nombre Responsable">
+            <label class="control-label" for="email">Correo electrónico*</label>
+            <input type="text" id="email" placeholder="Correo electrónico">
+            <label class="control-label" for="email">Numero telefonico*</label>
+            <input type="text" id="email" placeholder="Numero telefonico">
+            <label class="control-label" for="email">Numero telefonico*</label>
+            <input type="text" id="email" placeholder="Numero telefonico">
+            
+            <br/>
+            <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
+        </form>
+    </div>
 </div>
 
 <!--<div class="element contact height2">

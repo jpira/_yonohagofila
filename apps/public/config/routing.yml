@@ -6,6 +6,10 @@ legales:
   url:   /legal/:page
   param: { module: estaticas, action: legales }  
   
+cargaimg:
+  url:   /subidaimg
+  param: { module: default, action: cargaimg }    
+  
 login:
   url:   /login
   param: { module: default, action: login } 
@@ -21,6 +25,10 @@ cancelarr:
 qr:
   url:   /viewqr/:id
   param: { module: default, action: codigo }  
+  
+edit:
+  url:   /edituser
+  param: { module: default, action: edituser }   
   
 filtrar:
   url:   /

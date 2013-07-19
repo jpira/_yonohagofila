@@ -19,8 +19,8 @@ generator:
         estado: { label: Ranking }
       list:
         title: Lista de Usuarios
-        display: [ nombre, email, tipo_identificacion, identificacion, foto, estado, fecha_nacimiento]
-        object_actions: {}
+        display: [ nombre, email, identificacion, foto, estado, fecha_nacimiento]
+#        object_actions: {}
       filter: 
         display: [ nombre, email,identificacion, estado ]
       form:    ~

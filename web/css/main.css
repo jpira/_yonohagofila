@@ -1071,6 +1071,9 @@ div.container{height: 106px; overflow: visible;}
 
 /* BOTON PANICO */
 .element-btn-panico{
+    display: block;
+    position: absolute;
+    left: 0;
     padding: 10px;
 }
 .element-btn-panico .contenedor-tabla-btn-panico{

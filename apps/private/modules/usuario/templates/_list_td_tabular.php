@@ -4,8 +4,6 @@
 <td class="sf_admin_text sf_admin_list_td_email">
   <?php echo $usuario->getEmail() ?>
 </td>
-<td class="sf_admin_text sf_admin_list_td_tipo_identificacion">
-  <?php echo $usuario->getTipoIdentificacion() ?>
 </td>
 <td class="sf_admin_text sf_admin_list_td_identificacion">
   <?php echo $usuario->getIdentificacion() ?>

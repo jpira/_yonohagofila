@@ -65,7 +65,7 @@ var editor;
     
 $(document).ready(function() {
 	 
-    // ambos procesaran en save.php
+//    $("input.file").si();   
 	 
     // servira para editar los de tipo input text.
     $('.text').editable('<?php echo url_for('@editaru?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {

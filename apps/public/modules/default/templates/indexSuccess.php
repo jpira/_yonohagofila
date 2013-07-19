@@ -333,22 +333,28 @@ if ($sf_user->isAuthenticated()) {
     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Toronto,+ON&amp;aq=0&amp;oq=toro&amp;sll=49.303974,-84.738438&amp;sspn=15.573249,43.286133&amp;ie=UTF8&amp;hq=&amp;hnear=Toronto,+Toronto+Division,+Ontario&amp;ll=43.653226,-79.383184&amp;spn=0.033721,0.084543&amp;t=m&amp;z=14&amp;output=embed"></iframe>
 </div>-->
 
-<div class="element conozcanos width4 height2 fd-blanco">
-    <div class="bloque-redes-ynhf">
-        <ul>
-            <li><strong>Conoce más:</strong></li>
-            <li>
-                <a class="red-twitter-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;" ><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>                    
-            </li>
-            <li>
-                <a class="red-youtbe-ynhf" href="#" onclick="alert('Falta por definir link red social');return false" ><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-            </li>
-            <li>
-                <a class="red-face-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>                          
-            </li>
-        </ul>
+<div class="element conozcanos width4 height-auto fd-blanco">
+    <div class="info-conozcanos">
+        <div class="bloque-redes-ynhf">
+            <ul>
+                <li><strong>Conoce más:</strong></li>
+                <li>
+                    <a class="red-twitter-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;" ><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>                    
+                </li>
+                <li>
+                    <a class="red-youtbe-ynhf" href="#" onclick="alert('Falta por definir link red social');return false" ><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+                </li>
+                <li>
+                    <a class="red-face-ynhf" href="#" onclick="alert('Falta por definir link red social');return false;"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>                          
+                </li>
+            </ul>
+        </div>
+        <div class="texto-conozcanos">
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br /></span>Aenean ut posuere sapien, nec blandit lorem. Sed non orci commodo magna elementum tincidunt. Donec tincidunt ligula diam, viverra vulputate mauris dictum a. Quisque ac commodo ligula. Etiam viverra, orci ultricies sagittis tincidunt</p>
+            <p><span>Teléfono<br /></span>781 25 59 / 320 425 45 78</p>
+        </div>        
     </div>
-    <div class="element contact-2 width2 height2">
+    <div class="element contact-2 width2 fd-blanco height-auto">
         <input type="hidden" class="order" value="16">
         <small>
             Ponte en contacto.
@@ -373,7 +379,7 @@ if ($sf_user->isAuthenticated()) {
         </form>
     </div>
 </div>
-<div class="element contact width2 height2">
+<div class="element contact width2 height2 fd-blanco">
     <!--<input type="hidden" class="order" value="16">-->
     <div>
         <small>
@@ -398,13 +404,13 @@ if ($sf_user->isAuthenticated()) {
         </form>
     </div>
 </div>
-<div class="element contact width2 height2">
+<div class="element contact width2 height2 fd-blanco">
     <input type="hidden" class="order" value="16">
     <div>
         <small>
             Ponte en contacto.
         </small>
-        <h2 class="title">Estas Interesado ?
+        <h2 class="title">¿Estás Interesado?
         </h2>
         <div id="success" class="alert alert-success" style="display:none">Your email has been sent. Thank you, I will get back to you soon.</div>
         <div id="error" class="alert alert-error" style="display:none"></div>

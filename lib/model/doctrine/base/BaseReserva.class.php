@@ -19,31 +19,34 @@ Doctrine_Manager::getInstance()->bindComponent('Reserva', 'doctrine');
  * @property integer $id_usuario
  * @property Local $Local
  * @property Promedio $Promedio
+ * @property Doctrine_Collection $Alarma
  * 
- * @method integer  getId()              Returns the current record's "id" value
- * @method integer  getLocalId()         Returns the current record's "local_id" value
- * @method integer  getNumeroPersonas()  Returns the current record's "numero_personas" value
- * @method date     getFechaReserva()    Returns the current record's "fecha_reserva" value
- * @method time     getHoraReserva()     Returns the current record's "hora_reserva" value
- * @method time     getHoraLlegada()     Returns the current record's "hora_llegada" value
- * @method integer  getPromedioId()      Returns the current record's "promedio_id" value
- * @method string   getEstado()          Returns the current record's "estado" value
- * @method datetime getFechaCreacion()   Returns the current record's "fecha_creacion" value
- * @method integer  getIdUsuario()       Returns the current record's "id_usuario" value
- * @method Local    getLocal()           Returns the current record's "Local" value
- * @method Promedio getPromedio()        Returns the current record's "Promedio" value
- * @method Reserva  setId()              Sets the current record's "id" value
- * @method Reserva  setLocalId()         Sets the current record's "local_id" value
- * @method Reserva  setNumeroPersonas()  Sets the current record's "numero_personas" value
- * @method Reserva  setFechaReserva()    Sets the current record's "fecha_reserva" value
- * @method Reserva  setHoraReserva()     Sets the current record's "hora_reserva" value
- * @method Reserva  setHoraLlegada()     Sets the current record's "hora_llegada" value
- * @method Reserva  setPromedioId()      Sets the current record's "promedio_id" value
- * @method Reserva  setEstado()          Sets the current record's "estado" value
- * @method Reserva  setFechaCreacion()   Sets the current record's "fecha_creacion" value
- * @method Reserva  setIdUsuario()       Sets the current record's "id_usuario" value
- * @method Reserva  setLocal()           Sets the current record's "Local" value
- * @method Reserva  setPromedio()        Sets the current record's "Promedio" value
+ * @method integer             getId()              Returns the current record's "id" value
+ * @method integer             getLocalId()         Returns the current record's "local_id" value
+ * @method integer             getNumeroPersonas()  Returns the current record's "numero_personas" value
+ * @method date                getFechaReserva()    Returns the current record's "fecha_reserva" value
+ * @method time                getHoraReserva()     Returns the current record's "hora_reserva" value
+ * @method time                getHoraLlegada()     Returns the current record's "hora_llegada" value
+ * @method integer             getPromedioId()      Returns the current record's "promedio_id" value
+ * @method string              getEstado()          Returns the current record's "estado" value
+ * @method datetime            getFechaCreacion()   Returns the current record's "fecha_creacion" value
+ * @method integer             getIdUsuario()       Returns the current record's "id_usuario" value
+ * @method Local               getLocal()           Returns the current record's "Local" value
+ * @method Promedio            getPromedio()        Returns the current record's "Promedio" value
+ * @method Doctrine_Collection getAlarma()          Returns the current record's "Alarma" collection
+ * @method Reserva             setId()              Sets the current record's "id" value
+ * @method Reserva             setLocalId()         Sets the current record's "local_id" value
+ * @method Reserva             setNumeroPersonas()  Sets the current record's "numero_personas" value
+ * @method Reserva             setFechaReserva()    Sets the current record's "fecha_reserva" value
+ * @method Reserva             setHoraReserva()     Sets the current record's "hora_reserva" value
+ * @method Reserva             setHoraLlegada()     Sets the current record's "hora_llegada" value
+ * @method Reserva             setPromedioId()      Sets the current record's "promedio_id" value
+ * @method Reserva             setEstado()          Sets the current record's "estado" value
+ * @method Reserva             setFechaCreacion()   Sets the current record's "fecha_creacion" value
+ * @method Reserva             setIdUsuario()       Sets the current record's "id_usuario" value
+ * @method Reserva             setLocal()           Sets the current record's "Local" value
+ * @method Reserva             setPromedio()        Sets the current record's "Promedio" value
+ * @method Reserva             setAlarma()          Sets the current record's "Alarma" collection
  * 
  * @package    Yonohagofila
  * @subpackage model
@@ -152,6 +155,10 @@ abstract class BaseReserva extends sfDoctrineRecord
         $this->hasOne('Promedio', array(
              'local' => 'promedio_id',
              'foreign' => 'id'));
+
+        $this->hasMany('Alarma', array(
+             'local' => 'id',
+             'foreign' => 'reserva_id'));
 
         $sluggable0 = new Doctrine_Template_Sluggable(array(
              'unique' => true,

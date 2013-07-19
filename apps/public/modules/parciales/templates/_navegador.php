@@ -56,7 +56,7 @@
                     -->
                     <li><a href="#home" data-option-value=".home" class="selected"><span>Inicio</span></a></li>
                     <li><a href="#home" data-option-value=".conozcanos"><span>Conozcanos</span></a></li>
-
+                    
                     <li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <li class="show-title"></li>
@@ -77,7 +77,7 @@
             <?php if ($sf_user->isAuthenticated()): ?>
                 <button class="btn-alarma" href="#" onclick="muestra_oculta('x')"><?php echo image_tag('/img/btn-panico.png') ?></button>
                 <div class="btn-perfil-usuario" data-option-key="filter" >
-                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?><br /></span><span class="estatus-btn-perfil">Estatus Premium</span></p>
+                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?><br /></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
                     <a href="#about" data-option-value=".about"><?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
                 </div>
 

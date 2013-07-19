@@ -1160,6 +1160,13 @@ Eventos_Local:
       unsigned: false
       primary: false
       notnull: false
+    link:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     id_usuario:
       type: integer(4)
       fixed: false

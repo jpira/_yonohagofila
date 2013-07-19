@@ -105,7 +105,7 @@
                         <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
                         <input class="btn-filtro-local2" type="submit" value="Entrar" />
                     </form></br>                
-                    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" ><span>¿Aún no estás registrado?</span></a>
+                    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" >¿Aún no estás registrado?</a>
                 </div>                
             <?php endif; ?>
         </div>

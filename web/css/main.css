@@ -390,7 +390,7 @@ table.table tr:last-child th, table.table tr:last-child td
     /*float: right;*/
 }
 .avatar-usuario{
-    background: url("../img/sombra-avatar-perfil.png") no-repeat scroll center bottom #05697b;
+    background: #05697b;
     height: 200px;
     width: 100%;
     overflow: hidden;
@@ -407,8 +407,20 @@ table.table tr:last-child th, table.table tr:last-child td
     text-align: center;
     margin: 0 auto !important;
 }
+.estatus-perfil-usuario{
+    background: url('../img/bg-estatus-perfil-usuario.png')no-repeat 0 0 transparent;
+    color:#fff;
+    display: block;
+    font-weight: 700;
+    height: 27px;
+    line-height: 27px;
+    margin-bottom: 0;
+    text-align: center;
+    text-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+    width: 100%;
+}
 .info-perfil{
-    padding: 15px;
+    padding:5px 15px;
 }
 .contenido-perfil{
     display: block;
@@ -461,7 +473,7 @@ table.table tr:last-child th, table.table tr:last-child td
 .portfolio{
  margin:10px;   
 }
-.element-portfolio{
+.element-portfolio, .element-btn-panico{
 	overflow:hidden;
 	position:relative;
 	padding:0;
@@ -685,25 +697,26 @@ table.table th, .blanco{
 /*    float: right;*/
 }
 .bloque-filtros{
-    display: inline-block;
-    float: right;
-    width: 45%;
+    display: block;
+    width: auto;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: right;
 }
 
 .bloque-filtros .busqueda-sencilla .btn-lupa{
-    background: url("../img/btn-lupa.png") no-repeat 6px 6px transparent !important;
+    background: url("../img/btn-lupa.png") no-repeat 10px 2px transparent !important;
     border: none;
-    height: 30px;
+    height: 22px;
     position: relative;
-    left: -35px;
-    top:-5px;
-    width: 30px;
+    left: -13px;
+    top:4px;
+    width: 35px;
 }
 .bloque-filtros .busqueda-sencilla .btn-lupa:hover{
-    background-color: #f2f1f1 !important;
+    background-color: #f1f3f2 !important;
 }
 .form-ingreso-login{
-    display: inline;
     height: 40px;
     position: relative;
     top:30px;
@@ -714,6 +727,7 @@ table.table th, .blanco{
 .busqueda-sencilla, .busqueda-avanzada{
     display:inline-block;
     line-height: 25px;
+    vertical-align: top;
 }
 .busqueda-avanzada .sb_input{
     margin-top: -10px;
@@ -753,6 +767,8 @@ table.table th, .blanco{
 input#busqueda.input-filtro-local{
     height: 15px;
     font-size: 12px;
+    line-height: 20px;
+    margin: 7px -30px 0 0;
 }
 .busqueda-sencilla .btn-filtro-local2{
     width: 60px;
@@ -792,11 +808,12 @@ input#busqueda.input-filtro-local{
     margin: 0 0 10px 5px;
 }
 .mensaje-registrase{
+    display: block;
     color:#c60b37;
     float: right;
     font-size: 10px;
-    margin-top: -10px;
-    margin-right: 140px;
+    margin-top: -40px;
+    margin-right: 185px;
     padding: 0;
     text-decoration: underline;
 }
@@ -1050,6 +1067,14 @@ div.container{height: 106px; overflow: visible;}
 }
 .demo a.a14{
 	background-image: url('../img/patterns/13.png');
+}
+
+/* BOTON PANICO */
+.element-btn-panico{
+    padding: 10px;
+}
+.element-btn-panico .contenedor-tabla-btn-panico{
+    width: 50%;
 }
 /*
 	Responsive

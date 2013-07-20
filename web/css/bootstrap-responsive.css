@@ -1169,6 +1169,41 @@ ul.sb_dropdown{
   .nav-collapse {
     -webkit-transform: translate3d(0, 0, 0);
   }
+  div.nav.option-set.btn-panico{
+      width: 80px;
+      float:right;
+      position: absolute !important;
+      top: 15px !important;
+      left: 85% !important;
+      
+  }
+  div.btn-panico{
+      padding: 0;
+      margin: 0 !important;
+      display: inline;
+  }
+  div.btn-panico a img{
+      width: 80px;
+  }
+  .btn-perfil-usuario{
+      left:45px !important;
+      top:-10px !important;
+  }
+  div.btn-perfil-usuario{
+      /*margin-top: -5px;*/
+ 
+  }
+  div.btn-perfil-usuario p{
+      font-size: 10px !important;
+      width: 200px !important;
+  }
+  .btn-perfil-usuario p span.estatus-btn-perfil{
+      position: relative !important;
+      top:-2px !important;
+  }
+  div.btn-perfil-usuario ul{
+      display: none;
+  }
   .page-header h1 small {
     display: block;
     line-height: 20px;
@@ -1246,13 +1281,8 @@ ul.sb_dropdown{
       /*height: 80px !important;*/
       
   }
-  .btn-perfil-usuario{
-      left:45px !important;
-      top:10px !important;
-  }
-  .btn-perfil-usuario p{
-      display: none !important;
-  }
+
+  /*
   .main-name{
       display: none;
      
@@ -1273,9 +1303,9 @@ ul.sb_dropdown{
     .info-perfil{
         display: inline-block !important;;
         /*float: right;*/
-        height: auto !important;
+/*        height: auto !important;
         width: 85% !important;
-    }
+    }*/
     .contenido-perfil{
         width: 90% !important;
     }

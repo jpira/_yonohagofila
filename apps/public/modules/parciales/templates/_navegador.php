@@ -88,7 +88,7 @@
                                 <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
                             <ul class="dropdown-menu option-set" data-option-key="filter">
                                 <li><a href="#home3" data-option-value=".home3" onclick="$(this).removeClass('selected');"><i class="icon-user"></i>Perfil</a></li>
-                                <li><a href="<?php echo url_for("@logout") ?>" onclick="$(this).removeClass('selected');"><i class="icon-lock"></i>Log Out</a></li>
+                                <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><i class="icon-lock"></i>Log Out</a></li>
                             </ul>
                         </li>
                 </div>

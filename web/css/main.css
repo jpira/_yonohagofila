@@ -427,6 +427,10 @@ table.table tr:last-child th, table.table tr:last-child td
     text-shadow: 1px 2px 2px rgba(0,0,0,0.3);
     width: 100%;
 }
+.puntuacion-perfil{
+    font-size: 11px;
+    margin-left: 10px;
+}
 .info-perfil{
     padding:5px 15px;
 }
@@ -443,23 +447,28 @@ table.table tr:last-child th, table.table tr:last-child td
     padding: 0;
 }
 .caja-perfil-usuario .titulo{
+    display: inline;
     font-weight: 700;
     font-size: 16px;
     color:#aa062d;
+    margin-left: 10px;
 }
 .caja-perfil-usuario .nombre-usuario{
     font-weight: 700;
+    font-size: 15px;
     line-height: 15px;
     color:#05697b;
+    margin-top: 5px;
 }
 .contenido-perfil .texto-contenido-perfil{
     float: right;
     /*border-bottom: 1px dotted #ccc;*/
-    width: 170px;
+    width:100%;
     line-height: 10px;
     margin-left: -5px;
 }
 .texto-contenido-perfil p:first-child{
+    color:#1b2628;
     font-weight: 700;
 }
 .texto-contenido-perfil p{

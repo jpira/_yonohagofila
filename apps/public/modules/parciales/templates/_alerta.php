@@ -4,7 +4,7 @@
     <div class="height-auto" >
         <?php
         $reservas = Doctrine_Query::create()->from('Reserva r, r.Local l')
-                ->where('r.id_usuario = ? AND fecha_reserva > ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
+//                ->where('r.id_usuario = ? AND fecha_reserva > ?', array($sf_user->getAttribute('Usuario')->get('id'), date('Y-m-d')))
                 ->orderBy('fecha_reserva desc')
                 //                ->getSqlQuery();print_r($reservas); die;
                 ->execute();

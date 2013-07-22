@@ -900,10 +900,10 @@
 @media (max-width: 979px) {
   
    body{
-        /*background: url('../img/patterns/fd-body2.png') repeat-x 0 0 transparent !important;*/ 
-    /*padding-top: 0;*/
+        background: url('../img/patterns/fd-body2.png') repeat-x 0 0 transparent !important; 
+    padding-top: 0;
         position: absolute !important;
-        top:25% !important;
+        top:20% !important;
         width: 100%;
         /*z-index: -10 !important;*/
 
@@ -927,9 +927,9 @@
     padding: 0;
   }
   .navbar .brand {
-    padding-right: 10px;
-    padding-left: 10px;
-    margin: 0 0 0 10px !important;
+/*    padding-right: 10px;*/
+    margin-left:25% !important;
+/*    margin: 0 0 0 10px !important;*/
   }
   .nav-collapse {
     clear: both;
@@ -1065,11 +1065,6 @@
       display: none;
       visibility: hidden;
   }*/
-  .bloque-redes-ynhf{
-      display: none;
-      visibility: hidden;
-  }
-  
   .navbar-static .navbar-inner {
     padding-right: 10px;
     padding-left: 10px;
@@ -1083,7 +1078,7 @@
       width: 30%;
   }
   .luces{
-      top: 138px !important;
+      top: 0 !important;
       left: 20% !important;
       margin-left: -20% !important;
   }
@@ -1092,9 +1087,8 @@
         /*z-index: 1 !important;*/
     }
     .bloque-filtros{
-        margin-top:5px !important; 
         margin-left: -2px;
-        width: 50% !important;
+        width: 80% !important;
     }
   .caja-perfil-usuario{
       width: 98.5% !important;
@@ -1138,13 +1132,39 @@ ul.sb_dropdown{
     }
     .btn-perfil-usuario{
         position: absolute !important;
-        left: 510px !important;
-        top:50px !important;
-        width: 500px !important;
+        left: 445px !important;
+        top:25px !important;
+        width: 400px !important;
     }
-    .btn-alarma{
+      
+  div.btn-perfil-usuario p{
+      font-size: 10px !important;
+      width: 400px !important;
+  }
+  .btn-perfil-usuario p span.estatus-btn-perfil{
+      display: inline !important;
+      position: relative !important;
+      margin-left: 5px;
+  }
+  div.btn-perfil-usuario ul{
+      position: relative;
+      left: -200px;
+  }
+  div.nav.option-set.btn-panico{
+      width: 80px;
+      /*float:right;*/
+      position: absolute !important;
+      top: 52px !important;
+      left:82% !important;
+      
+  }
+   div.btn-panico a img{
+      width: 90px;
+  } 
+  
+/*  .btn-alarma{
         right: 50px !important;
-    }
+    }*/
     
 /*    .navbar-inner{
       margin-top: -30px;
@@ -1186,7 +1206,7 @@ ul.sb_dropdown{
       width: 80px;
   }
   .btn-perfil-usuario{
-      left:13% !important;
+      left:20% !important;
       top:-8px !important;
   }
 
@@ -1200,7 +1220,8 @@ ul.sb_dropdown{
       margin-left: 5px;
   }
   div.btn-perfil-usuario ul{
-      display: none;
+      position: relative;
+      left: -200px;
   }
   .page-header h1 small {
     display: block;
@@ -1280,10 +1301,12 @@ ul.sb_dropdown{
       
   }
 
-  /*
   .main-name{
       display: none;
-     
+  }
+  .estatus-perfil-usuario{
+      clear: both;
+      background-size: 100% !important;
   }
   .caja-perfil-usuario{
       width: 96% !important;
@@ -1298,17 +1321,24 @@ ul.sb_dropdown{
     .avatar-usuario .busqueda-avanzada{
         display: none !important;
     }
+    .info-perfil .titulo-perfil{
+        margin-left: -20px;
+    }
     .info-perfil{
-        display: inline-block !important;;
-        /*float: right;*/
-/*        height: auto !important;
+        /*display: inline-block !important;;*/
+        float: right;
+         height: auto !important;
         width: 85% !important;
-    }*/
+    }
     .contenido-perfil{
+        width: 180px !important;
+        margin-bottom: 15px !important;
+    }
+    .texto-contenido-perfil, .nombre-usuario{
         width: 90% !important;
     }
-    .texto-contenido-perfil{
-        width: 85% !important;
+    .nombre-usuario{
+        margin-left: 18px;
     }
     .texto-contenido-perfil p{
         /*display: inline !important;*/
@@ -1322,8 +1352,7 @@ ul.sb_dropdown{
         width: 210px !important;
     }
     .dataTables_wrapper{
-    /*    background: red;*/
-        /*width: 90% !important;*/
+        /*width: 90%;*/
     }
     .reservas-vigentes thead tr .blanco {
         /*display: none;*/
@@ -1366,7 +1395,10 @@ ul.sb_dropdown{
         width: 130px !important;
     }
     .element-portfolio .busqueda-avanzada button.btn-filtro-local2{
-        width: 470px;
+        width: 436px;
+    }
+    .contenedor-logo-disponibilidad{
+        background-size: 100%;
     }
     .sb_wrapper{
         width: 120px !important;
@@ -1401,14 +1433,37 @@ ul.sb_dropdown{
     .element-portfolio{
         width: 95% !important;
     }
-    .btn-perfil-usuario{
-      left:-24% !important;
+    .element-portfolio .busqueda-avanzada button.btn-filtro-local2{
+        width: 284px !important;
+    }
+    div.btn-perfil-usuario{
+      left:-20% !important;
   }
     .navbar .brand{
     margin-left: 18% !important;
   }
   .bloque-filtros{
         width: 310px !important;
+    }
+        .info-perfil{
+        display: inline-block !important;;
+        float: right;
+         height: auto !important;
+        width: 100% !important;
+    }
+    .contenido-perfil{
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }   
+    .info-perfil .titulo-perfil{
+        width: 100% !important;
+        margin-left: 30px;
+    }
+    .nombre-usuario{
+        margin-left: 29px;
+    }
+    .texto-contenido-perfil p{
+        display: inline !important;
     }
 }
 

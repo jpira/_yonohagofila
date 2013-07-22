@@ -92,7 +92,7 @@ for ($i = 1; $i <= $locales; $i++):
                         {
                             "bScrollInfinite": true,
                             "bScrollCollapse": true,
-                            "sScrollY": "300px"
+                            "sScrollY": "200px"
        
                         }    
                     );

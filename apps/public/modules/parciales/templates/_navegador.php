@@ -61,9 +61,10 @@
 <!--<li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>-->
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <?php if ($sf_user->isAuthenticated()): ?>
-                        <li><a href="#home3" data-option-value=".home3"><span>Perfil</span></a></li>
-                        <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><span>Salir</span></a></li>
+                        <li class="hidden-movil"><a style="display: none;" href="#home3" data-option-value=".home3"><span>Perfil</span></a></li>
+                        <li class="hidden-movil"><a style="display: none;" href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><span>Salir</span></a></li>
                     <?php endif ?>
+                    <li class="hidden-movil"><a  style="display: none;" href="#ingreso" data-option-value=".ingreso"><span>Login</span></a></li>
                     <li class="show-title"></li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>
                     <li><a href="#about" data-option-value=".about"><i class="icon-user"></i> <span class="name">Conózcanos</span></a></li>

@@ -387,6 +387,7 @@ table.table tr:last-child th, table.table tr:last-child td
     font-weight: 700;
 }
 .btn-perfil-usuario p span.estatus-btn-perfil{
+    display: block;
     color:#0999a2;
     padding: 0;
 }

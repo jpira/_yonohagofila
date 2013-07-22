@@ -1173,7 +1173,7 @@ ul.sb_dropdown{
       width: 80px;
       float:right;
       position: absolute !important;
-      top: 15px !important;
+      top: 22px !important;
       left: 85% !important;
       
   }
@@ -1186,20 +1186,18 @@ ul.sb_dropdown{
       width: 80px;
   }
   .btn-perfil-usuario{
-      left:45px !important;
-      top:-10px !important;
+      left:13% !important;
+      top:-8px !important;
   }
-  div.btn-perfil-usuario{
-      /*margin-top: -5px;*/
- 
-  }
+
   div.btn-perfil-usuario p{
       font-size: 10px !important;
-      width: 200px !important;
+      width: 400px !important;
   }
   .btn-perfil-usuario p span.estatus-btn-perfil{
+      display: inline !important;
       position: relative !important;
-      top:-2px !important;
+      margin-left: 5px;
   }
   div.btn-perfil-usuario ul{
       display: none;
@@ -1263,7 +1261,7 @@ ul.sb_dropdown{
   }
   .navbar-inner{
       background: #fcfcfc !important;
-      margin-top:-30px !important;
+      margin-top:-23px !important;
       height: 100px !important;
       z-index: 99999;
       top: 0;
@@ -1274,7 +1272,7 @@ ul.sb_dropdown{
     }*/
   .navbar .brand{
     background:  url("../img/logo-ynhf-peque.png") no-repeat 0 30px transparent !important;
-    margin-left: 60px !important;
+    margin-left: 25% !important;
     width: 107px !important;
     height: 90px !important;
 
@@ -1349,15 +1347,14 @@ ul.sb_dropdown{
 
     }*/
     .element-portfolio{
-/*        background: red !important;*/
-        /*height:600px !important;*/
+        width: 95% !important;
     }
     .filtro-tipo-local{
         top:70px !important;
         /*z-index: 1 !important;*/
     }
     .bloque-filtros{
-        margin-top:5px !important; 
+        margin-top:2px !important; 
         width: 100% !important;
     }
     .busqueda-sencilla .input-filtro-local{
@@ -1366,10 +1363,13 @@ ul.sb_dropdown{
     }
     .busqueda-avanzada input{
         font-size: 10px !important;
-        width: 120px !important;
+        width: 130px !important;
+    }
+    .element-portfolio .busqueda-avanzada button.btn-filtro-local2{
+        width: 470px;
     }
     .sb_wrapper{
-        width: 150px !important;
+        width: 120px !important;
     }
     ul.sb_dropdown{
         height: 230px !important;
@@ -1397,7 +1397,20 @@ ul.sb_dropdown{
         width: 150px !important;
     }
 }
-
+@media (max-width: 320px){
+    .element-portfolio{
+        width: 95% !important;
+    }
+    .btn-perfil-usuario{
+      left:-24% !important;
+  }
+    .navbar .brand{
+    margin-left: 18% !important;
+  }
+  .bloque-filtros{
+        width: 310px !important;
+    }
+}
 
 @media (min-width: 980px) {
   .nav-collapse.collapse {

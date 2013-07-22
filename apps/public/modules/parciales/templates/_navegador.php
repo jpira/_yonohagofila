@@ -82,7 +82,7 @@
                     <!--<button class="btn-alarma" href="#" onclick="muestra_oculta('x')"><?php echo image_tag('/img/btn-panico.png') ?></button>-->
                 </div>
                 <div class="btn-perfil-usuario" data-option-key="filter" >
-                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?><br /></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
+                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
                     <ul>
                     <li class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown">
                                 <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          

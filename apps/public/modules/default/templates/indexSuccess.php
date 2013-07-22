@@ -71,9 +71,9 @@ echo $es_movil;
             </div>
             <div class="redes-comercio">
                     <!--<p>560</p>-->            
-                <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')                  ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-                <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')                  ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-                <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')                  ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+                <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')                   ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+                <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')                   ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+                <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')                   ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
             </div>
             <div class="clearfix"></div>
             <div class="descripcion-local">
@@ -332,6 +332,14 @@ if ($sf_user->isAuthenticated()) {
     <input type="hidden" class="order" value="15">
     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Toronto,+ON&amp;aq=0&amp;oq=toro&amp;sll=49.303974,-84.738438&amp;sspn=15.573249,43.286133&amp;ie=UTF8&amp;hq=&amp;hnear=Toronto,+Toronto+Division,+Ontario&amp;ll=43.653226,-79.383184&amp;spn=0.033721,0.084543&amp;t=m&amp;z=14&amp;output=embed"></iframe>
 </div>-->
+<div class="element ingreso form-ingreso-login width2 height-auto fd-blanco">                    
+    <form class="busqueda-sencilla" action="<?php echo url_for("@login") ?>" method="POST">
+        <input class="input-filtro-local" type="text" id="nombre" name ="nombre" placeholder="Nombre" required>
+        <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
+        <input class="btn-filtro-local2" type="submit" value="Entrar" />
+    </form></br>                
+    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" >¿Aún no estás registrado?</a>
+</div> 
 
 <div class="element conozcanos width4 height-auto fd-blanco">
     <div class="info-conozcanos">
@@ -367,7 +375,8 @@ if ($sf_user->isAuthenticated()) {
         <form class="contact_form" id="contact_form">
 
             <?php $x = new escribenosForm();
-                  echo $x; ?>
+            echo $x;
+            ?>
             <br/>
             <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
 
@@ -388,7 +397,8 @@ if ($sf_user->isAuthenticated()) {
         <form class="contact_form" id="contact_form">
 
             <?php $x = new escribenosForm();
-                  echo $x; ?>
+            echo $x;
+            ?>
             <br/>
             <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
         </form>
@@ -407,8 +417,9 @@ if ($sf_user->isAuthenticated()) {
 
         <form class="contact_form" id="contact_form">
 
-            <?php $x = new interesadoForm();
-                  echo $x; ?>
+<?php $x = new interesadoForm();
+echo $x;
+?>
 
             <br/><br/>
             <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>

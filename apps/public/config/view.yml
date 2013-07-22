@@ -32,6 +32,7 @@ default:
     - js.js
     - jquery.dataTables.js
     - jquery.dataTablesEditor.js
+    - /sfJQueryUIPlugin/js/jquery-ui.js
     - /admin/js/plugins/justGage.1.0.1/resources/js/raphael.2.1.0.min.js
     - /admin/js/plugins/justGage.1.0.1/resources/js/justgage.1.0.1.min.js
     

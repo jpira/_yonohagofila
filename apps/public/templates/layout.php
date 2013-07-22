@@ -25,6 +25,7 @@
         <?php echo javascript_include_tag('jquery.js'); ?>
     </head>
     <body>
+        <div id="loading"><?php echo image_tag("/admin/img/ajax-loader.gif") ?></div>
         <?php echo include_partial('parciales/navegador') ?>
 
         <!-- Ajax Content Load -->

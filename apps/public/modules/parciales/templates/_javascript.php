@@ -10,10 +10,17 @@ for ($i = 1; $i <= $locales; $i++):
                 value: <?php echo rand(0, 100) ?>, 
                 min: 0,
                 max: 100,
-                title: "Errors",
-                titleFontColor: "#fff"
+                title: "Disponibilidad",
+                titleFontColor: "#ccc"
+//                label: '%'
             });
 <?php endfor; ?>
+<?php for ($i = 1; $i <= $locales; $i++): ?>
+        setInterval(function() {
+    <?php echo 'gauge' . $i ?>.refresh(getRandomInt(0, 100));          
+                                            }, 1000);
+<?php endfor; ?>
+
                     };
                     $(function(){
       
@@ -65,21 +72,21 @@ for ($i = 1; $i <= $locales; $i++):
                         //    $("input.file").si();   
 	 
                         // servira para editar los de tipo input text.
-                        $('.text').editable('<?php echo url_for('@editaru?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
-                            indicator : 'Saving...', 
-                            submit : 'OK'
-                        });
-                
-                        $('.text2').editable('<?php echo url_for('@editaru2?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
-                            indicator : 'Saving...',                  
-                            submit : 'OK'
-                        });
-    
-                        $('.select').editable('<?php echo url_for('@cancelarr?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', { 
-                            data   : " {'1':'Cancelar'}",
-                            type   : 'select',
-                            submit : 'OK'
-                        });     
+//                        $('.text').editable('<?php // echo url_for('@editaru?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
+//                            indicator : 'Saving...', 
+//                            submit : 'OK'
+//                        });
+//                
+//                        $('.text2').editable('<?php // echo url_for('@editaru2?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', {
+//                            indicator : 'Saving...',                  
+//                            submit : 'OK'
+//                        });
+//    
+//                        $('.select').editable('<?php // echo url_for('@cancelarr?id=' . $sf_user->getAttribute('Usuario')->get('id')) ?>', { 
+//                            data   : " {'1':'Cancelar'}",
+//                            type   : 'select',
+//                            submit : 'OK'
+//                        });     
 
                         $('#reservass, #reservasss, #historialr, #historialrr, #alerta').dataTable(
                         {
@@ -98,10 +105,10 @@ for ($i = 1; $i <= $locales; $i++):
                                 data: formulario
                             });
                         });
-                        var options, a;
-                        jQuery(function(){
-                            //        options = { serviceUrl:'service/autocomplete.ashx' };
-                            a = $('#busqueda').autocomplete();
-                        });
+//                        var options, a;
+//                        jQuery(function(){
+//                            //        options = { serviceUrl:'service/autocomplete.ashx' };
+//                            a = $('#busqueda').autocomplete();
+//                        });
                     });
 </script>

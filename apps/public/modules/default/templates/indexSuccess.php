@@ -43,7 +43,7 @@ echo $es_movil;
                 <!--<input type="hidden" class="order" value="3">-->
             <div class="contenedor-logo-disponibilidad">
                 <div class="marca-comercio">
-    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '120x0', 'class' => 'logo-comercio')) ?>
+                    <?php echo image_tag('/uploads/imagen/' . $local->get('Local')->get('imagen'), array('size' => '120x0', 'class' => 'logo-comercio')) ?>
                 </div>
                 <div class="disponibilidad-comercio">
                     <div id="gauge<?php echo $i ?>" class="row-fluid gauge" style="height:50px"></div>
@@ -52,7 +52,7 @@ echo $es_movil;
                 </div>
             </div>
             <!--        <div class="disponibilidad-comercio">
-    <?php //echo image_tag('/img/barra-disponibilidad.png')   ?>
+            <?php //echo image_tag('/img/barra-disponibilidad.png')   ?>
                     </div>-->
             <div class="contenedor-mensaje-evento-local">
                 <?php
@@ -60,20 +60,20 @@ echo $es_movil;
                         ->where('local_id = ? AND fecha_evento = ?', array($local->get('Local')->get('id'), date('Y-m-d')))
                         ->fetchOne();
                 ?>
-    <?php if ($eventos): ?>
+                <?php if ($eventos): ?>
                     <a class="mensaje-evento-local" href="<?php $eventos->get('link') ?>" onclick="this.target='_blank'"><?php echo image_tag('/img/bg-btn-nuevo-evento.png', array('title' => 'Evento')) ?></a>
                     <!--<a href="http://www.google.com" onclick="this.target='_blank'"><?php echo image_tag('/img/estrella.jpg', array('title' => 'Evento')) ?></a>-->
-    <?php endif; ?>
+                <?php endif; ?>
             </div> 
             <div class="calificacion-comercio">
                 <p>Calificación usuarios</p>
-    <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
+                <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
             </div>
             <div class="redes-comercio">
                     <!--<p>560</p>-->            
-                <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')                 ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-                <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')                 ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-                <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')                 ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+                <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')                  ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+                <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')                  ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+                <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')                  ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
             </div>
             <div class="clearfix"></div>
             <div class="descripcion-local">
@@ -83,21 +83,21 @@ echo $es_movil;
                 <p class="url-web-local"><a href="<?php echo $local->get('Local')->get('web') ?>" target="_blank"><?php echo $local->get('Local')->get('web') ?></a></p> 
             </div>
             <?php $form->setDefault('local_id', $local->get('id')); ?>
-    <?php if ($sf_user->isAuthenticated()): ?>
+            <?php if ($sf_user->isAuthenticated()): ?>
                 <div class="busqueda-avanzada">
                     <button class="btn-filtro-local2" id="btn-<?php echo $i ?>" onclick="muestra_oculta('<?php echo $i ?>')" title="">Configurar reserva</button>
                 </div>
 
                 <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
-                <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
+                    <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
                 </div>
-    <?php endif; ?>
+            <?php endif; ?>
     <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
     <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
     </span>-->
         </div>
         <?php $i = $i + 1; ?>
-<?php endforeach; ?>
+    <?php endforeach; ?>
 </div>
 <?php
 if ($sf_user->isAuthenticated()) {
@@ -366,13 +366,8 @@ if ($sf_user->isAuthenticated()) {
 
         <form class="contact_form" id="contact_form">
 
-            <label class="control-label" for="fname">Nombre*</label>
-            <input type="text" id="fname" placeholder="Nombre">
-            <label class="control-label" for="email">Correo electrónico*</label>
-            <input type="text" id="email" placeholder="Correo electrónico">
-
-            <label class="control-label" for="message">Mensaje*</label>
-            <textarea id="message"></textarea>
+            <?php $x = new escribenosForm();
+                  echo $x; ?>
             <br/>
             <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
 
@@ -392,13 +387,8 @@ if ($sf_user->isAuthenticated()) {
 
         <form class="contact_form" id="contact_form">
 
-            <label class="control-label" for="fname">Nombre*</label>
-            <input type="text" id="fname" placeholder="Nombre">
-            <label class="control-label" for="email">Correo electrónico*</label>
-            <input type="text" id="email" placeholder="Correo electrónico">
-
-            <label class="control-label" for="message">Mensaje*</label>
-            <textarea id="message"></textarea>
+            <?php $x = new escribenosForm();
+                  echo $x; ?>
             <br/>
             <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
         </form>
@@ -417,18 +407,10 @@ if ($sf_user->isAuthenticated()) {
 
         <form class="contact_form" id="contact_form">
 
-            <label class="control-label" for="fname">Comercio interesado*</label>
-            <input type="text" id="fname" placeholder="Nombre Comercio">
-            <label class="control-label" for="email">Nombre responsable*</label>
-            <input type="text" id="email" placeholder="Nombre Responsable">
-            <label class="control-label" for="email">Correo electrónico*</label>
-            <input type="text" id="email" placeholder="Correo electrónico">
-            <label class="control-label" for="email">Numero telefonico*</label>
-            <input type="text" id="email" placeholder="Numero telefonico">
-            <label class="control-label" for="email">Numero telefonico*</label>
-            <input type="text" id="email" placeholder="Numero telefonico">
+            <?php $x = new interesadoForm();
+                  echo $x; ?>
 
-            <br/>
+            <br/><br/>
             <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>
         </form>
     </div>

@@ -12,7 +12,7 @@
             <p class="titulo">Datos de usuario</p>
             <p class="nombre-usuario"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>
             
-            <a href="<?php echo url_for('@edit') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
+            <a href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
                 
             <div class="contenido-perfil">
                 <div class="texto-contenido-perfil">

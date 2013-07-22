@@ -60,6 +60,10 @@
 
 <!--<li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>-->
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
+                    <?php if ($sf_user->isAuthenticated()): ?>
+                        <li><a href="#home3" data-option-value=".home3"><span>Perfil</span></a></li>
+                        <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><span>Salir</span></a></li>
+                    <?php endif ?>
                     <li class="show-title"></li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>
                     <li><a href="#about" data-option-value=".about"><i class="icon-user"></i> <span class="name">Conózcanos</span></a></li>
@@ -68,12 +72,6 @@
                     <li class="show-title">
                     </li>-->
                 </ul>
-                <?php if ($sf_user->isAuthenticated()): ?>
-<!--                    <li><a href="//<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>-->
-                <?php endif ?>
-                <?php // if ($sf_user->isAuthenticated()): ?>
-                <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
-                <?php // endif; ?>
             </div><!--/.nav-collapse --> 
             <?php if ($sf_user->isAuthenticated()): ?>
                 <div class="nav option-set btn-panico" data-option-key="filter">
@@ -84,14 +82,14 @@
                 <div class="btn-perfil-usuario" data-option-key="filter" >
                     <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
                     <ul>
-                    <li class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown">
+                        <li class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown">
                                 <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
                             <ul class="dropdown-menu option-set" data-option-key="filter">
                                 <li><a href="#home3" data-option-value=".home3" onclick="$(this).removeClass('selected');"><i class="icon-user"></i>Perfil</a></li>
                                 <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><i class="icon-lock"></i>Log Out</a></li>
                             </ul>
                         </li>
-                        
+
                     </ul>
 
                 </div>

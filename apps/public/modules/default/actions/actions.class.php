@@ -32,7 +32,7 @@ class defaultActions extends sfActions {
 
     public function executeEdituser(sfWebRequest $request) {
         $this->usuario = $this->getUser()->getAttribute('Usuario');
-        $this->form = $this->configuration->getForm($this->usuario);
+        $this->form = new UsuarioForm($this->usuario);
     }
 
     public function executeLogin(sfWebRequest $request) {
@@ -85,21 +85,21 @@ class defaultActions extends sfActions {
         $this->x = $request->getParameter('id');
     }
 
-    public function executeEditar(sfWebRequest $request) {
-        $edicion = Doctrine_Query::create()
-                ->update('Usuario u')
-                ->set('telefono', '?', $_POST['value'])
-                ->where('id = ?', $request->getParameter('id'))
-                ->execute();
-    }
-
-    public function executeEditar2(sfWebRequest $request) {
-        $edicion = Doctrine_Query::create()
-                ->update('Usuario u')
-                ->set('email', '?', $_POST['value'])
-                ->where('id = ?', $request->getParameter('id'))
-                ->execute();
-    }
+//    public function executeEditar(sfWebRequest $request) {
+//        $edicion = Doctrine_Query::create()
+//                ->update('Usuario u')
+//                ->set('telefono', '?', $_POST['value'])
+//                ->where('id = ?', $request->getParameter('id'))
+//                ->execute();
+//    }
+//
+//    public function executeEditar2(sfWebRequest $request) {
+//        $edicion = Doctrine_Query::create()
+//                ->update('Usuario u')
+//                ->set('email', '?', $_POST['value'])
+//                ->where('id = ?', $request->getParameter('id'))
+//                ->execute();
+//    }
 
     public function executeAlarma(sfWebRequest $request) {
         $this->reserva = $request->getParameter('reserva');

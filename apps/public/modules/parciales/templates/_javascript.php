@@ -14,11 +14,6 @@ for ($i = 1; $i <= $locales; $i++):
                 titleFontColor: "#fff"
             });
 <?php endfor; ?>
-    setInterval(function() {
-<?php for ($i = 1; $i <= $locales; $i++): ?>
-                                    gauge2.refresh(getRandomInt(20, 50));          
-                                }, 2500);
-<?php endfor; ?>
                     };
                     $(function(){
       

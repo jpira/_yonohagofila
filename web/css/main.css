@@ -364,14 +364,18 @@ table.table tr:last-child th, table.table tr:last-child td
     display: block;
     float: right;
     height: 40px;
-    margin: 40px 5px 0 0;
+    margin: 5px 5px 0 0;
     line-height: 15px;
     text-align: right;
     width: auto;
 }
-.btn-perfil-usuario a{
-    display: inline;
+.btn-perfil-usuario ul{
     float: right;
+    list-style-image: none;
+}
+.btn-perfil-usuario ul .dropdown{
+    list-style-type: none;
+    
 }
 .btn-perfil-usuario p{
     margin: 2px 10px 0 0;
@@ -383,6 +387,7 @@ table.table tr:last-child th, table.table tr:last-child td
     font-weight: 700;
 }
 .btn-perfil-usuario p span.estatus-btn-perfil{
+    display: block;
     color:#0999a2;
     padding: 0;
 }
@@ -840,16 +845,28 @@ input#busqueda.input-filtro-local{
     text-align: right;
     vertical-align: top;
 }
-.btn-alarma{
+div.btn-panico{
     background: transparent;
     border: none;
     height: 38px;
     float: right;
     margin-top: 5px;
     width: 108px;
+/*    position: absolute;
+    top:5px;
+    right: -52px;*/
+
+}
+div.btn-panico a{
+    background: transparent;
+    border: none;
+    height: 38px;
+    float: right;
+
+    width: 108px;
     position: absolute;
-    top:25px;
-    right: 175px;
+    top:5px;
+    right: 0;
 
 }
 /*

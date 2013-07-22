@@ -69,7 +69,7 @@
                     </li>-->
                 </ul>
                 <?php if ($sf_user->isAuthenticated()): ?>
-                    <li><a href="<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>
+<!--                    <li><a href="//<?php echo url_for("@logout") ?>"><span class="btn-salir">Salir</span></a></li>-->
                 <?php endif ?>
                 <?php // if ($sf_user->isAuthenticated()): ?>
                 <!--<li><a href="#about" data-option-value=".about"><span>Perfil</span></a></li>-->
@@ -78,12 +78,12 @@
             <?php if ($sf_user->isAuthenticated()): ?>
                 <div class="nav option-set btn-panico" data-option-key="filter">
 
-                    <a href="#home2" data-option-value=".home2" onclick="$(this).removeClass('selected');"><span>Panico</span></a>
+                    <a href="#home2" data-option-value=".home2" onclick="$(this).removeClass('selected');"><?php echo image_tag('/img/btn-panico.png') ?></a>
                     <!--<button class="btn-alarma" href="#" onclick="muestra_oculta('x')"><?php echo image_tag('/img/btn-panico.png') ?></button>-->
                 </div>
                 <div class="btn-perfil-usuario" data-option-key="filter" >
-                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?><br /></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
-
+                    <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
+                    <ul>
                     <li class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown">
                                 <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
                             <ul class="dropdown-menu option-set" data-option-key="filter">
@@ -91,6 +91,9 @@
                                 <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><i class="icon-lock"></i>Log Out</a></li>
                             </ul>
                         </li>
+                        
+                    </ul>
+
                 </div>
 
                 <!--                    <div >

@@ -3060,11 +3060,11 @@ table th[class*="span"],
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     z-index: 1000;
     display: none;
     float: left;
-    min-width: 160px;
+    min-width: 140px;
     padding: 5px 0;
     margin: 2px 0 0;
     list-style: none;
@@ -3101,7 +3101,7 @@ table th[class*="span"],
 
 .dropdown-menu > li > a {
     display: block;
-    padding: 3px 20px;
+    padding: 3px 10px;
     clear: both;
     font-weight: normal;
     line-height: 20px;

@@ -7,7 +7,7 @@
                 <input class="btn-filtro-local" type="submit" value="Cambiar imagen" >
             </form>
         </div>
-        <p class="estatus-perfil-usuario">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></p>
+        <p class="estatus-perfil-usuario">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?> <span>Puntuación:53</span></p>
         <div class="info-perfil">
             <p class="titulo">Datos de usuario</p>
             <p class="nombre-usuario"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>

@@ -9,7 +9,7 @@
                 <!--</p>-->
                 <input class="sb_input btn-filtro-local2" type="button" value="Búsqueda avanzada"></input>
                 <ul class="sb_dropdown option-set clearfix" style="display:none" id="filters" data-option-key="filter"> 
-                    <!--                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
+<!--                                        <li><a href="#filter" data-option-value=".bar">bares</a></li>
                                         <li><a href="#filter" data-option-value=".comida">comida</a></li>
                                         <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
                                         <li><a href="#filter" data-option-value=".cine">cine</a></li>
@@ -22,18 +22,18 @@
                 </ul>
             </form>      
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
-                <input class="input-filtro-local" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
-                <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');
-                            return false;" />
+                <input class="input-filtro-local search" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
+                <input class="btn-lupa" />
+                <div id="display">
+                </div>
             </form>
-            <!--            <section >
-                            <ul id="filters" class="option-set clearfix" data-option-key="filter">
+<!--                            <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                                <li><a href="#filter" data-option-value="*">todo</a></li>
                                 <li><a href="#filter" data-option-value=".bar">bares</a></li>
                                 <li><a href="#filter" data-option-value=".comida">comida</a></li>
                                 <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
-                                <li><a href="#filter" data-option-value=".cine">cine</a></li>
-                            </ul>            
-                        </section>-->
+                                <li><a href="#filter" data-option-value=".cine ">cine</a></li>
+                            </ul> -->
 
 
 
@@ -123,7 +123,7 @@
                         <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
                         <input class="btn-filtro-local2" type="submit" value="Entrar" />
                     </form></br>                
-                    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" >¿Aún no estás registrado?</a>
+                    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox">¿Aún no estás registrado?</a>
                 </div>                
             <?php endif; ?>
         </div>

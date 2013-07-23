@@ -168,14 +168,14 @@ a.mensaje-evento-local{
     width: 40%;
     text-align: right;
 }
-.redes-comercio a{
+.redes-comercio img{
     margin: 0 5px;
 }
-.redes-comercio .img-red-comercio{
-    height: 20px;
-    margin: 0 5px;
-    width: 20px;
-}
+    .redes-comercio .img-red-comercio{
+        height: 20px;
+        margin: 0 5px;
+        width: 20px;
+    }
 .descripcion-local{
     display: block;
     text-align: justify;

@@ -17,6 +17,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @property string $telefono
  * @property string $foto
  * @property varchar $estado
+ * @property boolean $puntuacion
  * @property string $token
  * @property datetime $fecha_nacimiento
  * @property datetime $fecha_creacion
@@ -35,6 +36,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method string              getTelefono()            Returns the current record's "telefono" value
  * @method string              getFoto()                Returns the current record's "foto" value
  * @method varchar             getEstado()              Returns the current record's "estado" value
+ * @method boolean             getPuntuacion()          Returns the current record's "puntuacion" value
  * @method string              getToken()               Returns the current record's "token" value
  * @method datetime            getFechaNacimiento()     Returns the current record's "fecha_nacimiento" value
  * @method datetime            getFechaCreacion()       Returns the current record's "fecha_creacion" value
@@ -52,6 +54,7 @@ Doctrine_Manager::getInstance()->bindComponent('Usuario', 'doctrine');
  * @method Usuario             setTelefono()            Sets the current record's "telefono" value
  * @method Usuario             setFoto()                Sets the current record's "foto" value
  * @method Usuario             setEstado()              Sets the current record's "estado" value
+ * @method Usuario             setPuntuacion()          Sets the current record's "puntuacion" value
  * @method Usuario             setToken()               Sets the current record's "token" value
  * @method Usuario             setFechaNacimiento()     Sets the current record's "fecha_nacimiento" value
  * @method Usuario             setFechaCreacion()       Sets the current record's "fecha_creacion" value
@@ -93,6 +96,7 @@ abstract class BaseUsuario extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
+             'unique' => true,
              'autoincrement' => false,
              'length' => 150,
              ));
@@ -158,6 +162,14 @@ abstract class BaseUsuario extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => 50,
+             ));
+        $this->hasColumn('puntuacion', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
              ));
         $this->hasColumn('token', 'string', 50, array(
              'type' => 'string',

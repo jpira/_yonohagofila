@@ -32,7 +32,7 @@ echo $es_movil;
         $palabra_usuario = explode(',', $palabras_claves);
         foreach ($palabra_usuario as $clave) {
             if (strrpos($palabras, $clave)) {
-                $res = $res . '' . $clave;
+                $res = $res . $clave;
             }
         }
 //    $cadena = str_replace(" ", "", $local->get('Local')->get('nombre'));
@@ -70,10 +70,22 @@ echo $es_movil;
                 <?php echo image_tag('/img/seccion-comercios/estrellas-calificacion.png', array('class' => 'estrellas-calificacion')) ?>
             </div>
             <div class="redes-comercio">
-                    <!--<p>560</p>-->            
-                <a href="https://www.facebook.com/<?php //echo $local->get('Local')->get('facebook')                   ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
-                <a href="http://www.youtube.com/<?php //echo $local->get('Local')->get('youtube')                   ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
-                <a href="https://twitter.com/<?php //echo $local->get('Local')->get('twitter')                   ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+                <?php if ($local->get('Local')->get('facebook') == NULL): ?>
+                    <?php echo image_tag('/img/redes-sociales-ynhf/red-facebook-off.png') ?>
+                <?php else: ?>
+                    <a href="<?php echo $local->get('Local')->get('facebook') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-facebook.png') ?></a>
+                <?php endif; ?>
+                <?php if ($local->get('Local')->get('youtube') == NULL): ?>
+                    <?php echo image_tag('/img/redes-sociales-ynhf/red-youtube-off.png') ?>
+                <?php else: ?>
+                    <a href="<?php echo $local->get('Local')->get('youtube') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-youtube.png') ?></a>
+                <?php endif; ?>
+                <?php if ($local->get('Local')->get('twitter') == NULL): ?>
+                    <?php echo image_tag('/img/redes-sociales-ynhf/red-twitter-off.png') ?>
+                <?php else: ?>
+                    <a href="<?php echo $local->get('Local')->get('twitter') ?>" target="_blank"><?php echo image_tag('/img/redes-sociales-ynhf/red-twitter.png') ?></a>
+                <?php endif; ?>
+
             </div>
             <div class="clearfix"></div>
             <div class="descripcion-local">
@@ -90,6 +102,12 @@ echo $es_movil;
 
                 <div id="contenido_a_mostrar<?php echo $i ?>" class="estilo-bloque" style="display:none">
                     <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
+                </div>
+            <?php endif; ?>
+            <?php if (!$sf_user->isAuthenticated()): ?>
+                <div id="nuevo-login" class="busqueda-avanzada">
+                    <a class="btn-filtro-local2-inactivo" href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox">Configurar reserva</a>
+
                 </div>
             <?php endif; ?>
     <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
@@ -338,8 +356,9 @@ if ($sf_user->isAuthenticated()) {
         <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
         <input class="btn-filtro-local2" type="submit" value="Entrar" />
     </form></br>                
-    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" >¿Aún no estás registrado?</a>
+    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox">¿Aún no estás registrado?</a>
 </div> 
+<?php // endif;?>
 
 <div class="element conozcanos width4 height-auto fd-blanco round-borders border-element">
     <div class="info-conozcanos">
@@ -374,7 +393,8 @@ if ($sf_user->isAuthenticated()) {
 
         <form class="contact_form" id="contact_form">
 
-            <?php $x = new escribenosForm();
+            <?php
+            $x = new escribenosForm();
             echo $x;
             ?>
             <br/>
@@ -396,7 +416,8 @@ if ($sf_user->isAuthenticated()) {
 
         <form class="contact_form" id="contact_form">
 
-            <?php $x = new escribenosForm();
+            <?php
+            $x = new escribenosForm();
             echo $x;
             ?>
             <br/>
@@ -417,9 +438,10 @@ if ($sf_user->isAuthenticated()) {
 
         <form class="contact_form" id="contact_form">
 
-<?php $x = new interesadoForm();
-echo $x;
-?>
+            <?php
+            $x = new interesadoForm();
+            echo $x;
+            ?>
 
             <br/><br/>
             <button type="submit" id="submit_contact_info" class="btn btn-primary">Enviar <i class="icon-envelope-alt"></i></button>

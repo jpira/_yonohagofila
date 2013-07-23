@@ -733,6 +733,7 @@ Usuario:
       unsigned: false
       primary: false
       notnull: true
+      unique: true
       autoincrement: false
     contrasena:
       type: string(150)
@@ -782,6 +783,13 @@ Usuario:
       unsigned: false
       primary: false
       notnull: false
+      autoincrement: false
+    puntuacion:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
       autoincrement: false
     token:
       type: string(50)

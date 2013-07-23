@@ -9,7 +9,7 @@
                 <!--</p>-->
                 <input class="sb_input btn-filtro-local2" type="button" value="Búsqueda avanzada"></input>
                 <ul class="sb_dropdown option-set clearfix" style="display:none" id="filters" data-option-key="filter"> 
-                    <!--                    <li><a href="#filter" data-option-value=".bar">bares</a></li>
+<!--                                        <li><a href="#filter" data-option-value=".bar">bares</a></li>
                                         <li><a href="#filter" data-option-value=".comida">comida</a></li>
                                         <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
                                         <li><a href="#filter" data-option-value=".cine">cine</a></li>
@@ -21,19 +21,19 @@
                             return false;" /></li>
                 </ul>
             </form>      
-            <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
-                <input class="input-filtro-local" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
-                <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');
-                            return false;" />
+            <form class="busqueda-sencilla" action="" method="POST" >
+                <input class="input-filtro-local search" id="busqueda" type="text" autocomplete="off" name="busqueda" placeholder="Buscar" />
+                <input class="btn-lupa" />
+                <div id="display">
+                </div>
             </form>
-            <!--            <section >
-                            <ul id="filters" class="option-set clearfix" data-option-key="filter">
+<!--                            <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                                <li><a href="#filter" data-option-value="*">todo</a></li>
                                 <li><a href="#filter" data-option-value=".bar">bares</a></li>
                                 <li><a href="#filter" data-option-value=".comida">comida</a></li>
                                 <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
                                 <li><a href="#filter" data-option-value=".cine">cine</a></li>
-                            </ul>            
-                        </section>-->
+                            </ul> -->
 
 
 
@@ -88,7 +88,7 @@
                     <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
                     <ul>
                         <li class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown">
-                                <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
+                                <?php echo image_tag('/admin/img/'.$sf_user->getAttribute('Usuario')->get('foto')) ?></a>                          
                             <ul class="dropdown-menu option-set" data-option-key="filter">
                                 <li><a href="#home3" data-option-value=".home3" onclick="$(this).removeClass('selected');"><i class="icon-user"></i>Perfil</a></li>
                                 <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location = this"><i class="icon-lock"></i>Log Out</a></li>
@@ -123,7 +123,7 @@
                         <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
                         <input class="btn-filtro-local2" type="submit" value="Entrar" />
                     </form></br>                
-                    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" >¿Aún no estás registrado?</a>
+                    <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox">¿Aún no estás registrado?</a>
                 </div>                
             <?php endif; ?>
         </div>

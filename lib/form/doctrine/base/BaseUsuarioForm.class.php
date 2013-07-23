@@ -25,6 +25,7 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'telefono'            => new sfWidgetFormInputText(),
       'foto'                => new sfWidgetFormInputText(),
       'estado'              => new sfWidgetFormInputText(),
+      'puntuacion'          => new sfWidgetFormInputCheckbox(),
       'token'               => new sfWidgetFormInputText(),
       'fecha_nacimiento'    => new sfWidgetFormInputText(),
       'fecha_creacion'      => new sfWidgetFormInputText(),
@@ -42,6 +43,7 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
       'telefono'            => new sfValidatorString(array('max_length' => 100)),
       'foto'                => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'estado'              => new sfValidatorPass(array('required' => false)),
+      'puntuacion'          => new sfValidatorBoolean(),
       'token'               => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'fecha_nacimiento'    => new sfValidatorPass(),
       'fecha_creacion'      => new sfValidatorPass(),
@@ -49,7 +51,10 @@ abstract class BaseUsuarioForm extends BaseFormDoctrine
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'Usuario', 'column' => array('slug')))
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'Usuario', 'column' => array('email'))),
+        new sfValidatorDoctrineUnique(array('model' => 'Usuario', 'column' => array('slug'))),
+      ))
     );
 
     $this->widgetSchema->setNameFormat('usuario[%s]');

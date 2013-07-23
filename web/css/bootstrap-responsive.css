@@ -7,7 +7,9 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
-
+ .tabla2{
+     display: none;
+ }
 .clearfix {
   *zoom: 1;
 }
@@ -1234,6 +1236,9 @@ ul.sb_dropdown{
         top:90px !important;
         /*z-index: -10 !important;*/
 
+    }
+    .contenedor-tabla-btn-panico2{
+        display: none;
     }
     .luces{
         display: none;

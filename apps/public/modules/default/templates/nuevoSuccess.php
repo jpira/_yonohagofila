@@ -4,7 +4,8 @@
             <?php echo $form->renderGlobalErrors() ?>
             <tbody>
                 <?php $form->setDefault('perfil_id', 3); ?>
-                <?php echo $form ?>
+            <p>Registrate</p>
+            <?php echo $form ?>
             </tbody>
             <tfoot>
                 <tr>

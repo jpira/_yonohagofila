@@ -21,8 +21,8 @@
                             return false;" /></li>
                 </ul>
             </form>      
-            <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
-                <input class="input-filtro-local search" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
+            <form class="busqueda-sencilla" action="" method="POST" >
+                <input class="input-filtro-local search" id="busqueda" type="text" autocomplete="off" name="busqueda" placeholder="Buscar" />
                 <input class="btn-lupa" />
                 <div id="display">
                 </div>
@@ -32,7 +32,7 @@
                                 <li><a href="#filter" data-option-value=".bar">bares</a></li>
                                 <li><a href="#filter" data-option-value=".comida">comida</a></li>
                                 <li><a href="#filter" data-option-value=".fiesta">fiesta</a></li>
-                                <li><a href="#filter" data-option-value=".cine ">cine</a></li>
+                                <li><a href="#filter" data-option-value=".cine">cine</a></li>
                             </ul> -->
 
 

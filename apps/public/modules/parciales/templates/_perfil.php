@@ -10,7 +10,7 @@
         <p class="estatus-perfil-usuario">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?> <span class="puntuacion-perfil">Puntuación:53</span></p>
         <div class="info-perfil">
             <div class="titulo-perfil">
-                <a href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
+                <a href="<?php echo url_for('@edit') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
                 <p class="titulo">Datos de usuario</p>                
             </div>
             <p class="nombre-usuario"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>

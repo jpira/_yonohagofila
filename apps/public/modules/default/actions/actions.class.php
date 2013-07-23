@@ -31,8 +31,11 @@ class defaultActions extends sfActions {
     }
 
     public function executeEdituser(sfWebRequest $request) {
-        $this->usuario = $this->getUser()->getAttribute('Usuario');
-        $this->form = new UsuarioForm($this->usuario);
+        $q = Doctrine::getTable('Usuario')->findOneBy('id', $this->getUser()->getAttribute('Usuario')->get('id'));
+        $this->form = new UsuarioForm($q);
+        if ($request->isMethod('POST')) {
+            $this->processForm($request, $this->form);
+        }
     }
 
     public function executeLogin(sfWebRequest $request) {
@@ -114,32 +117,50 @@ class defaultActions extends sfActions {
             $this->processForm($request, $this->form);
         }
     }
+    
+    protected function processForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
-    protected function processForm(sfWebRequest $request, sfForm $form) {
-        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid()) {
-            $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
-            $email = $form->getValue('email');
+      try {
+        $usuario = $form->save();
+      } catch (Doctrine_Validator_Exception $e) {
 
-            // Se envia correo
-            $message = $this->getMailer()->compose();
-            $message->setSubject('Bienvenido a Yonohagofila.com');
-            $message->setTo($email);
-            $message->setFrom('info@yonohagofila.com', 'Yonohagofila.com');
+        $errorStack = $form->getObject()->getErrorStack();
 
-            $body = $this->getPartial('correo_suscripcion');
-            $message->setBody($body, 'text/html');
-
-            try {
-                $this->getMailer()->send($message);
-            } catch (Exception $e) {
-                
-            }
-            $usuario = $form->save();
-        } else {
-            $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ?  's' : null) . " with validation errors: ";
+        foreach ($errorStack as $field => $errors) {
+            $message .= "$field (" . implode(", ", $errors) . "), ";
         }
+        $message = trim($message, ', ');
+
+        $this->getUser()->setFlash('error', $message);
+        return sfView::SUCCESS;
+      }
+
+      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $usuario)));
+
+      if ($request->hasParameter('_save_and_add'))
+      {
+        $this->getUser()->setFlash('notice', $notice.' You can add another one below.');
+
+//        $this->redirect('@usuario_new');
+      }
+      else
+      {
+        $this->getUser()->setFlash('notice', $notice);
+
+//        $this->redirect(array('sf_route' => 'usuario_edit', 'sf_subject' => $usuario));
+      }
     }
+    else
+    {
+      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+    }
+  }
 
     protected function processForm2(sfWebRequest $request, sfForm $form) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

@@ -794,6 +794,9 @@ input#busqueda.input-filtro-local{
     width: 60px;
     margin:-10px 0 0 20px;   
 }
+#nuevo-login a.btn-filtro-local2-inactivo{
+    padding:3px 97px;
+}
 .busqueda-avanzada .btn-filtro-local2-inactivo, button.btn-filtro-local{
     background:url("../img/btn-reservar-inactivo.png") repeat-x 0 0 transparent;
     border: 1px inset #cbcbcb;

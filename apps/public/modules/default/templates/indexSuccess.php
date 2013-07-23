@@ -104,6 +104,12 @@ echo $es_movil;
                     <?php echo include_partial('parciales/form_local', array('form' => $form, 'i' => $i)) ?>
                 </div>
             <?php endif; ?>
+            <?php if (!$sf_user->isAuthenticated()): ?>
+                <div id="nuevo-login" class="busqueda-avanzada">
+                    <a class="btn-filtro-local2-inactivo" href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox">Configurar reserva</a>
+
+                </div>
+            <?php endif; ?>
     <!--<img src="http://placehold.it/490x531" class="portfolio-image" alt="portfolio image"/>-->
     <!--    <span class="portfolio-title"><i class="icon-play"></i>Whale Ship
     </span>-->

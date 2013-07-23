@@ -109,6 +109,10 @@
 }
 
 @media (min-width: 1200px) {
+      .hidden-movil{
+      display: none;
+      visibility: hidden;
+  }
   .row {
     margin-left: -30px;
     *zoom: 1;
@@ -459,6 +463,36 @@
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
+    .form-ingreso-login{
+      display: inline-block;
+      width: 30% !important;
+      left:600px !important;
+      top: -95px !important;
+  }
+  .form-ingreso-login .busqueda-sencilla input[type="text"], .form-ingreso-login .busqueda-sencilla input[type="password"]{
+      line-height: 15px;
+      padding: 0;
+    padding-left: 5px;
+      height: 18px !important;
+      font-size: 10px !important;
+  }
+  input#nombre.input-filtro-local{
+      margin-bottom: 5px;
+  }
+  .form-ingreso-login input.btn-filtro-local2{
+      font-size: 10px !important;
+      float: right;
+      height: 20px !important;
+      margin-right: 50px !important;
+      margin-top: -6px !important;
+      width: 80px !important;
+  }
+  .mensaje-registrase{
+      line-height: 10px;
+      text-align: center;
+      width: auto;
+      margin-left: 0 !important;
+  }
   .row {
     margin-left: -20px;
     *zoom: 1;
@@ -797,6 +831,30 @@
   .uneditable-input.span1 {
     width: 28px;
   }
+  .element-btn-panico, .conozcanos{
+      width: 98.5% !important;
+  }
+  .contenedor-info-btn-panico{width: 48% !important;}
+  p.estatus-perfil-usuario{
+      /*display: inline;*/
+      width: 220px !important;
+      background-size: 100%;
+      position: relative;
+      float: left;
+      line-height: 22px;
+      bottom: -200px;
+      left: -220px;
+  }
+  .contact{
+      width: 48.5% !important;
+      
+  }
+  .contact-2{
+      width: 50% !important;
+  }
+  #contact_form .campo-formulario input[type="text"], #contact_form .campo-formulario input[type="email"], #contact_form .campo-formulario input[type="textarea"]{
+      width: 96% !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1061,36 +1119,6 @@
   .navbar .nav {
       width: 100%;
   }
-  .form-ingreso-login{
-      display: inline-block;
-      width: 30% !important;
-      left:600px !important;
-      top: -95px !important;
-  }
-  .busqueda-sencilla input[type="text"], .busqueda-sencilla input[type="password"]{
-      line-height: 15px;
-      padding: 0;
-    padding-left: 5px;
-      height: 18px !important;
-      font-size: 10px !important;
-  }
-  input#nombre.input-filtro-local{
-      margin-bottom: 5px;
-  }
-  input.btn-filtro-local2{
-      font-size: 10px !important;
-      float: right;
-      height: 20px !important;
-      margin-right: 50px !important;
-      margin-top: -6px !important;
-      width: 80px !important;
-  }
-  .mensaje-registrase{
-      line-height: 10px;
-      text-align: center;
-      width: auto;
-      margin-left: 0 !important;
-  }
   .navbar-static .navbar-inner {
     padding-right: 10px;
     padding-left: 10px;
@@ -1173,8 +1201,7 @@ ul.sb_dropdown{
       margin-left: 5px;
   }
   div.btn-perfil-usuario ul{
-      position: relative;
-      left: -200px;
+      display: none;
   }
   div.nav.option-set.btn-panico{
       width: 80px;
@@ -1187,7 +1214,9 @@ ul.sb_dropdown{
    div.btn-panico a img{
       width: 90px;
   } 
-  
+  .hidden-movil{
+      display: inline !important;
+  }
 /*  .btn-alarma{
         right: 50px !important;
     }*/
@@ -1246,8 +1275,10 @@ ul.sb_dropdown{
       margin-left: 5px;
   }
   div.btn-perfil-usuario ul{
-      position: relative;
-      left: -200px;
+            display: none;
+
+/*      position: relative;
+      left: -200px;*/
   }
   .page-header h1 small {
     display: block;
@@ -1420,7 +1451,7 @@ ul.sb_dropdown{
         font-size: 10px !important;
         width: 130px !important;
     }
-    .element-portfolio .busqueda-avanzada button.btn-filtro-local2{
+    .element-portfolio .busqueda-avanzada button.btn-filtro-local2, .element-portfolio .busqueda-avanzada button.btn-filtro-local2-inactivo{
         width: 436px;
     }
     .contenedor-logo-disponibilidad{
@@ -1457,9 +1488,9 @@ ul.sb_dropdown{
 }
 @media (max-width: 320px){
     .element-portfolio{
-        width: 95% !important;
+        width: 290px !important;
     }
-    .element-portfolio .busqueda-avanzada button.btn-filtro-local2{
+    .element-portfolio .busqueda-avanzada button.btn-filtro-local2, .element-portfolio .busqueda-avanzada button.btn-filtro-local2-inactivo{
         width: 284px !important;
     }
     div.btn-perfil-usuario{

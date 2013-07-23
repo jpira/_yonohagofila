@@ -39,7 +39,7 @@ echo $es_movil;
 //    $cadena1 = str_replace(" ", "", $local->get('Local')->get('direccion'));
 //    $res = $res . ' ' . $cadena . ' ' . $cadena1;
         ?>
-        <div class="element <?php echo $res ?> element-portfolio portfolio height-auto width2-1 fd-blanco" data-category="<?php echo $res ?>">
+        <div class="element <?php echo $res ?> element-portfolio portfolio height-auto width2-1 fd-blanco border-element" data-category="<?php echo $res ?>">
                 <!--<input type="hidden" class="order" value="3">-->
             <div class="contenedor-logo-disponibilidad">
                 <div class="marca-comercio">
@@ -332,7 +332,7 @@ if ($sf_user->isAuthenticated()) {
     <input type="hidden" class="order" value="15">
     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Toronto,+ON&amp;aq=0&amp;oq=toro&amp;sll=49.303974,-84.738438&amp;sspn=15.573249,43.286133&amp;ie=UTF8&amp;hq=&amp;hnear=Toronto,+Toronto+Division,+Ontario&amp;ll=43.653226,-79.383184&amp;spn=0.033721,0.084543&amp;t=m&amp;z=14&amp;output=embed"></iframe>
 </div>-->
-<div class="element ingreso form-ingreso-login width2 height-auto fd-blanco">                    
+<div class="element ingreso form-ingreso-login width2 height-auto fd-blanco hidden-desktop hidden-tablet round-borders border-element">                    
     <form class="busqueda-sencilla" action="<?php echo url_for("@login") ?>" method="POST">
         <input class="input-filtro-local" type="text" id="nombre" name ="nombre" placeholder="Nombre" required>
         <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>
@@ -341,7 +341,7 @@ if ($sf_user->isAuthenticated()) {
     <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" >¿Aún no estás registrado?</a>
 </div> 
 
-<div class="element conozcanos width4 height-auto fd-blanco">
+<div class="element conozcanos width4 height-auto fd-blanco round-borders border-element">
     <div class="info-conozcanos">
         <div class="bloque-redes-ynhf">
             <ul>
@@ -383,7 +383,7 @@ if ($sf_user->isAuthenticated()) {
         </form>
     </div>
 </div>
-<div class="element contact width2 height2 fd-blanco">
+<div class="element contact width2 height-auto fd-blanco round-borders border-element">
     <!--<input type="hidden" class="order" value="16">-->
     <div>
         <small>
@@ -404,7 +404,7 @@ if ($sf_user->isAuthenticated()) {
         </form>
     </div>
 </div>
-<div class="element contact width2 height2 fd-blanco">
+<div class="element contact width2 height-auto fd-blanco round-borders border-element">
     <input type="hidden" class="order" value="16">
     <div>
         <small>

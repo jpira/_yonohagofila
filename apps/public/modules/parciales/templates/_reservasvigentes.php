@@ -4,7 +4,7 @@
     ------------------------------------------------------
     -->
 <!-- Tabla reservas vigentes-->
-<div class="element home3 width3 height-auto round-borders fd-blanco">
+<div class="element home3 width3 height-auto round-borders fd-blanco border-element">
     <!--<input type="hidden" class="order" value="11">-->
 <!--    <small>
         Where I've worked.

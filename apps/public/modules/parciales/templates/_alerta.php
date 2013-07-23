@@ -1,4 +1,4 @@
-<div class="element home2 element-btn-panico width4 fd-blanco height-auto" id="contenido_a_mostrarx" >
+<div class="element home2 element-btn-panico width4 fd-blanco height-auto round-borders" id="contenido_a_mostrarx" >
     <h2>Alerta de irregularidad</h2>
     <p>Este es un espacio en el cual nos puedes contar si tu reserva presenta alguna irregularidad.</p>
     <div class="height-auto" >

@@ -295,6 +295,9 @@ table.table tr:last-child th, table.table tr:last-child td
   background-position: bottom right;
   background-repeat: no-repeat;*/
 }
+.border-element{
+    border: 2px solid #dcdcdc;
+}
 .variable-sizes .element.width1 { 
 	width: 240px; 
 }
@@ -311,7 +314,7 @@ table.table tr:last-child th, table.table tr:last-child td
 	width: 990px; 
 }
 .variable-sizes .element-btn-panico.width4 { 
-	width: 966px; 
+	width: 99%; 
 }
 .variable-sizes .element.height-auto{
     height: auto;
@@ -497,7 +500,6 @@ table.table tr:last-child th, table.table tr:last-child td
               -webkit-border-radius: 5px;
           border-radius: 5px;
   background-clip: padding-box;
-  border: 2px solid #dcdcdc;
   /*outline: 2px solid #3a3a3a;*/
 }
 .element-portfolio img.portfolio-image{
@@ -887,7 +889,7 @@ div.btn-panico a{
 	padding-right:2%;
 }
 input[type=text], textarea{
-	border-radius:2px;
+	border-radius:5px;
 	margin-bottom:10px;
 }
 .contact_form textarea{
@@ -1022,7 +1024,7 @@ div.texto-conozcanos span{
     padding: 0;
     text-align: right;
     float: right;
-    width: 50%;
+    /*width: 50%;*/
     /*vertical-align: middle;*/
 }
 .bloque-redes-ynhf ul li{

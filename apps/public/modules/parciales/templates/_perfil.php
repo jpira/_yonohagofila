@@ -1,5 +1,5 @@
 <?php if ($sf_user->isAuthenticated()): ?>
-    <div class="element home3 width1 round-borders caja-perfil-usuario height-auto">
+    <div class="element home3 width1 round-borders caja-perfil-usuario height-auto border-element">
         <div class="avatar-usuario">
             <?php echo image_tag('/admin/img/'.$sf_user->getAttribute('Usuario')->get('foto'), array('class' => 'img-avatar-usuario')) ?>
             <form class="busqueda-avanzada centrar">

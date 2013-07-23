@@ -17,12 +17,14 @@
                     <li><label>Buscar por nombre</label><input class="sb_input" id="busqueda0" type="search" name="busqueda" placeholder="Buscar"></li>
                     <li><label>Buscar por dirección</label><input class="sb_input" id="busqueda1" type="search" name="busqueda1" placeholder="Buscar"></li>
                     <li><label>Bucar por palabras claves</label><input class="sb_input" id="busqueda2" type="search" name="busqueda2" placeholder="Buscar"></li>
-                    <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');return false;" /></li>
+                    <li><input class="btn-filtro-local2" type="submit" value="Buscar" onclick="alert('Construyendo proceso de búsqueda');
+                            return false;" /></li>
                 </ul>
             </form>      
             <form class="busqueda-sencilla" action="<?php echo url_for('@filtrar') ?>" method="POST" >
                 <input class="input-filtro-local" id="busqueda" type="text" name="busqueda" placeholder="Buscar" />
-                <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');return false;" />
+                <input class="btn-lupa" type="submit" value=" " onclick="alert('Construyendo proceso de búsqueda');
+                            return false;" />
             </form>
             <!--            <section >
                             <ul id="filters" class="option-set clearfix" data-option-key="filter">
@@ -61,17 +63,19 @@
 <!--<li><a href="#portfolio" data-option-value=".portfolio"><span>Comercios</span></a></li>-->
                     <li><a href="#contact" data-option-value=".contact"><span>Contáctenos</span></a></li>
                     <?php if ($sf_user->isAuthenticated()): ?>
-                        <li class="hidden-movil"><a style="display: none;" href="#home3" data-option-value=".home3"><span>Perfil</span></a></li>
-                        <li class="hidden-movil"><a style="display: none;" href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><span>Salir</span></a></li>
+                        <li class="hidden-desktop"><a href="#home3" data-option-value=".home3"><span>Perfil</span></a></li>
+                        <li class="hidden-desktop"><a href="<?php echo url_for("@logout") ?>" onclick="window.location = this"><span>Salir</span></a></li>
                     <?php endif ?>
-                    <li class="hidden-movil"><a  style="display: none;" href="#ingreso" data-option-value=".ingreso"><span>Login</span></a></li>
+                    <?php if (!$sf_user->isAuthenticated()): ?>
+                        <li class="hidden-desktop"><a href="#ingreso" data-option-value=".ingreso"><span>Login</span></a></li>
+                    <?php endif ?>
                     <li class="show-title"></li>
 <!--                    <li><a href="#show-all" data-option-value="*" class="selected"> <i class="icon-home"></i> <span class="name">Inicio</span></a></li>
-                    <li><a href="#about" data-option-value=".about"><i class="icon-user"></i> <span class="name">Conózcanos</span></a></li>
-                    <li><a href="#portfolio" data-option-value=".portfolio"><i class="icon-tablet"></i> <span class="name">Políticas y condiciones de uso</span></a></li>
-                    <li><a href="#contact" data-option-value=".contact"><i class="icon-envelope-alt"></i> <span class="name">Contáctenos</span></a></li>
-                    <li class="show-title">
-                    </li>-->
+                <li><a href="#about" data-option-value=".about"><i class="icon-user"></i> <span class="name">Conózcanos</span></a></li>
+                <li><a href="#portfolio" data-option-value=".portfolio"><i class="icon-tablet"></i> <span class="name">Políticas y condiciones de uso</span></a></li>
+                <li><a href="#contact" data-option-value=".contact"><i class="icon-envelope-alt"></i> <span class="name">Contáctenos</span></a></li>
+                <li class="show-title">
+                </li>-->
                 </ul>
             </div><!--/.nav-collapse --> 
             <?php if ($sf_user->isAuthenticated()): ?>
@@ -87,7 +91,7 @@
                                 <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
                             <ul class="dropdown-menu option-set" data-option-key="filter">
                                 <li><a href="#home3" data-option-value=".home3" onclick="$(this).removeClass('selected');"><i class="icon-user"></i>Perfil</a></li>
-                                <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location=this"><i class="icon-lock"></i>Log Out</a></li>
+                                <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location = this"><i class="icon-lock"></i>Log Out</a></li>
                             </ul>
                         </li>
 
@@ -113,7 +117,7 @@
                                     </div>-->
 
             <?php else: ?>
-                <div class="form-ingreso-login">                    
+                <div class="form-ingreso-login hidden-phone">                    
                     <form class="busqueda-sencilla" action="<?php echo url_for("@login") ?>" method="POST">
                         <input class="input-filtro-local" type="text" id="nombre" name ="nombre" placeholder="Nombre" required>
                         <input class="input-filtro-local" type="password" id="password" name="password" placeholder="Contraseña" required>

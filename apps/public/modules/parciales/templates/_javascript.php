@@ -75,7 +75,7 @@ $(document).ready(function() {
     //                            submit : 'OK'
     //                        });     
 
-    $('#reservass, #reservasss, #historialr, #historialrr, #alerta').dataTable(
+    $('#reservass, #reservasss, #historialr, #historialrr, #alerta, #alertar').dataTable(
     {
         "bScrollInfinite": true,
         "bScrollCollapse": true,

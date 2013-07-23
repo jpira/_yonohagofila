@@ -21,10 +21,12 @@ class UsuarioForm extends BaseUsuarioForm {
     }
 
     public function configure() {
+        $tipos_identificacion = array('cc' => 'Cédula','ti' => 'Tarjeta de identididad');
         $this->getWidget('email')->setAttributes(array('type' => 'email', 'maxlength' => '50', 'placeholder' => 'Tu Email', 'required' => 'required'));
         $this->getWidget('contrasena')->setAttributes(array('type' => 'password', 'maxlength' => '15', 'placeholder' => 'Contraseña', 'required' => 'required'));
         $this->getWidget('nombre')->setAttributes(array('placeholder' => 'Nombre Completo', 'required' => 'required'));
-        $this->getWidget('tipo_identificacion')->setAttributes(array('type' => 'text', 'placeholder' => '', 'required' => 'required'));
+//        $this->getWidget('tipo_identificacion')->setAttributes(array('type' => 'text', 'placeholder' => '', 'required' => 'required'));
+        $this->setWidget('tipo_identificacion', new sfWidgetFormChoice(array('choices' => $tipos_identificacion)));
         $this->getWidget('identificacion')->setAttributes(array('placeholder' => 'N° Identificacion', 'required' => 'required'));
         $this->setWidget('foto', new sfWidgetFormInputFileEditable(array(
                     'edit_mode' => !$this->isNew(),

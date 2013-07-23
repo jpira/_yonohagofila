@@ -88,7 +88,7 @@
                     <p>Bienvenido <span><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></span><span class="estatus-btn-perfil">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?></span></p>
                     <ul>
                         <li class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown">
-                                <?php echo image_tag('/img/icono-btn-perfil.png') ?></a>                          
+                                <?php echo image_tag('/admin/img/'.$sf_user->getAttribute('Usuario')->get('foto')) ?></a>                          
                             <ul class="dropdown-menu option-set" data-option-key="filter">
                                 <li><a href="#home3" data-option-value=".home3" onclick="$(this).removeClass('selected');"><i class="icon-user"></i>Perfil</a></li>
                                 <li><a href="<?php echo url_for("@logout") ?>" onclick="window.location = this"><i class="icon-lock"></i>Log Out</a></li>

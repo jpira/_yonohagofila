@@ -32,7 +32,7 @@ class defaultActions extends sfActions {
 
     public function executeEdituser(sfWebRequest $request) {
         $q = Doctrine::getTable('Usuario')->findOneBy('id', $this->getUser()->getAttribute('Usuario')->get('id'));
-        $this->form = new UsuarioForm($q);
+        $this->form = new UsuarioFrontForm($q);
         if ($request->isMethod('POST')) {
             $this->processForm($request, $this->form);
         }
@@ -113,54 +113,48 @@ class defaultActions extends sfActions {
 
     public function executeNuevo(sfWebRequest $request) {
         $this->form = new UsuarioForm();
+        $this->form->setDefault('perfil_id', 3);
         if ($request->isMethod('POST')) {
             $this->processForm($request, $this->form);
         }
     }
-    
-    protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
-      try {
-        $usuario = $form->save();
-      } catch (Doctrine_Validator_Exception $e) {
+    protected function processForm(sfWebRequest $request, sfForm $form) {
+        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+        if ($form->isValid()) {
+            $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
-        $errorStack = $form->getObject()->getErrorStack();
+            try {
+                $usuario = $form->save();
+            } catch (Doctrine_Validator_Exception $e) {
 
-        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ?  's' : null) . " with validation errors: ";
-        foreach ($errorStack as $field => $errors) {
-            $message .= "$field (" . implode(", ", $errors) . "), ";
-        }
-        $message = trim($message, ', ');
+                $errorStack = $form->getObject()->getErrorStack();
 
-        $this->getUser()->setFlash('error', $message);
-        return sfView::SUCCESS;
-      }
+                $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
+                foreach ($errorStack as $field => $errors) {
+                    $message .= "$field (" . implode(", ", $errors) . "), ";
+                }
+                $message = trim($message, ', ');
 
-      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $usuario)));
+                $this->getUser()->setFlash('error_user', $message);
+                return sfView::SUCCESS;
+            }
 
-      if ($request->hasParameter('_save_and_add'))
-      {
-        $this->getUser()->setFlash('notice', $notice.' You can add another one below.');
+            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $usuario)));
+
+            if ($request->hasParameter('_save_and_add')) {
+                $this->getUser()->setFlash('notice_user', $notice . ' You can add another one below.');
 
 //        $this->redirect('@usuario_new');
-      }
-      else
-      {
-        $this->getUser()->setFlash('notice', $notice);
+            } else {
+                $this->getUser()->setFlash('notice_user', $notice);
 
 //        $this->redirect(array('sf_route' => 'usuario_edit', 'sf_subject' => $usuario));
-      }
+            }
+        } else {
+            $this->getUser()->setFlash('error_user', 'The item has not been saved due to some errors.', false);
+        }
     }
-    else
-    {
-      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
-    }
-  }
 
     protected function processForm2(sfWebRequest $request, sfForm $form) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

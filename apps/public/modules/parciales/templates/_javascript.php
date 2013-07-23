@@ -18,7 +18,7 @@ for ($i = 1; $i <= $locales; $i++):
 <?php for ($i = 1; $i <= $locales; $i++): ?>
         setInterval(function() {
     <?php echo 'gauge' . $i ?>.refresh(getRandomInt(0, 100));          
-            }, 1000);
+            }, 60000);
 <?php endfor; ?>
 
 };
@@ -60,29 +60,16 @@ $(function(){
         }
         
         return false;
-    });
-
-      
-});   
-            
-var editor;
+    });      
+});           
     
 $(document).ready(function() {
-	 
-    //    $("input.file").si();   
-	 
     // servira para editar los de tipo input text.
-    //                        $('.text').editable('<?php // echo url_for('@editaru?id=' . $sf_user->getAttribute('Usuario')->get('id'))  ?>', {
+    //                        $('.text').editable('<?php // echo url_for('@editaru?id=' . $sf_user->getAttribute('Usuario')->get('id'))   ?>', {
     //                            indicator : 'Saving...', 
     //                            submit : 'OK'
     //                        });
-    //                
-    //                        $('.text2').editable('<?php // echo url_for('@editaru2?id=' . $sf_user->getAttribute('Usuario')->get('id'))  ?>', {
-    //                            indicator : 'Saving...',                  
-    //                            submit : 'OK'
-    //                        });
-    //    
-    //                        $('.select').editable('<?php // echo url_for('@cancelarr?id=' . $sf_user->getAttribute('Usuario')->get('id'))  ?>', { 
+    //                        $('.select').editable('<?php // echo url_for('@cancelarr?id=' . $sf_user->getAttribute('Usuario')->get('id'))   ?>', { 
     //                            data   : " {'1':'Cancelar'}",
     //                            type   : 'select',
     //                            submit : 'OK'
@@ -96,6 +83,26 @@ $(document).ready(function() {
        
     }    
 );
+    $(".search").keyup(function() 
+    {
+        var busqueda = $(this).val();
+        var dataString = 'busqueda='+ busqueda;
+        if(busqueda=='')
+        {}
+        else
+        {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo url_for('@busqueda_sencilla') ?>",
+                data: dataString,
+                cache: false,
+                success: function(html)
+                {
+                    $("#display").html(html).show();
+                }
+            });
+        }return false; 
+    });
     $("#enviar").click(function(){
         var formulario = $("#falerta").serializeArray();
         $.ajax({
@@ -105,10 +112,5 @@ $(document).ready(function() {
             data: formulario
         });
     });
-    //                        var options, a;
-    //                        jQuery(function(){
-    //                            //        options = { serviceUrl:'service/autocomplete.ashx' };
-    //                            a = $('#busqueda').autocomplete();
-    //                        });
 });
 </script>

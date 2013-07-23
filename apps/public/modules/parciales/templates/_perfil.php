@@ -2,21 +2,19 @@
     <div class="element home3 width1 round-borders caja-perfil-usuario height-auto">
         <div class="avatar-usuario">
             <?php echo image_tag('/admin/img/'.$sf_user->getAttribute('Usuario')->get('foto'), array('class' => 'img-avatar-usuario')) ?>
-            <form class="busqueda-avanzada centrar">
-                <!--<button class="btn-filtro-local" onclick="alert('Construyendo proceso cambio de imagen');return false;">Cambiar imagen</button>-->
+<!--            <form class="busqueda-avanzada centrar">
+                <button class="btn-filtro-local" onclick="alert('Construyendo proceso cambio de imagen');return false;">Cambiar imagen</button>
                 <input class="btn-filtro-local" type="submit" value="Cambiar imagen" >
-            </form>
+            </form>-->
         </div>
         <p class="estatus-perfil-usuario">Estatus <?php echo $sf_user->getAttribute('Usuario')->get('estado') ?> <span class="puntuacion-perfil">Puntuación:53</span></p>
         <div class="info-perfil">
             <div class="titulo-perfil">
-                <a href="<?php echo url_for('@edit') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
+                <a href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
                 <p class="titulo">Datos de usuario</p>                
             </div>
             <p class="nombre-usuario"><?php echo $sf_user->getAttribute('Usuario')->get('nombre') ?></p>
-            
-            <a href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox"><?php echo image_tag('/img/icon-editar.png', array('class' => 'img-perfil-usuario')) ?></a>
-                
+                            
             <div class="contenido-perfil">
                 <div class="texto-contenido-perfil">
                     <p>Documento identidad:</p>

@@ -26,7 +26,7 @@ class defaultActions extends sfActions {
         
     }
 
-    public function executeCargarimg() {
+    public function executeBusqueda1() {
         
     }
 

@@ -4,11 +4,7 @@ homepage:
   
 legales:
   url:   /legal/:page
-  param: { module: estaticas, action: legales }  
-  
-cargaimg:
-  url:   /subidaimg
-  param: { module: default, action: cargaimg }    
+  param: { module: estaticas, action: legales }     
   
 login:
   url:   /login
@@ -20,7 +16,11 @@ logout:
   
 cancelarr:
   url:   /cancelar/:id
-  param: { module: default, action: cancelar }    
+  param: { module: default, action: cancelar }  
+  
+busqueda_sencilla:
+  url:   /busquedas
+  param: { module: default, action: busqueda1 } 
   
 qr:
   url:   /viewqr/:id
@@ -33,14 +33,6 @@ edit:
 filtrar:
   url:   /
   param: { module: default, action: index }
-  
-#editaru: 
-#  url:   /edituser/:id
-#  param: { module: default, action: editar } 
-#  
-#editaru2: 
-#  url:   /edituser2/:id
-#  param: { module: default, action: editar2 }  
   
 alarma: 
   url:   /envioalarma

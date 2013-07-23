@@ -352,7 +352,7 @@ if ($sf_user->isAuthenticated()) {
     </form></br>                
     <a class="mensaje-registrase" href="<?php echo url_for('@nuevou') ?>" target="_new" rel="facebox">¿Aún no estás registrado?</a>
 </div> 
-<?php endif;?>
+<?php // endif;?>
 
 <div class="element conozcanos width4 height-auto fd-blanco round-borders border-element">
     <div class="info-conozcanos">
